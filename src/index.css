@@ -111,3 +111,70 @@ button[style*="rgb(255, 233, 180)"]::after {
   85%, 100% { transform: translateX(130%); }
 }
 button:active { transform: scale(0.98); }
+
+/* =============================================================================
+   POLICES ET ANIMATIONS DE LA MAQUETTE
+   ============================================================================= */
+
+/* Texte : Manrope moyen (500) comme la maquette. Titres et gros chiffres : Sora. */
+body { font-weight: 500; font-size: 16px; line-height: 1.5; }
+h1, h2, h3,
+[style*="font-weight: 900"] {
+  font-family: "Sora", "Manrope", system-ui, sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+}
+
+/* Fond "aurore" : 3 halos qui flottent chacun a leur rythme (comme la maquette) */
+body::before { display: none; }
+.aurore { position: fixed; inset: -25%; z-index: -1; pointer-events: none; }
+.aurore i { position: absolute; border-radius: 50%; }
+.aurore i:nth-child(1) { width: 420px; height: 420px; top: 8%; right: 8%; background: radial-gradient(circle, rgba(232,176,75,0.34), rgba(232,176,75,0) 68%); animation: flotte1 18s ease-in-out infinite; }
+.aurore i:nth-child(2) { width: 520px; height: 520px; top: 40%; left: 5%; background: radial-gradient(circle, rgba(35,70,255,0.45), rgba(35,70,255,0) 68%); animation: flotte2 22s ease-in-out infinite; }
+.aurore i:nth-child(3) { width: 400px; height: 400px; bottom: 5%; right: 15%; background: radial-gradient(circle, rgba(123,61,255,0.34), rgba(123,61,255,0) 68%); animation: flotte1 26s ease-in-out infinite reverse; }
+@keyframes flotte1 { 50% { transform: translate(-80px, 90px) scale(1.15); } }
+@keyframes flotte2 { 50% { transform: translate(90px, -70px) scale(0.9); } }
+
+/* Entree d'ecran : chaque bloc monte en fondu, l'un apres l'autre (70 ms d'ecart) */
+@keyframes monte { from { opacity: 0; transform: translateY(16px); } }
+.tht-ecran > * > * { animation: monte 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.tht-ecran > * > *:nth-child(1) { animation-delay: 80ms; }
+.tht-ecran > * > *:nth-child(2) { animation-delay: 150ms; }
+.tht-ecran > * > *:nth-child(3) { animation-delay: 220ms; }
+.tht-ecran > * > *:nth-child(4) { animation-delay: 290ms; }
+.tht-ecran > * > *:nth-child(5) { animation-delay: 360ms; }
+.tht-ecran > * > *:nth-child(6) { animation-delay: 430ms; }
+.tht-ecran > * > *:nth-child(n+7) { animation-delay: 500ms; }
+/* Les cartes des listes arrivent aussi en cascade */
+.tht-grid > * { animation: monte 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.tht-grid > *:nth-child(2) { animation-delay: 70ms; }
+.tht-grid > *:nth-child(3) { animation-delay: 140ms; }
+.tht-grid > *:nth-child(n+4) { animation-delay: 210ms; }
+
+/* Passage d'un onglet a l'autre (View Transitions, comme la maquette) */
+::view-transition-old(root) { animation: vt-sort 0.25s ease both; }
+::view-transition-new(root) { animation: vt-entre 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+@keyframes vt-sort { to { opacity: 0; transform: scale(0.97); } }
+@keyframes vt-entre { from { opacity: 0; transform: translateY(18px) scale(1.01); } }
+.tht-nav { view-transition-name: tht-nav; }
+
+/* Ecran de demarrage (splash) de la maquette */
+.tht-splash { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; }
+.tht-logo-xl { position: relative; width: 112px; height: 112px; }
+.tht-logo-xl img { position: relative; width: 112px; height: 112px; border-radius: 32px; animation: pop 1s cubic-bezier(0.2, 1.4, 0.3, 1) both; filter: drop-shadow(0 18px 40px rgba(232,176,75,0.5)); }
+.tht-logo-xl i { position: absolute; inset: 0; border-radius: 32px; border: 1.5px solid rgba(232,176,75,0.5); animation: onde 2s ease-out infinite; }
+.tht-logo-xl i:nth-child(2) { animation-delay: 0.7s; }
+@keyframes pop { from { transform: scale(0.4) rotate(-12deg); opacity: 0; } }
+@keyframes onde { from { transform: scale(1); opacity: 0.9; } to { transform: scale(1.9); opacity: 0; } }
+.tht-mot { font: 800 40px "Sora", sans-serif; letter-spacing: -0.03em; margin-top: 26px; background: linear-gradient(180deg, #fff 20%, #FFE1A1 100%); -webkit-background-clip: text; background-clip: text; color: transparent; animation: monte 0.8s 0.3s both; }
+.tht-charge { width: 140px; height: 4px; border-radius: 4px; background: rgba(255,255,255,0.08); overflow: hidden; margin-top: 30px; }
+.tht-charge i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #B07A22, #FFE1A1); border-radius: 4px; animation: remplit 1.6s 0.3s ease-in-out forwards; }
+@keyframes remplit { to { width: 100%; } }
+
+/* Grand bouton "Creer" : bien visible, impossible a rater */
+.tht-creer { animation: monte 0.7s cubic-bezier(0.2,0.8,0.2,1) both, tht-respire 3s ease-in-out 1s infinite; }
+@keyframes tht-respire { 50% { box-shadow: 0 16px 40px -8px rgba(232,176,75,0.75), inset 0 1px 0 rgba(255,255,255,0.6); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .aurore i, .tht-ecran > * > *, .tht-grid > *, .tht-creer, .tht-logo-xl i { animation: none !important; }
+}

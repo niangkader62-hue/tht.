@@ -1,4 +1,12 @@
 import { useState, useEffect, useRef, useCallback, Component } from "react";
+import { flushSync } from "react-dom";
+
+// Passage d'un ecran a l'autre avec l'animation de la maquette (View Transitions).
+// Navigateurs sans cette fonction : changement direct, sans erreur.
+const transition=(fn)=>{
+  const reduit=typeof window!=="undefined"&&window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(typeof document!=="undefined"&&document.startViewTransition&&!reduit){document.startViewTransition(()=>flushSync(fn));}else fn();
+};
 import { registerUser, loginUser, getSession, logoutUser, verifyPin, changePin, signInWithGoogle, sessionGoogleSansProfil, finaliserCompteGoogle, googleActif } from "./authService";
 import AdminDirect from "./AdminDirect";
 import { supabase, SUPABASE_URL } from "./supabaseClient";
@@ -848,6 +856,19 @@ const GoogleBtn = ({onClick,disabled,children="Continuer avec Google"}) => (
   </button>
 );
 
+// Grand bouton "Creer" : carte doree pleine largeur, bien visible (les gens ne
+// trouvaient pas le petit bouton en haut a droite).
+const GrandBoutonCreer = ({onClick,titre,sousTitre,icone="➕"}) => (
+  <button className="tht-creer" onClick={onClick} style={{width:"100%",display:"flex",alignItems:"center",gap:14,textAlign:"left",border:"none",borderRadius:22,padding:"16px 18px",margin:"0 0 16px",cursor:"pointer",color:"#1B1203",background:"linear-gradient(135deg,#FFE9B4 0%,#E8B04B 48%,#C38427 100%)",boxShadow:"0 12px 30px -10px rgba(232,176,75,0.6),inset 0 1px 0 rgba(255,255,255,0.6)"}}>
+    <span style={{width:48,height:48,borderRadius:16,flex:"none",display:"flex",alignItems:"center",justifyContent:"center",fontSize:24,background:"rgba(27,18,3,0.12)"}}>{icone}</span>
+    <span style={{flex:1,minWidth:0}}>
+      <span style={{display:"block",fontFamily:"'Sora','Manrope',sans-serif",fontWeight:800,fontSize:17,letterSpacing:"-.01em"}}>{titre}</span>
+      {sousTitre&&<span style={{display:"block",fontSize:13,fontWeight:700,opacity:.75,marginTop:2}}>{sousTitre}</span>}
+    </span>
+    <span style={{width:38,height:38,borderRadius:"50%",flex:"none",display:"flex",alignItems:"center",justifyContent:"center",fontSize:24,fontWeight:800,background:"#1B1203",color:"#FFE1A1"}}>+</span>
+  </button>
+);
+
 const AuthScreen = ({onLogin,googleInfo}) => {
   const [step,setStep]=useState(googleInfo?"google":"intro");
   const [pendingUser,setPendingUser]=useState(null);
@@ -1046,6 +1067,46 @@ const AuthScreen = ({onLogin,googleInfo}) => {
   );
 };
 
+// Guide de premiere utilisation, etape 1 : creer sa premiere tontine (obligatoire).
+const GuideCreerTontine = ({prenom,onCreer}) => (
+  <div style={{minHeight:"100vh",display:"flex",flexDirection:"column",justifyContent:"center",padding:"40px 22px",maxWidth:480,margin:"0 auto"}}>
+    <div style={{display:"flex",gap:6,marginBottom:22}}>
+      <span style={{flex:1,height:5,borderRadius:5,background:"linear-gradient(90deg,#B07A22,#FFE1A1)"}}/>
+      <span style={{flex:1,height:5,borderRadius:5,background:"rgba(255,255,255,0.09)"}}/>
+    </div>
+    <p style={{color:"#E8B04B",fontWeight:800,fontSize:13,margin:"0 0 8px",letterSpacing:.5}}>ÉTAPE 1 SUR 2</p>
+    <h1 style={{color:"#F5F2EA",fontSize:30,lineHeight:1.15,margin:"0 0 12px"}}>Bienvenue {prenom} ! Crée ta première tontine</h1>
+    <p style={{color:"#97A3C9",fontSize:15,lineHeight:1.6,margin:"0 0 24px"}}>Donne-lui un nom, choisis le montant de la cotisation et la fréquence. Ensuite, tu ajouteras tes membres. Ça prend 2 minutes.</p>
+    {[["🏺","Nom et montant","Ex : Tontine des Mamans, 25 000 FCFA"],["📅","Fréquence","Hebdo, bimensuel ou mensuel"],["📲","Numéro de réception","Orange Money, Wave ou Moov"]].map(([ic,t1,t2])=>(
+      <div key={t1} style={{display:"flex",alignItems:"center",gap:14,background:"linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025))",border:"1px solid rgba(255,255,255,.08)",borderRadius:18,padding:"12px 14px",marginBottom:10}}>
+        <span style={{width:42,height:42,borderRadius:14,background:"rgba(232,176,75,0.14)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:20,flex:"none"}}>{ic}</span>
+        <span><b style={{display:"block",color:"#F5F2EA",fontSize:15}}>{t1}</b><span style={{color:"#97A3C9",fontSize:13}}>{t2}</span></span>
+      </div>
+    ))}
+    <div style={{marginTop:16}}><GrandBoutonCreer onClick={onCreer} icone="🏺" titre="Créer ma tontine" sousTitre="Étape obligatoire pour commencer"/></div>
+  </div>
+);
+
+// Guide etape 2 : bandeau affiche en haut de la tontine qu'on vient de creer.
+const GuideAjoutMembres = ({nbMembres,onAjouter,onFini}) => {
+  const ok=nbMembres>=2;
+  return(
+    <div style={{margin:"14px 16px 0",borderRadius:22,padding:16,background:"linear-gradient(180deg,rgba(232,176,75,0.16),rgba(232,176,75,0.05))",border:"1px solid rgba(232,176,75,0.45)"}}>
+      <div style={{display:"flex",gap:6,marginBottom:12}}>
+        <span style={{flex:1,height:5,borderRadius:5,background:"linear-gradient(90deg,#B07A22,#FFE1A1)"}}/>
+        <span style={{flex:1,height:5,borderRadius:5,background:"linear-gradient(90deg,#B07A22,#FFE1A1)"}}/>
+      </div>
+      <p style={{color:"#E8B04B",fontWeight:800,fontSize:12,margin:"0 0 4px",letterSpacing:.5}}>ÉTAPE 2 SUR 2</p>
+      <h3 style={{color:"#F5F2EA",fontSize:19,margin:"0 0 6px"}}>Ajoute tous tes membres</h3>
+      <p style={{color:"#97A3C9",fontSize:13.5,lineHeight:1.55,margin:"0 0 12px"}}>Ajoute chaque personne avec son prénom et son numéro WhatsApp. Elles retrouveront la tontine dans leur app THT.{nbMembres>0?` (${nbMembres} membre${nbMembres>1?"s":""} pour l'instant)`:""}</p>
+      <GrandBoutonCreer onClick={onAjouter} icone="👥" titre="Ajouter un membre" sousTitre="Prénom + numéro WhatsApp"/>
+      <button onClick={onFini} disabled={!ok} style={{width:"100%",minHeight:52,borderRadius:18,border:"1px solid "+(ok?"#34D399":"rgba(255,255,255,0.12)"),background:ok?"rgba(52,211,153,0.14)":"rgba(255,255,255,0.04)",color:ok?"#6EE7B7":"#6F7BA6",fontWeight:800,fontSize:15,cursor:ok?"pointer":"not-allowed"}}>
+        {ok?"✓ J'ai fini, découvrir THT":"Ajoute au moins un membre pour continuer"}
+      </button>
+    </div>
+  );
+};
+
 // Encart "c'est au tour de X" : met clairement en avant qui recoit la cagnotte
 // a la fin du cycle en cours, au lieu de le noyer en petit texte.
 const ProchainBeneficiaire = ({gagnant,dateEcheance,cycle,totalCycles,frequence}) => {
@@ -1227,9 +1288,9 @@ const HomeScreen = ({user,groupes,onSelectGroupe,onCreer,onProfil,participations
       ]}/>
       <div style={{padding:"20px 16px 0"}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
-          <h3 style={{color:"#F5F2EA",fontSize:16,fontWeight:800,margin:0}}>{t("mesTontines")}</h3>
-          <button onClick={onCreer} style={{background:"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:10,padding:"8px 16px",color:"#E8B04B",fontWeight:700,fontSize:13,cursor:"pointer"}}>+ {t("creer")}</button>
+          <h3 style={{color:"#F5F2EA",fontSize:18,fontWeight:800,margin:0}}>{t("mesTontines")}</h3>
         </div>
+        <GrandBoutonCreer onClick={onCreer} icone="🏺" titre="Créer une tontine" sousTitre="Invite tes proches et suis les cotisations"/>
         {groupes.length===0&&<div style={{textAlign:"center",padding:"40px 20px",color:"#6F7BA6"}}><p style={{fontSize:40}}>🏺</p><p style={{fontWeight:700,color:"#F5F2EA"}}>Aucune tontine</p><p style={{fontSize:13}}>Cree ta premiere tontine</p></div>}
         <div className="tht-grid">
         {groupes.map(g=>{
@@ -1276,10 +1337,10 @@ const CagnottesScreen = ({cagnottes,onCreerCagnotte,onSelectCagnotte}) => {
     <div style={{paddingBottom:90}}>
       <div style={{padding:"44px 16px 0",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
         <h2 style={{color:"#F5F2EA",fontSize:22,fontWeight:900,margin:0}}>{t("mesCagnottes")}</h2>
-        <button onClick={onCreerCagnotte} style={{background:"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:10,padding:"8px 16px",color:"#E8B04B",fontWeight:700,fontSize:13,cursor:"pointer"}}>+ Creer</button>
       </div>
       <p style={{margin:"10px 16px 0",color:"#97A3C9",fontSize:12,lineHeight:1.6}}>Mariage, sante, funerailles, etudes... cree un lien de contribution public, sans compte requis pour les donateurs.</p>
       <div style={{padding:"18px 16px 0"}}>
+        <GrandBoutonCreer onClick={onCreerCagnotte} icone="🎁" titre="Créer une cagnotte" sousTitre="Mariage, santé, études... partage un lien"/>
         {(!cagnottes||cagnottes.length===0)?<div style={{textAlign:"center",padding:"40px 20px",color:"#6F7BA6"}}><p style={{fontSize:40}}>🎁</p><p style={{fontWeight:700,color:"#F5F2EA"}}>Aucune cagnotte</p><p style={{fontSize:13}}>Cree ta premiere cagnotte solidaire</p></div>
         :cagnottes.map(c=>{const pct=Math.min(100,Math.round((c.montant_collecte/c.objectif)*100));return(
           <div key={c.id} onClick={()=>onSelectCagnotte(c)} style={{background:"rgba(255,255,255,0.055)",borderRadius:16,padding:16,marginBottom:10,border:"1px solid rgba(255,255,255,0.09)",cursor:"pointer"}}>
@@ -1879,7 +1940,7 @@ const ParticipationScreen = ({groupe,onBack,user,onToast,onVoted,deepLink}) => {
   );
 };
 
-const GroupeScreen = ({groupe:gInit,onBack,onToast,user,onDeleteGroupe,onUpdateGroupe,deepLink}) => {
+const GroupeScreen = ({groupe:gInit,onBack,onToast,user,onDeleteGroupe,onUpdateGroupe,deepLink,guide,onGuideFini}) => {
   const [groupe,setGroupe]=useState(gInit);
   const [tab,setTab]=useState(deepLink?.tab||"membres");
   const [showMoreTabs,setShowMoreTabs]=useState(false);
@@ -2870,11 +2931,12 @@ THT - Tontine Habi Traore`;
   return(
     <div style={{paddingBottom:90}}>
       <div style={{background:"rgba(255,255,255,0.055)",padding:"44px 16px 16px",display:"flex",alignItems:"center",gap:12,borderBottom:"1px solid rgba(255,255,255,0.09)"}}>
-        <button onClick={onBack} style={{background:"none",border:"none",color:"#F5F2EA",fontSize:24,cursor:"pointer",padding:0}}>←</button>
+        {!guide&&<button onClick={onBack} style={{background:"none",border:"none",color:"#F5F2EA",fontSize:24,cursor:"pointer",padding:0}}>←</button>}
         <div style={{flex:1}}><h2 style={{color:"#F5F2EA",margin:0,fontSize:17,fontWeight:800}}>{groupe.nom}</h2><p style={{color:"#E8B04B",margin:0,fontSize:12}}>{groupe.frequence} - {fmtFCFA(groupe.montant)}/cotisation</p></div>
         <button onClick={()=>{setEditG({nom:groupe.nom,montant:String(groupe.montant),frequence:groupe.frequence});setShowEdit(true);}} style={{background:"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:8,padding:"5px 10px",color:"#E8B04B",fontSize:11,fontWeight:700,cursor:"pointer"}}>Modifier</button>
-        <button onClick={deleteGroupe} style={{background:"transparent",border:"1px solid #E0526A",borderRadius:8,padding:"5px 10px",color:"#FB7185",fontSize:11,fontWeight:700,cursor:"pointer"}}>Suppr.</button>
+        {!guide&&<button onClick={deleteGroupe} style={{background:"transparent",border:"1px solid #E0526A",borderRadius:8,padding:"5px 10px",color:"#FB7185",fontSize:11,fontWeight:700,cursor:"pointer"}}>Suppr.</button>}
       </div>
+      {guide&&<GuideAjoutMembres nbMembres={(groupe.membres||[]).length} onAjouter={()=>{setTab("membres");if((groupe.membres||[]).length>=limiteMembres(user)){setShowUpgrade(true);}else{setShowAdd(true);}}} onFini={onGuideFini}/>}
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8,padding:"14px 16px 0"}}>
         {[["Collecte",fmtFCFA(collecte),"💰"],["Cotisations",fmtFCFA(cagnotteTour),"🏆"],["Ponctualite",`${taux}%`,"📊"],["Caisse soc.",fmtFCFA(groupe.caisseSociale),"🏦"],["A jour",`${aJour.length}/${groupe.membres.length}`,"✅"],["En retard",`${enRet.length}`,"⚠️"]].map(([l,v,i])=>(
           <div key={l} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,padding:"10px 8px",textAlign:"center"}}><p style={{margin:0,fontSize:16}}>{i}</p><p style={{margin:"4px 0 0",color:"#F5F2EA",fontWeight:800,fontSize:12}}>{v}</p><p style={{margin:0,color:"#97A3C9",fontSize:10}}>{l}</p></div>
@@ -3608,8 +3670,8 @@ const EpargneScreen = ({onToast,user}) => {
     <div style={{paddingBottom:90}}>
       <div style={{padding:"44px 16px 0",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
         <h2 style={{color:"#F5F2EA",fontSize:22,fontWeight:900,margin:0}}>Ma Tirelire</h2>
-        <button onClick={()=>setShowAdd(true)} style={{background:"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:10,padding:"8px 16px",color:"#E8B04B",fontWeight:700,fontSize:13,cursor:"pointer"}}>+ Objectif</button>
       </div>
+      <div style={{margin:"14px 16px 0"}}><GrandBoutonCreer onClick={()=>setShowAdd(true)} icone="🐷" titre="Créer une épargne" sousTitre="Fixe un objectif et épargne pas à pas"/></div>
       <div style={{margin:"14px 16px 0",background:"linear-gradient(135deg,rgba(255,255,255,0.09),rgba(255,255,255,0.055))",borderRadius:16,padding:16,border:"1px solid rgba(255,255,255,0.14)"}}>
         <p style={{margin:0,color:"#97A3C9",fontSize:12,fontWeight:600}}>TOTAL EPARGNE</p>
         <p style={{margin:"4px 0 0",color:"#E8B04B",fontSize:26,fontWeight:900}}>{fmtFCFA(totalEp)}</p>
@@ -4978,6 +5040,13 @@ function AppInner() {
   const [user,setUser]=useState(null);
   const [checking,setChecking]=useState(true);
   const [googleInfo,setGoogleInfo]=useState(null);
+  // Guide de premiere utilisation : null | "creer" | "membres" (memorise sur le telephone)
+  const [guide,setGuide]=useState(null);
+  const majGuide=(uid,etape,groupeId)=>{
+    setGuide(etape);
+    try{localStorage.setItem("tht-guide-"+uid,JSON.stringify({etape:etape||"fini",groupeId:groupeId||null}));}catch{/* rien */}
+  };
+  const lireGuide=(uid)=>{try{return JSON.parse(localStorage.getItem("tht-guide-"+uid)||"null");}catch{return null;}};
   const [nav,setNav]=useState("home");
   const [groupes,setGroupes]=useState([]);
   const [sel,setSel]=useState(null);
@@ -5169,6 +5238,8 @@ function AppInner() {
 
   useEffect(()=>{
     (async()=>{
+      // Le splash reste au moins 1,6 s pour que l'animation se voie en entier
+      const splashMin=new Promise(r=>setTimeout(r,1600));
       const sessionUser=await getSession();
       if(!sessionUser){const g=await sessionGoogleSansProfil();if(g)setGoogleInfo(g);}
       if(sessionUser){
@@ -5176,7 +5247,11 @@ function AppInner() {
         const [gs,parts]=await Promise.all([loadGroupes(sessionUser.id),loadParticipations(sessionUser.id),loadCagnottes(sessionUser.id),loadFilleuls(sessionUser.id)]);
         compterNonLus(sessionUser.id,[...new Set([...(gs||[]).map(g=>g.id),...(parts||[]).map(g=>g.id)])]);
         openFromUrl(window.location.search,gs,parts);
+        const gd=lireGuide(sessionUser.id);
+        if(gd&&gd.etape==="creer"&&(gs||[]).length===0)setGuide("creer");
+        else if(gd&&gd.etape==="membres"&&(gs||[]).length>0){setSel((gs||[]).find(x=>x.id===gd.groupeId)||gs[0]);setGuide("membres");}
       }
+      await splashMin;
       setChecking(false);
     })();
   },[]);
@@ -5235,26 +5310,19 @@ function AppInner() {
   if(new URLSearchParams(window.location.search).get("paiement"))return <PaiementScreen/>;
 
   if(checking){
-    return <div style={{minHeight:"100vh",background:"linear-gradient(160deg,rgba(255,255,255,0.055),rgba(255,255,255,0.03))",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",overflow:"hidden"}}>
-      <style>{`
-        @keyframes thtLogoIn { 0%{opacity:0;transform:scale(0.6);} 60%{opacity:1;transform:scale(1.08);} 100%{opacity:1;transform:scale(1);} }
-        @keyframes thtGlow { 0%,100%{box-shadow:0 0 20px 0 rgba(232,176,75,0.25);} 50%{box-shadow:0 0 40px 10px rgba(232,176,75,0.5);} }
-        @keyframes thtTextIn { 0%{opacity:0;transform:translateY(8px);} 100%{opacity:1;transform:translateY(0);} }
-        @keyframes thtBarFill { 0%{width:0%;margin-left:0%;} 50%{width:60%;margin-left:20%;} 100%{width:0%;margin-left:100%;} }
-      `}</style>
-      <div style={{width:84,height:84,borderRadius:22,overflow:"hidden",animation:"thtLogoIn 0.8s cubic-bezier(0.34,1.56,0.64,1) forwards, thtGlow 2s ease-in-out 0.8s infinite"}}>
-        <img src={logoIcon} alt="THT" style={{width:"100%",height:"100%",objectFit:"cover"}}/>
-      </div>
-      <p style={{color:"#F5F2EA",fontSize:20,fontWeight:900,letterSpacing:4,margin:"18px 0 4px",opacity:0,animation:"thtTextIn 0.6s ease-out 0.5s forwards"}}>THT</p>
-      <p style={{color:"#97A3C9",fontSize:11,margin:0,opacity:0,animation:"thtTextIn 0.6s ease-out 0.7s forwards"}}>Tontine Habi Traore</p>
-      <div style={{width:120,height:2,background:"rgba(255,255,255,0.09)",borderRadius:2,marginTop:26,overflow:"hidden"}}>
-        <div style={{height:"100%",background:"linear-gradient(90deg,#E8B04B,#FFE1A1)",animation:"thtBarFill 1.6s ease-in-out infinite"}}/>
-      </div>
+    // Ecran de demarrage de la maquette : logo qui "pop" avec deux ondes dorees,
+    // nom en degrade, phrase qui monte, barre de chargement qui se remplit.
+    return <div className="tht-splash">
+      <div className="tht-logo-xl"><i/><i/><img src={logoIcon} alt="THT"/></div>
+      <div className="tht-mot">THT</div>
+      <p style={{marginTop:8,fontWeight:700,color:"#97A3C9",animation:"monte .8s .5s both"}}>Ta tontine, en toute confiance.</p>
+      <div className="tht-charge"><i/></div>
     </div>;
   }
 
   if(!user)return <AuthScreen googleInfo={googleInfo} onLogin={async(u)=>{setUser(u);setAppLang(u.langue||"fr");setLang(u.langue||"fr");const [gs2,parts2]=await Promise.all([loadGroupes(u.id),loadParticipations(u.id),loadCagnottes(u.id),loadFilleuls(u.id)]);
-      compterNonLus(u.id,[...new Set([...(gs2||[]).map(g=>g.id),...(parts2||[]).map(g=>g.id)])]);if(u.linkedCount>0)showToast(`Bienvenue ! Tu as ete ajoute(e) a ${u.linkedCount} tontine(s) !`);}}/>;
+      compterNonLus(u.id,[...new Set([...(gs2||[]).map(g=>g.id),...(parts2||[]).map(g=>g.id)])]);if(u.linkedCount>0)showToast(`Bienvenue ! Tu as ete ajoute(e) a ${u.linkedCount} tontine(s) !`);
+      else if(u.nouveau&&(gs2||[]).length===0)majGuide(u.id,"creer");}}/>;
   const cu={...user,groupesCount:groupes.length,filleulsCount};
   const NAV=[["home","🏠",t("accueil")],["cagnottes","🎁",t("cagnottesNav")],["epargne","🏺",t("epargne")],["haby","🤖","HABY"],["profil","👤",t("profil")]];
 
@@ -5292,21 +5360,24 @@ input::placeholder,textarea::placeholder{color:#6F7BA6;}
   .tht-shell{max-width:1280px;}
   .tht-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
 }`}</style>
-      <div style={{flex:1,overflowY:"auto",paddingBottom:nav==="haby"?0:104}}>
+      {guide==="creer"&&<div className="tht-ecran" style={{flex:1}}><GuideCreerTontine prenom={(cu.prenom||"").split(" ")[0]} onCreer={()=>setShowC(true)}/></div>}
+      {guide!=="creer"&&<div style={{flex:1,overflowY:"auto",paddingBottom:guide?24:nav==="haby"?0:104}}>
+        <div className="tht-ecran" key={(selCagnotte?"c"+selCagnotte.id:selPart?"p"+selPart.id:sel?"g"+sel.id:nav)}>
         {selCagnotte?<CagnotteScreen cagnotte={selCagnotte} user={cu} onBack={backTap} onToast={showToast} onUpdate={(id,upd)=>{setCagnottes(cs=>cs.map(c=>c.id===id?{...c,...upd}:c));setSelCagnotte(c=>c&&c.id===id?{...c,...upd}:c);}} onDelete={(id)=>{setCagnottes(cs=>cs.filter(c=>c.id!==id));setSelCagnotte(null);}}/>
         :selPart?<ParticipationScreen groupe={selPart} deepLink={deepLink} onBack={backTap} user={cu} onToast={showToast} onVoted={()=>loadParticipations(cu.id)}/>
-        :sel?<GroupeScreen groupe={sel} deepLink={deepLink} onBack={backTap} onToast={showToast} user={cu} onDeleteGroupe={(gid)=>{setGroupes(gs=>gs.filter(g=>g.id!==gid));setSel(null);}} onUpdateGroupe={(gid,upd)=>{setGroupes(gs=>gs.map(g=>g.id===gid?{...g,...upd}:g));setSel(s=>s&&s.id===gid?{...s,...upd}:s);}}/>
+        :sel?<GroupeScreen guide={guide==="membres"} onGuideFini={()=>{majGuide(cu.id,null);setSel(null);setNav("home");loadGroupes(cu.id);showToast("Bravo ! Ta tontine est prête. Bienvenue sur THT 🎉");}} groupe={sel} deepLink={deepLink} onBack={backTap} onToast={showToast} user={cu} onDeleteGroupe={(gid)=>{setGroupes(gs=>gs.filter(g=>g.id!==gid));setSel(null);}} onUpdateGroupe={(gid,upd)=>{setGroupes(gs=>gs.map(g=>g.id===gid?{...g,...upd}:g));setSel(s=>s&&s.id===gid?{...s,...upd}:s);}}/>
         :nav==="home"?<HomeScreen user={cu} groupes={groupes} nonLus={nonLusParGroupe} onSelectGroupe={(g)=>{setDeepLink(null);pushBack(()=>{setSel(null);setDeepLink(null);loadGroupes(cu.id);loadParticipations(cu.id);compterNonLus(cu.id,[...new Set([...groupes.map(x=>x.id),...participations.map(x=>x.id)])]);});setSel(g);}} onCreer={()=>setShowC(true)} onProfil={()=>setNav("profil")} participations={participations} onSelectParticipation={(g)=>{setDeepLink(null);pushBack(()=>{setSelPart(null);setDeepLink(null);compterNonLus(cu.id,[...new Set([...groupes.map(x=>x.id),...participations.map(x=>x.id)])]);});setSelPart(g);}} onOpenHaby={()=>setNav("haby")} onOpenCagnottes={()=>setNav("cagnottes")}/>
         :nav==="cagnottes"?<CagnottesScreen cagnottes={cagnottes} onCreerCagnotte={()=>setShowCagnotteModal(true)} onSelectCagnotte={(c)=>{pushBack(()=>setSelCagnotte(null));setSelCagnotte(c);}}/>
         :nav==="epargne"?<EpargneScreen onToast={showToast} user={cu}/>
         :nav==="haby"?<HabyScreen groupes={groupes} user={cu}/>
         :nav==="admin"?<AdminScreen onBack={backTap} onToast={showToast} currentUserId={cu.id} user={cu}/>
         :nav==="profil"?<ProfilScreen user={cu} onLogout={handleLogout} onToast={showToast} onUpgrade={()=>showToast("Envoie ton paiement et contacte le support WhatsApp","warn")} onOpenAdmin={()=>{if(adminUnlocked){pushBack(()=>setNav("profil"));setNav("admin");}else{setPinConfirm("");setPinConfirmErr("");setShowPinConfirm(true);}}} lang={lang} onChangeLang={changeLang} onUpdateUser={(upd)=>setUser(u=>({...u,...upd}))}/>:null}
-      </div>
-      <div className="tht-nav" style={{position:"fixed",bottom:0,left:"50%",transform:"translateX(-50%)",width:"100%",background:"rgba(255,255,255,0.055)",borderTop:"1px solid rgba(255,255,255,0.09)",display:"flex",padding:"8px 0 20px",zIndex:100}}>
-        {NAV.map(([id,icon,lbl])=><button key={id} aria-current={nav===id&&!sel?"page":undefined} onClick={()=>{setSel(null);setNav(id);}} style={{flex:1,display:"flex",flexDirection:"column",alignItems:"center",background:"none",border:"none",color:nav===id&&!sel?"#E8B04B":"#97A3C9",cursor:"pointer",padding:"4px 0",gap:3}}><span style={{fontSize:22}}>{icon}</span><span style={{fontSize:10,fontWeight:600}}>{lbl}</span></button>)}
-      </div>
-      {showC&&<ModalCreer onClose={()=>setShowC(false)} onCreate={g=>{setGroupes(p=>[...p,g]);showToast("Tontine créée !");}} user={cu}/>}
+        </div>
+      </div>}
+      {!guide&&<div className="tht-nav" style={{position:"fixed",bottom:0,left:"50%",transform:"translateX(-50%)",width:"100%",background:"rgba(255,255,255,0.055)",borderTop:"1px solid rgba(255,255,255,0.09)",display:"flex",padding:"8px 0 20px",zIndex:100}}>
+        {NAV.map(([id,icon,lbl])=><button key={id} aria-current={nav===id&&!sel?"page":undefined} onClick={()=>transition(()=>{setSel(null);setNav(id);})} style={{flex:1,display:"flex",flexDirection:"column",alignItems:"center",background:"none",border:"none",color:nav===id&&!sel?"#E8B04B":"#97A3C9",cursor:"pointer",padding:"4px 0",gap:3}}><span style={{fontSize:22}}>{icon}</span><span style={{fontSize:10,fontWeight:600}}>{lbl}</span></button>)}
+      </div>}
+      {showC&&<ModalCreer onClose={()=>setShowC(false)} onCreate={g=>{setGroupes(p=>[...p,g]);showToast("Tontine créée !");if(guide==="creer"){setSel(g);majGuide(cu.id,"membres",g.id);}}} user={cu}/>}
       {showCagnotteModal&&<ModalCreerCagnotte onClose={()=>setShowCagnotteModal(false)} onCreate={c=>{setCagnottes(cs=>[c,...cs]);showToast("Cagnotte créée !");}} user={cu}/>}
       {showPinConfirm&&<Modal onClose={()=>setShowPinConfirm(false)}>
         <MH title="Confirme ton PIN" onClose={()=>setShowPinConfirm(false)}/>

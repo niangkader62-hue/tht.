@@ -13,15 +13,15 @@
   "backgroundColor": "#060B21",
   "enableNotifications": true,
   "startUrl": "/",
-  "iconUrl": "https://tontine.kbsdigitalagency.com/icon-512.png",
-  "maskableIconUrl": "https://tontine.kbsdigitalagency.com/icon-maskable-512.png",
+  "iconUrl": "https://tontine.kbsdigitalagency.com/icon-512-v2.png",
+  "maskableIconUrl": "https://tontine.kbsdigitalagency.com/icon-maskable-512-v2.png",
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
     "path": "./android-cle-signature.keystore",
     "alias": "tht"
   },
-  "appVersionName": "1.0.0",
-  "appVersionCode": 1,
+  "appVersionName": "1.1.0",
+  "appVersionCode": 2,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://tontine.kbsdigitalagency.com/manifest.json",
@@ -37,5 +37,5 @@
   "fingerprints": [],
   "additionalTrustedOrigins": [],
   "retainedBundles": [],
-  "appVersion": "1.0.0"
+  "appVersion": "1.1.0"
 }

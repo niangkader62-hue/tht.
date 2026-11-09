@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback, Component } from "react";
-import { registerUser, loginUser, getSession, logoutUser, verifyPin, changePin } from "./authService";
+import { registerUser, loginUser, getSession, logoutUser, verifyPin, changePin, signInWithGoogle, sessionGoogleSansProfil, finaliserCompteGoogle, googleActif } from "./authService";
+import AdminDirect from "./AdminDirect";
 import { supabase, SUPABASE_URL } from "./supabaseClient";
 import logoIcon from "./assets/logo-icon.png";
 import MiseAJour from "./MiseAJour";
@@ -839,8 +840,16 @@ const BoutonsPaiementMobile = ({montant,numeroOrangeMoney,numeroWave,numeroMoovM
   );
 };
 
-const AuthScreen = ({onLogin}) => {
-  const [step,setStep]=useState("intro");
+// Bouton blanc "Continuer avec Google" (meme style que la maquette)
+const GoogleBtn = ({onClick,disabled,children="Continuer avec Google"}) => (
+  <button onClick={onClick} disabled={disabled} style={{width:"100%",minHeight:56,display:"flex",alignItems:"center",justifyContent:"center",gap:10,background:"#FFFFFF",color:"#111827",border:"none",borderRadius:18,fontWeight:800,fontSize:16,cursor:disabled?"wait":"pointer",boxShadow:"0 12px 30px -12px rgba(0,0,0,0.6)",opacity:disabled?0.7:1}}>
+    <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.5 12.3c0-.8-.1-1.5-.2-2.2H12v4.2h5.9c-.3 1.4-1 2.5-2.2 3.3v2.7h3.6c2-1.9 3.2-4.7 3.2-8z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.3-2.7l-3.6-2.7c-1 .7-2.2 1-3.7 1-2.9 0-5.3-1.9-6.2-4.5H2.1V17C3.9 20.6 7.6 23 12 23z"/><path fill="#FBBC05" d="M5.8 14.1c-.2-.7-.4-1.4-.4-2.1s.1-1.4.4-2.1V7H2.1C1.4 8.5 1 10.2 1 12s.4 3.5 1.1 5z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.2 1.7l3.2-3.2C17.5 2.1 15 1 12 1 7.6 1 3.9 3.4 2.1 7l3.7 2.9C6.7 7.3 9.1 5.4 12 5.4z"/></svg>
+    {children}
+  </button>
+);
+
+const AuthScreen = ({onLogin,googleInfo}) => {
+  const [step,setStep]=useState(googleInfo?"google":"intro");
   const [pendingUser,setPendingUser]=useState(null);
   const [tutoStep,setTutoStep]=useState(0);
   const [prenom,setPrenom]=useState("");
@@ -874,6 +883,26 @@ const AuthScreen = ({onLogin}) => {
     if(!res.ok)return setErr(res.err);
     onLogin(res.user);
   };
+
+  const doGoogle=async()=>{
+    setErr("");setLoading(true);
+    const res=await signInWithGoogle();
+    if(!res.ok){setLoading(false);setErr(res.err);}
+  };
+  const doFinaliserGoogle=async()=>{
+    setErr("");
+    if(!prenom.trim()||prenom.trim().length<2)return setErr("Prenom trop court");
+    if(tel.replace(/\D/g,"").length<8)return setErr("Numéro WhatsApp invalide");
+    setLoading(true);
+    const res=await finaliserCompteGoogle(s(prenom.trim()),tel,parrainCode);
+    setLoading(false);
+    if(!res.ok)return setErr(res.err);
+    setPendingUser(res.user);
+    setStep("tutoriel");
+  };
+  const [googleDispo,setGoogleDispo]=useState(false);
+  useEffect(()=>{googleActif().then(setGoogleDispo);},[]);
+  useEffect(()=>{if(googleInfo&&!prenom)setPrenom((googleInfo.nom||"").split(" ")[0].slice(0,30));},[googleInfo]);// eslint-disable-line react-hooks/exhaustive-deps
 
   const doRegister=async()=>{
     setErr("");
@@ -951,11 +980,33 @@ const AuthScreen = ({onLogin}) => {
         <h1 style={{color:"#F5F2EA",fontSize:30,fontWeight:900,margin:"8px 0 4px",letterSpacing:2}}>THT</h1>
         <p style={{color:"#97A3C9",fontSize:13,margin:0}}>Tontine Habi Traore - Digitale. Securisee.</p>
       </div>
-      <div style={{display:"flex",flexDirection:"column",gap:12,marginTop:40}}>
+      <div style={{display:"flex",flexDirection:"column",gap:12,marginTop:32}}>
+        {googleDispo&&<>
+        <GoogleBtn onClick={doGoogle} disabled={loading}>{loading?"Ouverture de Google...":"Continuer avec Google"}</GoogleBtn>
+        <ErrBox msg={err}/>
+        <div style={{display:"flex",alignItems:"center",gap:10,color:"#6F7BA6",fontSize:12,margin:"2px 0"}}><span style={{flex:1,height:1,background:"rgba(255,255,255,0.09)"}}/>ou avec ton numéro<span style={{flex:1,height:1,background:"rgba(255,255,255,0.09)"}}/></div>
+        </>}
         <Btn onClick={()=>go("register")}>Creer mon compte gratuit</Btn>
         <button onClick={()=>go("login")} style={{width:"100%",background:"transparent",border:"2px solid rgba(255,255,255,0.09)",borderRadius:14,padding:"13px",color:"#F5F2EA",fontWeight:700,fontSize:15,cursor:"pointer"}}>J'ai déjà un compte</button>
       </div>
-      <p style={{color:"#6F7BA6",fontSize:11,textAlign:"center",marginTop:20}}>Sans email - Donnees chiffrees - 100% prive</p>
+      <p style={{color:"#6F7BA6",fontSize:11,textAlign:"center",marginTop:20}}>Donnees chiffrees - 100% prive</p>
+    </div></div>
+  );
+
+  if(step==="google") return(
+    <div style={W}><div style={C}>
+      <h2 style={{color:"#F5F2EA",fontWeight:800,fontSize:22,margin:"0 0 6px"}}>Dernière étape</h2>
+      <p style={{color:"#97A3C9",fontSize:13,margin:"0 0 16px",lineHeight:1.6}}>Ton compte Google est bien connecté. Ajoute ton numéro WhatsApp pour retrouver tes tontines et recevoir les rappels.</p>
+      <div style={{display:"flex",alignItems:"center",gap:10,background:"rgba(52,211,153,0.10)",border:"1px solid rgba(52,211,153,0.35)",borderRadius:14,padding:"10px 12px",marginBottom:16}}>
+        <span style={{color:"#34D399",fontWeight:900}}>✓</span>
+        <span style={{color:"#F5F2EA",fontSize:14,fontWeight:700,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{googleInfo?.email||"Compte Google"}</span>
+      </div>
+      <Fld label="Prenom"><Inp value={prenom} onChange={e=>setPrenom(s(e.target.value))} placeholder="Ex: Fatoumata" maxLength={30}/></Fld>
+      <Fld label="Ton numéro WhatsApp"><PhoneInput value={tel} onChange={v=>setTel(sPhone(v))} autoFocus/></Fld>
+      <Fld label="Code de parrainage (optionnel)"><Inp value={parrainCode} onChange={e=>setParrainCode(e.target.value.toUpperCase())} placeholder="Ex: A1B2C3D4" maxLength={12}/></Fld>
+      <ErrBox msg={err}/>
+      <Btn onClick={doFinaliserGoogle} disabled={loading}>{loading?"Creation...":"Entrer dans THT"}</Btn>
+      <p style={{color:"#6F7BA6",fontSize:11,textAlign:"center",marginTop:14}}>On garde seulement ton adresse Gmail et ton numéro.</p>
     </div></div>
   );
 
@@ -3889,11 +3940,9 @@ const AdminScreen = ({onBack,onToast,currentUserId,user}) => {
 
   return(
     <div style={{paddingBottom:90}}>
-      <div style={{padding:"44px 16px 0",display:"flex",alignItems:"center",gap:10}}>
-        <button onClick={onBack} style={{background:"none",border:"none",color:"#E8B04B",fontSize:22,cursor:"pointer"}}>←</button>
-        <h2 style={{color:"#F5F2EA",fontSize:20,fontWeight:900,margin:0}}>Panneau Administrateur</h2>
-      </div>
-      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,padding:"14px 16px 0"}}>
+      <AdminDirect onBack={onBack} revenuMois={revenuMois} onToast={onToast}/>
+      <p style={{color:"#97A3C9",fontSize:12,fontWeight:700,margin:"22px 16px 0",letterSpacing:.5}}>STATISTIQUES</p>
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,padding:"10px 16px 0"}}>
         {[["UTILISATRICES",totalUsers],["PREMIUM",totalPremium],["TONTINES CREEES",groupesCount],["TOTAL COLLECTE",fmtFCFA(totalCollecte)]].map(([l,v])=>(
           <div key={l} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:14,padding:14}}>
             <p style={{margin:0,color:"#97A3C9",fontSize:11,fontWeight:600}}>{l}</p>
@@ -4439,7 +4488,7 @@ const ProfilScreen = ({user,onLogout,onToast,onUpgrade,onOpenAdmin,lang,onChange
         {[
           ...(user.role==="admin"?[{label:"ADMINISTRATION",items:[{ic:"🛡️",lb:t("panneauAdmin"),fn:onOpenAdmin}]}]:[]),
           {label:"NOTIFICATIONS",items:[{key:"notif",ic:"🔔",lb:t("notifications"),fn:toggleNotifications,toggle:notifOn,busy:notifBusy}]},
-          {label:"COMPTE",items:[{ic:"🔒",lb:t("changerPin"),fn:()=>setShowChangePin(true)},{ic:"📲",lb:t("lierWA"),fn:()=>window.open("https://wa.me/22376908031","_blank")}]},
+          {label:"COMPTE",items:[...(user.google?[]:[{ic:"🔒",lb:t("changerPin"),fn:()=>setShowChangePin(true)}]),{ic:"📲",lb:t("lierWA"),fn:()=>window.open("https://wa.me/22376908031","_blank")}]},
           {label:"DONNEES ET AIDE",items:[{ic:"📤",lb:t("exporterDonnees"),fn:exporterDonnees},{ic:"📊",lb:"Exporter en Excel (CSV)",fn:exporterCSV},{ic:"💬",lb:t("contacterSupport"),fn:()=>setShowSupport(true)},{ic:"🔏",lb:"Politique de confidentialite",fn:()=>window.open("/confidentialite.html","_blank","noopener")}]},
         ].map(group=>(
           <div key={group.label} style={{marginBottom:18}}>
@@ -4928,6 +4977,7 @@ class ErrorBoundary extends Component {
 function AppInner() {
   const [user,setUser]=useState(null);
   const [checking,setChecking]=useState(true);
+  const [googleInfo,setGoogleInfo]=useState(null);
   const [nav,setNav]=useState("home");
   const [groupes,setGroupes]=useState([]);
   const [sel,setSel]=useState(null);
@@ -5120,6 +5170,7 @@ function AppInner() {
   useEffect(()=>{
     (async()=>{
       const sessionUser=await getSession();
+      if(!sessionUser){const g=await sessionGoogleSansProfil();if(g)setGoogleInfo(g);}
       if(sessionUser){
         setUser(sessionUser);setAppLang(sessionUser.langue||"fr");setLang(sessionUser.langue||"fr");
         const [gs,parts]=await Promise.all([loadGroupes(sessionUser.id),loadParticipations(sessionUser.id),loadCagnottes(sessionUser.id),loadFilleuls(sessionUser.id)]);
@@ -5202,7 +5253,7 @@ function AppInner() {
     </div>;
   }
 
-  if(!user)return <AuthScreen onLogin={async(u)=>{setUser(u);setAppLang(u.langue||"fr");setLang(u.langue||"fr");const [gs2,parts2]=await Promise.all([loadGroupes(u.id),loadParticipations(u.id),loadCagnottes(u.id),loadFilleuls(u.id)]);
+  if(!user)return <AuthScreen googleInfo={googleInfo} onLogin={async(u)=>{setUser(u);setAppLang(u.langue||"fr");setLang(u.langue||"fr");const [gs2,parts2]=await Promise.all([loadGroupes(u.id),loadParticipations(u.id),loadCagnottes(u.id),loadFilleuls(u.id)]);
       compterNonLus(u.id,[...new Set([...(gs2||[]).map(g=>g.id),...(parts2||[]).map(g=>g.id)])]);if(u.linkedCount>0)showToast(`Bienvenue ! Tu as ete ajoute(e) a ${u.linkedCount} tontine(s) !`);}}/>;
   const cu={...user,groupesCount:groupes.length,filleulsCount};
   const NAV=[["home","🏠",t("accueil")],["cagnottes","🎁",t("cagnottesNav")],["epargne","🏺",t("epargne")],["haby","🤖","HABY"],["profil","👤",t("profil")]];

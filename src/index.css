@@ -1,59 +1,113 @@
 /* =============================================================================
-   MODE SOMBRE AUTOMATIQUE — suit le reglage du telephone (prefers-color-scheme).
-   =============================================================================
-   POURQUOI CETTE METHODE
-   Les couleurs de l'app sont ecrites "en dur" a ~1400 endroits, et certaines (le blanc,
-   le presque-noir) servent A LA FOIS de fond et de texte. Les remplacer une par une
-   casserait forcement des ecrans. On inverse donc la LUMINOSITE de toute l'app au niveau
-   racine, en gardant les teintes (le hue-rotate 180 apres l'invert remet l'orange en
-   orange), puis on RE-inverse les images pour qu'elles restent normales.
-   Avantage : aucune couleur du code n'est touchee -> zero risque de casser un ecran, et
-   c'est entierement reversible. Le mode clair, lui, ne change absolument pas. */
+   THEME THT — bleu nuit + or (inspire de la maquette premium).
+   Un seul theme, toujours sombre, quel que soit le reglage du telephone.
+   Les couleurs des ecrans sont ecrites directement dans App.jsx ; ce fichier
+   donne le fond anime, les polices et habille les elements partages
+   (fenetres, barre du bas, champs, boutons dores).
+   ============================================================================= */
 
-:root { color-scheme: light; }
-
-/* Voile (fond assombrissant) derriere les fenetres modales.
-   Mode clair : voile noir classique. */
-.tht-scrim { background: rgba(0,0,0,0.85); }
-
-@media (prefers-color-scheme: dark) {
-  :root { color-scheme: dark; }
-
-  /* Inversion de toute l'app. Le fond blanc devient sombre, le texte sombre devient
-     clair, l'orange reste orange.
-     brightness(.9) + saturate(.8) : APRES l'inversion, l'orange devient naturellement plus
-     clair/vif et "pique les yeux" sur fond sombre. On baisse donc legerement la luminosite et
-     la saturation de TOUTE l'app en mode sombre -> l'orange devient un or plus doux (comme la
-     carte HABY), les blancs residuels deviennent gris, l'ensemble est plus reposant, facon Max it.
-     Le mode clair, lui, n'est pas touche. */
-  html {
-    filter: invert(1) hue-rotate(180deg) brightness(0.9) saturate(0.8);
-    background: #ffffff; /* rendu apres inversion -> noir : evite un bord clair */
-  }
-  body {
-    background: #ffffff !important; /* idem : rendu -> sombre */
-  }
-
-  /* On remet a l'endroit tout ce qui est une VRAIE image (photos de preuve, avatars,
-     recus, logo, hero) : une double inversion = l'image d'origine, intacte. */
-  img,
-  video,
-  canvas,
-  [data-noinvert] {
-    filter: invert(1) hue-rotate(180deg);
-  }
-
-  /* Cas particulier : une image DANS une zone "ne pas inverser" (ex : le QR importe
-     affiche aux membres). Sans cette regle, elle subissait 3 inversions (page + zone +
-     image) et s'affichait en negatif. On annule le filtre de l'image : il ne reste que
-     page + zone = 2 inversions = image normale, nette et scannable. */
-  [data-noinvert] img {
-    filter: none;
-  }
-
-  /* Toute la page est inversee. Un voile noir (rgba(0,0,0,.85)) deviendrait donc BLANC et
-     eclaircirait la page derriere -> textes illisibles. On le met CLAIR dans la source pour
-     qu'apres l'inversion il redevienne un voile SOMBRE a l'ecran. Le contenu de la fenetre,
-     lui, s'inverse normalement et reste lisible. */
-  .tht-scrim { background: rgba(255,255,255,0.85); }
+:root {
+  --nuit: #060B21;
+  --nuit2: #0B1433;
+  --nuit3: #121D47;
+  --or: #E8B04B;
+  --or2: #FFE1A1;
+  --or3: #B07A22;
+  --blanc: #F5F2EA;
+  --doux: #97A3C9;
+  --ligne: rgba(255, 255, 255, 0.08);
+  color-scheme: dark;
 }
+
+html { background: var(--nuit) !important; }
+/* Le body reste transparent : sinon il masquerait le fond "aurore" (body::before). */
+html, body {
+  color: var(--blanc);
+  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Fond "aurore" : trois halos (or, bleu, violet) qui bougent doucement derriere
+   toute l'app. Fixe : il ne defile pas avec le contenu. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(420px 420px at 85% 12%, rgba(232, 176, 75, 0.30), transparent 70%),
+    radial-gradient(480px 480px at 10% 55%, rgba(35, 70, 255, 0.42), transparent 70%),
+    radial-gradient(380px 380px at 80% 92%, rgba(123, 61, 255, 0.32), transparent 70%);
+  animation: tht-aurore 22s ease-in-out infinite alternate;
+}
+@keyframes tht-aurore {
+  to { transform: translate(-40px, 50px) scale(1.08); }
+}
+@media (prefers-reduced-motion: reduce) {
+  body::before { animation: none; }
+}
+
+body { background: transparent !important; }
+#root { position: relative; z-index: 0; }
+
+/* Voile derriere les fenetres */
+.tht-scrim {
+  background: rgba(3, 6, 26, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Fenetre (bas de l'ecran) : fond nuit opaque pour rester lisible */
+.tht-modal {
+  background: linear-gradient(180deg, #121D47, #0B1433) !important;
+  border: 1px solid var(--ligne) !important;
+  box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+/* Barre de navigation du bas : pilule en verre flottante, comme la maquette */
+.tht-nav {
+  bottom: 12px !important;
+  width: calc(100% - 24px) !important;
+  border-radius: 26px;
+  padding: 8px 4px calc(8px + env(safe-area-inset-bottom, 0px)) !important;
+  background: rgba(11, 20, 51, 0.82) !important;
+  border: 1px solid var(--ligne) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+.tht-nav button { border-radius: 16px; margin: 0 2px; transition: background 0.2s ease; }
+.tht-nav button[aria-current="page"] { background: rgba(232, 176, 75, 0.14) !important; }
+
+/* Champs de saisie : focus dore */
+input, textarea, select {
+  color: var(--blanc);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--or) !important;
+  box-shadow: 0 0 0 4px rgba(232, 176, 75, 0.14);
+}
+select option { background: var(--nuit2); color: var(--blanc); }
+
+/* Boutons dores (degrade or) : ombre doree + reflet qui passe, comme la maquette */
+button[style*="rgb(255, 233, 180)"] {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 30px -10px rgba(232, 176, 75, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+button[style*="rgb(255, 233, 180)"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.45) 50%, transparent 70%);
+  transform: translateX(-130%);
+  animation: tht-brille 4s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes tht-brille {
+  0%, 55% { transform: translateX(-130%); }
+  85%, 100% { transform: translateX(130%); }
+}
+button:active { transform: scale(0.98); }

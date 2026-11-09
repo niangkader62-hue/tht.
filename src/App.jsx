@@ -29,38 +29,38 @@ async function payerAbonnement(user, formule, onErr){
 
 const genererRecuImage=async({nomTontine,prenom,montantRecu,montantDu,totalVerse,statut,cycle,totalCycles,ref,date})=>{
   const div=document.createElement("div");
-  div.style.cssText="position:fixed;top:-9999px;left:-9999px;width:600px;background:linear-gradient(160deg,#FFFFFF,#E8F5EC);padding:0;font-family:Georgia,'Times New Roman',serif;overflow:hidden;border-radius:24px;";
+  div.style.cssText="position:fixed;top:-9999px;left:-9999px;width:600px;background:linear-gradient(160deg,rgba(255,255,255,0.055),rgba(52,211,153,0.08));padding:0;font-family:Georgia,'Times New Roman',serif;overflow:hidden;border-radius:24px;";
   div.innerHTML=`
-    <div style="height:8px;background:linear-gradient(90deg,#D0A23E,#E8B96A,#D0A23E);"></div>
-    <div style="padding:36px 40px 30px;text-align:center;border-bottom:1px solid #E5E7EB;">
-      <div style="width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,#D0A23E,#E8B96A);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:900;color:#0D0D0D;">H</div>
-      <p style="margin:0;color:#D0A23E;font-size:22px;font-weight:900;letter-spacing:3px;">THT</p>
-      <p style="margin:4px 0 0;color:#6B7280;font-size:11px;letter-spacing:1px;">TONTINE HABI TRAORE</p>
+    <div style="height:8px;background:linear-gradient(90deg,#E8B04B,#FFE1A1,#E8B04B);"></div>
+    <div style="padding:36px 40px 30px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.09);">
+      <div style="width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,#E8B04B,#FFE1A1);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:900;color:#1B1203;">H</div>
+      <p style="margin:0;color:#E8B04B;font-size:22px;font-weight:900;letter-spacing:3px;">THT</p>
+      <p style="margin:4px 0 0;color:#97A3C9;font-size:11px;letter-spacing:1px;">TONTINE HABI TRAORE</p>
     </div>
     <div style="padding:28px 40px;">
-      <p style="margin:0 0 4px;color:#111827;font-size:19px;font-weight:700;text-align:center;">Recu de paiement</p>
-      <p style="margin:0 0 24px;color:#6B7280;font-size:12px;text-align:center;">${date} - Ref ${ref}</p>
-      <div style="background:#FFFFFF;border:1px solid #E5E7EB;border-radius:16px;padding:20px 22px;margin-bottom:16px;">
-        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #E5E7EB;"><span style="color:#6B7280;font-size:13px;">Membre</span><span style="color:#111827;font-weight:700;font-size:13px;">${prenom}</span></div>
-        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #E5E7EB;"><span style="color:#6B7280;font-size:13px;">Tontine</span><span style="color:#111827;font-weight:700;font-size:13px;">${nomTontine}</span></div>
-        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #E5E7EB;"><span style="color:#6B7280;font-size:13px;">Cycle</span><span style="color:#111827;font-weight:700;font-size:13px;">${cycle} / ${totalCycles}</span></div>
-        <div style="display:flex;justify-content:space-between;padding:8px 0;"><span style="color:#6B7280;font-size:13px;">Montant du</span><span style="color:#111827;font-weight:700;font-size:13px;">${montantDu}</span></div>
+      <p style="margin:0 0 4px;color:#F5F2EA;font-size:19px;font-weight:700;text-align:center;">Recu de paiement</p>
+      <p style="margin:0 0 24px;color:#97A3C9;font-size:12px;text-align:center;">${date} - Ref ${ref}</p>
+      <div style="background:rgba(255,255,255,0.055);border:1px solid rgba(255,255,255,0.09);border-radius:16px;padding:20px 22px;margin-bottom:16px;">
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.09);"><span style="color:#97A3C9;font-size:13px;">Membre</span><span style="color:#F5F2EA;font-weight:700;font-size:13px;">${prenom}</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.09);"><span style="color:#97A3C9;font-size:13px;">Tontine</span><span style="color:#F5F2EA;font-weight:700;font-size:13px;">${nomTontine}</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.09);"><span style="color:#97A3C9;font-size:13px;">Cycle</span><span style="color:#F5F2EA;font-weight:700;font-size:13px;">${cycle} / ${totalCycles}</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;"><span style="color:#97A3C9;font-size:13px;">Montant du</span><span style="color:#F5F2EA;font-weight:700;font-size:13px;">${montantDu}</span></div>
       </div>
-      <div style="background:linear-gradient(135deg,#E5E7EB,#FFFFFF);border:1px solid #D0A23E;border-radius:16px;padding:22px;text-align:center;margin-bottom:16px;">
-        <p style="margin:0;color:#9CA89F;font-size:11px;letter-spacing:1px;">MONTANT RECU</p>
-        <p style="margin:6px 0 0;color:#D0A23E;font-size:32px;font-weight:900;">${montantRecu}</p>
+      <div style="background:linear-gradient(135deg,rgba(255,255,255,0.09),rgba(255,255,255,0.055));border:1px solid #E8B04B;border-radius:16px;padding:22px;text-align:center;margin-bottom:16px;">
+        <p style="margin:0;color:#97A3C9;font-size:11px;letter-spacing:1px;">MONTANT RECU</p>
+        <p style="margin:6px 0 0;color:#E8B04B;font-size:32px;font-weight:900;">${montantRecu}</p>
       </div>
-      <div style="display:flex;justify-content:space-between;padding:4px 0;"><span style="color:#6B7280;font-size:12px;">Total verse ce cycle</span><span style="color:#111827;font-size:12px;font-weight:700;">${totalVerse}</span></div>
-      <div style="display:flex;justify-content:space-between;padding:4px 0;"><span style="color:#6B7280;font-size:12px;">Statut</span><span style="color:${statut.includes("PAYE")?"#22C55E":"#D0A23E"};font-size:12px;font-weight:800;">${statut}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;"><span style="color:#97A3C9;font-size:12px;">Total verse ce cycle</span><span style="color:#F5F2EA;font-size:12px;font-weight:700;">${totalVerse}</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;"><span style="color:#97A3C9;font-size:12px;">Statut</span><span style="color:${statut.includes("PAYE")?"#34D399":"#E8B04B"};font-size:12px;font-weight:800;">${statut}</span></div>
     </div>
-    <div style="padding:16px 40px 30px;text-align:center;border-top:1px solid #E5E7EB;">
-      <p style="margin:0;color:#6B7280;font-size:11px;">Merci ${prenom} pour votre confiance !</p>
-      <p style="margin:4px 0 0;color:#D1D5DB;font-size:10px;">THT - Tontine Habi Traore</p>
+    <div style="padding:16px 40px 30px;text-align:center;border-top:1px solid rgba(255,255,255,0.09);">
+      <p style="margin:0;color:#97A3C9;font-size:11px;">Merci ${prenom} pour votre confiance !</p>
+      <p style="margin:4px 0 0;color:rgba(255,255,255,0.14);font-size:10px;">THT - Tontine Habi Traore</p>
     </div>
   `;
   document.body.appendChild(div);
   const {default:html2canvas}=await import("html2canvas");
-  const canvas=await html2canvas(div,{backgroundColor:"#0D0D0D",scale:2});
+  const canvas=await html2canvas(div,{backgroundColor:"#060B21",scale:2});
   document.body.removeChild(div);
   // JPEG plutot que PNG : un recu pese ainsi 4 a 5 fois moins (economie de stockage
   // Supabase et de donnees mobiles pour les membres qui le consultent). La qualite
@@ -216,8 +216,8 @@ const marquerVu = (userId, groupeId, section) => {
 // Pastille ronde : un nombre si on sait compter, sinon un simple point d'alerte.
 const Pastille = ({ n, point=false }) => {
   if (!point && !(n > 0)) return null;
-  const commun = { position:"absolute", top:-5, right:-5, background:"#EF4444", color:"#fff",
-                   borderRadius:99, border:"2px solid #FFFFFF", lineHeight:1, fontWeight:800 };
+  const commun = { position:"absolute", top:-5, right:-5, background:"#FB7185", color:"#fff",
+                   borderRadius:99, border:"2px solid #0B1433", lineHeight:1, fontWeight:800 };
   if (point) return <span aria-label="nouveau" style={{...commun, width:12, height:12}}/>;
   return (
     <span aria-label={`${n} non lu`} style={{...commun, minWidth:19, height:19, fontSize:10.5,
@@ -431,39 +431,39 @@ function useVoiceInput(onResult,onToast){
 const Avatar = ({ prenom, photo, size=40, gold=false }) => {
   const [err, setErr] = useState(false);
   return (
-    <div style={{width:size,height:size,borderRadius:"50%",background:gold?"linear-gradient(135deg,#D0A23E,#A87C22)":"linear-gradient(135deg,#E5E7EB,#D1D5DB)",overflow:"hidden",flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",border:gold?"2px solid #D0A23E":"none"}}>
-      {photo&&!err?<img src={photo} alt="" style={{width:"100%",height:"100%",objectFit:"cover"}} onError={()=>setErr(true)}/>:<span style={{color:gold?"#0D0D0D":"#D0A23E",fontWeight:900,fontSize:size*0.38}}>{(prenom||"?")[0].toUpperCase()}</span>}
+    <div style={{width:size,height:size,borderRadius:"50%",background:gold?"linear-gradient(135deg,#FFE9B4 0%,#E8B04B 48%,#C38427 100%)":"linear-gradient(135deg,rgba(255,255,255,0.09),rgba(255,255,255,0.14))",overflow:"hidden",flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",border:gold?"2px solid #E8B04B":"none"}}>
+      {photo&&!err?<img src={photo} alt="" style={{width:"100%",height:"100%",objectFit:"cover"}} onError={()=>setErr(true)}/>:<span style={{color:gold?"#1B1203":"#E8B04B",fontWeight:900,fontSize:size*0.38}}>{(prenom||"?")[0].toUpperCase()}</span>}
     </div>
   );
 };
 
 const Badge = ({score}) => {
-  const c = score>=90?{bg:"#D0A23E",t:"Or",fg:"#0D0D0D"}:score>=70?{bg:"#1B6B45",t:"Bien",fg:"#FFFFFF"}:{bg:"#C1440E",t:"Retard",fg:"#FFFFFF"};
+  const c = score>=90?{bg:"#E8B04B",t:"Or",fg:"#1B1203"}:score>=70?{bg:"#0F7A55",t:"Bien",fg:"#FFFFFF"}:{bg:"#E0526A",t:"Retard",fg:"#FFFFFF"};
   return <span style={{background:c.bg,color:c.fg,borderRadius:99,padding:"2px 8px",fontSize:11,fontWeight:700}}>{c.t}</span>;
 };
 
 const Bar = ({pct,c}) => (
-  <div style={{background:"#E5E7EB",borderRadius:99,height:6,overflow:"hidden",marginTop:10}}>
+  <div style={{background:"rgba(255,255,255,0.09)",borderRadius:99,height:6,overflow:"hidden",marginTop:10}}>
     <div style={{width:`${Math.min(pct,100)}%`,height:"100%",background:c,borderRadius:99,transition:"width .5s"}}/>
   </div>
 );
 
 const Toast = ({msg,type="success",onClose}) => {
   useEffect(()=>{const t=setTimeout(onClose,3200);return()=>clearTimeout(t);},[]);
-  const bg=type==="error"?"#C1440E":type==="warn"?"#A87C22":"#1B6B45";
-  return <div style={{position:"fixed",bottom:90,left:"50%",transform:"translateX(-50%)",background:bg,color:"#111827",padding:"12px 22px",borderRadius:14,fontWeight:700,zIndex:9999,fontSize:14,boxShadow:"0 8px 30px rgba(0,0,0,0.5)",maxWidth:340,textAlign:"center"}}>{msg}</div>;
+  const bg=type==="error"?"#E0526A":type==="warn"?"#B07A22":"#0F7A55";
+  return <div style={{position:"fixed",bottom:90,left:"50%",transform:"translateX(-50%)",background:bg,color:"#F5F2EA",padding:"12px 22px",borderRadius:14,fontWeight:700,zIndex:9999,fontSize:14,boxShadow:"0 8px 30px rgba(0,0,0,0.5)",maxWidth:340,textAlign:"center"}}>{msg}</div>;
 };
 
 const Modal = ({children,onClose}) => (
   <div className="tht-scrim" style={{position:"fixed",inset:0,zIndex:300,display:"flex",alignItems:"flex-end",justifyContent:"center"}} onClick={onClose}>
-    <div className="tht-modal" style={{background:"#FFFFFF",borderRadius:"24px 24px 0 0",padding:"20px 20px 44px",width:"100%",maxWidth:440,border:"1px solid #E5E7EB",borderBottom:"none",maxHeight:"92vh",overflowY:"auto"}} onClick={e=>e.stopPropagation()}>{children}</div>
+    <div className="tht-modal" style={{background:"rgba(255,255,255,0.055)",borderRadius:"24px 24px 0 0",padding:"20px 20px 44px",width:"100%",maxWidth:440,border:"1px solid rgba(255,255,255,0.09)",borderBottom:"none",maxHeight:"92vh",overflowY:"auto"}} onClick={e=>e.stopPropagation()}>{children}</div>
   </div>
 );
 
 const MH = ({title,onClose}) => (
   <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:20}}>
-    <h3 style={{color:"#111827",margin:0,fontSize:18,fontWeight:800}}>{title}</h3>
-    <button onClick={onClose} style={{background:"none",border:"none",color:"#6B7280",fontSize:22,cursor:"pointer"}}>x</button>
+    <h3 style={{color:"#F5F2EA",margin:0,fontSize:18,fontWeight:800}}>{title}</h3>
+    <button onClick={onClose} style={{background:"none",border:"none",color:"#97A3C9",fontSize:22,cursor:"pointer"}}>x</button>
   </div>
 );
 
@@ -706,22 +706,22 @@ const PhoneInput = ({value,onChange,autoFocus}) => {
   const paysFiltres=PAYS_LISTE.filter(p=>p.nom.toLowerCase().includes(rechPays.toLowerCase()));
   return(
     <div style={{display:"flex",gap:8}}>
-      <button type="button" onClick={()=>setShowPays(true)} style={{display:"flex",alignItems:"center",gap:4,background:"#F3F4F6",border:"1px solid #D1D5DB",borderRadius:12,padding:"0 10px",color:"#111827",fontSize:14,cursor:"pointer",flexShrink:0}}>
-        <span style={{fontSize:18}}>{currentPays.drapeau}</span><span>{currentPays.code}</span><span style={{color:"#6B7280",fontSize:11}}>▾</span>
+      <button type="button" onClick={()=>setShowPays(true)} style={{display:"flex",alignItems:"center",gap:4,background:"rgba(255,255,255,0.045)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:12,padding:"0 10px",color:"#F5F2EA",fontSize:14,cursor:"pointer",flexShrink:0}}>
+        <span style={{fontSize:18}}>{currentPays.drapeau}</span><span>{currentPays.code}</span><span style={{color:"#97A3C9",fontSize:11}}>▾</span>
       </button>
       <input value={numeroSeul} onChange={e=>changerNumero(e.target.value)} placeholder="76 XX XX XX" type="tel" inputMode="tel" maxLength={12} autoFocus={autoFocus}
-        style={{flex:1,background:"#F3F4F6",border:"1px solid #D1D5DB",borderRadius:12,padding:"13px 14px",color:"#111827",fontSize:15,outline:"none",minWidth:0}}/>
+        style={{flex:1,background:"rgba(255,255,255,0.045)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:12,padding:"13px 14px",color:"#F5F2EA",fontSize:15,outline:"none",minWidth:0}}/>
       {showPays&&<Modal onClose={()=>{setShowPays(false);setRechPays("");}}>
         <MH title="Choisir un pays" onClose={()=>{setShowPays(false);setRechPays("");}}/>
         <Inp value={rechPays} onChange={e=>setRechPays(e.target.value)} placeholder="Rechercher un pays..." autoFocus/>
         <div style={{marginTop:12}}>
         {paysFiltres.map(p=>(
-          <div key={p.code} onClick={()=>choisirPays(p)} style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"13px 4px",borderBottom:"1px solid #E5E7EB",cursor:"pointer"}}>
-            <span style={{color:"#111827",fontSize:15}}>{p.drapeau} {p.nom}</span>
-            <div style={{display:"flex",alignItems:"center",gap:8}}><span style={{color:"#6B7280",fontSize:14}}>{p.code}</span>{p.code===currentPays.code&&<span style={{color:"#22C55E"}}>✓</span>}</div>
+          <div key={p.code} onClick={()=>choisirPays(p)} style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"13px 4px",borderBottom:"1px solid rgba(255,255,255,0.09)",cursor:"pointer"}}>
+            <span style={{color:"#F5F2EA",fontSize:15}}>{p.drapeau} {p.nom}</span>
+            <div style={{display:"flex",alignItems:"center",gap:8}}><span style={{color:"#97A3C9",fontSize:14}}>{p.code}</span>{p.code===currentPays.code&&<span style={{color:"#34D399"}}>✓</span>}</div>
           </div>
         ))}
-        {paysFiltres.length===0&&<p style={{color:"#6B7280",fontSize:13,textAlign:"center",padding:16}}>Aucun pays trouve</p>}
+        {paysFiltres.length===0&&<p style={{color:"#97A3C9",fontSize:13,textAlign:"center",padding:16}}>Aucun pays trouve</p>}
         </div>
       </Modal>}
     </div>
@@ -730,24 +730,24 @@ const PhoneInput = ({value,onChange,autoFocus}) => {
 
 const Fld = ({label,children}) => (
   <div style={{marginBottom:16}}>
-    <label style={{display:"block",color:"#6B7280",fontSize:11,marginBottom:6,fontWeight:700,textTransform:"uppercase",letterSpacing:.5}}>{label}</label>
+    <label style={{display:"block",color:"#97A3C9",fontSize:11,marginBottom:6,fontWeight:700,textTransform:"uppercase",letterSpacing:.5}}>{label}</label>
     {children}
   </div>
 );
 
 const Inp = ({value,onChange,placeholder,type="text",inputMode,maxLength,autoFocus,onKeyDown}) => (
   <input value={value} onChange={onChange} placeholder={placeholder} type={type} inputMode={inputMode} maxLength={maxLength} autoFocus={autoFocus} onKeyDown={onKeyDown}
-    style={{width:"100%",background:"#F3F4F6",border:"1px solid #D1D5DB",borderRadius:12,padding:"13px 14px",color:"#111827",fontSize:15,outline:"none"}}/>
+    style={{width:"100%",background:"rgba(255,255,255,0.045)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:12,padding:"13px 14px",color:"#F5F2EA",fontSize:15,outline:"none"}}/>
 );
 
 const Btn = ({onClick,children,disabled}) => (
   <button onClick={onClick} disabled={disabled}
-    style={{width:"100%",background:disabled?"#E5E7EB":"linear-gradient(135deg,#D0A23E,#A87C22)",border:"none",borderRadius:14,padding:"14px",color:disabled?"#6B7280":"#0D0D0D",fontWeight:800,fontSize:15,cursor:disabled?"not-allowed":"pointer",marginTop:6}}>
+    style={{width:"100%",background:disabled?"rgba(255,255,255,0.09)":"linear-gradient(135deg,#FFE9B4 0%,#E8B04B 48%,#C38427 100%)",border:"none",borderRadius:14,padding:"14px",color:disabled?"#97A3C9":"#1B1203",fontWeight:800,fontSize:15,cursor:disabled?"not-allowed":"pointer",marginTop:6}}>
     {children}
   </button>
 );
 
-const ErrBox = ({msg}) => msg?<p style={{color:"#EF4444",fontSize:13,margin:"0 0 12px",fontWeight:600,background:"#FEF2F2",padding:"8px 12px",borderRadius:8}}>{msg}</p>:null;
+const ErrBox = ({msg}) => msg?<p style={{color:"#FB7185",fontSize:13,margin:"0 0 12px",fontWeight:600,background:"rgba(251,113,133,0.10)",padding:"8px 12px",borderRadius:8}}>{msg}</p>:null;
 
 // Selecteur unique Orange Money / Wave / Moov Money : un clic choisit le moyen, un seul champ
 // numero s'affiche a la fois. Au moins un des 3 doit etre rempli pour valider le formulaire parent.
@@ -759,7 +759,7 @@ const SelecteurPaiement = ({numeroOrangeMoney,setNumeroOrangeMoney,numeroWave,se
     <Fld label="Numero de reception - Orange Money, Wave ou Moov Money (obligatoire, au moins un)">
       <div style={{display:"flex",gap:8,marginBottom:8}}>
         {OPTIONS.map(([id,label,couleur])=>(
-          <button key={id} type="button" onClick={()=>setChoix(id)} style={{flex:1,background:choix===id?couleur:"#F3F4F6",border:`1px solid ${couleur}`,borderRadius:10,padding:"9px 4px",color:choix===id?"#0D0D0D":couleur,fontWeight:700,fontSize:11,cursor:"pointer"}}>{label}</button>
+          <button key={id} type="button" onClick={()=>setChoix(id)} style={{flex:1,background:choix===id?couleur:"rgba(255,255,255,0.045)",border:`1px solid ${couleur}`,borderRadius:10,padding:"9px 4px",color:choix===id?"#1B1203":couleur,fontWeight:700,fontSize:11,cursor:"pointer"}}>{label}</button>
         ))}
       </div>
       <Inp value={actif[3]} onChange={e=>actif[4](e.target.value.replace(/[^\d+]/g,""))} placeholder="Ex: 70123456" inputMode="tel"/>
@@ -788,52 +788,52 @@ const BoutonsPaiementMobile = ({montant,numeroOrangeMoney,numeroWave,numeroMoovM
   };
   const peutDeclarer=montantNum&&preuve;
   return(
-    <div style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:14,padding:14,marginBottom:16}}>
-      <p style={{margin:"0 0 10px",color:"#D0A23E",fontWeight:800,fontSize:13}}>📲 Payer directement</p>
-      {!montantNum&&<p style={{color:"#6B7280",fontSize:11,marginBottom:8}}>Indique d'abord le montant.</p>}
-      {numeroOrangeMoney&&<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",background:"#F3F4F6",borderRadius:8,padding:"8px 12px",marginBottom:8}}>
-        <p style={{margin:0,color:"#111827",fontSize:12}}>Orange Money : <b>{numeroOrangeMoney}</b></p>
-        <button onClick={()=>copier(numeroOrangeMoney)} style={{background:"transparent",border:"none",color:"#D0A23E",fontWeight:700,fontSize:11,cursor:"pointer"}}>📋 Copier</button>
+    <div style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:14,padding:14,marginBottom:16}}>
+      <p style={{margin:"0 0 10px",color:"#E8B04B",fontWeight:800,fontSize:13}}>📲 Payer directement</p>
+      {!montantNum&&<p style={{color:"#97A3C9",fontSize:11,marginBottom:8}}>Indique d'abord le montant.</p>}
+      {numeroOrangeMoney&&<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",background:"rgba(255,255,255,0.045)",borderRadius:8,padding:"8px 12px",marginBottom:8}}>
+        <p style={{margin:0,color:"#F5F2EA",fontSize:12}}>Orange Money : <b>{numeroOrangeMoney}</b></p>
+        <button onClick={()=>copier(numeroOrangeMoney)} style={{background:"transparent",border:"none",color:"#E8B04B",fontWeight:700,fontSize:11,cursor:"pointer"}}>📋 Copier</button>
       </div>}
-      {numeroWave&&<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",background:"#F3F4F6",borderRadius:8,padding:"8px 12px",marginBottom:8}}>
-        <p style={{margin:0,color:"#111827",fontSize:12}}>Wave : <b>{numeroWave}</b></p>
+      {numeroWave&&<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",background:"rgba(255,255,255,0.045)",borderRadius:8,padding:"8px 12px",marginBottom:8}}>
+        <p style={{margin:0,color:"#F5F2EA",fontSize:12}}>Wave : <b>{numeroWave}</b></p>
         <button onClick={()=>copier(numeroWave)} style={{background:"transparent",border:"none",color:"#2A9DF4",fontWeight:700,fontSize:11,cursor:"pointer"}}>📋 Copier</button>
       </div>}
-      {numeroMoovMoney&&<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",background:"#F3F4F6",borderRadius:8,padding:"8px 12px",marginBottom:8}}>
-        <p style={{margin:0,color:"#111827",fontSize:12}}>Moov Money : <b>{numeroMoovMoney}</b></p>
+      {numeroMoovMoney&&<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",background:"rgba(255,255,255,0.045)",borderRadius:8,padding:"8px 12px",marginBottom:8}}>
+        <p style={{margin:0,color:"#F5F2EA",fontSize:12}}>Moov Money : <b>{numeroMoovMoney}</b></p>
         <button onClick={()=>copier(numeroMoovMoney)} style={{background:"transparent",border:"none",color:"#F7941E",fontWeight:700,fontSize:11,cursor:"pointer"}}>📋 Copier</button>
       </div>}
-      {(numeroOrangeMoney||numeroWave||numeroMoovMoney)&&<p style={{margin:"2px 0 10px",color:"#6B7280",fontSize:10.5,lineHeight:1.5}}>👆 <b>Depuis ton téléphone :</b> appuie sur « Copier », ouvre ton appli (Wave / Orange Money), et fais un <b>transfert</b> vers ce numéro.</p>}
+      {(numeroOrangeMoney||numeroWave||numeroMoovMoney)&&<p style={{margin:"2px 0 10px",color:"#97A3C9",fontSize:10.5,lineHeight:1.5}}>👆 <b>Depuis ton téléphone :</b> appuie sur « Copier », ouvre ton appli (Wave / Orange Money), et fais un <b>transfert</b> vers ce numéro.</p>}
       {(lienOrange||lienWave)&&<div style={{marginBottom:8}}>
-        <p style={{margin:"0 0 6px",color:"#6B7280",fontSize:10,lineHeight:1.4}}>Ou paie en un tap (ouvre l'application) :</p>
-        {lienOrange&&<button onClick={()=>ouvrirLien(lienOrange)} style={{width:"100%",background:"#D0A23E",border:"none",borderRadius:10,padding:"11px",color:"#fff",fontWeight:800,fontSize:13,cursor:"pointer",marginBottom:8}}>🟠 Ouvrir Orange Money pour payer</button>}
+        <p style={{margin:"0 0 6px",color:"#97A3C9",fontSize:10,lineHeight:1.4}}>Ou paie en un tap (ouvre l'application) :</p>
+        {lienOrange&&<button onClick={()=>ouvrirLien(lienOrange)} style={{width:"100%",background:"#E8B04B",border:"none",borderRadius:10,padding:"11px",color:"#fff",fontWeight:800,fontSize:13,cursor:"pointer",marginBottom:8}}>🟠 Ouvrir Orange Money pour payer</button>}
         {lienWave&&<button onClick={()=>ouvrirLien(lienWave)} style={{width:"100%",background:"#1DAEFF",border:"none",borderRadius:10,padding:"11px",color:"#fff",fontWeight:800,fontSize:13,cursor:"pointer"}}>🌊 Ouvrir Wave pour payer</button>}
       </div>}
       {/* QR importe par la creatrice : la photo de son propre QR Wave / Orange Money. C'est
           la methode la plus fiable au Mali (les operateurs ne donnent pas de lien web, juste
           un QR dans leur app). data-noinvert : reste net meme en mode sombre. */}
-      {qrPaiementUrl&&<div data-noinvert style={{display:"flex",flexDirection:"column",alignItems:"center",background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:12,padding:"14px 12px",marginBottom:8}}>
-        <p style={{margin:"0 0 10px",color:"#111827",fontSize:12,fontWeight:800}}>📷 QR à scanner</p>
+      {qrPaiementUrl&&<div data-noinvert style={{display:"flex",flexDirection:"column",alignItems:"center",background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,padding:"14px 12px",marginBottom:8}}>
+        <p style={{margin:"0 0 10px",color:"#F5F2EA",fontSize:12,fontWeight:800}}>📷 QR à scanner</p>
         <img src={qrPaiementUrl} alt="QR de paiement" style={{width:"100%",maxWidth:220,borderRadius:8,display:"block"}}/>
-        <p style={{margin:"10px 0 0",color:"#6B7280",fontSize:10.5,textAlign:"center",lineHeight:1.4}}>À faire scanner par la personne qui paie, <b>en présentiel</b> ou depuis un <b>autre téléphone</b>. (On ne peut pas scanner un QR affiché sur le même téléphone.)</p>
+        <p style={{margin:"10px 0 0",color:"#97A3C9",fontSize:10.5,textAlign:"center",lineHeight:1.4}}>À faire scanner par la personne qui paie, <b>en présentiel</b> ou depuis un <b>autre téléphone</b>. (On ne peut pas scanner un QR affiché sur le même téléphone.)</p>
       </div>}
       {/* QR genere automatiquement a partir d'un lien de paiement (Wave/Orange), si renseigne.
           data-noinvert : garde le QR en noir sur blanc meme en mode sombre. */}
       {(()=>{const lienQR=(lienWave||lienOrange||"").trim();
         if(!/^https?:\/\//i.test(lienQR))return null;
         return(
-          <div data-noinvert style={{display:"flex",flexDirection:"column",alignItems:"center",background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:12,padding:"14px 12px",marginBottom:8}}>
-            <p style={{margin:"0 0 10px",color:"#111827",fontSize:12,fontWeight:800}}>📷 Scanne pour payer {lienWave?"avec Wave":"avec Orange Money"}</p>
-            <QRCodeSVG value={lienQR} size={156} level="M" bgColor="#FFFFFF" fgColor="#111827"/>
-            <p style={{margin:"10px 0 0",color:"#6B7280",fontSize:10.5,textAlign:"center",lineHeight:1.4}}>Ouvre l'appareil photo (ou l'app de paiement) et vise le code.</p>
+          <div data-noinvert style={{display:"flex",flexDirection:"column",alignItems:"center",background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,padding:"14px 12px",marginBottom:8}}>
+            <p style={{margin:"0 0 10px",color:"#F5F2EA",fontSize:12,fontWeight:800}}>📷 Scanne pour payer {lienWave?"avec Wave":"avec Orange Money"}</p>
+            <QRCodeSVG value={lienQR} size={156} level="M" bgColor="rgba(255,255,255,0.055)" fgColor="#F5F2EA"/>
+            <p style={{margin:"10px 0 0",color:"#97A3C9",fontSize:10.5,textAlign:"center",lineHeight:1.4}}>Ouvre l'appareil photo (ou l'app de paiement) et vise le code.</p>
           </div>
         );})()}
-      <p style={{margin:"4px 0 10px",color:"#6B7280",fontSize:10,lineHeight:1.4}}>Envoie {montantNum?fmtFCFA(montantNum):"le montant"} toi-même depuis ton application (Orange Money, Wave ou Moov), puis confirme ci-dessous.</p>
-      {onDeclarer&&<label style={{display:"block",background:"#FFFFFF",border:"1px dashed #D0A23E",borderRadius:10,padding:preuvePreview?0:16,textAlign:"center",cursor:"pointer",overflow:"hidden",marginBottom:10}}>
+      <p style={{margin:"4px 0 10px",color:"#97A3C9",fontSize:10,lineHeight:1.4}}>Envoie {montantNum?fmtFCFA(montantNum):"le montant"} toi-même depuis ton application (Orange Money, Wave ou Moov), puis confirme ci-dessous.</p>
+      {onDeclarer&&<label style={{display:"block",background:"rgba(255,255,255,0.055)",border:"1px dashed #E8B04B",borderRadius:10,padding:preuvePreview?0:16,textAlign:"center",cursor:"pointer",overflow:"hidden",marginBottom:10}}>
         <input type="file" accept="image/*" onChange={choisirPreuve} style={{display:"none"}}/>
-        {preuvePreview?<img src={preuvePreview} alt="Preuve" style={{width:"100%",maxHeight:180,objectFit:"contain",display:"block"}}/>:<span style={{color:"#D0A23E",fontSize:12,fontWeight:700}}>📷 Capture d'écran du paiement (obligatoire)</span>}
+        {preuvePreview?<img src={preuvePreview} alt="Preuve" style={{width:"100%",maxHeight:180,objectFit:"contain",display:"block"}}/>:<span style={{color:"#E8B04B",fontSize:12,fontWeight:700}}>📷 Capture d'écran du paiement (obligatoire)</span>}
       </label>}
-      {onDeclarer&&<button onClick={()=>onDeclarer("mobile_money",preuve)} disabled={busy||dejaDeclare||!peutDeclarer} style={{width:"100%",marginTop:4,background:dejaDeclare?"#E5E7EB":"transparent",border:"1px solid "+(dejaDeclare?"#22C55E":"#D1D5DB"),borderRadius:10,padding:"10px",color:dejaDeclare?"#22C55E":(!peutDeclarer?"#6B7280":"#111827"),fontWeight:700,fontSize:12,cursor:dejaDeclare||!peutDeclarer?"default":"pointer"}}>{dejaDeclare?"✅ Déclaré, en attente de confirmation":(busy?"Envoi...":!preuve?"Ajoute la capture d'écran ci-dessus":(declareLabel||"✅ J'ai effectué le paiement"))}</button>}
+      {onDeclarer&&<button onClick={()=>onDeclarer("mobile_money",preuve)} disabled={busy||dejaDeclare||!peutDeclarer} style={{width:"100%",marginTop:4,background:dejaDeclare?"rgba(255,255,255,0.09)":"transparent",border:"1px solid "+(dejaDeclare?"#34D399":"rgba(255,255,255,0.14)"),borderRadius:10,padding:"10px",color:dejaDeclare?"#34D399":(!peutDeclarer?"#97A3C9":"#F5F2EA"),fontWeight:700,fontSize:12,cursor:dejaDeclare||!peutDeclarer?"default":"pointer"}}>{dejaDeclare?"✅ Déclaré, en attente de confirmation":(busy?"Envoi...":!preuve?"Ajoute la capture d'écran ci-dessus":(declareLabel||"✅ J'ai effectué le paiement"))}</button>}
     </div>
   );
 };
@@ -888,8 +888,8 @@ const AuthScreen = ({onLogin}) => {
     setStep("tutoriel");
   };
 
-  const W={minHeight:"100vh",background:"linear-gradient(160deg,#FFFFFF,#E8F5EC)",display:"flex",alignItems:"center",justifyContent:"center",padding:20,overflowY:"auto"};
-  const C={background:"#FFFFFF",borderRadius:24,padding:"28px 24px",width:"100%",maxWidth:400,boxShadow:"0 20px 60px rgba(0,0,0,0.6)"};
+  const W={minHeight:"100vh",background:"linear-gradient(160deg,rgba(255,255,255,0.055),rgba(52,211,153,0.08))",display:"flex",alignItems:"center",justifyContent:"center",padding:20,overflowY:"auto"};
+  const C={background:"rgba(255,255,255,0.055)",borderRadius:24,padding:"28px 24px",width:"100%",maxWidth:400,boxShadow:"0 20px 60px rgba(0,0,0,0.6)"};
 
   if(step==="tutoriel"){
     const slides=[
@@ -900,16 +900,16 @@ const AuthScreen = ({onLogin}) => {
     ];
     const sl=slides[tutoStep];
     return(
-      <div style={{minHeight:"100vh",background:"linear-gradient(160deg,#FFFFFF,#E8F5EC)",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:24}}>
-        <div style={{width:88,height:88,borderRadius:24,background:"#FFFFFF",border:"1px solid #D0A23E",display:"flex",alignItems:"center",justifyContent:"center",fontSize:40,marginBottom:24}}>{sl.ic}</div>
-        <h2 style={{color:"#111827",fontSize:21,fontWeight:800,textAlign:"center",margin:"0 0 12px"}}>{sl.titre}</h2>
-        <p style={{color:"#6B7280",fontSize:14,textAlign:"center",lineHeight:1.6,maxWidth:340,marginBottom:32}}>{sl.texte}</p>
+      <div style={{minHeight:"100vh",background:"linear-gradient(160deg,rgba(255,255,255,0.055),rgba(52,211,153,0.08))",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:24}}>
+        <div style={{width:88,height:88,borderRadius:24,background:"rgba(255,255,255,0.055)",border:"1px solid #E8B04B",display:"flex",alignItems:"center",justifyContent:"center",fontSize:40,marginBottom:24}}>{sl.ic}</div>
+        <h2 style={{color:"#F5F2EA",fontSize:21,fontWeight:800,textAlign:"center",margin:"0 0 12px"}}>{sl.titre}</h2>
+        <p style={{color:"#97A3C9",fontSize:14,textAlign:"center",lineHeight:1.6,maxWidth:340,marginBottom:32}}>{sl.texte}</p>
         <div style={{display:"flex",gap:6,marginBottom:32}}>
-          {slides.map((_,i)=><div key={i} style={{width:i===tutoStep?22:8,height:8,borderRadius:99,background:i===tutoStep?"#D0A23E":"#D1D5DB",transition:"width .2s"}}/>)}
+          {slides.map((_,i)=><div key={i} style={{width:i===tutoStep?22:8,height:8,borderRadius:99,background:i===tutoStep?"#E8B04B":"rgba(255,255,255,0.14)",transition:"width .2s"}}/>)}
         </div>
         <div style={{width:"100%",maxWidth:340}}>
           <Btn onClick={()=>{if(tutoStep<slides.length-1)setTutoStep(t=>t+1);else onLogin(pendingUser);}}>{tutoStep<slides.length-1?"Suivant":"Commencer"}</Btn>
-          {tutoStep<slides.length-1&&<button onClick={()=>onLogin(pendingUser)} style={{width:"100%",background:"transparent",border:"none",color:"#6B7280",fontSize:13,padding:"14px 0 0",cursor:"pointer"}}>Passer</button>}
+          {tutoStep<slides.length-1&&<button onClick={()=>onLogin(pendingUser)} style={{width:"100%",background:"transparent",border:"none",color:"#97A3C9",fontSize:13,padding:"14px 0 0",cursor:"pointer"}}>Passer</button>}
         </div>
       </div>
     );
@@ -919,23 +919,23 @@ const AuthScreen = ({onLogin}) => {
     // Largeur bornee : sur ordinateur, sans cette contrainte, la photo de couverture
     // s'etirait sur tout l'ecran (1440px et plus) et repoussait le bouton "Continuer"
     // en dehors de la zone visible. Un ecran d'accueil n'a pas besoin d'etre large.
-    <div style={{minHeight:"100vh",display:"flex",flexDirection:"column",background:"#FFFFFF",maxWidth:560,margin:"0 auto",boxShadow:"0 0 40px rgba(0,0,0,0.07)"}}>
+    <div style={{minHeight:"100vh",display:"flex",flexDirection:"column",background:"rgba(255,255,255,0.055)",maxWidth:560,margin:"0 auto"}}>
       <style>{`
         @keyframes introLogoIn { 0%{opacity:0;transform:scale(0.5) translateY(10px);} 60%{opacity:1;transform:scale(1.1) translateY(0);} 100%{opacity:1;transform:scale(1) translateY(0);} }
-        @keyframes introGlow { 0%,100%{box-shadow:0 8px 24px rgba(255,107,0,0.35);} 50%{box-shadow:0 8px 36px rgba(255,107,0,0.6);} }
+        @keyframes introGlow { 0%,100%{box-shadow:0 8px 24px rgba(232,176,75,0.35);} 50%{box-shadow:0 8px 36px rgba(232,176,75,0.6);} }
         @keyframes introFadeUp { 0%{opacity:0;transform:translateY(10px);} 100%{opacity:1;transform:translateY(0);} }
       `}</style>
       <div style={{width:"100%",aspectRatio:"3/2",position:"relative",flexShrink:0}}>
         <img src={heroTontine} alt="THT - Tontine Habi Traore" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}}/>
-        <div style={{position:"absolute",inset:0,background:"linear-gradient(180deg,rgba(10,26,15,0) 70%,rgba(10,26,15,0.95) 100%)"}}/>
+        <div style={{position:"absolute",inset:0,background:"linear-gradient(180deg,rgba(6,11,33,0) 70%,rgba(6,11,33,0.95) 100%)"}}/>
       </div>
       <div style={{flex:1,display:"flex",flexDirection:"column",justifyContent:"center",padding:"20px 24px 40px",textAlign:"center"}}>
         <div style={{width:64,height:64,borderRadius:18,margin:"0 auto 16px",overflow:"hidden",opacity:0,animation:"introLogoIn 0.7s cubic-bezier(0.34,1.56,0.64,1) forwards, introGlow 2.4s ease-in-out 0.7s infinite"}}>
           <img src={logoIcon} alt="THT" style={{width:"100%",height:"100%",objectFit:"cover"}}/>
         </div>
-        <h1 style={{color:"#111827",fontSize:26,fontWeight:900,margin:"0 0 6px",letterSpacing:1,opacity:0,animation:"introFadeUp 0.6s ease-out 0.35s forwards"}}>THT</h1>
-        <p style={{color:"#D0A23E",fontSize:14,margin:"0 0 4px",fontWeight:600,opacity:0,animation:"introFadeUp 0.6s ease-out 0.5s forwards"}}>Tontine Habi Traore</p>
-        <p style={{color:"#6B7280",fontSize:13,margin:"0 0 28px",lineHeight:1.6,opacity:0,animation:"introFadeUp 0.6s ease-out 0.65s forwards"}}>La tontine digitale qui rassemble les familles et les communautes, en toute confiance.</p>
+        <h1 style={{color:"#F5F2EA",fontSize:26,fontWeight:900,margin:"0 0 6px",letterSpacing:1,opacity:0,animation:"introFadeUp 0.6s ease-out 0.35s forwards"}}>THT</h1>
+        <p style={{color:"#E8B04B",fontSize:14,margin:"0 0 4px",fontWeight:600,opacity:0,animation:"introFadeUp 0.6s ease-out 0.5s forwards"}}>Tontine Habi Traore</p>
+        <p style={{color:"#97A3C9",fontSize:13,margin:"0 0 28px",lineHeight:1.6,opacity:0,animation:"introFadeUp 0.6s ease-out 0.65s forwards"}}>La tontine digitale qui rassemble les familles et les communautes, en toute confiance.</p>
         <div style={{opacity:0,animation:"introFadeUp 0.6s ease-out 0.8s forwards"}}><Btn onClick={()=>go("welcome")}>Continuer</Btn></div>
       </div>
     </div>
@@ -944,42 +944,42 @@ const AuthScreen = ({onLogin}) => {
   if(step==="welcome") return(
     <div style={W}><div style={C}>
       <div style={{textAlign:"center",paddingBottom:8}}>
-        <div style={{width:120,height:120,borderRadius:32,margin:"0 auto 18px",overflow:"hidden",boxShadow:"0 8px 24px rgba(255,107,0,0.3)"}}>
+        <div style={{width:120,height:120,borderRadius:32,margin:"0 auto 18px",overflow:"hidden",boxShadow:"0 8px 24px rgba(232,176,75,0.3)"}}>
           <img src={logoIcon} alt="THT" style={{width:"100%",height:"100%",objectFit:"cover"}}/>
         </div>
-        <h1 style={{color:"#111827",fontSize:30,fontWeight:900,margin:"8px 0 4px",letterSpacing:2}}>THT</h1>
-        <p style={{color:"#6B7280",fontSize:13,margin:0}}>Tontine Habi Traore - Digitale. Securisee.</p>
+        <h1 style={{color:"#F5F2EA",fontSize:30,fontWeight:900,margin:"8px 0 4px",letterSpacing:2}}>THT</h1>
+        <p style={{color:"#97A3C9",fontSize:13,margin:0}}>Tontine Habi Traore - Digitale. Securisee.</p>
       </div>
       <div style={{display:"flex",flexDirection:"column",gap:12,marginTop:40}}>
         <Btn onClick={()=>go("register")}>Creer mon compte gratuit</Btn>
-        <button onClick={()=>go("login")} style={{width:"100%",background:"transparent",border:"2px solid #E5E7EB",borderRadius:14,padding:"13px",color:"#111827",fontWeight:700,fontSize:15,cursor:"pointer"}}>J'ai déjà un compte</button>
+        <button onClick={()=>go("login")} style={{width:"100%",background:"transparent",border:"2px solid rgba(255,255,255,0.09)",borderRadius:14,padding:"13px",color:"#F5F2EA",fontWeight:700,fontSize:15,cursor:"pointer"}}>J'ai déjà un compte</button>
       </div>
-      <p style={{color:"#9CA3AF",fontSize:11,textAlign:"center",marginTop:20}}>Sans email - Donnees chiffrees - 100% prive</p>
+      <p style={{color:"#6F7BA6",fontSize:11,textAlign:"center",marginTop:20}}>Sans email - Donnees chiffrees - 100% prive</p>
     </div></div>
   );
 
   if(step==="login") return(
     <div style={W}><div style={C}>
-      <button onClick={()=>go("welcome")} style={{background:"none",border:"none",color:"#D0A23E",cursor:"pointer",fontSize:14,padding:"0 0 16px",display:"block",fontWeight:600}}>← Retour</button>
-      <h2 style={{color:"#111827",fontWeight:800,fontSize:22,margin:"0 0 20px"}}>Connexion</h2>
+      <button onClick={()=>go("welcome")} style={{background:"none",border:"none",color:"#E8B04B",cursor:"pointer",fontSize:14,padding:"0 0 16px",display:"block",fontWeight:600}}>← Retour</button>
+      <h2 style={{color:"#F5F2EA",fontWeight:800,fontSize:22,margin:"0 0 20px"}}>Connexion</h2>
       <Fld label="Numéro de téléphone"><PhoneInput value={tel} onChange={v=>setTel(sPhone(v))} autoFocus/></Fld>
       <Fld label="Code PIN (4 chiffres)"><Inp value={pin} onChange={e=>setPin(sPin(e.target.value))} placeholder="Code secret" type="password" inputMode="numeric" maxLength={4}/></Fld>
       <ErrBox msg={err}/>
       <Btn onClick={doLogin} disabled={loading}>{loading?"Vérification...":"Se connecter"}</Btn>
-      <p style={{color:"#6B7280",fontSize:12,textAlign:"center",marginTop:16,cursor:"pointer"}} onClick={()=>go("register")}>Pas encore inscrit ? <span style={{color:"#D0A23E",fontWeight:700}}>Creer un compte</span></p>
+      <p style={{color:"#97A3C9",fontSize:12,textAlign:"center",marginTop:16,cursor:"pointer"}} onClick={()=>go("register")}>Pas encore inscrit ? <span style={{color:"#E8B04B",fontWeight:700}}>Creer un compte</span></p>
     </div></div>
   );
 
   return(
     <div style={{...W,alignItems:"flex-start"}}><div style={{...C,margin:"20px auto"}}>
-      <button onClick={()=>go("welcome")} style={{background:"none",border:"none",color:"#D0A23E",cursor:"pointer",fontSize:14,padding:"0 0 16px",display:"block",fontWeight:600}}>← Retour</button>
-      <h2 style={{color:"#111827",fontWeight:800,fontSize:22,margin:"0 0 20px"}}>Creer mon compte</h2>
+      <button onClick={()=>go("welcome")} style={{background:"none",border:"none",color:"#E8B04B",cursor:"pointer",fontSize:14,padding:"0 0 16px",display:"block",fontWeight:600}}>← Retour</button>
+      <h2 style={{color:"#F5F2EA",fontWeight:800,fontSize:22,margin:"0 0 20px"}}>Creer mon compte</h2>
       <div style={{display:"flex",flexDirection:"column",alignItems:"center",marginBottom:20}}>
         <div onClick={()=>fileRef.current?.click()} style={{cursor:"pointer",position:"relative"}}>
           <Avatar prenom={prenom||"?"} photo={photo} size={76} gold/>
-          <div style={{position:"absolute",bottom:0,right:0,background:"#D0A23E",borderRadius:"50%",width:24,height:24,display:"flex",alignItems:"center",justifyContent:"center",fontSize:16,fontWeight:900,color:"#0D0D0D"}}>+</div>
+          <div style={{position:"absolute",bottom:0,right:0,background:"#E8B04B",borderRadius:"50%",width:24,height:24,display:"flex",alignItems:"center",justifyContent:"center",fontSize:16,fontWeight:900,color:"#1B1203"}}>+</div>
         </div>
-        <p style={{color:"#6B7280",fontSize:11,margin:"8px 0 0"}}>Photo de profil (optionnel)</p>
+        <p style={{color:"#97A3C9",fontSize:11,margin:"8px 0 0"}}>Photo de profil (optionnel)</p>
         <input ref={fileRef} type="file" accept="image/*" style={{display:"none"}} onChange={handlePhoto}/>
       </div>
       <Fld label="Prenom"><Inp value={prenom} onChange={e=>setPrenom(s(e.target.value))} placeholder="Ex: Fatoumata" maxLength={30} autoFocus/></Fld>
@@ -989,7 +989,7 @@ const AuthScreen = ({onLogin}) => {
       <Fld label="Code de parrainage (optionnel)"><Inp value={parrainCode} onChange={e=>setParrainCode(e.target.value.toUpperCase())} placeholder="Ex: A1B2C3D4" maxLength={12}/></Fld>
       <ErrBox msg={err}/>
       <Btn onClick={doRegister} disabled={loading}>{loading?"Creation...":"Creer mon compte"}</Btn>
-      <p style={{color:"#9CA3AF",fontSize:11,textAlign:"center",marginTop:14}}>Ton PIN est chiffre et jamais partage</p>
+      <p style={{color:"#6F7BA6",fontSize:11,textAlign:"center",marginTop:14}}>Ton PIN est chiffre et jamais partage</p>
     </div></div>
   );
 };
@@ -1000,21 +1000,21 @@ const ProchainBeneficiaire = ({gagnant,dateEcheance,cycle,totalCycles,frequence}
   const quand=dateEcheance?new Date(dateEcheance+"T00:00:00").toLocaleDateString("fr-FR",{day:"2-digit",month:"long",year:"numeric"}):null;
   const periode=frequence==="Hebdo"?"cette semaine":frequence==="Bimensuel"?"cette quinzaine":"ce mois-ci";
   if(!gagnant)return(
-    <div style={{background:"#F9FAFB",border:"1px dashed #9CA3AF",borderRadius:14,padding:"12px 14px",marginBottom:12,display:"flex",alignItems:"center",gap:11}}>
+    <div style={{background:"rgba(255,255,255,0.03)",border:"1px dashed #6F7BA6",borderRadius:14,padding:"12px 14px",marginBottom:12,display:"flex",alignItems:"center",gap:11}}>
       <span style={{fontSize:26}} role="img" aria-hidden="true">🎲</span>
       <div style={{minWidth:0}}>
-        <p style={{margin:0,color:"#111827",fontWeight:800,fontSize:13}}>Prochain bénéficiaire : pas encore désigné</p>
-        <p style={{margin:"2px 0 0",color:"#6B7280",fontSize:11.5}}>Lance le tirage au sort de l onglet Tirage pour savoir qui reçoit la cagnotte {periode}.</p>
+        <p style={{margin:0,color:"#F5F2EA",fontWeight:800,fontSize:13}}>Prochain bénéficiaire : pas encore désigné</p>
+        <p style={{margin:"2px 0 0",color:"#97A3C9",fontSize:11.5}}>Lance le tirage au sort de l onglet Tirage pour savoir qui reçoit la cagnotte {periode}.</p>
       </div>
     </div>
   );
   return(
-    <div style={{background:"linear-gradient(135deg,#FBF5E6,#F7EEDA)",border:"1px solid #D0A23E",borderRadius:14,padding:"12px 14px",marginBottom:12,display:"flex",alignItems:"center",gap:11}}>
+    <div style={{background:"linear-gradient(135deg,rgba(232,176,75,0.10),rgba(232,176,75,0.14))",border:"1px solid #E8B04B",borderRadius:14,padding:"12px 14px",marginBottom:12,display:"flex",alignItems:"center",gap:11}}>
       <Avatar prenom={gagnant.prenom} photo={gagnant.photo} size={44}/>
       <div style={{minWidth:0,flex:1}}>
-        <p style={{margin:0,color:"#6E5214",fontSize:11,fontWeight:700,letterSpacing:.4}}>🎁 C EST AU TOUR DE</p>
-        <p style={{margin:"1px 0 0",color:"#111827",fontWeight:900,fontSize:17,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{gagnant.prenom}</p>
-        <p style={{margin:"2px 0 0",color:"#6B7280",fontSize:11.5}}>Reçoit la cagnotte du cycle {cycle}/{totalCycles}{quand?` — échéance le ${quand}`:""}</p>
+        <p style={{margin:0,color:"#FFE1A1",fontSize:11,fontWeight:700,letterSpacing:.4}}>🎁 C EST AU TOUR DE</p>
+        <p style={{margin:"1px 0 0",color:"#F5F2EA",fontWeight:900,fontSize:17,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{gagnant.prenom}</p>
+        <p style={{margin:"2px 0 0",color:"#97A3C9",fontSize:11.5}}>Reçoit la cagnotte du cycle {cycle}/{totalCycles}{quand?` — échéance le ${quand}`:""}</p>
       </div>
     </div>
   );
@@ -1024,55 +1024,55 @@ const ProchainBeneficiaire = ({gagnant,dateEcheance,cycle,totalCycles,frequence}
 // manque une preuve dessus (recu envoye / photo de l'argent), on remplace le formulaire
 // "+ Versement" par les deux actions ciblees -- sinon on le reaffiche normalement.
 const MembreRow = ({m,onToggle,onWA,montant,onVersement,onHistorique,onDelete,onPhoto,onToggleCollecteur,onEdit,tx,onAjouterPhotoPreuve,onEnvoyerRecu,preuveBusy}) => (
-  <div style={{background:"#FFFFFF",border:`1px solid ${m.paye?"#E5E7EB":"#C1440E44"}`,borderRadius:14,padding:"12px 14px",marginBottom:8}}>
+  <div style={{background:"rgba(255,255,255,0.055)",border:`1px solid ${m.paye?"rgba(255,255,255,0.09)":"#E0526A55"}`,borderRadius:14,padding:"12px 14px",marginBottom:8}}>
     <div style={{display:"flex",alignItems:"center",gap:10}}>
       <Avatar prenom={m.prenom} photo={m.photo} size={46}/>
       <div style={{flex:1,minWidth:0}}>
         <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:2,flexWrap:"wrap"}}>
-          <p style={{margin:0,color:"#111827",fontWeight:700,fontSize:14}}>{m.prenom}</p>
+          <p style={{margin:0,color:"#F5F2EA",fontWeight:700,fontSize:14}}>{m.prenom}</p>
           <Badge score={m.score}/>
-          {!m.paye&&<span style={{background:"#C1440E",color:"#fff",fontSize:9,fontWeight:700,padding:"1px 6px",borderRadius:99}}>NON PAYE</span>}
-          {m.montantPerso&&<span style={{background:"#E5E7EB",color:"#D0A23E",fontSize:9,fontWeight:700,padding:"1px 6px",borderRadius:99,border:"1px solid #D0A23E"}}>💰 {fmtFCFA(m.montantPerso)}/cycle</span>}
-          {m.roleCollecteur&&<span style={{background:"#E5E7EB",color:"#22C55E",fontSize:9,fontWeight:700,padding:"1px 6px",borderRadius:99,border:"1px solid #22C55E"}}>🤝 Collecteur</span>}
+          {!m.paye&&<span style={{background:"#E0526A",color:"#fff",fontSize:9,fontWeight:700,padding:"1px 6px",borderRadius:99}}>NON PAYE</span>}
+          {m.montantPerso&&<span style={{background:"rgba(255,255,255,0.09)",color:"#E8B04B",fontSize:9,fontWeight:700,padding:"1px 6px",borderRadius:99,border:"1px solid #E8B04B"}}>💰 {fmtFCFA(m.montantPerso)}/cycle</span>}
+          {m.roleCollecteur&&<span style={{background:"rgba(255,255,255,0.09)",color:"#34D399",fontSize:9,fontWeight:700,padding:"1px 6px",borderRadius:99,border:"1px solid #34D399"}}>🤝 Collecteur</span>}
         </div>
-        {m.quartier&&<p style={{margin:0,color:"#D0A23E",fontSize:11,fontWeight:600}}>📍 {m.quartier}</p>}
-        <p style={{margin:"1px 0 0",color:"#6B7280",fontSize:11}}>{m.tel}</p>
+        {m.quartier&&<p style={{margin:0,color:"#E8B04B",fontSize:11,fontWeight:600}}>📍 {m.quartier}</p>}
+        <p style={{margin:"1px 0 0",color:"#97A3C9",fontSize:11}}>{m.tel}</p>
       </div>
-      <div onClick={onToggle} style={{width:30,height:30,borderRadius:"50%",background:m.paye?"#22C55E":"#EF4444",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:14,color:"#fff",fontWeight:900}}>{m.paye?"v":"x"}</div>
+      <div onClick={onToggle} style={{width:30,height:30,borderRadius:"50%",background:m.paye?"#34D399":"#FB7185",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:14,color:"#fff",fontWeight:900}}>{m.paye?"v":"x"}</div>
     </div>
-    <div style={{margin:"8px 0",padding:"9px 10px",background:"#FFFFFF",borderRadius:8}}>
+    <div style={{margin:"8px 0",padding:"9px 10px",background:"rgba(255,255,255,0.055)",borderRadius:8}}>
       <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}>
-        <span style={{color:"#6B7280",fontSize:12}}>Cotisations payees</span>
-        <span style={{color:"#D0A23E",fontWeight:700,fontSize:12}}>{fmtFCFA((m.cyclesPaies||0)*(montant||0))}</span>
+        <span style={{color:"#97A3C9",fontSize:12}}>Cotisations payees</span>
+        <span style={{color:"#E8B04B",fontWeight:700,fontSize:12}}>{fmtFCFA((m.cyclesPaies||0)*(montant||0))}</span>
       </div>
       <div style={{display:"flex",justifyContent:"space-between"}}>
-        <span style={{color:"#6B7280",fontSize:12}}>Versements recus</span>
-        <span style={{color:"#22C55E",fontWeight:700,fontSize:12}}>{fmtFCFA(m.versements||0)}</span>
+        <span style={{color:"#97A3C9",fontSize:12}}>Versements recus</span>
+        <span style={{color:"#34D399",fontWeight:700,fontSize:12}}>{fmtFCFA(m.versements||0)}</span>
       </div>
       {m.dette>0&&<div style={{display:"flex",justifyContent:"space-between",marginTop:4}}>
-        <span style={{color:"#EF4444",fontSize:12}}>Dette (cycles precedents)</span>
-        <span style={{color:"#EF4444",fontWeight:700,fontSize:12}}>{fmtFCFA(m.dette)}</span>
+        <span style={{color:"#FB7185",fontSize:12}}>Dette (cycles precedents)</span>
+        <span style={{color:"#FB7185",fontWeight:700,fontSize:12}}>{fmtFCFA(m.dette)}</span>
       </div>}
     </div>
     {tx&&(!tx.recu_envoye||!tx.photo_url)&&(
-      <div style={{background:"#FBF5E6",border:"1px solid #D0A23E",borderRadius:10,padding:"9px 11px",marginBottom:8}}>
-        <p style={{margin:"0 0 7px",color:"#6E5214",fontSize:11,fontWeight:700}}>✅ Versement de {fmtFCFA(Number(tx.montant)||0)} confirmé — il ne manque que la preuve :</p>
+      <div style={{background:"rgba(232,176,75,0.10)",border:"1px solid #E8B04B",borderRadius:10,padding:"9px 11px",marginBottom:8}}>
+        <p style={{margin:"0 0 7px",color:"#FFE1A1",fontSize:11,fontWeight:700}}>✅ Versement de {fmtFCFA(Number(tx.montant)||0)} confirmé — il ne manque que la preuve :</p>
         <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
-          {!tx.recu_envoye&&<button onClick={()=>onEnvoyerRecu(m,tx)} disabled={preuveBusy===m.id} style={{flex:1,background:"#D0A23E",border:"none",borderRadius:9,padding:"8px",color:"#0D0D0D",fontSize:11,fontWeight:800,cursor:preuveBusy===m.id?"wait":"pointer",minWidth:120}}>{preuveBusy===m.id?"Envoi...":"🧾 Ajouter le reçu"}</button>}
-          {!tx.photo_url&&<label style={{flex:1,background:"#FFFFFF",border:"1px solid #D0A23E",borderRadius:9,padding:"8px",color:"#D0A23E",fontSize:11,fontWeight:800,cursor:"pointer",textAlign:"center",minWidth:120}}>📷 Ajouter la photo de l'argent<input type="file" accept="image/*" hidden disabled={preuveBusy===m.id} onChange={e=>onAjouterPhotoPreuve(m,tx,e)}/></label>}
+          {!tx.recu_envoye&&<button onClick={()=>onEnvoyerRecu(m,tx)} disabled={preuveBusy===m.id} style={{flex:1,background:"#E8B04B",border:"none",borderRadius:9,padding:"8px",color:"#1B1203",fontSize:11,fontWeight:800,cursor:preuveBusy===m.id?"wait":"pointer",minWidth:120}}>{preuveBusy===m.id?"Envoi...":"🧾 Ajouter le reçu"}</button>}
+          {!tx.photo_url&&<label style={{flex:1,background:"rgba(255,255,255,0.055)",border:"1px solid #E8B04B",borderRadius:9,padding:"8px",color:"#E8B04B",fontSize:11,fontWeight:800,cursor:"pointer",textAlign:"center",minWidth:120}}>📷 Ajouter la photo de l'argent<input type="file" accept="image/*" hidden disabled={preuveBusy===m.id} onChange={e=>onAjouterPhotoPreuve(m,tx,e)}/></label>}
         </div>
       </div>
     )}
     <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
       <button onClick={onWA} style={{flex:1,background:"#075E54",border:"none",borderRadius:10,padding:"8px",color:"#fff",fontSize:11,fontWeight:700,cursor:"pointer",minWidth:70}}>WhatsApp</button>
-      {!(tx&&(!tx.recu_envoye||!tx.photo_url))&&<button onClick={()=>onVersement(m)} style={{flex:1,background:"#F3F4F6",border:"1px solid #D0A23E",borderRadius:10,padding:"8px",color:"#D0A23E",fontSize:11,fontWeight:700,cursor:"pointer",minWidth:70}}>+ Versement</button>}
-      <button onClick={()=>onHistorique(m)} style={{flex:1,background:"#F3F4F6",border:"1px solid #6B7280",borderRadius:10,padding:"8px",color:"#111827",fontSize:11,fontWeight:700,cursor:"pointer",minWidth:70}}>Historique</button>
-      <label style={{background:"#F3F4F6",border:"1px solid #D1D5DB",borderRadius:10,padding:"8px 10px",color:"#D0A23E",fontSize:11,fontWeight:700,cursor:"pointer",textAlign:"center"}}>📷<input type="file" accept="image/*" hidden onChange={e=>onPhoto(m.id,e)}/></label>
-      {onEdit&&<button onClick={()=>onEdit(m)} style={{background:"#F3F4F6",border:"1px solid #6B7280",borderRadius:10,padding:"8px 10px",color:"#111827",fontSize:11,fontWeight:700,cursor:"pointer"}}>✏️ Modifier</button>}
-      <button onClick={()=>onDelete(m.id)} style={{background:"transparent",border:"1px solid #C1440E",borderRadius:10,padding:"8px 10px",color:"#EF4444",fontSize:11,fontWeight:700,cursor:"pointer"}}>Retirer</button>
+      {!(tx&&(!tx.recu_envoye||!tx.photo_url))&&<button onClick={()=>onVersement(m)} style={{flex:1,background:"rgba(255,255,255,0.045)",border:"1px solid #E8B04B",borderRadius:10,padding:"8px",color:"#E8B04B",fontSize:11,fontWeight:700,cursor:"pointer",minWidth:70}}>+ Versement</button>}
+      <button onClick={()=>onHistorique(m)} style={{flex:1,background:"rgba(255,255,255,0.045)",border:"1px solid #97A3C9",borderRadius:10,padding:"8px",color:"#F5F2EA",fontSize:11,fontWeight:700,cursor:"pointer",minWidth:70}}>Historique</button>
+      <label style={{background:"rgba(255,255,255,0.045)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:10,padding:"8px 10px",color:"#E8B04B",fontSize:11,fontWeight:700,cursor:"pointer",textAlign:"center"}}>📷<input type="file" accept="image/*" hidden onChange={e=>onPhoto(m.id,e)}/></label>
+      {onEdit&&<button onClick={()=>onEdit(m)} style={{background:"rgba(255,255,255,0.045)",border:"1px solid #97A3C9",borderRadius:10,padding:"8px 10px",color:"#F5F2EA",fontSize:11,fontWeight:700,cursor:"pointer"}}>✏️ Modifier</button>}
+      <button onClick={()=>onDelete(m.id)} style={{background:"transparent",border:"1px solid #E0526A",borderRadius:10,padding:"8px 10px",color:"#FB7185",fontSize:11,fontWeight:700,cursor:"pointer"}}>Retirer</button>
     </div>
-    {!m.paye&&<button onClick={onToggle} style={{width:"100%",background:"#E5E7EB",border:"1px solid #22C55E",borderRadius:10,padding:"8px",color:"#22C55E",fontSize:12,fontWeight:700,cursor:"pointer",marginTop:6}}>Marquer paye ce cycle</button>}
-    {m.userId&&onToggleCollecteur&&<button onClick={()=>onToggleCollecteur(m)} style={{width:"100%",background:"transparent",border:"1px solid "+(m.roleCollecteur?"#EF4444":"#D1D5DB"),borderRadius:10,padding:"7px",color:m.roleCollecteur?"#EF4444":"#6B7280",fontSize:11,fontWeight:700,cursor:"pointer",marginTop:6}}>{m.roleCollecteur?"Retirer le role collecteur":"🤝 Nommer collecteur (aide pour les versements)"}</button>}
+    {!m.paye&&<button onClick={onToggle} style={{width:"100%",background:"rgba(255,255,255,0.09)",border:"1px solid #34D399",borderRadius:10,padding:"8px",color:"#34D399",fontSize:12,fontWeight:700,cursor:"pointer",marginTop:6}}>Marquer paye ce cycle</button>}
+    {m.userId&&onToggleCollecteur&&<button onClick={()=>onToggleCollecteur(m)} style={{width:"100%",background:"transparent",border:"1px solid "+(m.roleCollecteur?"#FB7185":"rgba(255,255,255,0.14)"),borderRadius:10,padding:"7px",color:m.roleCollecteur?"#FB7185":"#97A3C9",fontSize:11,fontWeight:700,cursor:"pointer",marginTop:6}}>{m.roleCollecteur?"Retirer le role collecteur":"🤝 Nommer collecteur (aide pour les versements)"}</button>}
   </div>
 );
 
@@ -1080,34 +1080,34 @@ const MembreRow = ({m,onToggle,onWA,montant,onVersement,onHistorique,onDelete,on
 // pastille de statut, bloc de stats), mais en LECTURE SEULE : aucun bouton d'action,
 // car un membre participant voit tout mais ne peut rien modifier.
 const MembreRowLecture = ({m,montant}) => (
-  <div style={{background:"#FFFFFF",border:`1px solid ${m.paye?"#E5E7EB":"#C1440E44"}`,borderRadius:14,padding:"12px 14px",marginBottom:8}}>
+  <div style={{background:"rgba(255,255,255,0.055)",border:`1px solid ${m.paye?"rgba(255,255,255,0.09)":"#E0526A55"}`,borderRadius:14,padding:"12px 14px",marginBottom:8}}>
     <div style={{display:"flex",alignItems:"center",gap:10}}>
       <Avatar prenom={m.prenom} photo={m.photo} size={46}/>
       <div style={{flex:1,minWidth:0}}>
         <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:2,flexWrap:"wrap"}}>
-          <p style={{margin:0,color:"#111827",fontWeight:700,fontSize:14}}>{m.prenom}</p>
+          <p style={{margin:0,color:"#F5F2EA",fontWeight:700,fontSize:14}}>{m.prenom}</p>
           <Badge score={m.score}/>
-          {!m.paye&&<span style={{background:"#C1440E",color:"#fff",fontSize:9,fontWeight:700,padding:"1px 6px",borderRadius:99}}>NON PAYE</span>}
-          {m.montantPerso&&<span style={{background:"#E5E7EB",color:"#D0A23E",fontSize:9,fontWeight:700,padding:"1px 6px",borderRadius:99,border:"1px solid #D0A23E"}}>💰 {fmtFCFA(m.montantPerso)}/cycle</span>}
-          {m.roleCollecteur&&<span style={{background:"#E5E7EB",color:"#22C55E",fontSize:9,fontWeight:700,padding:"1px 6px",borderRadius:99,border:"1px solid #22C55E"}}>🤝 Collecteur</span>}
+          {!m.paye&&<span style={{background:"#E0526A",color:"#fff",fontSize:9,fontWeight:700,padding:"1px 6px",borderRadius:99}}>NON PAYE</span>}
+          {m.montantPerso&&<span style={{background:"rgba(255,255,255,0.09)",color:"#E8B04B",fontSize:9,fontWeight:700,padding:"1px 6px",borderRadius:99,border:"1px solid #E8B04B"}}>💰 {fmtFCFA(m.montantPerso)}/cycle</span>}
+          {m.roleCollecteur&&<span style={{background:"rgba(255,255,255,0.09)",color:"#34D399",fontSize:9,fontWeight:700,padding:"1px 6px",borderRadius:99,border:"1px solid #34D399"}}>🤝 Collecteur</span>}
         </div>
-        {m.quartier&&<p style={{margin:0,color:"#D0A23E",fontSize:11,fontWeight:600}}>📍 {m.quartier}</p>}
-        <p style={{margin:"1px 0 0",color:"#6B7280",fontSize:11}}>{m.tel}</p>
+        {m.quartier&&<p style={{margin:0,color:"#E8B04B",fontSize:11,fontWeight:600}}>📍 {m.quartier}</p>}
+        <p style={{margin:"1px 0 0",color:"#97A3C9",fontSize:11}}>{m.tel}</p>
       </div>
-      <div style={{width:30,height:30,borderRadius:"50%",background:m.paye?"#22C55E":"#EF4444",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:14,color:"#fff",fontWeight:900}}>{m.paye?"v":"x"}</div>
+      <div style={{width:30,height:30,borderRadius:"50%",background:m.paye?"#34D399":"#FB7185",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,fontSize:14,color:"#fff",fontWeight:900}}>{m.paye?"v":"x"}</div>
     </div>
-    <div style={{margin:"8px 0 0",padding:"9px 10px",background:"#FFFFFF",borderRadius:8}}>
+    <div style={{margin:"8px 0 0",padding:"9px 10px",background:"rgba(255,255,255,0.055)",borderRadius:8}}>
       <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}>
-        <span style={{color:"#6B7280",fontSize:12}}>Cotisations payees</span>
-        <span style={{color:"#D0A23E",fontWeight:700,fontSize:12}}>{fmtFCFA((m.cyclesPaies||0)*(montant||0))}</span>
+        <span style={{color:"#97A3C9",fontSize:12}}>Cotisations payees</span>
+        <span style={{color:"#E8B04B",fontWeight:700,fontSize:12}}>{fmtFCFA((m.cyclesPaies||0)*(montant||0))}</span>
       </div>
       <div style={{display:"flex",justifyContent:"space-between"}}>
-        <span style={{color:"#6B7280",fontSize:12}}>Versements recus</span>
-        <span style={{color:"#22C55E",fontWeight:700,fontSize:12}}>{fmtFCFA(m.versements||0)}</span>
+        <span style={{color:"#97A3C9",fontSize:12}}>Versements recus</span>
+        <span style={{color:"#34D399",fontWeight:700,fontSize:12}}>{fmtFCFA(m.versements||0)}</span>
       </div>
       {m.dette>0&&<div style={{display:"flex",justifyContent:"space-between",marginTop:4}}>
-        <span style={{color:"#EF4444",fontSize:12}}>Dette (cycles precedents)</span>
-        <span style={{color:"#EF4444",fontWeight:700,fontSize:12}}>{fmtFCFA(m.dette)}</span>
+        <span style={{color:"#FB7185",fontSize:12}}>Dette (cycles precedents)</span>
+        <span style={{color:"#FB7185",fontWeight:700,fontSize:12}}>{fmtFCFA(m.dette)}</span>
       </div>}
     </div>
   </div>
@@ -1133,7 +1133,7 @@ const Carousel = ({slides}) => {
         ))}
       </div>
       <div style={{position:"absolute",bottom:9,left:0,right:0,display:"flex",justifyContent:"center",gap:5}}>
-        {slides.map((_,i)=><div key={i} style={{width:i===idx?16:6,height:6,borderRadius:99,background:i===idx?"#D0A23E":"rgba(255,255,255,0.3)",transition:"width .3s"}}/>)}
+        {slides.map((_,i)=><div key={i} style={{width:i===idx?16:6,height:6,borderRadius:99,background:i===idx?"#E8B04B":"rgba(255,255,255,0.3)",transition:"width .3s"}}/>)}
       </div>
     </div>
   );
@@ -1145,55 +1145,55 @@ const HomeScreen = ({user,groupes,onSelectGroupe,onCreer,onProfil,participations
   const nbRet=groupes.reduce((a,g)=>a+g.membres.filter(m=>!m.paye).length,0);
   return(
     <div style={{paddingBottom:90}}>
-      <div style={{background:"linear-gradient(135deg,#FFFFFF,#E5E7EB)",padding:"48px 20px 36px",display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
+      <div style={{background:"linear-gradient(135deg,rgba(255,255,255,0.055),rgba(255,255,255,0.09))",padding:"48px 20px 36px",display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
         <div>
-          <p style={{color:"#D0A23E",fontSize:13,margin:0,fontWeight:600}}>{t("bienvenue")}</p>
-          <h2 style={{color:"#111827",margin:"2px 0 0",fontSize:24,fontWeight:900}}>{user.prenom}</h2>
+          <p style={{color:"#E8B04B",fontSize:13,margin:0,fontWeight:600}}>{t("bienvenue")}</p>
+          <h2 style={{color:"#F5F2EA",margin:"2px 0 0",fontSize:24,fontWeight:900}}>{user.prenom}</h2>
           {/* premiumActif() et non user.plan : un abonnement echu ne doit plus afficher
               "PREMIUM" alors que les fonctions illimitees sont deja reverrouillees. */}
-          <span style={{background:premiumActif(user)?"#D0A23E":"#E5E7EB",color:premiumActif(user)?"#0D0D0D":"#D0A23E",fontSize:10,fontWeight:700,padding:"2px 8px",borderRadius:99,marginTop:4,display:"inline-block"}}>
+          <span style={{background:premiumActif(user)?"#E8B04B":"rgba(255,255,255,0.09)",color:premiumActif(user)?"#1B1203":"#E8B04B",fontSize:10,fontWeight:700,padding:"2px 8px",borderRadius:99,marginTop:4,display:"inline-block"}}>
             {premiumActif(user)?"PREMIUM":`GRATUIT - ${groupes.length}/1 tontine`}
           </span>
         </div>
         <div onClick={onProfil} style={{cursor:"pointer"}}><Avatar prenom={user.prenom} photo={user.photo} size={50} gold/></div>
       </div>
       <div style={{display:"flex",gap:10,padding:"0 16px",marginTop:-22}}>
-        {[["💰",t("mesEpargnes"),totalEp,"linear-gradient(135deg,#E5E7EB,#D1D5DB)"],["🏦",t("caisseSociale"),totalCS,"linear-gradient(135deg,#8B2500,#C1440E)"]].map(([ic,lb,val,bg])=>(
+        {[["💰",t("mesEpargnes"),totalEp,"linear-gradient(135deg,rgba(255,255,255,0.09),rgba(255,255,255,0.14))"],["🏦",t("caisseSociale"),totalCS,"linear-gradient(135deg,#9F1D3F,#E0526A)"]].map(([ic,lb,val,bg])=>(
           <div key={lb} style={{flex:1,background:bg,borderRadius:16,padding:"14px 12px"}}>
             <span style={{fontSize:20}}>{ic}</span>
             <p style={{color:"rgba(255,255,255,0.6)",fontSize:11,margin:"6px 0 2px",fontWeight:600}}>{lb}</p>
-            <p style={{color:"#111827",fontSize:15,fontWeight:900,margin:0}}>{fmtFCFA(val)}</p>
+            <p style={{color:"#F5F2EA",fontSize:15,fontWeight:900,margin:0}}>{fmtFCFA(val)}</p>
           </div>
         ))}
       </div>
-      {nbRet>0&&<div style={{margin:"14px 16px 0",background:"#FEF2F2",border:"1px solid #C1440E",borderRadius:14,padding:"12px 16px",display:"flex",gap:10,alignItems:"center"}}><span style={{fontSize:20}}>⚠️</span><div><p style={{margin:0,color:"#EF4444",fontWeight:700,fontSize:13}}>{nbRet} {t("membresEnRetard")}</p><p style={{margin:0,color:"#6B7280",fontSize:12}}>{t("cliquezTontine")}</p></div></div>}
+      {nbRet>0&&<div style={{margin:"14px 16px 0",background:"rgba(251,113,133,0.10)",border:"1px solid #E0526A",borderRadius:14,padding:"12px 16px",display:"flex",gap:10,alignItems:"center"}}><span style={{fontSize:20}}>⚠️</span><div><p style={{margin:0,color:"#FB7185",fontWeight:700,fontSize:13}}>{nbRet} {t("membresEnRetard")}</p><p style={{margin:0,color:"#97A3C9",fontSize:12}}>{t("cliquezTontine")}</p></div></div>}
       <Carousel slides={[
-        {titre:"Invite tes proches",texte:"Parraine tes amis et ta famille sur THT",emoji:"🤝",bg:"linear-gradient(135deg,#5C3A00,#8B5A00)",onClick:onProfil},
-        {titre:"Cagnottes solidaires",texte:"Mariage, santé, études... crée un lien de contribution",emoji:"🎁",bg:"linear-gradient(135deg,#5C3A00,#8B5A00)",onClick:onOpenCagnottes},
-        {titre:"HABY, ton assistante",texte:"Une question sur tes finances ? Demande-lui",emoji:"🤖",bg:"linear-gradient(135deg,#5C3A00,#8B5A00)",onClick:onOpenHaby},
-        {titre:"Versements securises",texte:"Photo de preuve a chaque cotisation enregistree",emoji:"📸",bg:"linear-gradient(135deg,#5C3A00,#8B5A00)"},
+        {titre:"Invite tes proches",texte:"Parraine tes amis et ta famille sur THT",emoji:"🤝",bg:"linear-gradient(135deg,#3A2391,#1F3FD1)",onClick:onProfil},
+        {titre:"Cagnottes solidaires",texte:"Mariage, santé, études... crée un lien de contribution",emoji:"🎁",bg:"linear-gradient(135deg,#3A2391,#1F3FD1)",onClick:onOpenCagnottes},
+        {titre:"HABY, ton assistante",texte:"Une question sur tes finances ? Demande-lui",emoji:"🤖",bg:"linear-gradient(135deg,#3A2391,#1F3FD1)",onClick:onOpenHaby},
+        {titre:"Versements securises",texte:"Photo de preuve a chaque cotisation enregistree",emoji:"📸",bg:"linear-gradient(135deg,#3A2391,#1F3FD1)"},
       ]}/>
       <div style={{padding:"20px 16px 0"}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
-          <h3 style={{color:"#111827",fontSize:16,fontWeight:800,margin:0}}>{t("mesTontines")}</h3>
-          <button onClick={onCreer} style={{background:"#E5E7EB",border:"1px solid #D1D5DB",borderRadius:10,padding:"8px 16px",color:"#D0A23E",fontWeight:700,fontSize:13,cursor:"pointer"}}>+ {t("creer")}</button>
+          <h3 style={{color:"#F5F2EA",fontSize:16,fontWeight:800,margin:0}}>{t("mesTontines")}</h3>
+          <button onClick={onCreer} style={{background:"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:10,padding:"8px 16px",color:"#E8B04B",fontWeight:700,fontSize:13,cursor:"pointer"}}>+ {t("creer")}</button>
         </div>
-        {groupes.length===0&&<div style={{textAlign:"center",padding:"40px 20px",color:"#9CA3AF"}}><p style={{fontSize:40}}>🏺</p><p style={{fontWeight:700,color:"#111827"}}>Aucune tontine</p><p style={{fontSize:13}}>Cree ta premiere tontine</p></div>}
+        {groupes.length===0&&<div style={{textAlign:"center",padding:"40px 20px",color:"#6F7BA6"}}><p style={{fontSize:40}}>🏺</p><p style={{fontWeight:700,color:"#F5F2EA"}}>Aucune tontine</p><p style={{fontSize:13}}>Cree ta premiere tontine</p></div>}
         <div className="tht-grid">
         {groupes.map(g=>{
           const pct=Math.round((g.cycle/g.totalCycles)*100);
           const ret=g.membres.filter(m=>!m.paye).length;
           return(
-            <div key={g.id} style={{background:"#FFFFFF",borderRadius:16,padding:16,marginBottom:10,border:nonLus[g.id]>0?"1px solid #EF4444":"1px solid #E5E7EB",cursor:"pointer",position:"relative"}} onClick={()=>onSelectGroupe(g)}>
+            <div key={g.id} style={{background:"rgba(255,255,255,0.055)",borderRadius:16,padding:16,marginBottom:10,border:nonLus[g.id]>0?"1px solid #FB7185":"1px solid rgba(255,255,255,0.09)",cursor:"pointer",position:"relative"}} onClick={()=>onSelectGroupe(g)}>
               <Pastille n={nonLus[g.id]}/>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
-                <div style={{display:"flex",alignItems:"center",gap:10}}><div style={{width:12,height:12,borderRadius:"50%",background:g.couleur,flexShrink:0}}/><div><p style={{margin:0,color:"#111827",fontWeight:800,fontSize:15}}>{g.nom}</p><p style={{margin:"2px 0 0",color:"#6B7280",fontSize:12}}>{g.membres.length} membres - {g.frequence}</p></div></div>
-                <div style={{textAlign:"right"}}><p style={{margin:0,color:"#D0A23E",fontWeight:800,fontSize:15}}>{fmtFCFA(g.montant)}</p><p style={{margin:0,color:"#6B7280",fontSize:11}}>par cotisation</p></div>
+                <div style={{display:"flex",alignItems:"center",gap:10}}><div style={{width:12,height:12,borderRadius:"50%",background:g.couleur,flexShrink:0}}/><div><p style={{margin:0,color:"#F5F2EA",fontWeight:800,fontSize:15}}>{g.nom}</p><p style={{margin:"2px 0 0",color:"#97A3C9",fontSize:12}}>{g.membres.length} membres - {g.frequence}</p></div></div>
+                <div style={{textAlign:"right"}}><p style={{margin:0,color:"#E8B04B",fontWeight:800,fontSize:15}}>{fmtFCFA(g.montant)}</p><p style={{margin:0,color:"#97A3C9",fontSize:11}}>par cotisation</p></div>
               </div>
               <Bar pct={pct} c={g.couleur}/>
               <div style={{display:"flex",justifyContent:"space-between",marginTop:8}}>
-                <p style={{margin:0,color:"#6B7280",fontSize:11}}>Cycle {g.cycle}/{g.totalCycles} - Tour: <strong style={{color:"#111827"}}>{g.prochainTour}</strong></p>
-                {ret>0&&<span style={{background:"#C1440E",color:"#fff",fontSize:10,fontWeight:700,padding:"2px 7px",borderRadius:99}}>{ret} retard(s)</span>}
+                <p style={{margin:0,color:"#97A3C9",fontSize:11}}>Cycle {g.cycle}/{g.totalCycles} - Tour: <strong style={{color:"#F5F2EA"}}>{g.prochainTour}</strong></p>
+                {ret>0&&<span style={{background:"#E0526A",color:"#fff",fontSize:10,fontWeight:700,padding:"2px 7px",borderRadius:99}}>{ret} retard(s)</span>}
               </div>
             </div>
           );
@@ -1202,14 +1202,14 @@ const HomeScreen = ({user,groupes,onSelectGroupe,onCreer,onProfil,participations
       </div>
 
       {participations&&participations.length>0&&<div style={{padding:"22px 16px 0"}}>
-        <h3 style={{color:"#111827",fontSize:16,fontWeight:800,margin:"0 0 14px"}}>Tontines ou je participe</h3>
+        <h3 style={{color:"#F5F2EA",fontSize:16,fontWeight:800,margin:"0 0 14px"}}>Tontines ou je participe</h3>
         <div className="tht-grid">
         {participations.map(g=>(
-          <div key={g.id} onClick={()=>onSelectParticipation(g)} style={{background:"#FFFFFF",borderRadius:16,padding:16,marginBottom:10,border:nonLus[g.id]>0?"1px solid #EF4444":"1px solid #D1D5DB",cursor:"pointer",position:"relative"}}>
+          <div key={g.id} onClick={()=>onSelectParticipation(g)} style={{background:"rgba(255,255,255,0.055)",borderRadius:16,padding:16,marginBottom:10,border:nonLus[g.id]>0?"1px solid #FB7185":"1px solid rgba(255,255,255,0.14)",cursor:"pointer",position:"relative"}}>
             <Pastille n={nonLus[g.id]}/>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-              <div style={{display:"flex",alignItems:"center",gap:10}}><div style={{width:12,height:12,borderRadius:"50%",background:g.couleur,flexShrink:0}}/><div><p style={{margin:0,color:"#111827",fontWeight:800,fontSize:15}}>{g.nom}</p><p style={{margin:"2px 0 0",color:"#6B7280",fontSize:12}}>{g.membres.length} membres - {g.frequence}</p></div></div>
-              <span style={{background:g.moi?.paye?"#22C55E":"#C1440E",color:"#fff",fontSize:10,fontWeight:700,padding:"3px 9px",borderRadius:99}}>{g.moi?.paye?"A jour":"En retard"}</span>
+              <div style={{display:"flex",alignItems:"center",gap:10}}><div style={{width:12,height:12,borderRadius:"50%",background:g.couleur,flexShrink:0}}/><div><p style={{margin:0,color:"#F5F2EA",fontWeight:800,fontSize:15}}>{g.nom}</p><p style={{margin:"2px 0 0",color:"#97A3C9",fontSize:12}}>{g.membres.length} membres - {g.frequence}</p></div></div>
+              <span style={{background:g.moi?.paye?"#34D399":"#E0526A",color:"#fff",fontSize:10,fontWeight:700,padding:"3px 9px",borderRadius:99}}>{g.moi?.paye?"A jour":"En retard"}</span>
             </div>
           </div>
         ))}
@@ -1223,20 +1223,20 @@ const CagnottesScreen = ({cagnottes,onCreerCagnotte,onSelectCagnotte}) => {
   return(
     <div style={{paddingBottom:90}}>
       <div style={{padding:"44px 16px 0",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-        <h2 style={{color:"#111827",fontSize:22,fontWeight:900,margin:0}}>{t("mesCagnottes")}</h2>
-        <button onClick={onCreerCagnotte} style={{background:"#E5E7EB",border:"1px solid #D1D5DB",borderRadius:10,padding:"8px 16px",color:"#D0A23E",fontWeight:700,fontSize:13,cursor:"pointer"}}>+ Creer</button>
+        <h2 style={{color:"#F5F2EA",fontSize:22,fontWeight:900,margin:0}}>{t("mesCagnottes")}</h2>
+        <button onClick={onCreerCagnotte} style={{background:"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:10,padding:"8px 16px",color:"#E8B04B",fontWeight:700,fontSize:13,cursor:"pointer"}}>+ Creer</button>
       </div>
-      <p style={{margin:"10px 16px 0",color:"#6B7280",fontSize:12,lineHeight:1.6}}>Mariage, sante, funerailles, etudes... cree un lien de contribution public, sans compte requis pour les donateurs.</p>
+      <p style={{margin:"10px 16px 0",color:"#97A3C9",fontSize:12,lineHeight:1.6}}>Mariage, sante, funerailles, etudes... cree un lien de contribution public, sans compte requis pour les donateurs.</p>
       <div style={{padding:"18px 16px 0"}}>
-        {(!cagnottes||cagnottes.length===0)?<div style={{textAlign:"center",padding:"40px 20px",color:"#9CA3AF"}}><p style={{fontSize:40}}>🎁</p><p style={{fontWeight:700,color:"#111827"}}>Aucune cagnotte</p><p style={{fontSize:13}}>Cree ta premiere cagnotte solidaire</p></div>
+        {(!cagnottes||cagnottes.length===0)?<div style={{textAlign:"center",padding:"40px 20px",color:"#6F7BA6"}}><p style={{fontSize:40}}>🎁</p><p style={{fontWeight:700,color:"#F5F2EA"}}>Aucune cagnotte</p><p style={{fontSize:13}}>Cree ta premiere cagnotte solidaire</p></div>
         :cagnottes.map(c=>{const pct=Math.min(100,Math.round((c.montant_collecte/c.objectif)*100));return(
-          <div key={c.id} onClick={()=>onSelectCagnotte(c)} style={{background:"#FFFFFF",borderRadius:16,padding:16,marginBottom:10,border:"1px solid #E5E7EB",cursor:"pointer"}}>
+          <div key={c.id} onClick={()=>onSelectCagnotte(c)} style={{background:"rgba(255,255,255,0.055)",borderRadius:16,padding:16,marginBottom:10,border:"1px solid rgba(255,255,255,0.09)",cursor:"pointer"}}>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-              <p style={{margin:0,color:"#111827",fontWeight:800,fontSize:15}}>{c.titre}</p>
-              <span style={{background:c.statut==="cloturee"?"#E5E7EB":"#D0A23E",color:c.statut==="cloturee"?"#6B7280":"#0D0D0D",fontSize:10,fontWeight:700,padding:"3px 9px",borderRadius:99}}>{c.statut==="cloturee"?"Cloturee":"Ouverte"}</span>
+              <p style={{margin:0,color:"#F5F2EA",fontWeight:800,fontSize:15}}>{c.titre}</p>
+              <span style={{background:c.statut==="cloturee"?"rgba(255,255,255,0.09)":"#E8B04B",color:c.statut==="cloturee"?"#97A3C9":"#1B1203",fontSize:10,fontWeight:700,padding:"3px 9px",borderRadius:99}}>{c.statut==="cloturee"?"Cloturee":"Ouverte"}</span>
             </div>
-            <Bar pct={pct} c="#D0A23E"/>
-            <p style={{margin:"6px 0 0",color:"#6B7280",fontSize:12}}>{fmtFCFA(c.montant_collecte)} / {fmtFCFA(c.objectif)} ({pct}%)</p>
+            <Bar pct={pct} c="#E8B04B"/>
+            <p style={{margin:"6px 0 0",color:"#97A3C9",fontSize:12}}>{fmtFCFA(c.montant_collecte)} / {fmtFCFA(c.objectif)} ({pct}%)</p>
           </div>
         );})}
       </div>
@@ -1525,28 +1525,28 @@ const ParticipationScreen = ({groupe,onBack,user,onToast,onVoted,deepLink}) => {
   };
   return(
     <div style={{paddingBottom:90}}>
-      <div style={{background:"#FFFFFF",padding:"44px 16px 16px",display:"flex",alignItems:"center",gap:12,borderBottom:"1px solid #E5E7EB"}}>
-        <button onClick={onBack} style={{background:"none",border:"none",color:"#111827",fontSize:24,cursor:"pointer",padding:0}}>←</button>
-        <div style={{flex:1}}><h2 style={{color:"#111827",margin:0,fontSize:17,fontWeight:800}}>{groupe.nom}</h2><p style={{color:"#D0A23E",margin:0,fontSize:12}}>{groupe.frequence} - {fmtFCFA(groupe.montant)}/cotisation</p></div>
-        <span style={{background:"#E5E7EB",color:"#6B7280",fontSize:10,fontWeight:700,padding:"4px 10px",borderRadius:99}}>{t("lectureSeule")}</span>
+      <div style={{background:"rgba(255,255,255,0.055)",padding:"44px 16px 16px",display:"flex",alignItems:"center",gap:12,borderBottom:"1px solid rgba(255,255,255,0.09)"}}>
+        <button onClick={onBack} style={{background:"none",border:"none",color:"#F5F2EA",fontSize:24,cursor:"pointer",padding:0}}>←</button>
+        <div style={{flex:1}}><h2 style={{color:"#F5F2EA",margin:0,fontSize:17,fontWeight:800}}>{groupe.nom}</h2><p style={{color:"#E8B04B",margin:0,fontSize:12}}>{groupe.frequence} - {fmtFCFA(groupe.montant)}/cotisation</p></div>
+        <span style={{background:"rgba(255,255,255,0.09)",color:"#97A3C9",fontSize:10,fontWeight:700,padding:"4px 10px",borderRadius:99}}>{t("lectureSeule")}</span>
       </div>
-      <div style={{padding:"12px 16px 0"}}><Bar pct={pct} c={groupe.couleur}/><p style={{color:"#6B7280",fontSize:12,margin:"6px 0 0"}}>Cycle {groupe.cycle}/{groupe.totalCycles}</p></div>
+      <div style={{padding:"12px 16px 0"}}><Bar pct={pct} c={groupe.couleur}/><p style={{color:"#97A3C9",fontSize:12,margin:"6px 0 0"}}>Cycle {groupe.cycle}/{groupe.totalCycles}</p></div>
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8,padding:"14px 16px 0"}}>
         {[["Collecte",fmtFCFA(collecte),"💰"],["Cotisations",fmtFCFA(cagnotteTour),"🏆"],["Ponctualite",`${taux}%`,"📊"],["Caisse soc.",fmtFCFA(groupe.caisseSociale),"🏦"],["A jour",`${aJourP.length}/${groupe.membres.length}`,"✅"],["En retard",`${enRetP.length}`,"⚠️"]].map(([l,v,i])=>(
-          <div key={l} style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:12,padding:"10px 8px",textAlign:"center"}}><p style={{margin:0,fontSize:16}}>{i}</p><p style={{margin:"4px 0 0",color:"#111827",fontWeight:800,fontSize:12}}>{v}</p><p style={{margin:0,color:"#6B7280",fontSize:10}}>{l}</p></div>
+          <div key={l} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,padding:"10px 8px",textAlign:"center"}}><p style={{margin:0,fontSize:16}}>{i}</p><p style={{margin:"4px 0 0",color:"#F5F2EA",fontWeight:800,fontSize:12}}>{v}</p><p style={{margin:0,color:"#97A3C9",fontSize:10}}>{l}</p></div>
         ))}
       </div>
       <div style={{display:"flex",gap:6,padding:"14px 16px 0"}}>
-        {PRIMARY_TABS.map(([id,lbl])=><button key={id} onClick={()=>{setTab(id);setShowMoreTabs(false);}} style={{flex:1,padding:"9px 6px",borderRadius:10,border:"1px solid",cursor:"pointer",fontSize:12,fontWeight:700,background:tab===id?"#D0A23E":"#FFFFFF",color:tab===id?"#0D0D0D":"#6B7280",borderColor:tab===id?"#D0A23E":"#E5E7EB",position:"relative"}}>{lbl}{tab!==id&&<Pastille n={alertes[id]?.n} point={alertes[id]?.point}/>}</button>)}
-        <button onClick={()=>setShowMoreTabs(v=>!v)} style={{flex:1,padding:"9px 6px",borderRadius:10,border:"1px solid",cursor:"pointer",fontSize:12,fontWeight:700,background:inSecondary||showMoreTabs?"#D0A23E":"#FFFFFF",color:inSecondary||showMoreTabs?"#0D0D0D":"#6B7280",borderColor:inSecondary||showMoreTabs?"#D0A23E":"#E5E7EB",position:"relative"}}>{inSecondary?SECONDARY_TABS.find(([id])=>id===tab)[1]:"⋯ Plus"}{!showMoreTabs&&<Pastille n={SECONDARY_TABS.reduce((t2,[id])=>t2+(id===tab?0:(alertes[id]?.n||0)),0)} point={SECONDARY_TABS.some(([id])=>id!==tab&&alertes[id]?.point)&&!SECONDARY_TABS.some(([id])=>id!==tab&&alertes[id]?.n>0)}/>}</button>
+        {PRIMARY_TABS.map(([id,lbl])=><button key={id} onClick={()=>{setTab(id);setShowMoreTabs(false);}} style={{flex:1,padding:"9px 6px",borderRadius:10,border:"1px solid",cursor:"pointer",fontSize:12,fontWeight:700,background:tab===id?"#E8B04B":"rgba(255,255,255,0.055)",color:tab===id?"#1B1203":"#97A3C9",borderColor:tab===id?"#E8B04B":"rgba(255,255,255,0.09)",position:"relative"}}>{lbl}{tab!==id&&<Pastille n={alertes[id]?.n} point={alertes[id]?.point}/>}</button>)}
+        <button onClick={()=>setShowMoreTabs(v=>!v)} style={{flex:1,padding:"9px 6px",borderRadius:10,border:"1px solid",cursor:"pointer",fontSize:12,fontWeight:700,background:inSecondary||showMoreTabs?"#E8B04B":"rgba(255,255,255,0.055)",color:inSecondary||showMoreTabs?"#1B1203":"#97A3C9",borderColor:inSecondary||showMoreTabs?"#E8B04B":"rgba(255,255,255,0.09)",position:"relative"}}>{inSecondary?SECONDARY_TABS.find(([id])=>id===tab)[1]:"⋯ Plus"}{!showMoreTabs&&<Pastille n={SECONDARY_TABS.reduce((t2,[id])=>t2+(id===tab?0:(alertes[id]?.n||0)),0)} point={SECONDARY_TABS.some(([id])=>id!==tab&&alertes[id]?.point)&&!SECONDARY_TABS.some(([id])=>id!==tab&&alertes[id]?.n>0)}/>}</button>
       </div>
       {(showMoreTabs||inSecondary)&&<div style={{padding:"14px 16px 0"}}>
-        <p style={{color:"#6B7280",fontSize:11,fontWeight:700,letterSpacing:.5,margin:"0 0 10px"}}>SECTIONS</p>
+        <p style={{color:"#97A3C9",fontSize:11,fontWeight:700,letterSpacing:.5,margin:"0 0 10px"}}>SECTIONS</p>
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr 1fr",gap:10}}>
           {SECONDARY_TABS.map(([id,lbl,icon])=>(
             <button key={id} onClick={()=>setTab(id)} style={{background:"none",border:"none",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:6,padding:0}}>
-              <div style={{width:56,height:56,borderRadius:"50%",background:tab===id?"#D0A23E":"#FFFFFF",border:tab===id?"none":"1px solid #E5E7EB",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,position:"relative"}}>{icon}{tab!==id&&<Pastille n={alertes[id]?.n} point={alertes[id]?.point}/>}</div>
-              <span style={{color:tab===id?"#D0A23E":"#6B7280",fontSize:11,fontWeight:600,textAlign:"center",lineHeight:1.2}}>{lbl}</span>
+              <div style={{width:56,height:56,borderRadius:"50%",background:tab===id?"#E8B04B":"rgba(255,255,255,0.055)",border:tab===id?"none":"1px solid rgba(255,255,255,0.09)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,position:"relative"}}>{icon}{tab!==id&&<Pastille n={alertes[id]?.n} point={alertes[id]?.point}/>}</div>
+              <span style={{color:tab===id?"#E8B04B":"#97A3C9",fontSize:11,fontWeight:600,textAlign:"center",lineHeight:1.2}}>{lbl}</span>
             </button>
           ))}
         </div>
@@ -1556,48 +1556,48 @@ const ParticipationScreen = ({groupe,onBack,user,onToast,onVoted,deepLink}) => {
         {/* Meme encart "c'est au tour de X" que pour la creatrice : les membres
             voient exactement la meme information, en toute transparence. */}
         <ProchainBeneficiaire gagnant={(()=>{const t=(groupe.tirages||[]).find(x=>x.cycle===groupe.cycle);return t?groupe.membres.find(m=>m.id===t.membre_id):null;})()} dateEcheance={groupe.dateEcheance} cycle={groupe.cycle} totalCycles={groupe.totalCycles} frequence={groupe.frequence}/>
-        <div style={{background:"linear-gradient(135deg,#FFFFFF,#F3F4F6)",border:"1px solid #D0A23E",borderRadius:14,padding:14,marginBottom:16}}>
-          <p style={{margin:"0 0 10px",color:"#D0A23E",fontWeight:800,fontSize:13}}>Budget du groupe</p>
+        <div style={{background:"linear-gradient(135deg,rgba(255,255,255,0.055),rgba(255,255,255,0.045))",border:"1px solid #E8B04B",borderRadius:14,padding:14,marginBottom:16}}>
+          <p style={{margin:"0 0 10px",color:"#E8B04B",fontWeight:800,fontSize:13}}>Budget du groupe</p>
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:10}}>
             {[["Budget total cycle",fmtFCFA(budgetTotal)],["Deja collecte",fmtFCFA(groupe.cagnotte)],["Reste a collecter",fmtFCFA(resteACollecter)],["Caisse sociale",fmtFCFA(groupe.caisseSociale)]].map(([l,v])=>(
-              <div key={l} style={{background:"#FFFFFF",borderRadius:10,padding:"8px 10px"}}>
-                <p style={{margin:0,color:"#6B7280",fontSize:10,fontWeight:600}}>{l}</p>
-                <p style={{margin:"3px 0 0",color:"#111827",fontWeight:800,fontSize:12}}>{v}</p>
+              <div key={l} style={{background:"rgba(255,255,255,0.055)",borderRadius:10,padding:"8px 10px"}}>
+                <p style={{margin:0,color:"#97A3C9",fontSize:10,fontWeight:600}}>{l}</p>
+                <p style={{margin:"3px 0 0",color:"#F5F2EA",fontWeight:800,fontSize:12}}>{v}</p>
               </div>
             ))}
           </div>
-          <Bar pct={budgetTotal>0?Math.round((groupe.cagnotte/budgetTotal)*100):0} c="#D0A23E"/>
-          <p style={{margin:"5px 0 0",color:"#6B7280",fontSize:11,textAlign:"right"}}>{budgetTotal>0?Math.round((groupe.cagnotte/budgetTotal)*100):0}% collecte ce cycle</p>
+          <Bar pct={budgetTotal>0?Math.round((groupe.cagnotte/budgetTotal)*100):0} c="#E8B04B"/>
+          <p style={{margin:"5px 0 0",color:"#97A3C9",fontSize:11,textAlign:"right"}}>{budgetTotal>0?Math.round((groupe.cagnotte/budgetTotal)*100):0}% collecte ce cycle</p>
         </div>
-        {groupe.moi&&<div style={{background:"#FFFFFF",border:"1px solid #D0A23E",borderRadius:14,padding:16,marginBottom:16}}>
-          <p style={{margin:0,color:"#D0A23E",fontWeight:700,fontSize:13}}>{t("maSituation")}</p>
+        {groupe.moi&&<div style={{background:"rgba(255,255,255,0.055)",border:"1px solid #E8B04B",borderRadius:14,padding:16,marginBottom:16}}>
+          <p style={{margin:0,color:"#E8B04B",fontWeight:700,fontSize:13}}>{t("maSituation")}</p>
           <div style={{display:"flex",justifyContent:"space-between",marginTop:10}}>
-            <div><p style={{margin:0,color:"#6B7280",fontSize:11}}>Statut</p><p style={{margin:"2px 0 0",color:groupe.moi.paye?"#22C55E":"#EF4444",fontWeight:800,fontSize:14}}>{groupe.moi.paye?"À jour":"En retard"}</p></div>
-            <div><p style={{margin:0,color:"#6B7280",fontSize:11}}>Verse au total</p><p style={{margin:"2px 0 0",color:"#111827",fontWeight:800,fontSize:14}}>{fmtFCFA(groupe.moi.versements)}</p></div>
-            <div><p style={{margin:0,color:"#6B7280",fontSize:11}}>Cycles payes</p><p style={{margin:"2px 0 0",color:"#111827",fontWeight:800,fontSize:14}}>{groupe.moi.cyclesPaies}/{groupe.totalCycles}</p></div>
+            <div><p style={{margin:0,color:"#97A3C9",fontSize:11}}>Statut</p><p style={{margin:"2px 0 0",color:groupe.moi.paye?"#34D399":"#FB7185",fontWeight:800,fontSize:14}}>{groupe.moi.paye?"À jour":"En retard"}</p></div>
+            <div><p style={{margin:0,color:"#97A3C9",fontSize:11}}>Verse au total</p><p style={{margin:"2px 0 0",color:"#F5F2EA",fontWeight:800,fontSize:14}}>{fmtFCFA(groupe.moi.versements)}</p></div>
+            <div><p style={{margin:0,color:"#97A3C9",fontSize:11}}>Cycles payes</p><p style={{margin:"2px 0 0",color:"#F5F2EA",fontWeight:800,fontSize:14}}>{groupe.moi.cyclesPaies}/{groupe.totalCycles}</p></div>
           </div>
-          {dernierVersement&&<div style={{marginTop:12,paddingTop:12,borderTop:"1px solid #E5E7EB"}}>
-            <p style={{margin:"0 0 8px",color:"#6B7280",fontSize:10,fontWeight:700,letterSpacing:.5}}>DERNIER VERSEMENT</p>
-            <p style={{margin:"0 0 8px",color:"#111827",fontSize:12}}>{fmtFCFA(dernierVersement.montant)} - {dernierVersement.date} a {dernierVersement.heure}</p>
+          {dernierVersement&&<div style={{marginTop:12,paddingTop:12,borderTop:"1px solid rgba(255,255,255,0.09)"}}>
+            <p style={{margin:"0 0 8px",color:"#97A3C9",fontSize:10,fontWeight:700,letterSpacing:.5}}>DERNIER VERSEMENT</p>
+            <p style={{margin:"0 0 8px",color:"#F5F2EA",fontSize:12}}>{fmtFCFA(dernierVersement.montant)} - {dernierVersement.date} a {dernierVersement.heure}</p>
             <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
-              <span style={{background:"#E5E7EB",color:"#22C55E",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>✅ Versement enregistre</span>
-              <span style={{background:dernierVersement.recuEnvoye?"#E5E7EB":"#FEF2F2",color:dernierVersement.recuEnvoye?"#22C55E":"#EF4444",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{dernierVersement.recuEnvoye?"✅":"❌"} Recu WhatsApp</span>
-              <span style={{background:dernierVersement.statut==="paye"?"#E5E7EB":"#FEF2F2",color:dernierVersement.statut==="paye"?"#22C55E":"#EF4444",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{dernierVersement.statut==="paye"?"✅ Pas de dette":"❌ Dette restante"}</span>
+              <span style={{background:"rgba(255,255,255,0.09)",color:"#34D399",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>✅ Versement enregistre</span>
+              <span style={{background:dernierVersement.recuEnvoye?"rgba(255,255,255,0.09)":"rgba(251,113,133,0.10)",color:dernierVersement.recuEnvoye?"#34D399":"#FB7185",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{dernierVersement.recuEnvoye?"✅":"❌"} Recu WhatsApp</span>
+              <span style={{background:dernierVersement.statut==="paye"?"rgba(255,255,255,0.09)":"rgba(251,113,133,0.10)",color:dernierVersement.statut==="paye"?"#34D399":"#FB7185",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{dernierVersement.statut==="paye"?"✅ Pas de dette":"❌ Dette restante"}</span>
             </div>
           </div>}
         </div>}
         {groupe.moi&&!groupe.moi.paye&&<div style={{marginBottom:16}}>
           {/* OPTION A : paiement en ligne FedaPay (mis en avant) */}
-          <div style={{background:"#FFFFFF",border:"1px solid #D0A23E",borderRadius:14,padding:16,marginBottom:12}}>
-            <p style={{margin:"0 0 4px",color:"#D0A23E",fontWeight:800,fontSize:14}}>💳 Payer ma cotisation en ligne</p>
-            <p style={{margin:"0 0 12px",color:"#6B7280",fontSize:11.5,lineHeight:1.5}}>Paie <b>{fmtFCFA(groupe.moi.montantPerso??groupe.montant)}</b> en toute sécurité (Orange Money, Wave, Moov, carte…). Ton paiement est validé automatiquement.</p>
-            <button onClick={payerCotisationEnLigne} disabled={payLigneBusy} style={{width:"100%",background:"linear-gradient(135deg,#D0A23E,#A87C22)",border:"none",borderRadius:12,padding:14,color:"#fff",fontWeight:800,fontSize:14,cursor:"pointer"}}>{payLigneBusy?"Ouverture du paiement...":"✅ Payer maintenant en ligne"}</button>
+          <div style={{background:"rgba(255,255,255,0.055)",border:"1px solid #E8B04B",borderRadius:14,padding:16,marginBottom:12}}>
+            <p style={{margin:"0 0 4px",color:"#E8B04B",fontWeight:800,fontSize:14}}>💳 Payer ma cotisation en ligne</p>
+            <p style={{margin:"0 0 12px",color:"#97A3C9",fontSize:11.5,lineHeight:1.5}}>Paie <b>{fmtFCFA(groupe.moi.montantPerso??groupe.montant)}</b> en toute sécurité (Orange Money, Wave, Moov, carte…). Ton paiement est validé automatiquement.</p>
+            <button onClick={payerCotisationEnLigne} disabled={payLigneBusy} style={{width:"100%",background:"linear-gradient(135deg,#FFE9B4 0%,#E8B04B 48%,#C38427 100%)",border:"none",borderRadius:12,padding:14,color:"#fff",fontWeight:800,fontSize:14,cursor:"pointer"}}>{payLigneBusy?"Ouverture du paiement...":"✅ Payer maintenant en ligne"}</button>
             {/* QR : pour faire payer depuis un autre telephone ou en presentiel (on ne peut pas
                 scanner un QR affiche sur le meme telephone qui paie). data-noinvert : QR net en mode sombre. */}
-            <div data-noinvert style={{display:"flex",flexDirection:"column",alignItems:"center",marginTop:14,paddingTop:14,borderTop:"1px solid #E5E7EB"}}>
-              <p style={{margin:"0 0 10px",color:"#111827",fontSize:11.5,fontWeight:700,textAlign:"center"}}>📷 Ou fais scanner ce code (autre téléphone / en présentiel)</p>
-              <QRCodeSVG value={`${window.location.origin}/?paiement=1`} size={150} level="M" bgColor="#FFFFFF" fgColor="#111827"/>
-              <p style={{margin:"10px 0 0",color:"#6B7280",fontSize:10,textAlign:"center",lineHeight:1.4}}>La personne scanne, entre son numéro, choisit ta tontine et paie.</p>
+            <div data-noinvert style={{display:"flex",flexDirection:"column",alignItems:"center",marginTop:14,paddingTop:14,borderTop:"1px solid rgba(255,255,255,0.09)"}}>
+              <p style={{margin:"0 0 10px",color:"#F5F2EA",fontSize:11.5,fontWeight:700,textAlign:"center"}}>📷 Ou fais scanner ce code (autre téléphone / en présentiel)</p>
+              <QRCodeSVG value={`${window.location.origin}/?paiement=1`} size={150} level="M" bgColor="rgba(255,255,255,0.055)" fgColor="#F5F2EA"/>
+              <p style={{margin:"10px 0 0",color:"#97A3C9",fontSize:10,textAlign:"center",lineHeight:1.4}}>La personne scanne, entre son numéro, choisit ta tontine et paie.</p>
             </div>
           </div>
           {/* OPTION B : aide / paiement accompagne via WhatsApp */}
@@ -1605,7 +1605,7 @@ const ParticipationScreen = ({groupe,onBack,user,onToast,onVoted,deepLink}) => {
           {/* SECOURS : paiement manuel (numeros mobile money + photo de preuve), replie, et seulement
               si la creatrice a renseigne un moyen manuel. */}
           {(groupe.numeroOrangeMoney||groupe.numeroWave||groupe.numeroMoovMoney||groupe.lienWave||groupe.lienOrange||groupe.qrPaiementUrl)&&<details style={{marginBottom:4}}>
-            <summary style={{cursor:"pointer",color:"#6B7280",fontSize:12,fontWeight:700,padding:"6px 0"}}>Autre moyen : payer à la main + envoyer une preuve</summary>
+            <summary style={{cursor:"pointer",color:"#97A3C9",fontSize:12,fontWeight:700,padding:"6px 0"}}>Autre moyen : payer à la main + envoyer une preuve</summary>
             <div style={{marginTop:8}}>
               <BoutonsPaiementMobile
                 montant={groupe.moi.montantPerso??groupe.montant}
@@ -1623,39 +1623,39 @@ const ParticipationScreen = ({groupe,onBack,user,onToast,onVoted,deepLink}) => {
           </details>}
         </div>}
         {caisseMvtsMembre.length>0&&<div style={{marginBottom:16}}>
-          <p style={{color:"#6B7280",fontSize:12,fontWeight:700,margin:"0 0 10px",letterSpacing:.5}}>HISTORIQUE CAISSE SOCIALE</p>
+          <p style={{color:"#97A3C9",fontSize:12,fontWeight:700,margin:"0 0 10px",letterSpacing:.5}}>HISTORIQUE CAISSE SOCIALE</p>
           {caisseMvtsMembre.map(m=>(
-            <div key={m.id} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"9px 12px",background:"#FFFFFF",borderRadius:10,marginBottom:6}}>
-              <div><p style={{margin:0,color:"#111827",fontSize:12}}>{m.motif||(m.sens==="ajout"?"Ajout":"Retrait")}</p><p style={{margin:0,color:"#6B7280",fontSize:10}}>{new Date(m.created_at).toLocaleDateString("fr-FR")} - {m.auteur_nom}</p></div>
-              <p style={{margin:0,color:m.sens==="ajout"?"#22C55E":"#EF4444",fontWeight:700,fontSize:12}}>{m.sens==="ajout"?"+":"-"}{fmtFCFA(m.montant)}</p>
+            <div key={m.id} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"9px 12px",background:"rgba(255,255,255,0.055)",borderRadius:10,marginBottom:6}}>
+              <div><p style={{margin:0,color:"#F5F2EA",fontSize:12}}>{m.motif||(m.sens==="ajout"?"Ajout":"Retrait")}</p><p style={{margin:0,color:"#97A3C9",fontSize:10}}>{new Date(m.created_at).toLocaleDateString("fr-FR")} - {m.auteur_nom}</p></div>
+              <p style={{margin:0,color:m.sens==="ajout"?"#34D399":"#FB7185",fontWeight:700,fontSize:12}}>{m.sens==="ajout"?"+":"-"}{fmtFCFA(m.montant)}</p>
             </div>
           ))}
         </div>}
-        <p style={{color:"#22C55E",fontSize:12,fontWeight:700,margin:"0 0 10px",letterSpacing:.5}}>A JOUR ({aJourP.length})</p>
+        <p style={{color:"#34D399",fontSize:12,fontWeight:700,margin:"0 0 10px",letterSpacing:.5}}>A JOUR ({aJourP.length})</p>
         {aJourP.map(m=><MembreRowLecture key={m.id} m={m} montant={(m.montantPerso??groupe.montant)}/>)}
-        {enRetP.length>0&&<><p style={{color:"#EF4444",fontSize:12,fontWeight:700,margin:"16px 0 8px",letterSpacing:.5}}>EN RETARD ({enRetP.length})</p>
+        {enRetP.length>0&&<><p style={{color:"#FB7185",fontSize:12,fontWeight:700,margin:"16px 0 8px",letterSpacing:.5}}>EN RETARD ({enRetP.length})</p>
         {enRetP.map(m=><MembreRowLecture key={m.id} m={m} montant={(m.montantPerso??groupe.montant)}/>)}</>}
       </div>}
 
       {tab==="suivi"&&<div style={{padding:"14px 16px 0"}}>
-        <p style={{color:"#6B7280",fontSize:12,marginBottom:14,lineHeight:1.5}}>Vue d ensemble du dernier versement de chaque membre.</p>
-        {groupe.membres.length===0&&<p style={{color:"#6B7280",fontSize:13,textAlign:"center",padding:20}}>Aucun membre pour l instant</p>}
+        <p style={{color:"#97A3C9",fontSize:12,marginBottom:14,lineHeight:1.5}}>Vue d ensemble du dernier versement de chaque membre.</p>
+        {groupe.membres.length===0&&<p style={{color:"#97A3C9",fontSize:13,textAlign:"center",padding:20}}>Aucun membre pour l instant</p>}
         {groupe.membres.map(m=>{
           const tr=suivi[m.id];
           return(
-            <div key={m.id} style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:12,padding:"12px 14px",marginBottom:8}}>
+            <div key={m.id} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,padding:"12px 14px",marginBottom:8}}>
               <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:tr?10:0}}>
                 <Avatar prenom={m.prenom} photo={m.photo} size={36}/>
-                <div style={{flex:1}}><p style={{margin:0,color:"#111827",fontWeight:700,fontSize:14}}>{m.prenom}</p>{tr&&<p style={{margin:0,color:"#6B7280",fontSize:11}}>{fmtFCFA(tr.montant)} - {new Date(tr.created_at).toLocaleDateString("fr-FR")} a {new Date(tr.created_at).toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"})}</p>}</div>
+                <div style={{flex:1}}><p style={{margin:0,color:"#F5F2EA",fontWeight:700,fontSize:14}}>{m.prenom}</p>{tr&&<p style={{margin:0,color:"#97A3C9",fontSize:11}}>{fmtFCFA(tr.montant)} - {new Date(tr.created_at).toLocaleDateString("fr-FR")} a {new Date(tr.created_at).toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"})}</p>}</div>
               </div>
               {tr?(
                 <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
-                  <span style={{background:"#E5E7EB",color:"#22C55E",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>✅ Montant recu</span>
-                  <span style={{background:tr.recu_envoye?"#E5E7EB":"#FEF2F2",color:tr.recu_envoye?"#22C55E":"#EF4444",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{tr.recu_envoye?"✅":"❌"} Reçu envoyé</span>
-                  <span style={{background:tr.statut==="paye"?"#E5E7EB":"#FEF2F2",color:tr.statut==="paye"?"#22C55E":"#EF4444",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{tr.statut==="paye"?"✅ Pas de dette":"❌ Dette restante"}</span>
-                  <span style={{background:tr.photo_url?"#E5E7EB":"#FEF2F2",color:tr.photo_url?"#22C55E":"#EF4444",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{tr.photo_url?"✅":"❌"} Photo</span>
+                  <span style={{background:"rgba(255,255,255,0.09)",color:"#34D399",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>✅ Montant recu</span>
+                  <span style={{background:tr.recu_envoye?"rgba(255,255,255,0.09)":"rgba(251,113,133,0.10)",color:tr.recu_envoye?"#34D399":"#FB7185",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{tr.recu_envoye?"✅":"❌"} Reçu envoyé</span>
+                  <span style={{background:tr.statut==="paye"?"rgba(255,255,255,0.09)":"rgba(251,113,133,0.10)",color:tr.statut==="paye"?"#34D399":"#FB7185",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{tr.statut==="paye"?"✅ Pas de dette":"❌ Dette restante"}</span>
+                  <span style={{background:tr.photo_url?"rgba(255,255,255,0.09)":"rgba(251,113,133,0.10)",color:tr.photo_url?"#34D399":"#FB7185",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{tr.photo_url?"✅":"❌"} Photo</span>
                 </div>
-              ):<p style={{margin:0,color:"#6B7280",fontSize:12}}>Aucun versement enregistre pour l instant</p>}
+              ):<p style={{margin:0,color:"#97A3C9",fontSize:12}}>Aucun versement enregistre pour l instant</p>}
             </div>
           );
         })}
@@ -1663,77 +1663,77 @@ const ParticipationScreen = ({groupe,onBack,user,onToast,onVoted,deepLink}) => {
 
       {tab==="bureau"&&<div style={{padding:"14px 16px 0"}}>
         {groupe.membres.some(m=>m.role_bureau)&&<div style={{marginBottom:16}}>
-          <p style={{color:"#6B7280",fontSize:12,fontWeight:700,margin:"0 0 10px",letterSpacing:.5}}>BUREAU</p>
+          <p style={{color:"#97A3C9",fontSize:12,fontWeight:700,margin:"0 0 10px",letterSpacing:.5}}>BUREAU</p>
           <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
             {groupe.membres.filter(m=>m.role_bureau).map(m=>(
-              <div key={m.id} style={{background:"#FFFFFF",border:"1px solid #D0A23E",borderRadius:12,padding:"8px 12px",display:"flex",alignItems:"center",gap:8}}>
+              <div key={m.id} style={{background:"rgba(255,255,255,0.055)",border:"1px solid #E8B04B",borderRadius:12,padding:"8px 12px",display:"flex",alignItems:"center",gap:8}}>
                 <Avatar prenom={m.prenom} photo={m.photo} size={26}/>
-                <div><p style={{margin:0,color:"#111827",fontSize:12,fontWeight:700}}>{m.prenom}</p><p style={{margin:0,color:"#D0A23E",fontSize:10}}>{ROLES_LABELS[m.role_bureau]||m.role_bureau}</p></div>
+                <div><p style={{margin:0,color:"#F5F2EA",fontSize:12,fontWeight:700}}>{m.prenom}</p><p style={{margin:0,color:"#E8B04B",fontSize:10}}>{ROLES_LABELS[m.role_bureau]||m.role_bureau}</p></div>
               </div>
             ))}
           </div>
         </div>}
         {groupe.elections&&groupe.elections.length>0&&<div>
-          <p style={{color:"#6B7280",fontSize:12,fontWeight:700,margin:"0 0 10px",letterSpacing:.5}}>ELECTIONS EN COURS</p>
+          <p style={{color:"#97A3C9",fontSize:12,fontWeight:700,margin:"0 0 10px",letterSpacing:.5}}>ELECTIONS EN COURS</p>
           {groupe.elections.map(e=>(
-            <div key={e.id} style={{background:"#FFFFFF",border:"1px solid #D0A23E",borderRadius:14,padding:14,marginBottom:10}}>
-              <p style={{margin:"0 0 10px",color:"#D0A23E",fontWeight:700,fontSize:13}}>🗳️ {ROLES_LABELS[e.role]||e.role}</p>
-              {e.dejaVote?<p style={{color:"#22C55E",fontSize:13,margin:0}}>✓ Tu as deja vote pour cette election</p>
+            <div key={e.id} style={{background:"rgba(255,255,255,0.055)",border:"1px solid #E8B04B",borderRadius:14,padding:14,marginBottom:10}}>
+              <p style={{margin:"0 0 10px",color:"#E8B04B",fontWeight:700,fontSize:13}}>🗳️ {ROLES_LABELS[e.role]||e.role}</p>
+              {e.dejaVote?<p style={{color:"#34D399",fontSize:13,margin:0}}>✓ Tu as deja vote pour cette election</p>
               :e.candidats.map(cid=>{const c=groupe.membres.find(m=>m.id===cid);return(
-                <button key={cid} onClick={()=>voter(e,cid)} disabled={voting===e.id} style={{width:"100%",display:"flex",alignItems:"center",gap:10,background:"#E5E7EB",border:"1px solid #D1D5DB",borderRadius:10,padding:"10px 12px",marginBottom:6,cursor:"pointer"}}>
-                  <Avatar prenom={c?.prenom||"?"} photo={c?.photo} size={28}/><p style={{margin:0,color:"#111827",fontSize:13,fontWeight:600}}>{c?.prenom||"?"}</p>
+                <button key={cid} onClick={()=>voter(e,cid)} disabled={voting===e.id} style={{width:"100%",display:"flex",alignItems:"center",gap:10,background:"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:10,padding:"10px 12px",marginBottom:6,cursor:"pointer"}}>
+                  <Avatar prenom={c?.prenom||"?"} photo={c?.photo} size={28}/><p style={{margin:0,color:"#F5F2EA",fontSize:13,fontWeight:600}}>{c?.prenom||"?"}</p>
                 </button>
               );})}
             </div>
           ))}
         </div>}
-        {!groupe.membres.some(m=>m.role_bureau)&&(!groupe.elections||groupe.elections.length===0)&&<p style={{color:"#6B7280",fontSize:13,textAlign:"center",padding:20}}>Aucun bureau ni election pour l instant</p>}
+        {!groupe.membres.some(m=>m.role_bureau)&&(!groupe.elections||groupe.elections.length===0)&&<p style={{color:"#97A3C9",fontSize:13,textAlign:"center",padding:20}}>Aucun bureau ni election pour l instant</p>}
       </div>}
 
       {tab==="tirage"&&<div style={{padding:"14px 16px 0"}}>
-        {(!groupe.tirages||groupe.tirages.length===0)?<p style={{color:"#6B7280",fontSize:13,textAlign:"center",padding:20}}>Aucun tirage pour l instant</p>
+        {(!groupe.tirages||groupe.tirages.length===0)?<p style={{color:"#97A3C9",fontSize:13,textAlign:"center",padding:20}}>Aucun tirage pour l instant</p>
         :[...groupe.tirages].reverse().map(tr=>{const m=groupe.membres.find(mm=>mm.id===tr.membre_id);return(
-          <div key={tr.id} style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:12,padding:"10px 14px",marginBottom:8,display:"flex",gap:10,alignItems:"center"}}>
-            <span style={{background:"#E5E7EB",color:"#D0A23E",fontSize:11,fontWeight:800,padding:"3px 8px",borderRadius:8}}>Cycle {tr.cycle}</span>
-            <p style={{margin:0,color:"#111827",fontSize:13,fontWeight:700,flex:1}}>{m?.prenom||"Membre retiré"}</p>
-            <p style={{margin:0,color:"#6B7280",fontSize:11}}>{new Date(tr.created_at).toLocaleDateString("fr-FR")}</p>
+          <div key={tr.id} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,padding:"10px 14px",marginBottom:8,display:"flex",gap:10,alignItems:"center"}}>
+            <span style={{background:"rgba(255,255,255,0.09)",color:"#E8B04B",fontSize:11,fontWeight:800,padding:"3px 8px",borderRadius:8}}>Cycle {tr.cycle}</span>
+            <p style={{margin:0,color:"#F5F2EA",fontSize:13,fontWeight:700,flex:1}}>{m?.prenom||"Membre retiré"}</p>
+            <p style={{margin:0,color:"#97A3C9",fontSize:11}}>{new Date(tr.created_at).toLocaleDateString("fr-FR")}</p>
           </div>
         );})}
       </div>}
 
       {tab==="prets"&&<div style={{padding:"14px 16px 0"}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:10}}>
-          <p style={{color:"#6B7280",fontSize:12,fontWeight:700,letterSpacing:.5,margin:0}}>PRETS</p>
-          <button onClick={()=>setShowDemandePret(true)} style={{background:"#E5E7EB",border:"1px solid #D0A23E",borderRadius:8,padding:"5px 12px",color:"#D0A23E",fontSize:11,fontWeight:700,cursor:"pointer"}}>+ Demander un pret</button>
+          <p style={{color:"#97A3C9",fontSize:12,fontWeight:700,letterSpacing:.5,margin:0}}>PRETS</p>
+          <button onClick={()=>setShowDemandePret(true)} style={{background:"rgba(255,255,255,0.09)",border:"1px solid #E8B04B",borderRadius:8,padding:"5px 12px",color:"#E8B04B",fontSize:11,fontWeight:700,cursor:"pointer"}}>+ Demander un pret</button>
         </div>
-        {(!groupe.prets||groupe.prets.length===0)&&<p style={{color:"#6B7280",fontSize:12,textAlign:"center",padding:10}}>Aucun pret pour l instant</p>}
+        {(!groupe.prets||groupe.prets.length===0)&&<p style={{color:"#97A3C9",fontSize:12,textAlign:"center",padding:10}}>Aucun pret pour l instant</p>}
         {groupe.prets&&groupe.prets.map(p=>{const m=groupe.membres.find(mm=>mm.id===p.membre_id);const total=p.montant*(1+p.taux_interet/100);const reste=total-p.montant_rembourse;
-          const labels={en_attente:["En attente","#D0A23E"],en_cours:["En cours","#22C55E"],rembourse:["Rembourse","#22C55E"],refuse:["Refuse","#EF4444"]};
-          const [lbl,col]=labels[p.statut]||["En cours","#D0A23E"];
+          const labels={en_attente:["En attente","#E8B04B"],en_cours:["En cours","#34D399"],rembourse:["Rembourse","#34D399"],refuse:["Refuse","#FB7185"]};
+          const [lbl,col]=labels[p.statut]||["En cours","#E8B04B"];
           return(
-          <div key={p.id} style={{background:"#FFFFFF",border:`1px solid ${p.statut==="rembourse"?"#E5E7EB":"#D0A23E"}`,borderRadius:12,padding:"12px 14px",marginBottom:8}}>
+          <div key={p.id} style={{background:"rgba(255,255,255,0.055)",border:`1px solid ${p.statut==="rembourse"?"rgba(255,255,255,0.09)":"#E8B04B"}`,borderRadius:12,padding:"12px 14px",marginBottom:8}}>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-              <div style={{display:"flex",alignItems:"center",gap:8}}><Avatar prenom={m?.prenom||"?"} photo={m?.photo} size={30}/><p style={{margin:0,color:"#111827",fontWeight:700,fontSize:13}}>{m?.prenom||"?"}</p></div>
-              <span style={{background:"#FEF2F2",color:col,fontSize:10,fontWeight:700,padding:"3px 8px",borderRadius:99}}>{lbl}</span>
+              <div style={{display:"flex",alignItems:"center",gap:8}}><Avatar prenom={m?.prenom||"?"} photo={m?.photo} size={30}/><p style={{margin:0,color:"#F5F2EA",fontWeight:700,fontSize:13}}>{m?.prenom||"?"}</p></div>
+              <span style={{background:"rgba(251,113,133,0.10)",color:col,fontSize:10,fontWeight:700,padding:"3px 8px",borderRadius:99}}>{lbl}</span>
             </div>
-            <p style={{margin:"8px 0 0",color:"#6B7280",fontSize:12}}>{fmtFCFA(p.montant)} demande{p.statut==="en_cours"||p.statut==="rembourse"?` - ${fmtFCFA(Math.max(0,reste))} restant`:""}</p>
-            {(p.statut==="en_cours"||p.statut==="rembourse")&&<p style={{margin:"2px 0 0",color:"#6B7280",fontSize:11}}>{p.taux_interet>0?`${p.taux_interet}% d'intérêt`:"Sans intérêt"}{p.date_echeance?` - Échéance : ${new Date(p.date_echeance).toLocaleDateString("fr-FR")}`:""}</p>}
-            {p.motif&&<p style={{margin:"2px 0 0",color:"#6B7280",fontSize:11,fontStyle:"italic"}}>{p.motif}</p>}
+            <p style={{margin:"8px 0 0",color:"#97A3C9",fontSize:12}}>{fmtFCFA(p.montant)} demande{p.statut==="en_cours"||p.statut==="rembourse"?` - ${fmtFCFA(Math.max(0,reste))} restant`:""}</p>
+            {(p.statut==="en_cours"||p.statut==="rembourse")&&<p style={{margin:"2px 0 0",color:"#97A3C9",fontSize:11}}>{p.taux_interet>0?`${p.taux_interet}% d'intérêt`:"Sans intérêt"}{p.date_echeance?` - Échéance : ${new Date(p.date_echeance).toLocaleDateString("fr-FR")}`:""}</p>}
+            {p.motif&&<p style={{margin:"2px 0 0",color:"#97A3C9",fontSize:11,fontStyle:"italic"}}>{p.motif}</p>}
             {p.statut==="en_attente"&&(p.membre_id===groupe.moi?.id?(
-              <p style={{margin:"10px 0 0",color:"#D0A23E",fontSize:12,fontWeight:700}}>⏳ En attente du vote des membres</p>
+              <p style={{margin:"10px 0 0",color:"#E8B04B",fontSize:12,fontWeight:700}}>⏳ En attente du vote des membres</p>
             ):(()=>{
               const {eligible,oui,non}=calcVotePret(p,pretsVotes[p.id],groupe.membres.length);
               const monVote=(pretsVotes[p.id]||[]).find(v=>v.voter_membre_id===groupe.moi?.id);
-              return(<div style={{marginTop:10,paddingTop:10,borderTop:"1px solid #E5E7EB"}}>
+              return(<div style={{marginTop:10,paddingTop:10,borderTop:"1px solid rgba(255,255,255,0.09)"}}>
                 <div style={{display:"flex",gap:10,marginBottom:8}}>
-                  <span style={{color:"#22C55E",fontSize:12,fontWeight:700}}>✅ {oui}</span>
-                  <span style={{color:"#EF4444",fontSize:12,fontWeight:700}}>❌ {non}</span>
-                  <span style={{color:"#6B7280",fontSize:12}}>sur {eligible} éligible(s)</span>
+                  <span style={{color:"#34D399",fontSize:12,fontWeight:700}}>✅ {oui}</span>
+                  <span style={{color:"#FB7185",fontSize:12,fontWeight:700}}>❌ {non}</span>
+                  <span style={{color:"#97A3C9",fontSize:12}}>sur {eligible} éligible(s)</span>
                 </div>
-                {monVote?<p style={{margin:0,color:"#6B7280",fontSize:12}}>Tu as voté : <b style={{color:monVote.valeur==="oui"?"#22C55E":"#EF4444"}}>{monVote.valeur==="oui"?"Oui":"Non"}</b></p>
+                {monVote?<p style={{margin:0,color:"#97A3C9",fontSize:12}}>Tu as voté : <b style={{color:monVote.valeur==="oui"?"#34D399":"#FB7185"}}>{monVote.valeur==="oui"?"Oui":"Non"}</b></p>
                 :<div style={{display:"flex",gap:8}}>
-                  <button onClick={()=>voterPret(p,"oui")} disabled={voteBusy===p.id} style={{flex:1,background:"#22C55E",border:"none",borderRadius:10,padding:"11px",color:"#fff",fontWeight:800,fontSize:14,cursor:"pointer"}}>✅ Oui</button>
-                  <button onClick={()=>voterPret(p,"non")} disabled={voteBusy===p.id} style={{flex:1,background:"#EF4444",border:"none",borderRadius:10,padding:"11px",color:"#fff",fontWeight:800,fontSize:14,cursor:"pointer"}}>❌ Non</button>
+                  <button onClick={()=>voterPret(p,"oui")} disabled={voteBusy===p.id} style={{flex:1,background:"#34D399",border:"none",borderRadius:10,padding:"11px",color:"#fff",fontWeight:800,fontSize:14,cursor:"pointer"}}>✅ Oui</button>
+                  <button onClick={()=>voterPret(p,"non")} disabled={voteBusy===p.id} style={{flex:1,background:"#FB7185",border:"none",borderRadius:10,padding:"11px",color:"#fff",fontWeight:800,fontSize:14,cursor:"pointer"}}>❌ Non</button>
                 </div>}
               </div>);
             })())}
@@ -1742,83 +1742,83 @@ const ParticipationScreen = ({groupe,onBack,user,onToast,onVoted,deepLink}) => {
       </div>}
 
       {tab==="reunions"&&<div style={{padding:"14px 16px 0"}}>
-        <div style={{background:"#FFFFFF",border:"1px solid #D0A23E",borderRadius:14,padding:16,marginBottom:16}}>
-          <p style={{margin:"0 0 10px",color:"#D0A23E",fontWeight:800,fontSize:14}}>Reglement interieur</p>
-          {groupe.reglement?<p style={{color:"#111827",fontSize:13,lineHeight:1.6,whiteSpace:"pre-wrap",margin:0}}>{groupe.reglement}</p>:<p style={{color:"#6B7280",fontSize:13,margin:0}}>Aucun reglement redige pour l instant</p>}
+        <div style={{background:"rgba(255,255,255,0.055)",border:"1px solid #E8B04B",borderRadius:14,padding:16,marginBottom:16}}>
+          <p style={{margin:"0 0 10px",color:"#E8B04B",fontWeight:800,fontSize:14}}>Reglement interieur</p>
+          {groupe.reglement?<p style={{color:"#F5F2EA",fontSize:13,lineHeight:1.6,whiteSpace:"pre-wrap",margin:0}}>{groupe.reglement}</p>:<p style={{color:"#97A3C9",fontSize:13,margin:0}}>Aucun reglement redige pour l instant</p>}
         </div>
-        <p style={{color:"#6B7280",fontSize:12,fontWeight:700,margin:"0 0 10px",letterSpacing:.5}}>COMPTES RENDUS DE REUNION</p>
-        {(!groupe.rapports||groupe.rapports.length===0)?<p style={{color:"#6B7280",fontSize:13,textAlign:"center",marginTop:10}}>Aucun compte rendu pour l instant</p>
+        <p style={{color:"#97A3C9",fontSize:12,fontWeight:700,margin:"0 0 10px",letterSpacing:.5}}>COMPTES RENDUS DE REUNION</p>
+        {(!groupe.rapports||groupe.rapports.length===0)?<p style={{color:"#97A3C9",fontSize:13,textAlign:"center",marginTop:10}}>Aucun compte rendu pour l instant</p>
         :groupe.rapports.map(r=>(
-          <div key={r.id} style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:14,padding:16,marginBottom:10}}>
-            <p style={{margin:0,color:"#111827",fontWeight:700,fontSize:14}}>{r.titre}</p>
-            <p style={{margin:"3px 0 0",color:"#D0A23E",fontSize:11}}>{r.date_reunion?new Date(r.date_reunion).toLocaleDateString("fr-FR"):""}</p>
-            {r.contenu&&<p style={{margin:"10px 0 0",color:"#6B7280",fontSize:13,lineHeight:1.6,whiteSpace:"pre-wrap"}}>{r.contenu}</p>}
+          <div key={r.id} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:14,padding:16,marginBottom:10}}>
+            <p style={{margin:0,color:"#F5F2EA",fontWeight:700,fontSize:14}}>{r.titre}</p>
+            <p style={{margin:"3px 0 0",color:"#E8B04B",fontSize:11}}>{r.date_reunion?new Date(r.date_reunion).toLocaleDateString("fr-FR"):""}</p>
+            {r.contenu&&<p style={{margin:"10px 0 0",color:"#97A3C9",fontSize:13,lineHeight:1.6,whiteSpace:"pre-wrap"}}>{r.contenu}</p>}
           </div>
         ))}
       </div>}
 
       {tab==="events"&&<div style={{padding:"14px 16px 0"}}>
         {groupe.membres.filter(m=>m.evenement).length===0
-          ?<div style={{textAlign:"center",padding:30,color:"#9CA3AF"}}><p style={{fontSize:32}}>🎉</p><p>Aucun evenement signale</p></div>
+          ?<div style={{textAlign:"center",padding:30,color:"#6F7BA6"}}><p style={{fontSize:32}}>🎉</p><p>Aucun evenement signale</p></div>
           :groupe.membres.filter(m=>m.evenement).map(m=>(
-            <div key={m.id} style={{background:"#FFFFFF",border:"1px solid #D0A23E",borderRadius:14,padding:"14px 16px",marginBottom:10,display:"flex",gap:12,alignItems:"center"}}>
+            <div key={m.id} style={{background:"rgba(255,255,255,0.055)",border:"1px solid #E8B04B",borderRadius:14,padding:"14px 16px",marginBottom:10,display:"flex",gap:12,alignItems:"center"}}>
               <Avatar prenom={m.prenom} size={42}/>
-              <div style={{flex:1}}><p style={{margin:0,color:"#111827",fontWeight:700,fontSize:14}}>{m.prenom}</p><p style={{margin:"3px 0 0",color:"#D0A23E",fontSize:13}}>{m.evenement}</p></div>
+              <div style={{flex:1}}><p style={{margin:0,color:"#F5F2EA",fontWeight:700,fontSize:14}}>{m.prenom}</p><p style={{margin:"3px 0 0",color:"#E8B04B",fontSize:13}}>{m.evenement}</p></div>
             </div>
           ))}
       </div>}
 
       {tab==="checklist"&&<div style={{padding:"14px 16px 0"}}>
-        <p style={{color:"#6B7280",fontSize:12,marginBottom:12}}>{groupe.checklist.filter(c=>(checklistOverride[c.id]??c.done)).length}/{groupe.checklist.length} taches completees</p>
-        {groupe.checklist.length===0&&<div style={{textAlign:"center",padding:20,color:"#9CA3AF"}}><p>Aucune tache pour le moment</p></div>}
+        <p style={{color:"#97A3C9",fontSize:12,marginBottom:12}}>{groupe.checklist.filter(c=>(checklistOverride[c.id]??c.done)).length}/{groupe.checklist.length} taches completees</p>
+        {groupe.checklist.length===0&&<div style={{textAlign:"center",padding:20,color:"#6F7BA6"}}><p>Aucune tache pour le moment</p></div>}
         {groupe.checklist.map(c=>{const done=checklistOverride[c.id]??c.done;return(
-          <div key={c.id} onClick={()=>toggleCMembre(c.id)} style={{background:"#FFFFFF",border:`1px solid ${done?"#D0A23E":"#E5E7EB"}`,borderRadius:12,padding:"14px 16px",marginBottom:8,display:"flex",gap:12,alignItems:"center",cursor:"pointer"}}>
-            <div style={{width:20,height:20,borderRadius:6,border:`2px solid ${done?"#D0A23E":"#D1D5DB"}`,background:done?"#D0A23E":"transparent",flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center"}}>{done&&<span style={{color:"#0D0D0D",fontWeight:900,fontSize:12}}>v</span>}</div>
-            <p style={{margin:0,color:done?"#6B7280":"#111827",fontSize:13,textDecoration:done?"line-through":"none"}}>{c.label}</p>
+          <div key={c.id} onClick={()=>toggleCMembre(c.id)} style={{background:"rgba(255,255,255,0.055)",border:`1px solid ${done?"#E8B04B":"rgba(255,255,255,0.09)"}`,borderRadius:12,padding:"14px 16px",marginBottom:8,display:"flex",gap:12,alignItems:"center",cursor:"pointer"}}>
+            <div style={{width:20,height:20,borderRadius:6,border:`2px solid ${done?"#E8B04B":"rgba(255,255,255,0.14)"}`,background:done?"#E8B04B":"transparent",flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center"}}>{done&&<span style={{color:"#1B1203",fontWeight:900,fontSize:12}}>v</span>}</div>
+            <p style={{margin:0,color:done?"#97A3C9":"#F5F2EA",fontSize:13,textDecoration:done?"line-through":"none"}}>{c.label}</p>
           </div>
         );})}
       </div>}
 
       {tab==="social"&&<div style={{padding:"14px 16px 100px"}}>
         <div style={{display:"flex",gap:8,overflowX:"auto",paddingBottom:10,marginBottom:6}}>
-          <button onClick={()=>setThread(null)} style={{flexShrink:0,display:"flex",alignItems:"center",gap:6,background:!thread?"#D0A23E":"#FFFFFF",border:"1px solid "+(!thread?"#D0A23E":"#E5E7EB"),borderRadius:99,padding:"7px 14px",color:!thread?"#0D0D0D":"#111827",fontWeight:700,fontSize:12,cursor:"pointer",whiteSpace:"nowrap"}}>💬 Groupe</button>
-          {groupe.createurUserId&&groupe.createurUserId!==user.id&&<button onClick={()=>setThread({userId:groupe.createurUserId,prenom:groupe.createurNom})} style={{flexShrink:0,display:"flex",alignItems:"center",gap:6,background:thread?.userId===groupe.createurUserId?"#D0A23E":"#FFFFFF",border:"1px solid "+(thread?.userId===groupe.createurUserId?"#D0A23E":"#E5E7EB"),borderRadius:99,padding:"6px 14px 6px 6px",color:thread?.userId===groupe.createurUserId?"#0D0D0D":"#111827",fontWeight:700,fontSize:12,cursor:"pointer",whiteSpace:"nowrap"}}><Avatar prenom={groupe.createurNom} photo={groupe.createurPhoto} size={22}/>{groupe.createurNom} (creatrice)</button>}
+          <button onClick={()=>setThread(null)} style={{flexShrink:0,display:"flex",alignItems:"center",gap:6,background:!thread?"#E8B04B":"rgba(255,255,255,0.055)",border:"1px solid "+(!thread?"#E8B04B":"rgba(255,255,255,0.09)"),borderRadius:99,padding:"7px 14px",color:!thread?"#1B1203":"#F5F2EA",fontWeight:700,fontSize:12,cursor:"pointer",whiteSpace:"nowrap"}}>💬 Groupe</button>
+          {groupe.createurUserId&&groupe.createurUserId!==user.id&&<button onClick={()=>setThread({userId:groupe.createurUserId,prenom:groupe.createurNom})} style={{flexShrink:0,display:"flex",alignItems:"center",gap:6,background:thread?.userId===groupe.createurUserId?"#E8B04B":"rgba(255,255,255,0.055)",border:"1px solid "+(thread?.userId===groupe.createurUserId?"#E8B04B":"rgba(255,255,255,0.09)"),borderRadius:99,padding:"6px 14px 6px 6px",color:thread?.userId===groupe.createurUserId?"#1B1203":"#F5F2EA",fontWeight:700,fontSize:12,cursor:"pointer",whiteSpace:"nowrap"}}><Avatar prenom={groupe.createurNom} photo={groupe.createurPhoto} size={22}/>{groupe.createurNom} (creatrice)</button>}
           {/* Tous les autres membres. Ceux qui n'ont pas encore de compte THT restent
               visibles (grises) : la liste est ainsi complete et comprehensible, au lieu
               de faire disparaitre des gens sans explication. La creatrice est exclue ici
               car elle a deja son propre bouton juste au-dessus (evite le doublon). */}
           {autresMembres.map(m=>(
-            <button key={m.id} onClick={()=>m.userId?setThread({userId:m.userId,prenom:m.prenom}):onToast(`${m.prenom} n'a pas encore de compte THT : impossible de lui écrire en privé`,"error")} title={m.userId?`Message privé à ${m.prenom}`:`${m.prenom} n'a pas encore de compte THT`} style={{flexShrink:0,display:"flex",alignItems:"center",gap:6,background:thread?.userId===m.userId&&m.userId?"#D0A23E":"#FFFFFF",border:"1px solid "+(thread?.userId===m.userId&&m.userId?"#D0A23E":"#E5E7EB"),borderRadius:99,padding:"6px 14px 6px 6px",color:!m.userId?"#9CA3AF":(thread?.userId===m.userId?"#0D0D0D":"#111827"),fontWeight:700,fontSize:12,cursor:"pointer",whiteSpace:"nowrap",opacity:m.userId?1:0.55}}><Avatar prenom={m.prenom} photo={m.photo} size={22}/>{m.prenom}{!m.userId&&" (sans compte)"}</button>
+            <button key={m.id} onClick={()=>m.userId?setThread({userId:m.userId,prenom:m.prenom}):onToast(`${m.prenom} n'a pas encore de compte THT : impossible de lui écrire en privé`,"error")} title={m.userId?`Message privé à ${m.prenom}`:`${m.prenom} n'a pas encore de compte THT`} style={{flexShrink:0,display:"flex",alignItems:"center",gap:6,background:thread?.userId===m.userId&&m.userId?"#E8B04B":"rgba(255,255,255,0.055)",border:"1px solid "+(thread?.userId===m.userId&&m.userId?"#E8B04B":"rgba(255,255,255,0.09)"),borderRadius:99,padding:"6px 14px 6px 6px",color:!m.userId?"#6F7BA6":(thread?.userId===m.userId?"#1B1203":"#F5F2EA"),fontWeight:700,fontSize:12,cursor:"pointer",whiteSpace:"nowrap",opacity:m.userId?1:0.55}}><Avatar prenom={m.prenom} photo={m.photo} size={22}/>{m.prenom}{!m.userId&&" (sans compte)"}</button>
           ))}
         </div>
-        {autresMembres.length===0&&<p style={{color:"#6B7280",fontSize:11,margin:"0 0 10px",textAlign:"center"}}>Tu es pour l instant la seule personne inscrite dans cette tontine.</p>}
-        {thread&&<p style={{color:"#D0A23E",fontSize:11,fontWeight:700,margin:"0 0 10px",textAlign:"center"}}>🔒 Conversation privee avec {thread.prenom}</p>}
-        {messages.length===0?<p style={{color:"#6B7280",fontSize:13,textAlign:"center",padding:10}}>Aucun message pour l instant</p>
-        :messages.map(m=><div key={m.id} style={{display:"flex",gap:10,marginBottom:12}}><Avatar prenom={m.auteur} size={32}/><div style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:"0 14px 14px 14px",padding:"8px 12px",flex:1}}><div style={{display:"flex",justifyContent:"space-between",marginBottom:3}}><p style={{margin:0,color:"#D0A23E",fontSize:11,fontWeight:700}}>{m.auteur}</p><p style={{margin:0,color:"#6B7280",fontSize:10}}>{m.time}</p></div>{m.imageUrl?<img src={m.imageUrl} alt="Recu" style={{width:"100%",maxWidth:220,borderRadius:10,display:"block"}}/>:m.audioUrl?<audio controls src={m.audioUrl} style={{width:"100%",height:34}}/>:<p style={{margin:0,color:"#111827",fontSize:13}}>{m.texte}</p>}</div></div>)}
+        {autresMembres.length===0&&<p style={{color:"#97A3C9",fontSize:11,margin:"0 0 10px",textAlign:"center"}}>Tu es pour l instant la seule personne inscrite dans cette tontine.</p>}
+        {thread&&<p style={{color:"#E8B04B",fontSize:11,fontWeight:700,margin:"0 0 10px",textAlign:"center"}}>🔒 Conversation privee avec {thread.prenom}</p>}
+        {messages.length===0?<p style={{color:"#97A3C9",fontSize:13,textAlign:"center",padding:10}}>Aucun message pour l instant</p>
+        :messages.map(m=><div key={m.id} style={{display:"flex",gap:10,marginBottom:12}}><Avatar prenom={m.auteur} size={32}/><div style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:"0 14px 14px 14px",padding:"8px 12px",flex:1}}><div style={{display:"flex",justifyContent:"space-between",marginBottom:3}}><p style={{margin:0,color:"#E8B04B",fontSize:11,fontWeight:700}}>{m.auteur}</p><p style={{margin:0,color:"#97A3C9",fontSize:10}}>{m.time}</p></div>{m.imageUrl?<img src={m.imageUrl} alt="Recu" style={{width:"100%",maxWidth:220,borderRadius:10,display:"block"}}/>:m.audioUrl?<audio controls src={m.audioUrl} style={{width:"100%",height:34}}/>:<p style={{margin:0,color:"#F5F2EA",fontSize:13}}>{m.texte}</p>}</div></div>)}
         <div style={{display:"flex",gap:8,marginTop:8}}>
-          <button onClick={toggleRecord} disabled={sendingAudio} style={{background:recording?"#C1440E":"#E5E7EB",border:"1px solid #D1D5DB",borderRadius:12,width:44,height:44,color:recording?"#fff":"#D0A23E",fontSize:18,cursor:"pointer",flexShrink:0}}>{sendingAudio?"⏳":recording?"⏹":"🎤"}</button>
-          <input value={msgInput} onChange={e=>setMsgInput(e.target.value)} placeholder={thread?`Message prive a ${thread.prenom}...`:"Écrire au groupe..."} maxLength={200} onKeyDown={e=>e.key==="Enter"&&sendMsg()} style={{flex:1,background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:12,padding:"10px 14px",color:"#111827",fontSize:14,outline:"none"}}/>
-          <button onClick={sendMsg} style={{background:"#D0A23E",border:"none",borderRadius:12,padding:"0 16px",color:"#0D0D0D",fontWeight:900,cursor:"pointer",fontSize:18}}>→</button>
+          <button onClick={toggleRecord} disabled={sendingAudio} style={{background:recording?"#E0526A":"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:12,width:44,height:44,color:recording?"#fff":"#E8B04B",fontSize:18,cursor:"pointer",flexShrink:0}}>{sendingAudio?"⏳":recording?"⏹":"🎤"}</button>
+          <input value={msgInput} onChange={e=>setMsgInput(e.target.value)} placeholder={thread?`Message prive a ${thread.prenom}...`:"Écrire au groupe..."} maxLength={200} onKeyDown={e=>e.key==="Enter"&&sendMsg()} style={{flex:1,background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,padding:"10px 14px",color:"#F5F2EA",fontSize:14,outline:"none"}}/>
+          <button onClick={sendMsg} style={{background:"#E8B04B",border:"none",borderRadius:12,padding:"0 16px",color:"#1B1203",fontWeight:900,cursor:"pointer",fontSize:18}}>→</button>
         </div>
-        {recording&&<p style={{color:"#C1440E",fontSize:11,margin:"6px 0 0",textAlign:"center"}}>🔴 Enregistrement en cours... clique sur ⏹ pour envoyer</p>}
+        {recording&&<p style={{color:"#E0526A",fontSize:11,margin:"6px 0 0",textAlign:"center"}}>🔴 Enregistrement en cours... clique sur ⏹ pour envoyer</p>}
       </div>}
 
       {tab==="rapport"&&<div style={{padding:"14px 16px 0"}}>
-        <div style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:16,padding:16,marginBottom:14}}>
-          <p style={{color:"#D0A23E",fontWeight:800,margin:"0 0 14px",fontSize:15}}>Bilan - Cycle {groupe.cycle}/{groupe.totalCycles}</p>
-          {[["Total collecte ce cycle",fmtFCFA(collecte)],["Total cotisations (calcul auto)",fmtFCFA(cagnotteTour)],["Caisse sociale",fmtFCFA(groupe.caisseSociale)],["Taux ponctualite",`${taux}%`],["Membres a jour",`${aJourP.length}/${groupe.membres.length}`],["Cycles restants",groupe.totalCycles-groupe.cycle],["Dettes cumulees (cycles precedents)",fmtFCFA(groupe.membres.reduce((s,m)=>s+(m.dette||0),0))]].map(([l,v])=><div key={l} style={{display:"flex",justifyContent:"space-between",padding:"9px 0",borderBottom:"1px solid #E5E7EB"}}><span style={{color:"#6B7280",fontSize:13}}>{l}</span><span style={{color:"#111827",fontWeight:700,fontSize:13}}>{v}</span></div>)}
+        <div style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:16,padding:16,marginBottom:14}}>
+          <p style={{color:"#E8B04B",fontWeight:800,margin:"0 0 14px",fontSize:15}}>Bilan - Cycle {groupe.cycle}/{groupe.totalCycles}</p>
+          {[["Total collecte ce cycle",fmtFCFA(collecte)],["Total cotisations (calcul auto)",fmtFCFA(cagnotteTour)],["Caisse sociale",fmtFCFA(groupe.caisseSociale)],["Taux ponctualite",`${taux}%`],["Membres a jour",`${aJourP.length}/${groupe.membres.length}`],["Cycles restants",groupe.totalCycles-groupe.cycle],["Dettes cumulees (cycles precedents)",fmtFCFA(groupe.membres.reduce((s,m)=>s+(m.dette||0),0))]].map(([l,v])=><div key={l} style={{display:"flex",justifyContent:"space-between",padding:"9px 0",borderBottom:"1px solid rgba(255,255,255,0.09)"}}><span style={{color:"#97A3C9",fontSize:13}}>{l}</span><span style={{color:"#F5F2EA",fontWeight:700,fontSize:13}}>{v}</span></div>)}
         </div>
-        <p style={{color:"#6B7280",fontSize:12,fontWeight:700,marginBottom:8}}>SUIVI PAR MEMBRE</p>
-        {groupe.membres.map(m=><div key={m.id} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 0",borderBottom:"1px solid #E5E7EB"}}><div style={{display:"flex",alignItems:"center",gap:10}}><Avatar prenom={m.prenom} size={32}/><p style={{margin:0,color:"#111827",fontSize:13}}>{m.prenom}</p></div><div style={{textAlign:"right"}}><p style={{margin:0,color:"#D0A23E",fontSize:12,fontWeight:700}}>{fmtFCFA((m.cyclesPaies||0)*montantDu(m))}</p><p style={{margin:0,color:"#6B7280",fontSize:11}}>{m.cyclesPaies||0}/{groupe.totalCycles} cycles{m.montantPerso?` - ${fmtFCFA(m.montantPerso)}/cycle`:""}</p></div></div>)}
+        <p style={{color:"#97A3C9",fontSize:12,fontWeight:700,marginBottom:8}}>SUIVI PAR MEMBRE</p>
+        {groupe.membres.map(m=><div key={m.id} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 0",borderBottom:"1px solid rgba(255,255,255,0.09)"}}><div style={{display:"flex",alignItems:"center",gap:10}}><Avatar prenom={m.prenom} size={32}/><p style={{margin:0,color:"#F5F2EA",fontSize:13}}>{m.prenom}</p></div><div style={{textAlign:"right"}}><p style={{margin:0,color:"#E8B04B",fontSize:12,fontWeight:700}}>{fmtFCFA((m.cyclesPaies||0)*montantDu(m))}</p><p style={{margin:0,color:"#97A3C9",fontSize:11}}>{m.cyclesPaies||0}/{groupe.totalCycles} cycles{m.montantPerso?` - ${fmtFCFA(m.montantPerso)}/cycle`:""}</p></div></div>)}
         <Btn onClick={exporterRapportPDF}>Exporter rapport PDF</Btn>
       </div>}
 
-      <div style={{margin:"16px 16px 0",background:"#FFFFFF",border:"1px solid #D1D5DB",borderRadius:12,padding:12}}>
-        <p style={{margin:0,color:"#6B7280",fontSize:11,lineHeight:1.6}}>ℹ️ Tu vois toutes les donnees de cette tontine en toute transparence, comme tous les autres membres. Seule la creatrice peut modifier les informations. Pour signaler un paiement, contacte-la directement.</p>
+      <div style={{margin:"16px 16px 0",background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:12,padding:12}}>
+        <p style={{margin:0,color:"#97A3C9",fontSize:11,lineHeight:1.6}}>ℹ️ Tu vois toutes les donnees de cette tontine en toute transparence, comme tous les autres membres. Seule la creatrice peut modifier les informations. Pour signaler un paiement, contacte-la directement.</p>
       </div>
       {showDemandePret&&<Modal onClose={()=>setShowDemandePret(false)}>
         <MH title="Demander un prêt" onClose={()=>setShowDemandePret(false)}/>
-        <p style={{color:"#6B7280",fontSize:12,marginBottom:14,lineHeight:1.5}}>Ta demande sera envoyee a la creatrice de "{groupe.nom}" pour acceptation.</p>
+        <p style={{color:"#97A3C9",fontSize:12,marginBottom:14,lineHeight:1.5}}>Ta demande sera envoyee a la creatrice de "{groupe.nom}" pour acceptation.</p>
         <Fld label="Montant souhaite (FCFA)"><Inp value={pretMontant} onChange={e=>setPretMontant(e.target.value.replace(/\D/g,""))} placeholder="Ex: 20000" inputMode="numeric" autoFocus/></Fld>
         <Fld label="Motif (optionnel)"><Inp value={pretMotif} onChange={e=>setPretMotif(e.target.value)} placeholder="Ex: Frais medicaux" maxLength={80}/></Fld>
         <Btn onClick={demanderPret} disabled={pretBusy}>{pretBusy?"Envoi...":"Envoyer la demande"}</Btn>
@@ -2817,29 +2817,29 @@ THT - Tontine Habi Traore`;
   };
   return(
     <div style={{paddingBottom:90}}>
-      <div style={{background:"#FFFFFF",padding:"44px 16px 16px",display:"flex",alignItems:"center",gap:12,borderBottom:"1px solid #E5E7EB"}}>
-        <button onClick={onBack} style={{background:"none",border:"none",color:"#111827",fontSize:24,cursor:"pointer",padding:0}}>←</button>
-        <div style={{flex:1}}><h2 style={{color:"#111827",margin:0,fontSize:17,fontWeight:800}}>{groupe.nom}</h2><p style={{color:"#D0A23E",margin:0,fontSize:12}}>{groupe.frequence} - {fmtFCFA(groupe.montant)}/cotisation</p></div>
-        <button onClick={()=>{setEditG({nom:groupe.nom,montant:String(groupe.montant),frequence:groupe.frequence});setShowEdit(true);}} style={{background:"#E5E7EB",border:"1px solid #D1D5DB",borderRadius:8,padding:"5px 10px",color:"#D0A23E",fontSize:11,fontWeight:700,cursor:"pointer"}}>Modifier</button>
-        <button onClick={deleteGroupe} style={{background:"transparent",border:"1px solid #C1440E",borderRadius:8,padding:"5px 10px",color:"#EF4444",fontSize:11,fontWeight:700,cursor:"pointer"}}>Suppr.</button>
+      <div style={{background:"rgba(255,255,255,0.055)",padding:"44px 16px 16px",display:"flex",alignItems:"center",gap:12,borderBottom:"1px solid rgba(255,255,255,0.09)"}}>
+        <button onClick={onBack} style={{background:"none",border:"none",color:"#F5F2EA",fontSize:24,cursor:"pointer",padding:0}}>←</button>
+        <div style={{flex:1}}><h2 style={{color:"#F5F2EA",margin:0,fontSize:17,fontWeight:800}}>{groupe.nom}</h2><p style={{color:"#E8B04B",margin:0,fontSize:12}}>{groupe.frequence} - {fmtFCFA(groupe.montant)}/cotisation</p></div>
+        <button onClick={()=>{setEditG({nom:groupe.nom,montant:String(groupe.montant),frequence:groupe.frequence});setShowEdit(true);}} style={{background:"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:8,padding:"5px 10px",color:"#E8B04B",fontSize:11,fontWeight:700,cursor:"pointer"}}>Modifier</button>
+        <button onClick={deleteGroupe} style={{background:"transparent",border:"1px solid #E0526A",borderRadius:8,padding:"5px 10px",color:"#FB7185",fontSize:11,fontWeight:700,cursor:"pointer"}}>Suppr.</button>
       </div>
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8,padding:"14px 16px 0"}}>
         {[["Collecte",fmtFCFA(collecte),"💰"],["Cotisations",fmtFCFA(cagnotteTour),"🏆"],["Ponctualite",`${taux}%`,"📊"],["Caisse soc.",fmtFCFA(groupe.caisseSociale),"🏦"],["A jour",`${aJour.length}/${groupe.membres.length}`,"✅"],["En retard",`${enRet.length}`,"⚠️"]].map(([l,v,i])=>(
-          <div key={l} style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:12,padding:"10px 8px",textAlign:"center"}}><p style={{margin:0,fontSize:16}}>{i}</p><p style={{margin:"4px 0 0",color:"#111827",fontWeight:800,fontSize:12}}>{v}</p><p style={{margin:0,color:"#6B7280",fontSize:10}}>{l}</p></div>
+          <div key={l} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,padding:"10px 8px",textAlign:"center"}}><p style={{margin:0,fontSize:16}}>{i}</p><p style={{margin:"4px 0 0",color:"#F5F2EA",fontWeight:800,fontSize:12}}>{v}</p><p style={{margin:0,color:"#97A3C9",fontSize:10}}>{l}</p></div>
         ))}
       </div>
       <div style={{margin:"12px 16px 0"}}><button onClick={sendWAG} style={{width:"100%",background:"#075E54",border:"none",borderRadius:12,padding:"12px",color:"#fff",fontWeight:700,fontSize:14,cursor:"pointer"}}>Rappel WhatsApp au groupe complet</button></div>
       <div style={{display:"flex",gap:6,padding:"14px 16px 0"}}>
-        {PRIMARY_TABS.map(([id,lbl])=><button key={id} onClick={()=>{setTab(id);setShowMoreTabs(false);}} style={{flex:1,padding:"9px 6px",borderRadius:10,border:"1px solid",cursor:"pointer",fontSize:12,fontWeight:700,background:tab===id?"#D0A23E":"#FFFFFF",color:tab===id?"#0D0D0D":"#6B7280",borderColor:tab===id?"#D0A23E":"#E5E7EB",position:"relative"}}>{lbl}{tab!==id&&<Pastille n={alertes[id]?.n} point={alertes[id]?.point}/>}</button>)}
-        <button onClick={()=>setShowMoreTabs(v=>!v)} style={{flex:1,padding:"9px 6px",borderRadius:10,border:"1px solid",cursor:"pointer",fontSize:12,fontWeight:700,background:inSecondary||showMoreTabs?"#D0A23E":"#FFFFFF",color:inSecondary||showMoreTabs?"#0D0D0D":"#6B7280",borderColor:inSecondary||showMoreTabs?"#D0A23E":"#E5E7EB",position:"relative"}}>{inSecondary?SECONDARY_TABS.find(([id])=>id===tab)[1]:"⋯ Plus"}{!showMoreTabs&&<Pastille n={SECONDARY_TABS.reduce((t2,[id])=>t2+(id===tab?0:(alertes[id]?.n||0)),0)} point={SECONDARY_TABS.some(([id])=>id!==tab&&alertes[id]?.point)&&!SECONDARY_TABS.some(([id])=>id!==tab&&alertes[id]?.n>0)}/>}</button>
+        {PRIMARY_TABS.map(([id,lbl])=><button key={id} onClick={()=>{setTab(id);setShowMoreTabs(false);}} style={{flex:1,padding:"9px 6px",borderRadius:10,border:"1px solid",cursor:"pointer",fontSize:12,fontWeight:700,background:tab===id?"#E8B04B":"rgba(255,255,255,0.055)",color:tab===id?"#1B1203":"#97A3C9",borderColor:tab===id?"#E8B04B":"rgba(255,255,255,0.09)",position:"relative"}}>{lbl}{tab!==id&&<Pastille n={alertes[id]?.n} point={alertes[id]?.point}/>}</button>)}
+        <button onClick={()=>setShowMoreTabs(v=>!v)} style={{flex:1,padding:"9px 6px",borderRadius:10,border:"1px solid",cursor:"pointer",fontSize:12,fontWeight:700,background:inSecondary||showMoreTabs?"#E8B04B":"rgba(255,255,255,0.055)",color:inSecondary||showMoreTabs?"#1B1203":"#97A3C9",borderColor:inSecondary||showMoreTabs?"#E8B04B":"rgba(255,255,255,0.09)",position:"relative"}}>{inSecondary?SECONDARY_TABS.find(([id])=>id===tab)[1]:"⋯ Plus"}{!showMoreTabs&&<Pastille n={SECONDARY_TABS.reduce((t2,[id])=>t2+(id===tab?0:(alertes[id]?.n||0)),0)} point={SECONDARY_TABS.some(([id])=>id!==tab&&alertes[id]?.point)&&!SECONDARY_TABS.some(([id])=>id!==tab&&alertes[id]?.n>0)}/>}</button>
       </div>
       {(showMoreTabs||inSecondary)&&<div style={{padding:"14px 16px 0"}}>
-        <p style={{color:"#6B7280",fontSize:11,fontWeight:700,letterSpacing:.5,margin:"0 0 10px"}}>SECTIONS</p>
+        <p style={{color:"#97A3C9",fontSize:11,fontWeight:700,letterSpacing:.5,margin:"0 0 10px"}}>SECTIONS</p>
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr 1fr",gap:10}}>
           {SECONDARY_TABS.map(([id,lbl,icon])=>(
             <button key={id} onClick={()=>setTab(id)} style={{background:"none",border:"none",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:6,padding:0}}>
-              <div style={{width:56,height:56,borderRadius:"50%",background:tab===id?"#D0A23E":"#FFFFFF",border:tab===id?"none":"1px solid #E5E7EB",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,position:"relative"}}>{icon}{tab!==id&&<Pastille n={alertes[id]?.n} point={alertes[id]?.point}/>}</div>
-              <span style={{color:tab===id?"#D0A23E":"#6B7280",fontSize:11,fontWeight:600,textAlign:"center",lineHeight:1.2}}>{lbl}</span>
+              <div style={{width:56,height:56,borderRadius:"50%",background:tab===id?"#E8B04B":"rgba(255,255,255,0.055)",border:tab===id?"none":"1px solid rgba(255,255,255,0.09)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,position:"relative"}}>{icon}{tab!==id&&<Pastille n={alertes[id]?.n} point={alertes[id]?.point}/>}</div>
+              <span style={{color:tab===id?"#E8B04B":"#97A3C9",fontSize:11,fontWeight:600,textAlign:"center",lineHeight:1.2}}>{lbl}</span>
             </button>
           ))}
         </div>
@@ -2847,86 +2847,86 @@ THT - Tontine Habi Traore`;
 
 
       {tab==="membres"&&<div style={{padding:"14px 16px 0"}}>
-        <div style={{background:"linear-gradient(135deg,#FFFFFF,#F3F4F6)",border:"1px solid #D0A23E",borderRadius:14,padding:14,marginBottom:12}}>
-          <p style={{margin:"0 0 10px",color:"#D0A23E",fontWeight:800,fontSize:13}}>Budget du groupe</p>
+        <div style={{background:"linear-gradient(135deg,rgba(255,255,255,0.055),rgba(255,255,255,0.045))",border:"1px solid #E8B04B",borderRadius:14,padding:14,marginBottom:12}}>
+          <p style={{margin:"0 0 10px",color:"#E8B04B",fontWeight:800,fontSize:13}}>Budget du groupe</p>
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:10}}>
             {[["Budget total cycle",fmtFCFA(cagnotteTour),null],["Déjà collecté",fmtFCFA(collecte),null],["Reste à collecter",fmtFCFA(Math.max(0,cagnotteTour-collecte)),null],["Caisse sociale",fmtFCFA(groupe.caisseSociale),()=>{setShowCaisse(true);loadCaisseMvts();}]].map(([l,v,onClick])=>(
-              <div key={l} onClick={onClick} style={{background:"#FFFFFF",borderRadius:10,padding:"8px 10px",cursor:onClick?"pointer":"default",border:onClick?"1px solid #D1D5DB":"none"}}>
-                <p style={{margin:0,color:"#6B7280",fontSize:10,fontWeight:600}}>{l}{onClick?" ✏️":""}</p>
-                <p style={{margin:"3px 0 0",color:"#111827",fontWeight:800,fontSize:12}}>{v}</p>
+              <div key={l} onClick={onClick} style={{background:"rgba(255,255,255,0.055)",borderRadius:10,padding:"8px 10px",cursor:onClick?"pointer":"default",border:onClick?"1px solid rgba(255,255,255,0.14)":"none"}}>
+                <p style={{margin:0,color:"#97A3C9",fontSize:10,fontWeight:600}}>{l}{onClick?" ✏️":""}</p>
+                <p style={{margin:"3px 0 0",color:"#F5F2EA",fontWeight:800,fontSize:12}}>{v}</p>
               </div>
             ))}
           </div>
-          <Bar pct={cagnotteTour>0?Math.round((collecte/cagnotteTour)*100):0} c="#D0A23E"/>
-          <p style={{margin:"5px 0 0",color:"#6B7280",fontSize:11,textAlign:"right"}}>{cagnotteTour>0?Math.round((collecte/cagnotteTour)*100):0}% collecte ce cycle</p>
+          <Bar pct={cagnotteTour>0?Math.round((collecte/cagnotteTour)*100):0} c="#E8B04B"/>
+          <p style={{margin:"5px 0 0",color:"#97A3C9",fontSize:11,textAlign:"right"}}>{cagnotteTour>0?Math.round((collecte/cagnotteTour)*100):0}% collecte ce cycle</p>
         </div>
         {/* Encart bien visible : qui recoit la cagnotte a la fin de ce cycle. */}
         <ProchainBeneficiaire gagnant={gagnantCycleActuel?groupe.membres.find(m=>m.id===gagnantCycleActuel.membre_id):null} dateEcheance={groupe.dateEcheance} cycle={groupe.cycle} totalCycles={groupe.totalCycles} frequence={groupe.frequence}/>
-        {groupe.dateEcheance&&<div style={{background:"#FEF2F2",border:"1px solid #C1440E",borderRadius:12,padding:"10px 14px",marginBottom:12,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-          <div><p style={{margin:0,color:"#EF4444",fontWeight:700,fontSize:13}}>Echeance : {groupe.dateEcheance}</p><p style={{margin:0,color:"#6B7280",fontSize:11}}>{enRet.length} membre(s) pas encore paye</p></div>
-          <button onClick={sendRappelEcheance} style={{background:"#C1440E",border:"none",borderRadius:10,padding:"8px 12px",color:"#fff",fontSize:12,fontWeight:700,cursor:"pointer"}}>Rappeler</button>
+        {groupe.dateEcheance&&<div style={{background:"rgba(251,113,133,0.10)",border:"1px solid #E0526A",borderRadius:12,padding:"10px 14px",marginBottom:12,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <div><p style={{margin:0,color:"#FB7185",fontWeight:700,fontSize:13}}>Echeance : {groupe.dateEcheance}</p><p style={{margin:0,color:"#97A3C9",fontSize:11}}>{enRet.length} membre(s) pas encore paye</p></div>
+          <button onClick={sendRappelEcheance} style={{background:"#E0526A",border:"none",borderRadius:10,padding:"8px 12px",color:"#fff",fontSize:12,fontWeight:700,cursor:"pointer"}}>Rappeler</button>
         </div>}
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:10}}>
-          <p style={{color:"#22C55E",fontSize:12,fontWeight:700,margin:0}}>A JOUR ({aJour.length})</p>
-          <button onClick={()=>{if(groupe.membres.length>=limiteMembres(user)){setShowUpgrade(true);}else{setShowAdd(true);}}} style={{background:"#E5E7EB",border:"1px solid #D1D5DB",borderRadius:8,padding:"5px 12px",color:"#D0A23E",fontSize:12,fontWeight:700,cursor:"pointer"}}>+ Membre</button>
+          <p style={{color:"#34D399",fontSize:12,fontWeight:700,margin:0}}>A JOUR ({aJour.length})</p>
+          <button onClick={()=>{if(groupe.membres.length>=limiteMembres(user)){setShowUpgrade(true);}else{setShowAdd(true);}}} style={{background:"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:8,padding:"5px 12px",color:"#E8B04B",fontSize:12,fontWeight:700,cursor:"pointer"}}>+ Membre</button>
         </div>
         <div className="tht-grid">{aJour.map(m=><MembreRow key={m.id} m={m} onToggle={()=>toggleP(m.id)} onWA={()=>sendWA(m)} montant={montantDu(m)} onVersement={openVers} onHistorique={openHisto} onDelete={delM} onPhoto={updatePhoto} onToggleCollecteur={toggleCollecteur} tx={suivi[m.id]&&suivi[m.id].cycle===groupe.cycle?suivi[m.id]:null} onAjouterPhotoPreuve={ajouterPhotoPreuve} onEnvoyerRecu={envoyerRecuApres} preuveBusy={preuveBusy} onEdit={mm=>setEditMembre({id:mm.id,prenom:mm.prenom,tel:mm.tel,quartier:mm.quartier||"",montantPerso:mm.montantPerso!=null?String(mm.montantPerso):""})}/>)}</div>
-        {enRet.length>0&&<><p style={{color:"#EF4444",fontSize:12,fontWeight:700,margin:"16px 0 8px"}}>EN RETARD ({enRet.length})</p><div className="tht-grid">{enRet.map(m=><MembreRow key={m.id} m={m} onToggle={()=>toggleP(m.id)} onWA={()=>sendWA(m)} montant={montantDu(m)} onVersement={openVers} onHistorique={openHisto} onDelete={delM} onPhoto={updatePhoto} onToggleCollecteur={toggleCollecteur} tx={suivi[m.id]&&suivi[m.id].cycle===groupe.cycle?suivi[m.id]:null} onAjouterPhotoPreuve={ajouterPhotoPreuve} onEnvoyerRecu={envoyerRecuApres} preuveBusy={preuveBusy} onEdit={mm=>setEditMembre({id:mm.id,prenom:mm.prenom,tel:mm.tel,quartier:mm.quartier||"",montantPerso:mm.montantPerso!=null?String(mm.montantPerso):""})}/>)}</div></>}
+        {enRet.length>0&&<><p style={{color:"#FB7185",fontSize:12,fontWeight:700,margin:"16px 0 8px"}}>EN RETARD ({enRet.length})</p><div className="tht-grid">{enRet.map(m=><MembreRow key={m.id} m={m} onToggle={()=>toggleP(m.id)} onWA={()=>sendWA(m)} montant={montantDu(m)} onVersement={openVers} onHistorique={openHisto} onDelete={delM} onPhoto={updatePhoto} onToggleCollecteur={toggleCollecteur} tx={suivi[m.id]&&suivi[m.id].cycle===groupe.cycle?suivi[m.id]:null} onAjouterPhotoPreuve={ajouterPhotoPreuve} onEnvoyerRecu={envoyerRecuApres} preuveBusy={preuveBusy} onEdit={mm=>setEditMembre({id:mm.id,prenom:mm.prenom,tel:mm.tel,quartier:mm.quartier||"",montantPerso:mm.montantPerso!=null?String(mm.montantPerso):""})}/>)}</div></>}
       </div>}
 
       {tab==="suivi"&&<div style={{padding:"14px 16px 0"}}>
         {declarations.length>0&&<div style={{marginBottom:18}}>
-          <p style={{color:"#D0A23E",fontSize:12,fontWeight:700,margin:"0 0 10px",letterSpacing:.5}}>DÉCLARATIONS EN ATTENTE ({declarations.length})</p>
+          <p style={{color:"#E8B04B",fontSize:12,fontWeight:700,margin:"0 0 10px",letterSpacing:.5}}>DÉCLARATIONS EN ATTENTE ({declarations.length})</p>
           {declarations.map(d=>{
             const membre=groupe.membres.find(m=>m.id===d.membre_id);
             return(
-              <div key={d.id} style={{background:"#FFFFFF",border:"1px solid #D0A23E",borderRadius:12,padding:"12px 14px",marginBottom:8}}>
+              <div key={d.id} style={{background:"rgba(255,255,255,0.055)",border:"1px solid #E8B04B",borderRadius:12,padding:"12px 14px",marginBottom:8}}>
                 <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:10}}>
                   <Avatar prenom={membre?.prenom||"?"} photo={membre?.photo} size={36}/>
                   <div style={{flex:1}}>
-                    <p style={{margin:0,color:"#111827",fontWeight:700,fontSize:14}}>{membre?.prenom||"Membre supprimé"}</p>
-                    <p style={{margin:0,color:"#6B7280",fontSize:11}}>{fmtFCFA(d.montant)} déclaré via {d.moyen==="wave"?"Wave":"Orange Money"} - {new Date(d.created_at).toLocaleDateString("fr-FR")}</p>
+                    <p style={{margin:0,color:"#F5F2EA",fontWeight:700,fontSize:14}}>{membre?.prenom||"Membre supprimé"}</p>
+                    <p style={{margin:0,color:"#97A3C9",fontSize:11}}>{fmtFCFA(d.montant)} déclaré via {d.moyen==="wave"?"Wave":"Orange Money"} - {new Date(d.created_at).toLocaleDateString("fr-FR")}</p>
                   </div>
                 </div>
-                {d.photo_url&&<a href={d.photo_url} target="_blank" rel="noreferrer" style={{display:"block",marginBottom:10}}><img src={d.photo_url} alt="Preuve du paiement" style={{width:"100%",maxHeight:200,objectFit:"cover",borderRadius:8,border:"1px solid #D1D5DB"}}/></a>}
+                {d.photo_url&&<a href={d.photo_url} target="_blank" rel="noreferrer" style={{display:"block",marginBottom:10}}><img src={d.photo_url} alt="Preuve du paiement" style={{width:"100%",maxHeight:200,objectFit:"cover",borderRadius:8,border:"1px solid rgba(255,255,255,0.14)"}}/></a>}
                 {/* Ce que la lecture automatique a releve sur la photo. C'est une aide a
                     la lecture, PAS une validation : le message d'avertissement en dessous
                     reste affiche dans tous les cas. */}
                 {(()=>{const a=d.preuve_analyse;if(!a)return null;const resume=resumePreuve(a);
-                  return(<div style={{background:a.verdict==="doute"?"#FEF3C7":"#F0FDF4",border:`1px solid ${a.verdict==="doute"?"#F59E0B":"#22C55E"}`,borderRadius:8,padding:"7px 10px",marginBottom:8}}>
-                    <p style={{margin:0,color:a.verdict==="doute"?"#92400E":"#166534",fontSize:11,fontWeight:700}}>
+                  return(<div style={{background:a.verdict==="doute"?"rgba(232,176,75,0.12)":"rgba(52,211,153,0.10)",border:`1px solid ${a.verdict==="doute"?"#E8B04B":"#34D399"}`,borderRadius:8,padding:"7px 10px",marginBottom:8}}>
+                    <p style={{margin:0,color:a.verdict==="doute"?"#FFE1A1":"#34D399",fontSize:11,fontWeight:700}}>
                       {a.verdict==="doute"?"🔍 Photo peu lisible":"🔍 Lu sur la photo"}{resume?` — ${resume}`:""}
                     </p>
-                    {a.ecart_montant&&<p style={{margin:"3px 0 0",color:"#92400E",fontSize:10.5,lineHeight:1.35}}>⚠️ {a.ecart_montant}</p>}
+                    {a.ecart_montant&&<p style={{margin:"3px 0 0",color:"#FFE1A1",fontSize:10.5,lineHeight:1.35}}>⚠️ {a.ecart_montant}</p>}
                   </div>);})()}
-                <p style={{margin:"0 0 8px",color:"#EF4444",fontSize:11,fontWeight:600,lineHeight:1.4}}>⚠️ Vérifie que tu as bien reçu l'argent avant de confirmer.</p>
+                <p style={{margin:"0 0 8px",color:"#FB7185",fontSize:11,fontWeight:600,lineHeight:1.4}}>⚠️ Vérifie que tu as bien reçu l'argent avant de confirmer.</p>
                 <div style={{display:"flex",gap:8}}>
-                  <button onClick={()=>confirmerDeclaration(d)} disabled={declBusy===d.id} style={{flex:1,background:"#D0A23E",border:"none",borderRadius:8,padding:"9px",color:"#0D0D0D",fontWeight:700,fontSize:12,cursor:"pointer"}}>{declBusy===d.id?"...":"✅ Confirmer"}</button>
-                  <button onClick={()=>rejeterDeclaration(d)} disabled={declBusy===d.id} style={{flex:1,background:"transparent",border:"1px solid #EF4444",borderRadius:8,padding:"9px",color:"#EF4444",fontWeight:700,fontSize:12,cursor:"pointer"}}>✕ Rejeter</button>
+                  <button onClick={()=>confirmerDeclaration(d)} disabled={declBusy===d.id} style={{flex:1,background:"#E8B04B",border:"none",borderRadius:8,padding:"9px",color:"#1B1203",fontWeight:700,fontSize:12,cursor:"pointer"}}>{declBusy===d.id?"...":"✅ Confirmer"}</button>
+                  <button onClick={()=>rejeterDeclaration(d)} disabled={declBusy===d.id} style={{flex:1,background:"transparent",border:"1px solid #FB7185",borderRadius:8,padding:"9px",color:"#FB7185",fontWeight:700,fontSize:12,cursor:"pointer"}}>✕ Rejeter</button>
                 </div>
               </div>
             );
           })}
         </div>}
-        <p style={{color:"#6B7280",fontSize:12,marginBottom:14,lineHeight:1.5}}>Vue d ensemble du dernier versement de chaque membre. Tape sur "Recu envoye" pour corriger, ou sur "Historique" dans l onglet Membres pour voir tous les paiements.</p>
-        {groupe.membres.length===0&&<p style={{color:"#6B7280",fontSize:13,textAlign:"center",padding:20}}>Aucun membre pour l instant</p>}
+        <p style={{color:"#97A3C9",fontSize:12,marginBottom:14,lineHeight:1.5}}>Vue d ensemble du dernier versement de chaque membre. Tape sur "Recu envoye" pour corriger, ou sur "Historique" dans l onglet Membres pour voir tous les paiements.</p>
+        {groupe.membres.length===0&&<p style={{color:"#97A3C9",fontSize:13,textAlign:"center",padding:20}}>Aucun membre pour l instant</p>}
         {groupe.membres.map(m=>{
           const t=suivi[m.id];
           return(
-            <div key={m.id} style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:12,padding:"12px 14px",marginBottom:8}}>
+            <div key={m.id} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,padding:"12px 14px",marginBottom:8}}>
               <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:t?10:0}}>
                 <Avatar prenom={m.prenom} photo={m.photo} size={36}/>
-                <div style={{flex:1}}><p style={{margin:0,color:"#111827",fontWeight:700,fontSize:14}}>{m.prenom}</p>{t&&<p style={{margin:0,color:"#6B7280",fontSize:11}}>{fmtFCFA(t.montant)} - {new Date(t.created_at).toLocaleDateString("fr-FR")} a {new Date(t.created_at).toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"})}</p>}</div>
+                <div style={{flex:1}}><p style={{margin:0,color:"#F5F2EA",fontWeight:700,fontSize:14}}>{m.prenom}</p>{t&&<p style={{margin:0,color:"#97A3C9",fontSize:11}}>{fmtFCFA(t.montant)} - {new Date(t.created_at).toLocaleDateString("fr-FR")} a {new Date(t.created_at).toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"})}</p>}</div>
               </div>
               {t?(<>
                 <div style={{display:"flex",flexWrap:"wrap",gap:6,marginBottom:!t.recu_envoye?8:0}}>
-                  <span style={{background:"#E5E7EB",color:"#22C55E",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>✅ Montant recu</span>
-                  <span onClick={()=>toggleSuiviItem(m.id,t,"recu_envoye",!t.recu_envoye)} style={{cursor:"pointer",background:t.recu_envoye?"#E5E7EB":"#FEF2F2",color:t.recu_envoye?"#22C55E":"#EF4444",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{t.recu_envoye?"✅":"❌"} Reçu envoyé</span>
-                  <span style={{background:t.statut==="paye"?"#E5E7EB":"#FEF2F2",color:t.statut==="paye"?"#22C55E":"#EF4444",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{t.statut==="paye"?"✅ Pas de dette":"❌ Dette restante"}</span>
-                  <span style={{background:t.photo_url?"#E5E7EB":"#FEF2F2",color:t.photo_url?"#22C55E":"#EF4444",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{t.photo_url?"✅":"❌"} Photo</span>
+                  <span style={{background:"rgba(255,255,255,0.09)",color:"#34D399",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>✅ Montant recu</span>
+                  <span onClick={()=>toggleSuiviItem(m.id,t,"recu_envoye",!t.recu_envoye)} style={{cursor:"pointer",background:t.recu_envoye?"rgba(255,255,255,0.09)":"rgba(251,113,133,0.10)",color:t.recu_envoye?"#34D399":"#FB7185",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{t.recu_envoye?"✅":"❌"} Reçu envoyé</span>
+                  <span style={{background:t.statut==="paye"?"rgba(255,255,255,0.09)":"rgba(251,113,133,0.10)",color:t.statut==="paye"?"#34D399":"#FB7185",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{t.statut==="paye"?"✅ Pas de dette":"❌ Dette restante"}</span>
+                  <span style={{background:t.photo_url?"rgba(255,255,255,0.09)":"rgba(251,113,133,0.10)",color:t.photo_url?"#34D399":"#FB7185",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{t.photo_url?"✅":"❌"} Photo</span>
                 </div>
-                {!t.recu_envoye&&<button onClick={()=>toggleSuiviItem(m.id,t,"recu_envoye",true)} style={{width:"100%",background:"transparent",border:"1px solid #D0A23E",borderRadius:8,padding:"7px",color:"#D0A23E",fontSize:11,fontWeight:700,cursor:"pointer"}}>☑️ Tout est en ordre</button>}
-              </>):<p style={{margin:0,color:"#6B7280",fontSize:12}}>Aucun versement enregistre pour l instant</p>}
+                {!t.recu_envoye&&<button onClick={()=>toggleSuiviItem(m.id,t,"recu_envoye",true)} style={{width:"100%",background:"transparent",border:"1px solid #E8B04B",borderRadius:8,padding:"7px",color:"#E8B04B",fontSize:11,fontWeight:700,cursor:"pointer"}}>☑️ Tout est en ordre</button>}
+              </>):<p style={{margin:0,color:"#97A3C9",fontSize:12}}>Aucun versement enregistre pour l instant</p>}
             </div>
           );
         })}
@@ -2939,105 +2939,105 @@ THT - Tontine Habi Traore`;
           const tally={};
           if(elec)votes.filter(v=>v.election_id===elec.id).forEach(v=>{tally[v.candidate_membre_id]=(tally[v.candidate_membre_id]||0)+1;});
           return(
-            <div key={role} style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:14,padding:16,marginBottom:12}}>
-              <p style={{margin:"0 0 10px",color:"#6B7280",fontSize:11,fontWeight:700,letterSpacing:.5}}>{label.toUpperCase()}</p>
-              {t?<div style={{display:"flex",alignItems:"center",gap:10,marginBottom:10}}><Avatar prenom={t.prenom} photo={t.photo} size={36}/><p style={{margin:0,color:"#111827",fontWeight:700,fontSize:15}}>{t.prenom}</p></div>
-              :<p style={{color:"#6B7280",fontSize:13,marginBottom:10}}>Poste non attribue</p>}
+            <div key={role} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:14,padding:16,marginBottom:12}}>
+              <p style={{margin:"0 0 10px",color:"#97A3C9",fontSize:11,fontWeight:700,letterSpacing:.5}}>{label.toUpperCase()}</p>
+              {t?<div style={{display:"flex",alignItems:"center",gap:10,marginBottom:10}}><Avatar prenom={t.prenom} photo={t.photo} size={36}/><p style={{margin:0,color:"#F5F2EA",fontWeight:700,fontSize:15}}>{t.prenom}</p></div>
+              :<p style={{color:"#97A3C9",fontSize:13,marginBottom:10}}>Poste non attribue</p>}
               {elec?(
-                <div style={{background:"#FFFFFF",borderRadius:10,padding:12,marginTop:6}}>
-                  <p style={{margin:"0 0 8px",color:"#D0A23E",fontSize:12,fontWeight:700}}>🗳️ Election en cours</p>
+                <div style={{background:"rgba(255,255,255,0.055)",borderRadius:10,padding:12,marginTop:6}}>
+                  <p style={{margin:"0 0 8px",color:"#E8B04B",fontSize:12,fontWeight:700}}>🗳️ Election en cours</p>
                   {elec.candidats.map(cid=>{const c=groupe.membres.find(m=>m.id===cid);return(
-                    <div key={cid} style={{display:"flex",justifyContent:"space-between",padding:"4px 0",color:"#111827",fontSize:13}}><span>{c?.prenom||"?"}</span><span style={{color:"#D0A23E",fontWeight:700}}>{tally[cid]||0} voix</span></div>
+                    <div key={cid} style={{display:"flex",justifyContent:"space-between",padding:"4px 0",color:"#F5F2EA",fontSize:13}}><span>{c?.prenom||"?"}</span><span style={{color:"#E8B04B",fontWeight:700}}>{tally[cid]||0} voix</span></div>
                   );})}
-                  <button onClick={()=>cloturerElection(elec)} style={{marginTop:10,width:"100%",background:"#D0A23E",border:"none",borderRadius:10,padding:"9px",color:"#0D0D0D",fontWeight:700,fontSize:12,cursor:"pointer"}}>Cloturer l election</button>
+                  <button onClick={()=>cloturerElection(elec)} style={{marginTop:10,width:"100%",background:"#E8B04B",border:"none",borderRadius:10,padding:"9px",color:"#1B1203",fontWeight:700,fontSize:12,cursor:"pointer"}}>Cloturer l election</button>
                 </div>
               ):(
-                <button onClick={()=>{setElectionRole(role);setElectionCands([]);setShowElection(true);}} style={{width:"100%",background:"#E5E7EB",border:"1px solid #D1D5DB",borderRadius:10,padding:"9px",color:"#D0A23E",fontWeight:700,fontSize:12,cursor:"pointer"}}>Lancer une election</button>
+                <button onClick={()=>{setElectionRole(role);setElectionCands([]);setShowElection(true);}} style={{width:"100%",background:"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:10,padding:"9px",color:"#E8B04B",fontWeight:700,fontSize:12,cursor:"pointer"}}>Lancer une election</button>
               )}
             </div>
           );
         })}
-        <div style={{margin:"14px 0 0",background:"#FFFFFF",border:"1px solid #D1D5DB",borderRadius:12,padding:12}}>
-          <p style={{margin:0,color:"#6B7280",fontSize:11,lineHeight:1.6}}>ℹ️ Seuls les membres ayant un compte THT relie peuvent voter. Tu peux aussi attribuer un poste directement sans election.</p>
+        <div style={{margin:"14px 0 0",background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:12,padding:12}}>
+          <p style={{margin:0,color:"#97A3C9",fontSize:11,lineHeight:1.6}}>ℹ️ Seuls les membres ayant un compte THT relie peuvent voter. Tu peux aussi attribuer un poste directement sans election.</p>
         </div>
       </div>}
       {showElection&&<Modal onClose={()=>setShowElection(false)}>
         <MH title={`Election - ${ROLES.find(r=>r[0]===electionRole)?.[1]}`} onClose={()=>setShowElection(false)}/>
-        <p style={{color:"#6B7280",fontSize:13,marginBottom:14}}>Choisis au moins 2 candidat(e)s parmi les membres.</p>
+        <p style={{color:"#97A3C9",fontSize:13,marginBottom:14}}>Choisis au moins 2 candidat(e)s parmi les membres.</p>
         {groupe.membres.map(m=>(
-          <div key={m.id} onClick={()=>setElectionCands(c=>c.includes(m.id)?c.filter(x=>x!==m.id):[...c,m.id])} style={{display:"flex",alignItems:"center",gap:10,padding:"10px 12px",background:electionCands.includes(m.id)?"#E5E7EB":"#FFFFFF",border:`1px solid ${electionCands.includes(m.id)?"#D0A23E":"#E5E7EB"}`,borderRadius:10,marginBottom:6,cursor:"pointer"}}>
-            <Avatar prenom={m.prenom} photo={m.photo} size={30}/><p style={{margin:0,color:"#111827",fontSize:13,flex:1}}>{m.prenom}</p>
-            {electionCands.includes(m.id)&&<span style={{color:"#D0A23E",fontWeight:900}}>✓</span>}
+          <div key={m.id} onClick={()=>setElectionCands(c=>c.includes(m.id)?c.filter(x=>x!==m.id):[...c,m.id])} style={{display:"flex",alignItems:"center",gap:10,padding:"10px 12px",background:electionCands.includes(m.id)?"rgba(255,255,255,0.09)":"rgba(255,255,255,0.055)",border:`1px solid ${electionCands.includes(m.id)?"#E8B04B":"rgba(255,255,255,0.09)"}`,borderRadius:10,marginBottom:6,cursor:"pointer"}}>
+            <Avatar prenom={m.prenom} photo={m.photo} size={30}/><p style={{margin:0,color:"#F5F2EA",fontSize:13,flex:1}}>{m.prenom}</p>
+            {electionCands.includes(m.id)&&<span style={{color:"#E8B04B",fontWeight:900}}>✓</span>}
           </div>
         ))}
         <div style={{marginTop:14}}><Btn onClick={lancerElection} disabled={electionBusy}>{electionBusy?"Lancement...":"Lancer l election"}</Btn></div>
       </Modal>}
       {tab==="tirage"&&<div style={{padding:"14px 16px 0"}}>
         {gagnantCycleActuel?(()=>{const g=groupe.membres.find(m=>m.id===gagnantCycleActuel.membre_id);return(
-          <div style={{background:"linear-gradient(135deg,#E5E7EB,#FFFFFF)",border:"1px solid #D0A23E",borderRadius:16,padding:20,textAlign:"center",marginBottom:16}}>
-            <p style={{margin:0,color:"#6B7280",fontSize:12,fontWeight:600}}>GAGNANTE DU CYCLE {groupe.cycle}</p>
+          <div style={{background:"linear-gradient(135deg,rgba(255,255,255,0.09),rgba(255,255,255,0.055))",border:"1px solid #E8B04B",borderRadius:16,padding:20,textAlign:"center",marginBottom:16}}>
+            <p style={{margin:0,color:"#97A3C9",fontSize:12,fontWeight:600}}>GAGNANTE DU CYCLE {groupe.cycle}</p>
             <div style={{margin:"12px auto 8px"}}><Avatar prenom={g?.prenom||"?"} photo={g?.photo} size={64}/></div>
-            <p style={{margin:0,color:"#D0A23E",fontSize:20,fontWeight:900}}>{g?.prenom||"Membre retiré"}</p>
-            <p style={{margin:"4px 0 0",color:"#6B7280",fontSize:12}}>Tirée au sort le {new Date(gagnantCycleActuel.created_at).toLocaleString("fr-FR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"})}</p>
-            <p style={{margin:"10px 0 0",color:"#22C55E",fontSize:12,fontWeight:700,background:"#F0FDF4",border:"1px solid #22C55E",borderRadius:8,padding:"7px 10px"}}>🔒 Tirage verrouillé pour le cycle {groupe.cycle} — il rouvrira au cycle suivant</p>
+            <p style={{margin:0,color:"#E8B04B",fontSize:20,fontWeight:900}}>{g?.prenom||"Membre retiré"}</p>
+            <p style={{margin:"4px 0 0",color:"#97A3C9",fontSize:12}}>Tirée au sort le {new Date(gagnantCycleActuel.created_at).toLocaleString("fr-FR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"})}</p>
+            <p style={{margin:"10px 0 0",color:"#34D399",fontSize:12,fontWeight:700,background:"rgba(52,211,153,0.10)",border:"1px solid #34D399",borderRadius:8,padding:"7px 10px"}}>🔒 Tirage verrouillé pour le cycle {groupe.cycle} — il rouvrira au cycle suivant</p>
             {groupe.cycle<groupe.totalCycles?(
-              <button onClick={cloturerCycle} disabled={clotureBusy} style={{marginTop:16,width:"100%",background:"linear-gradient(135deg,#D0A23E,#A87C22)",border:"none",borderRadius:12,padding:"12px",color:"#0D0D0D",fontWeight:800,fontSize:14,cursor:"pointer"}}>{clotureBusy?"Cloture en cours...":`Cloturer le cycle ${groupe.cycle} et passer au cycle ${groupe.cycle+1}`}</button>
+              <button onClick={cloturerCycle} disabled={clotureBusy} style={{marginTop:16,width:"100%",background:"linear-gradient(135deg,#FFE9B4 0%,#E8B04B 48%,#C38427 100%)",border:"none",borderRadius:12,padding:"12px",color:"#1B1203",fontWeight:800,fontSize:14,cursor:"pointer"}}>{clotureBusy?"Cloture en cours...":`Cloturer le cycle ${groupe.cycle} et passer au cycle ${groupe.cycle+1}`}</button>
             ):(
-              <p style={{marginTop:16,color:"#22C55E",fontWeight:700,fontSize:13}}>🎉 Dernier cycle de cette tontine termine !</p>
+              <p style={{marginTop:16,color:"#34D399",fontWeight:700,fontSize:13}}>🎉 Dernier cycle de cette tontine termine !</p>
             )}
           </div>
         );})():(
-          <div style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:16,padding:20,textAlign:"center",marginBottom:16}}>
+          <div style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:16,padding:20,textAlign:"center",marginBottom:16}}>
             <p style={{fontSize:36,margin:"0 0 8px"}}>🎲</p>
-            <p style={{color:"#111827",fontSize:14,fontWeight:700,margin:0}}>Aucun tirage pour le cycle {groupe.cycle} pour le moment</p>
-            <p style={{color:"#6B7280",fontSize:12,margin:"6px 0 16px"}}>{eligibles.length} membre(s) pas encore tire(s) au sort sur cette rotation</p>
-            <button onClick={lancerTirage} disabled={tirageBusy||eligibles.length===0} style={{background:"linear-gradient(135deg,#D0A23E,#A87C22)",border:"none",borderRadius:12,padding:"12px 24px",color:"#0D0D0D",fontWeight:800,fontSize:14,cursor:"pointer"}}>{tirageBusy?"Tirage en cours...":"🎲 Lancer le tirage au sort"}</button>
+            <p style={{color:"#F5F2EA",fontSize:14,fontWeight:700,margin:0}}>Aucun tirage pour le cycle {groupe.cycle} pour le moment</p>
+            <p style={{color:"#97A3C9",fontSize:12,margin:"6px 0 16px"}}>{eligibles.length} membre(s) pas encore tire(s) au sort sur cette rotation</p>
+            <button onClick={lancerTirage} disabled={tirageBusy||eligibles.length===0} style={{background:"linear-gradient(135deg,#FFE9B4 0%,#E8B04B 48%,#C38427 100%)",border:"none",borderRadius:12,padding:"12px 24px",color:"#1B1203",fontWeight:800,fontSize:14,cursor:"pointer"}}>{tirageBusy?"Tirage en cours...":"🎲 Lancer le tirage au sort"}</button>
           </div>
         )}
-        <p style={{color:"#6B7280",fontSize:12,fontWeight:700,margin:"16px 0 10px",letterSpacing:.5}}>HISTORIQUE DES TIRAGES (TRANSPARENT)</p>
-        {tirages.length===0?<p style={{color:"#6B7280",fontSize:13,textAlign:"center",marginTop:10}}>Aucun tirage effectue pour l instant</p>
+        <p style={{color:"#97A3C9",fontSize:12,fontWeight:700,margin:"16px 0 10px",letterSpacing:.5}}>HISTORIQUE DES TIRAGES (TRANSPARENT)</p>
+        {tirages.length===0?<p style={{color:"#97A3C9",fontSize:13,textAlign:"center",marginTop:10}}>Aucun tirage effectue pour l instant</p>
         :[...tirages].reverse().map(t=>{const m=groupe.membres.find(mm=>mm.id===t.membre_id);return(
-          <div key={t.id} style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:12,padding:"10px 14px",marginBottom:8,display:"flex",gap:10,alignItems:"center"}}>
-            <span style={{background:"#E5E7EB",color:"#D0A23E",fontSize:11,fontWeight:800,padding:"3px 8px",borderRadius:8}}>Cycle {t.cycle}</span>
-            <p style={{margin:0,color:"#111827",fontSize:13,fontWeight:700,flex:1}}>{m?.prenom||"Membre retiré"}</p>
-            <p style={{margin:0,color:"#6B7280",fontSize:11}}>{new Date(t.created_at).toLocaleDateString("fr-FR")}</p>
+          <div key={t.id} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,padding:"10px 14px",marginBottom:8,display:"flex",gap:10,alignItems:"center"}}>
+            <span style={{background:"rgba(255,255,255,0.09)",color:"#E8B04B",fontSize:11,fontWeight:800,padding:"3px 8px",borderRadius:8}}>Cycle {t.cycle}</span>
+            <p style={{margin:0,color:"#F5F2EA",fontSize:13,fontWeight:700,flex:1}}>{m?.prenom||"Membre retiré"}</p>
+            <p style={{margin:0,color:"#97A3C9",fontSize:11}}>{new Date(t.created_at).toLocaleDateString("fr-FR")}</p>
           </div>
         );})}
-        {tirageAnim&&<div style={{position:"fixed",inset:0,background:"rgba(10,26,15,0.92)",display:"flex",alignItems:"center",justifyContent:"center",zIndex:200}}>
+        {tirageAnim&&<div style={{position:"fixed",inset:0,background:"rgba(6,11,33,0.92)",display:"flex",alignItems:"center",justifyContent:"center",zIndex:200}}>
           <style>{`@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}`}</style>
           <div style={{textAlign:"center"}}>
             <p style={{fontSize:60,margin:0,animation:"spin 0.5s linear infinite",display:"inline-block"}}>🎲</p>
-            <p style={{color:"#D0A23E",fontSize:16,fontWeight:800,marginTop:16}}>Tirage au sort en cours...</p>
+            <p style={{color:"#E8B04B",fontSize:16,fontWeight:800,marginTop:16}}>Tirage au sort en cours...</p>
           </div>
         </div>}
       </div>}
       {tab==="prets"&&<div style={{padding:"14px 16px 0"}}>
-        <button onClick={()=>setShowPret(true)} style={{width:"100%",background:"#E5E7EB",border:"1px solid #D1D5DB",borderRadius:10,padding:"10px",color:"#D0A23E",fontWeight:700,fontSize:13,cursor:"pointer",marginBottom:14}}>+ Nouvelle demande de pret</button>
-        {prets.filter(p=>p.statut==="en_attente").length>0&&<p style={{color:"#D0A23E",fontSize:12,fontWeight:700,margin:"0 0 10px",letterSpacing:.5}}>DEMANDES EN ATTENTE ({prets.filter(p=>p.statut==="en_attente").length})</p>}
+        <button onClick={()=>setShowPret(true)} style={{width:"100%",background:"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:10,padding:"10px",color:"#E8B04B",fontWeight:700,fontSize:13,cursor:"pointer",marginBottom:14}}>+ Nouvelle demande de pret</button>
+        {prets.filter(p=>p.statut==="en_attente").length>0&&<p style={{color:"#E8B04B",fontSize:12,fontWeight:700,margin:"0 0 10px",letterSpacing:.5}}>DEMANDES EN ATTENTE ({prets.filter(p=>p.statut==="en_attente").length})</p>}
         {prets.filter(p=>p.statut==="en_attente").map(p=>{const m=groupe.membres.find(mm=>mm.id===p.membre_id);return(
-          <div key={p.id} style={{background:"#F3F4F6",border:"1px solid #D0A23E",borderRadius:14,padding:16,marginBottom:10}}>
-            <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:10}}><Avatar prenom={m?.prenom||"?"} photo={m?.photo} size={36}/><div><p style={{margin:0,color:"#111827",fontWeight:700,fontSize:14}}>{m?.prenom||"?"}</p><p style={{margin:0,color:"#D0A23E",fontWeight:700,fontSize:13}}>{fmtFCFA(p.montant)}</p></div></div>
-            {p.motif&&<p style={{margin:"0 0 10px",color:"#6B7280",fontSize:12,fontStyle:"italic"}}>{p.motif}</p>}
+          <div key={p.id} style={{background:"rgba(255,255,255,0.045)",border:"1px solid #E8B04B",borderRadius:14,padding:16,marginBottom:10}}>
+            <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:10}}><Avatar prenom={m?.prenom||"?"} photo={m?.photo} size={36}/><div><p style={{margin:0,color:"#F5F2EA",fontWeight:700,fontSize:14}}>{m?.prenom||"?"}</p><p style={{margin:0,color:"#E8B04B",fontWeight:700,fontSize:13}}>{fmtFCFA(p.montant)}</p></div></div>
+            {p.motif&&<p style={{margin:"0 0 10px",color:"#97A3C9",fontSize:12,fontStyle:"italic"}}>{p.motif}</p>}
             {(()=>{
               const {eligible,oui,non,decision}=calcVotePret(p,pretsVotes[p.id],groupe.membres.length);
               const votants=new Set((pretsVotes[p.id]||[]).map(v=>v.voter_membre_id));
               const enAttenteDeVote=groupe.membres.filter(mm=>mm.id!==p.membre_id&&!votants.has(mm.id));
               return(<>
                 <div style={{display:"flex",gap:8,marginBottom:10,flexWrap:"wrap"}}>
-                  <span style={{background:"#FFFFFF",color:"#22C55E",fontSize:11,fontWeight:700,padding:"4px 10px",borderRadius:8}}>✅ {oui} Oui</span>
-                  <span style={{background:"#FFFFFF",color:"#EF4444",fontSize:11,fontWeight:700,padding:"4px 10px",borderRadius:8}}>❌ {non} Non</span>
-                  <span style={{background:"#FFFFFF",color:"#6B7280",fontSize:11,fontWeight:700,padding:"4px 10px",borderRadius:8}}>sur {eligible} éligible(s)</span>
+                  <span style={{background:"rgba(255,255,255,0.055)",color:"#34D399",fontSize:11,fontWeight:700,padding:"4px 10px",borderRadius:8}}>✅ {oui} Oui</span>
+                  <span style={{background:"rgba(255,255,255,0.055)",color:"#FB7185",fontSize:11,fontWeight:700,padding:"4px 10px",borderRadius:8}}>❌ {non} Non</span>
+                  <span style={{background:"rgba(255,255,255,0.055)",color:"#97A3C9",fontSize:11,fontWeight:700,padding:"4px 10px",borderRadius:8}}>sur {eligible} éligible(s)</span>
                 </div>
                 {decision==="accepte"&&<div style={{display:"flex",gap:8}}>
-                  <button onClick={()=>{setAccepterM(p);setPretPhoto(null);setPretPhotoPreview(null);}} style={{flex:1,background:"linear-gradient(135deg,#D0A23E,#A87C22)",border:"none",borderRadius:10,padding:"9px",color:"#0D0D0D",fontWeight:800,fontSize:12,cursor:"pointer"}}>✅ Vote favorable - Accepter et verser</button>
+                  <button onClick={()=>{setAccepterM(p);setPretPhoto(null);setPretPhotoPreview(null);}} style={{flex:1,background:"linear-gradient(135deg,#FFE9B4 0%,#E8B04B 48%,#C38427 100%)",border:"none",borderRadius:10,padding:"9px",color:"#1B1203",fontWeight:800,fontSize:12,cursor:"pointer"}}>✅ Vote favorable - Accepter et verser</button>
                 </div>}
                 {decision==="en_cours"&&enAttenteDeVote.length>0&&<div>
-                  <p style={{margin:"0 0 6px",color:"#6B7280",fontSize:11,fontWeight:700,letterSpacing:.5}}>VOTE PAR PROCURATION (pas encore voté)</p>
+                  <p style={{margin:"0 0 6px",color:"#97A3C9",fontSize:11,fontWeight:700,letterSpacing:.5}}>VOTE PAR PROCURATION (pas encore voté)</p>
                   {enAttenteDeVote.map(mm=>(
                     <div key={mm.id} style={{display:"flex",alignItems:"center",gap:8,marginBottom:6}}>
-                      <p style={{margin:0,color:"#111827",fontSize:12,flex:1}}>{mm.prenom}</p>
-                      <button onClick={()=>voterProcuration(p,mm,"oui")} disabled={voteBusy===mm.id} style={{background:"#22C55E",border:"none",borderRadius:8,padding:"6px 10px",color:"#fff",fontWeight:700,fontSize:11,cursor:"pointer"}}>Voter Oui</button>
-                      <button onClick={()=>voterProcuration(p,mm,"non")} disabled={voteBusy===mm.id} style={{background:"#EF4444",border:"none",borderRadius:8,padding:"6px 10px",color:"#fff",fontWeight:700,fontSize:11,cursor:"pointer"}}>Voter Non</button>
+                      <p style={{margin:0,color:"#F5F2EA",fontSize:12,flex:1}}>{mm.prenom}</p>
+                      <button onClick={()=>voterProcuration(p,mm,"oui")} disabled={voteBusy===mm.id} style={{background:"#34D399",border:"none",borderRadius:8,padding:"6px 10px",color:"#fff",fontWeight:700,fontSize:11,cursor:"pointer"}}>Voter Oui</button>
+                      <button onClick={()=>voterProcuration(p,mm,"non")} disabled={voteBusy===mm.id} style={{background:"#FB7185",border:"none",borderRadius:8,padding:"6px 10px",color:"#fff",fontWeight:700,fontSize:11,cursor:"pointer"}}>Voter Non</button>
                     </div>
                   ))}
                 </div>}
@@ -3045,49 +3045,49 @@ THT - Tontine Habi Traore`;
             })()}
           </div>
         );})}
-        {prets.filter(p=>p.statut!=="en_attente").length===0&&prets.filter(p=>p.statut==="en_attente").length===0?<p style={{color:"#6B7280",fontSize:13,textAlign:"center",marginTop:20}}>Aucun pret pour le moment</p>
+        {prets.filter(p=>p.statut!=="en_attente").length===0&&prets.filter(p=>p.statut==="en_attente").length===0?<p style={{color:"#97A3C9",fontSize:13,textAlign:"center",marginTop:20}}>Aucun pret pour le moment</p>
         :prets.filter(p=>p.statut!=="en_attente").map(p=>{const m=groupe.membres.find(mm=>mm.id===p.membre_id);const total=p.montant*(1+p.taux_interet/100);const reste=total-p.montant_rembourse;
-          const labels={en_cours:["En cours","#D0A23E"],rembourse:["Rembourse","#22C55E"],refuse:["Refuse","#EF4444"]};
-          const [lbl,col]=labels[p.statut]||["En cours","#D0A23E"];
+          const labels={en_cours:["En cours","#E8B04B"],rembourse:["Rembourse","#34D399"],refuse:["Refuse","#FB7185"]};
+          const [lbl,col]=labels[p.statut]||["En cours","#E8B04B"];
           return(
-          <div key={p.id} style={{background:"#FFFFFF",border:`1px solid ${p.statut==="rembourse"?"#E5E7EB":"#D0A23E"}`,borderRadius:14,padding:16,marginBottom:10}}>
+          <div key={p.id} style={{background:"rgba(255,255,255,0.055)",border:`1px solid ${p.statut==="rembourse"?"rgba(255,255,255,0.09)":"#E8B04B"}`,borderRadius:14,padding:16,marginBottom:10}}>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-              <div style={{display:"flex",alignItems:"center",gap:10}}><Avatar prenom={m?.prenom||"?"} photo={m?.photo} size={36}/><div><p style={{margin:0,color:"#111827",fontWeight:700,fontSize:14}}>{m?.prenom||"Membre retiré"}</p><p style={{margin:0,color:"#6B7280",fontSize:11}}>{p.taux_interet>0?`${p.taux_interet}% d interet`:"Sans intérêt"}</p></div></div>
-              <span style={{background:"#FEF2F2",color:col,fontSize:11,fontWeight:700,padding:"3px 9px",borderRadius:99}}>{lbl}</span>
+              <div style={{display:"flex",alignItems:"center",gap:10}}><Avatar prenom={m?.prenom||"?"} photo={m?.photo} size={36}/><div><p style={{margin:0,color:"#F5F2EA",fontWeight:700,fontSize:14}}>{m?.prenom||"Membre retiré"}</p><p style={{margin:0,color:"#97A3C9",fontSize:11}}>{p.taux_interet>0?`${p.taux_interet}% d interet`:"Sans intérêt"}</p></div></div>
+              <span style={{background:"rgba(251,113,133,0.10)",color:col,fontSize:11,fontWeight:700,padding:"3px 9px",borderRadius:99}}>{lbl}</span>
             </div>
             {p.statut!=="refuse"&&<div style={{display:"flex",justifyContent:"space-between",margin:"12px 0"}}>
-              <div><p style={{margin:0,color:"#6B7280",fontSize:11}}>Emprunte</p><p style={{margin:"2px 0 0",color:"#111827",fontWeight:700,fontSize:13}}>{fmtFCFA(p.montant)}</p></div>
-              <div><p style={{margin:0,color:"#6B7280",fontSize:11}}>Rembourse</p><p style={{margin:"2px 0 0",color:"#22C55E",fontWeight:700,fontSize:13}}>{fmtFCFA(p.montant_rembourse)}</p></div>
-              <div><p style={{margin:0,color:"#6B7280",fontSize:11}}>Reste</p><p style={{margin:"2px 0 0",color:"#D0A23E",fontWeight:700,fontSize:13}}>{fmtFCFA(Math.max(0,reste))}</p></div>
+              <div><p style={{margin:0,color:"#97A3C9",fontSize:11}}>Emprunte</p><p style={{margin:"2px 0 0",color:"#F5F2EA",fontWeight:700,fontSize:13}}>{fmtFCFA(p.montant)}</p></div>
+              <div><p style={{margin:0,color:"#97A3C9",fontSize:11}}>Rembourse</p><p style={{margin:"2px 0 0",color:"#34D399",fontWeight:700,fontSize:13}}>{fmtFCFA(p.montant_rembourse)}</p></div>
+              <div><p style={{margin:0,color:"#97A3C9",fontSize:11}}>Reste</p><p style={{margin:"2px 0 0",color:"#E8B04B",fontWeight:700,fontSize:13}}>{fmtFCFA(Math.max(0,reste))}</p></div>
             </div>}
-            {p.photo_url&&<a href={p.photo_url} target="_blank" rel="noreferrer"><img src={p.photo_url} alt="Preuve" style={{width:"100%",maxHeight:120,objectFit:"cover",borderRadius:8,border:"1px solid #D1D5DB",marginBottom:10}}/></a>}
-            {p.statut==="en_cours"&&<button onClick={()=>{setRemboM(p);setRemboAmt("");}} style={{width:"100%",background:"#E5E7EB",border:"1px solid #D1D5DB",borderRadius:10,padding:"9px",color:"#D0A23E",fontWeight:700,fontSize:12,cursor:"pointer"}}>+ Remboursement</button>}
+            {p.photo_url&&<a href={p.photo_url} target="_blank" rel="noreferrer"><img src={p.photo_url} alt="Preuve" style={{width:"100%",maxHeight:120,objectFit:"cover",borderRadius:8,border:"1px solid rgba(255,255,255,0.14)",marginBottom:10}}/></a>}
+            {p.statut==="en_cours"&&<button onClick={()=>{setRemboM(p);setRemboAmt("");}} style={{width:"100%",background:"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:10,padding:"9px",color:"#E8B04B",fontWeight:700,fontSize:12,cursor:"pointer"}}>+ Remboursement</button>}
           </div>
         );})}
       </div>}
       {accepterM&&<Modal onClose={()=>setAccepterM(null)}>
         <MH title="Accepter et verser le pret" onClose={()=>setAccepterM(null)}/>
-        <div style={{background:"#FFFFFF",borderRadius:12,padding:14,marginBottom:16,textAlign:"center"}}>
-          <p style={{margin:0,color:"#6B7280",fontSize:12}}>Montant a verser</p>
-          <p style={{margin:"4px 0 0",color:"#D0A23E",fontWeight:900,fontSize:24}}>{fmtFCFA(accepterM.montant)}</p>
-          {accepterM.motif&&<p style={{margin:"6px 0 0",color:"#6B7280",fontSize:12,fontStyle:"italic"}}>{accepterM.motif}</p>}
+        <div style={{background:"rgba(255,255,255,0.055)",borderRadius:12,padding:14,marginBottom:16,textAlign:"center"}}>
+          <p style={{margin:0,color:"#97A3C9",fontSize:12}}>Montant a verser</p>
+          <p style={{margin:"4px 0 0",color:"#E8B04B",fontWeight:900,fontSize:24}}>{fmtFCFA(accepterM.montant)}</p>
+          {accepterM.motif&&<p style={{margin:"6px 0 0",color:"#97A3C9",fontSize:12,fontStyle:"italic"}}>{accepterM.motif}</p>}
         </div>
         <Fld label="Taux d'intérêt (%, optionnel)"><Inp value={accepterTaux} onChange={e=>setAccepterTaux(e.target.value.replace(/\D/g,""))} placeholder="0" inputMode="numeric"/></Fld>
         <Fld label="Date d'échéance du remboursement (optionnel)"><Inp value={accepterEcheance} onChange={e=>setAccepterEcheance(e.target.value)} type="date"/></Fld>
         <Fld label="Photo de l'argent remis (obligatoire)">
-          <label style={{display:"block",background:"#FFFFFF",border:"1px dashed "+(pretPhotoPreview?"#22C55E":"#D0A23E"),borderRadius:12,padding:pretPhotoPreview?0:16,textAlign:"center",cursor:"pointer",overflow:"hidden"}}>
+          <label style={{display:"block",background:"rgba(255,255,255,0.055)",border:"1px dashed "+(pretPhotoPreview?"#34D399":"#E8B04B"),borderRadius:12,padding:pretPhotoPreview?0:16,textAlign:"center",cursor:"pointer",overflow:"hidden"}}>
             <input type="file" accept="image/*" onChange={choisirPretPhoto} style={{display:"none"}}/>
-            {pretPhotoPreview?<img src={pretPhotoPreview} alt="Preuve" style={{width:"100%",maxHeight:160,objectFit:"contain",display:"block"}}/>:<span style={{color:"#D0A23E",fontSize:12,fontWeight:700}}>📷 Photo de l'argent remis</span>}
+            {pretPhotoPreview?<img src={pretPhotoPreview} alt="Preuve" style={{width:"100%",maxHeight:160,objectFit:"contain",display:"block"}}/>:<span style={{color:"#E8B04B",fontSize:12,fontWeight:700}}>📷 Photo de l'argent remis</span>}
           </label>
         </Fld>
         <Btn onClick={accepterEtVerserPret} disabled={pretBusy||!pretPhoto}>{pretBusy?"Enregistrement...":"Confirmer le versement"}</Btn>
       </Modal>}
       {showPret&&<Modal onClose={()=>setShowPret(false)}>
         <MH title="Nouvelle demande de pret" onClose={()=>setShowPret(false)}/>
-        <Fld label="Membre emprunteur"><select value={newPret.membreId} onChange={e=>setNewPret(p=>({...p,membreId:e.target.value}))} style={{width:"100%",background:"#F3F4F6",border:"1px solid #D1D5DB",borderRadius:12,padding:"13px 14px",color:"#111827",fontSize:14}}><option value="">Choisir...</option>{groupe.membres.map(m=><option key={m.id} value={m.id}>{m.prenom}</option>)}</select></Fld>
+        <Fld label="Membre emprunteur"><select value={newPret.membreId} onChange={e=>setNewPret(p=>({...p,membreId:e.target.value}))} style={{width:"100%",background:"rgba(255,255,255,0.045)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:12,padding:"13px 14px",color:"#F5F2EA",fontSize:14}}><option value="">Choisir...</option>{groupe.membres.map(m=><option key={m.id} value={m.id}>{m.prenom}</option>)}</select></Fld>
         <Fld label="Montant du pret (FCFA)"><Inp value={newPret.montant} onChange={e=>setNewPret(p=>({...p,montant:e.target.value.replace(/\D/g,"")}))} placeholder="Ex: 50000" inputMode="numeric"/></Fld>
         <Fld label="Motif (optionnel)"><Inp value={newPret.motif} onChange={e=>setNewPret(p=>({...p,motif:e.target.value}))} placeholder="Ex: frais de scolarite" maxLength={80}/></Fld>
-        <p style={{color:"#6B7280",fontSize:12,lineHeight:1.6,margin:"0 0 14px",background:"#F3F4F6",borderRadius:10,padding:"10px 12px"}}>ℹ️ La demande part d abord au vote des membres. Le taux d intérêt, l échéance et la photo de l argent remis seront demandés au moment de « Accepter et verser », quand l argent change réellement de main.</p>
+        <p style={{color:"#97A3C9",fontSize:12,lineHeight:1.6,margin:"0 0 14px",background:"rgba(255,255,255,0.045)",borderRadius:10,padding:"10px 12px"}}>ℹ️ La demande part d abord au vote des membres. Le taux d intérêt, l échéance et la photo de l argent remis seront demandés au moment de « Accepter et verser », quand l argent change réellement de main.</p>
         <Btn onClick={creerPret} disabled={pretBusy}>{pretBusy?"Enregistrement...":"Envoyer la demande au vote"}</Btn>
       </Modal>}
       {remboM&&<Modal onClose={()=>setRemboM(null)}>
@@ -3096,30 +3096,30 @@ THT - Tontine Habi Traore`;
         <Btn onClick={rembourserPret}>Confirmer</Btn>
       </Modal>}
       {tab==="reunions"&&<div style={{padding:"14px 16px 0"}}>
-        <div style={{background:"#FFFFFF",border:"1px solid #D0A23E",borderRadius:14,padding:16,marginBottom:16}}>
+        <div style={{background:"rgba(255,255,255,0.055)",border:"1px solid #E8B04B",borderRadius:14,padding:16,marginBottom:16}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:10}}>
-            <p style={{margin:0,color:"#D0A23E",fontWeight:800,fontSize:14}}>Reglement interieur</p>
-            <button onClick={()=>{setReglementTxt(groupe.reglement||"");setEditReglement(e=>!e);}} style={{background:"transparent",border:"1px solid #D1D5DB",borderRadius:8,padding:"5px 10px",color:"#D0A23E",fontSize:11,fontWeight:700,cursor:"pointer"}}>{editReglement?"Annuler":"Modifier"}</button>
+            <p style={{margin:0,color:"#E8B04B",fontWeight:800,fontSize:14}}>Reglement interieur</p>
+            <button onClick={()=>{setReglementTxt(groupe.reglement||"");setEditReglement(e=>!e);}} style={{background:"transparent",border:"1px solid rgba(255,255,255,0.14)",borderRadius:8,padding:"5px 10px",color:"#E8B04B",fontSize:11,fontWeight:700,cursor:"pointer"}}>{editReglement?"Annuler":"Modifier"}</button>
           </div>
           {editReglement?(
             <>
-              <textarea value={reglementTxt} onChange={e=>setReglementTxt(e.target.value)} rows={8} placeholder="Ex: Toute cotisation doit etre versee avant le 5 du mois. En cas de retard..." style={{width:"100%",background:"#F3F4F6",border:"1px solid #D1D5DB",borderRadius:12,padding:"12px 14px",color:"#111827",fontSize:13,outline:"none",resize:"vertical",fontFamily:"inherit"}}/>
+              <textarea value={reglementTxt} onChange={e=>setReglementTxt(e.target.value)} rows={8} placeholder="Ex: Toute cotisation doit etre versee avant le 5 du mois. En cas de retard..." style={{width:"100%",background:"rgba(255,255,255,0.045)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:12,padding:"12px 14px",color:"#F5F2EA",fontSize:13,outline:"none",resize:"vertical",fontFamily:"inherit"}}/>
               <div style={{marginTop:10}}><Btn onClick={enregistrerReglement} disabled={reglementBusy}>{reglementBusy?"Enregistrement...":"Enregistrer"}</Btn></div>
             </>
-          ):(groupe.reglement?<p style={{color:"#111827",fontSize:13,lineHeight:1.6,whiteSpace:"pre-wrap",margin:0}}>{groupe.reglement}</p>:<p style={{color:"#6B7280",fontSize:13,margin:0}}>Aucun reglement redige pour l instant</p>)}
+          ):(groupe.reglement?<p style={{color:"#F5F2EA",fontSize:13,lineHeight:1.6,whiteSpace:"pre-wrap",margin:0}}>{groupe.reglement}</p>:<p style={{color:"#97A3C9",fontSize:13,margin:0}}>Aucun reglement redige pour l instant</p>)}
         </div>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:10}}>
-          <p style={{color:"#6B7280",fontSize:12,fontWeight:700,letterSpacing:.5}}>COMPTES RENDUS DE REUNION</p>
-          <button onClick={()=>setShowRapport(true)} style={{background:"#E5E7EB",border:"1px solid #D1D5DB",borderRadius:8,padding:"5px 10px",color:"#D0A23E",fontSize:11,fontWeight:700,cursor:"pointer"}}>+ Ajouter</button>
+          <p style={{color:"#97A3C9",fontSize:12,fontWeight:700,letterSpacing:.5}}>COMPTES RENDUS DE REUNION</p>
+          <button onClick={()=>setShowRapport(true)} style={{background:"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:8,padding:"5px 10px",color:"#E8B04B",fontSize:11,fontWeight:700,cursor:"pointer"}}>+ Ajouter</button>
         </div>
-        {rapports.length===0?<p style={{color:"#6B7280",fontSize:13,textAlign:"center",marginTop:20}}>Aucun compte rendu pour l instant</p>
+        {rapports.length===0?<p style={{color:"#97A3C9",fontSize:13,textAlign:"center",marginTop:20}}>Aucun compte rendu pour l instant</p>
         :rapports.map(r=>(
-          <div key={r.id} style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:14,padding:16,marginBottom:10}}>
+          <div key={r.id} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:14,padding:16,marginBottom:10}}>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
-              <div><p style={{margin:0,color:"#111827",fontWeight:700,fontSize:14}}>{r.titre}</p><p style={{margin:"3px 0 0",color:"#D0A23E",fontSize:11}}>{r.date_reunion?new Date(r.date_reunion).toLocaleDateString("fr-FR"):""}</p></div>
-              <button onClick={()=>supprimerRapport(r.id)} style={{background:"transparent",border:"none",color:"#EF4444",fontSize:16,cursor:"pointer"}}>✕</button>
+              <div><p style={{margin:0,color:"#F5F2EA",fontWeight:700,fontSize:14}}>{r.titre}</p><p style={{margin:"3px 0 0",color:"#E8B04B",fontSize:11}}>{r.date_reunion?new Date(r.date_reunion).toLocaleDateString("fr-FR"):""}</p></div>
+              <button onClick={()=>supprimerRapport(r.id)} style={{background:"transparent",border:"none",color:"#FB7185",fontSize:16,cursor:"pointer"}}>✕</button>
             </div>
-            {r.contenu&&<p style={{margin:"10px 0 0",color:"#6B7280",fontSize:13,lineHeight:1.6,whiteSpace:"pre-wrap"}}>{r.contenu}</p>}
+            {r.contenu&&<p style={{margin:"10px 0 0",color:"#97A3C9",fontSize:13,lineHeight:1.6,whiteSpace:"pre-wrap"}}>{r.contenu}</p>}
           </div>
         ))}
       </div>}
@@ -3127,15 +3127,15 @@ THT - Tontine Habi Traore`;
         <MH title="Nouveau compte rendu" onClose={()=>setShowRapport(false)}/>
         <Fld label="Titre"><Inp value={newRapport.titre} onChange={e=>setNewRapport(r=>({...r,titre:e.target.value}))} placeholder="Ex: Reunion mensuelle Juillet" maxLength={80} autoFocus/></Fld>
         <Fld label="Date de la réunion"><Inp value={newRapport.date} onChange={e=>setNewRapport(r=>({...r,date:e.target.value}))} type="date"/></Fld>
-        <Fld label="Notes / decisions prises"><textarea value={newRapport.contenu} onChange={e=>setNewRapport(r=>({...r,contenu:e.target.value}))} rows={5} placeholder="Ce qui a ete discute et decide..." style={{width:"100%",background:"#F3F4F6",border:"1px solid #D1D5DB",borderRadius:12,padding:"12px 14px",color:"#111827",fontSize:14,outline:"none",resize:"vertical",fontFamily:"inherit"}}/></Fld>
+        <Fld label="Notes / decisions prises"><textarea value={newRapport.contenu} onChange={e=>setNewRapport(r=>({...r,contenu:e.target.value}))} rows={5} placeholder="Ce qui a ete discute et decide..." style={{width:"100%",background:"rgba(255,255,255,0.045)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:12,padding:"12px 14px",color:"#F5F2EA",fontSize:14,outline:"none",resize:"vertical",fontFamily:"inherit"}}/></Fld>
         <Btn onClick={creerRapport} disabled={rapportBusy}>{rapportBusy?"Enregistrement...":"Enregistrer"}</Btn>
       </Modal>}
       {tab==="events"&&<div style={{padding:"14px 16px 0"}}>
         {groupe.membres.filter(m=>m.evenement).length===0
-          ?<div style={{textAlign:"center",padding:30,color:"#9CA3AF"}}><p style={{fontSize:32}}>🎉</p><p>Aucun evenement signale</p></div>
-          :groupe.membres.filter(m=>m.evenement).map(m=><div key={m.id} style={{background:"#FFFFFF",border:"1px solid #D0A23E",borderRadius:14,padding:"14px 16px",marginBottom:10,display:"flex",gap:12,alignItems:"center"}}><Avatar prenom={m.prenom} size={42}/><div style={{flex:1}}><p style={{margin:0,color:"#111827",fontWeight:700,fontSize:14}}>{m.prenom}</p><p style={{margin:"3px 0 0",color:"#D0A23E",fontSize:13}}>{m.evenement}</p></div><button onClick={()=>openEvt(m)} style={{background:"#E5E7EB",border:"1px solid #D1D5DB",borderRadius:10,padding:"7px 10px",color:"#D0A23E",fontSize:12,fontWeight:700,cursor:"pointer"}}>Modifier</button><button onClick={()=>sendWA(m)} style={{background:"#075E54",border:"none",borderRadius:10,padding:"7px 10px",color:"#fff",fontSize:12,fontWeight:700,cursor:"pointer"}}>WA</button></div>)}
-        <p style={{color:"#6B7280",fontSize:12,fontWeight:700,margin:"18px 0 8px",letterSpacing:.5}}>SIGNALER UN EVENEMENT</p>
-        {groupe.membres.filter(m=>!m.evenement).map(m=><div key={m.id} onClick={()=>openEvt(m)} style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:12,padding:"10px 14px",marginBottom:8,display:"flex",gap:12,alignItems:"center",cursor:"pointer"}}><Avatar prenom={m.prenom} size={32}/><p style={{margin:0,color:"#111827",fontSize:13,flex:1}}>{m.prenom}</p><span style={{color:"#D0A23E",fontSize:12,fontWeight:700}}>+ Ajouter</span></div>)}
+          ?<div style={{textAlign:"center",padding:30,color:"#6F7BA6"}}><p style={{fontSize:32}}>🎉</p><p>Aucun evenement signale</p></div>
+          :groupe.membres.filter(m=>m.evenement).map(m=><div key={m.id} style={{background:"rgba(255,255,255,0.055)",border:"1px solid #E8B04B",borderRadius:14,padding:"14px 16px",marginBottom:10,display:"flex",gap:12,alignItems:"center"}}><Avatar prenom={m.prenom} size={42}/><div style={{flex:1}}><p style={{margin:0,color:"#F5F2EA",fontWeight:700,fontSize:14}}>{m.prenom}</p><p style={{margin:"3px 0 0",color:"#E8B04B",fontSize:13}}>{m.evenement}</p></div><button onClick={()=>openEvt(m)} style={{background:"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:10,padding:"7px 10px",color:"#E8B04B",fontSize:12,fontWeight:700,cursor:"pointer"}}>Modifier</button><button onClick={()=>sendWA(m)} style={{background:"#075E54",border:"none",borderRadius:10,padding:"7px 10px",color:"#fff",fontSize:12,fontWeight:700,cursor:"pointer"}}>WA</button></div>)}
+        <p style={{color:"#97A3C9",fontSize:12,fontWeight:700,margin:"18px 0 8px",letterSpacing:.5}}>SIGNALER UN EVENEMENT</p>
+        {groupe.membres.filter(m=>!m.evenement).map(m=><div key={m.id} onClick={()=>openEvt(m)} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,padding:"10px 14px",marginBottom:8,display:"flex",gap:12,alignItems:"center",cursor:"pointer"}}><Avatar prenom={m.prenom} size={32}/><p style={{margin:0,color:"#F5F2EA",fontSize:13,flex:1}}>{m.prenom}</p><span style={{color:"#E8B04B",fontSize:12,fontWeight:700}}>+ Ajouter</span></div>)}
       </div>}
 
       {evtM&&<Modal onClose={()=>setEvtM(null)}>
@@ -3143,70 +3143,70 @@ THT - Tontine Habi Traore`;
         <Fld label="Description (mariage, naissance, deces, etc.)"><Inp value={evtTxt} onChange={e=>setEvtTxt(e.target.value)} placeholder="Ex: Bapteme bebe le 12 Juil" maxLength={80} autoFocus/></Fld>
         <div style={{display:"flex",gap:10}}>
           <Btn onClick={saveEvt}>Enregistrer</Btn>
-          {evtM.evenement&&<button onClick={()=>{setEvtTxt("");saveEvt();}} style={{flex:1,background:"transparent",border:"1px solid #C1440E",borderRadius:14,padding:"13px",color:"#EF4444",fontWeight:700,fontSize:14,cursor:"pointer"}}>Retirer</button>}
+          {evtM.evenement&&<button onClick={()=>{setEvtTxt("");saveEvt();}} style={{flex:1,background:"transparent",border:"1px solid #E0526A",borderRadius:14,padding:"13px",color:"#FB7185",fontWeight:700,fontSize:14,cursor:"pointer"}}>Retirer</button>}
         </div>
       </Modal>}
 
       {tab==="checklist"&&<div style={{padding:"14px 16px 0"}}>
-        <p style={{color:"#6B7280",fontSize:12,marginBottom:12}}>{groupe.checklist.filter(c=>c.done).length}/{groupe.checklist.length} taches completees</p>
+        <p style={{color:"#97A3C9",fontSize:12,marginBottom:12}}>{groupe.checklist.filter(c=>c.done).length}/{groupe.checklist.length} taches completees</p>
         <div style={{display:"flex",gap:8,marginBottom:14}}>
           <Inp value={newTask} onChange={e=>setNewTask(e.target.value)} placeholder="Nouvelle tache..." maxLength={100} onKeyDown={e=>{if(e.key==="Enter")addTask();}}/>
-          <button onClick={addTask} style={{background:"#E5E7EB",border:"1px solid #D1D5DB",borderRadius:10,padding:"0 16px",color:"#D0A23E",fontWeight:700,fontSize:20,cursor:"pointer"}}>+</button>
+          <button onClick={addTask} style={{background:"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:10,padding:"0 16px",color:"#E8B04B",fontWeight:700,fontSize:20,cursor:"pointer"}}>+</button>
         </div>
-        {groupe.checklist.length===0&&<div style={{textAlign:"center",padding:20,color:"#9CA3AF"}}><p>Aucune tache pour le moment</p></div>}
-        {groupe.checklist.map(c=><div key={c.id} style={{background:"#FFFFFF",border:`1px solid ${c.done?"#D0A23E":"#E5E7EB"}`,borderRadius:12,padding:"14px 16px",marginBottom:8,display:"flex",gap:12,alignItems:"center"}}><div onClick={()=>toggleC(c.id)} style={{width:22,height:22,borderRadius:6,border:`2px solid ${c.done?"#D0A23E":"#D1D5DB"}`,background:c.done?"#D0A23E":"transparent",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,cursor:"pointer"}}>{c.done&&<span style={{color:"#0D0D0D",fontWeight:900,fontSize:13}}>v</span>}</div><p onClick={()=>toggleC(c.id)} style={{margin:0,color:c.done?"#6B7280":"#111827",fontSize:14,textDecoration:c.done?"line-through":"none",flex:1,cursor:"pointer"}}>{c.label}</p><button onClick={()=>delTask(c.id)} style={{background:"transparent",border:"none",color:"#EF4444",fontSize:18,cursor:"pointer",padding:"0 4px"}}>✕</button></div>)}
+        {groupe.checklist.length===0&&<div style={{textAlign:"center",padding:20,color:"#6F7BA6"}}><p>Aucune tache pour le moment</p></div>}
+        {groupe.checklist.map(c=><div key={c.id} style={{background:"rgba(255,255,255,0.055)",border:`1px solid ${c.done?"#E8B04B":"rgba(255,255,255,0.09)"}`,borderRadius:12,padding:"14px 16px",marginBottom:8,display:"flex",gap:12,alignItems:"center"}}><div onClick={()=>toggleC(c.id)} style={{width:22,height:22,borderRadius:6,border:`2px solid ${c.done?"#E8B04B":"rgba(255,255,255,0.14)"}`,background:c.done?"#E8B04B":"transparent",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,cursor:"pointer"}}>{c.done&&<span style={{color:"#1B1203",fontWeight:900,fontSize:13}}>v</span>}</div><p onClick={()=>toggleC(c.id)} style={{margin:0,color:c.done?"#97A3C9":"#F5F2EA",fontSize:14,textDecoration:c.done?"line-through":"none",flex:1,cursor:"pointer"}}>{c.label}</p><button onClick={()=>delTask(c.id)} style={{background:"transparent",border:"none",color:"#FB7185",fontSize:18,cursor:"pointer",padding:"0 4px"}}>✕</button></div>)}
       </div>}
 
       {tab==="social"&&<div style={{padding:"14px 16px 100px"}}>
         <div style={{display:"flex",gap:8,overflowX:"auto",paddingBottom:10,marginBottom:6}}>
-          <button onClick={()=>setThread(null)} style={{flexShrink:0,display:"flex",alignItems:"center",gap:6,background:!thread?"#D0A23E":"#FFFFFF",border:"1px solid "+(!thread?"#D0A23E":"#E5E7EB"),borderRadius:99,padding:"7px 14px",color:!thread?"#0D0D0D":"#111827",fontWeight:700,fontSize:12,cursor:"pointer",whiteSpace:"nowrap"}}>💬 Groupe</button>
+          <button onClick={()=>setThread(null)} style={{flexShrink:0,display:"flex",alignItems:"center",gap:6,background:!thread?"#E8B04B":"rgba(255,255,255,0.055)",border:"1px solid "+(!thread?"#E8B04B":"rgba(255,255,255,0.09)"),borderRadius:99,padding:"7px 14px",color:!thread?"#1B1203":"#F5F2EA",fontWeight:700,fontSize:12,cursor:"pointer",whiteSpace:"nowrap"}}>💬 Groupe</button>
           {/* Tous les membres de la tontine, y compris ceux qui n'ont pas encore de compte
               THT (affiches grises) : la liste reste complete et explicite. */}
           {autresMembres.map(m=>(
-            <button key={m.id} onClick={()=>m.userId?setThread({userId:m.userId,prenom:m.prenom}):onToast(`${m.prenom} n'a pas encore de compte THT : impossible de lui écrire en privé`,"error")} title={m.userId?`Message privé à ${m.prenom}`:`${m.prenom} n'a pas encore de compte THT`} style={{flexShrink:0,display:"flex",alignItems:"center",gap:6,background:thread?.userId===m.userId&&m.userId?"#D0A23E":"#FFFFFF",border:"1px solid "+(thread?.userId===m.userId&&m.userId?"#D0A23E":"#E5E7EB"),borderRadius:99,padding:"6px 14px 6px 6px",color:!m.userId?"#9CA3AF":(thread?.userId===m.userId?"#0D0D0D":"#111827"),fontWeight:700,fontSize:12,cursor:"pointer",whiteSpace:"nowrap",opacity:m.userId?1:0.55}}><Avatar prenom={m.prenom} photo={m.photo} size={22}/>{m.prenom}{!m.userId&&" (sans compte)"}</button>
+            <button key={m.id} onClick={()=>m.userId?setThread({userId:m.userId,prenom:m.prenom}):onToast(`${m.prenom} n'a pas encore de compte THT : impossible de lui écrire en privé`,"error")} title={m.userId?`Message privé à ${m.prenom}`:`${m.prenom} n'a pas encore de compte THT`} style={{flexShrink:0,display:"flex",alignItems:"center",gap:6,background:thread?.userId===m.userId&&m.userId?"#E8B04B":"rgba(255,255,255,0.055)",border:"1px solid "+(thread?.userId===m.userId&&m.userId?"#E8B04B":"rgba(255,255,255,0.09)"),borderRadius:99,padding:"6px 14px 6px 6px",color:!m.userId?"#6F7BA6":(thread?.userId===m.userId?"#1B1203":"#F5F2EA"),fontWeight:700,fontSize:12,cursor:"pointer",whiteSpace:"nowrap",opacity:m.userId?1:0.55}}><Avatar prenom={m.prenom} photo={m.photo} size={22}/>{m.prenom}{!m.userId&&" (sans compte)"}</button>
           ))}
         </div>
-        {autresMembres.length===0&&<p style={{color:"#6B7280",fontSize:11,margin:"0 0 10px",textAlign:"center"}}>Ajoute des membres à ta tontine pour pouvoir leur écrire.</p>}
-        {thread&&<p style={{color:"#D0A23E",fontSize:11,fontWeight:700,margin:"0 0 10px",textAlign:"center"}}>🔒 Conversation privee avec {thread.prenom}</p>}
-        {messages.length===0?<p style={{color:"#6B7280",fontSize:13,textAlign:"center",padding:10}}>Aucun message pour l instant</p>
-        :messages.map(m=><div key={m.id} style={{display:"flex",gap:10,marginBottom:12}}><Avatar prenom={m.auteur} size={34} gold={m.auteur==="HABY"}/><div style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:"0 14px 14px 14px",padding:"10px 14px",flex:1}}><div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}><p style={{margin:0,color:"#D0A23E",fontSize:12,fontWeight:700}}>{m.auteur}</p><p style={{margin:0,color:"#6B7280",fontSize:11}}>{m.time}</p></div>{m.imageUrl?<img src={m.imageUrl} alt="Recu" style={{width:"100%",maxWidth:220,borderRadius:10,display:"block"}}/>:m.audioUrl?<audio controls src={m.audioUrl} style={{width:"100%",height:34}}/>:<p style={{margin:0,color:"#111827",fontSize:14}}>{m.texte}</p>}</div></div>)}
+        {autresMembres.length===0&&<p style={{color:"#97A3C9",fontSize:11,margin:"0 0 10px",textAlign:"center"}}>Ajoute des membres à ta tontine pour pouvoir leur écrire.</p>}
+        {thread&&<p style={{color:"#E8B04B",fontSize:11,fontWeight:700,margin:"0 0 10px",textAlign:"center"}}>🔒 Conversation privee avec {thread.prenom}</p>}
+        {messages.length===0?<p style={{color:"#97A3C9",fontSize:13,textAlign:"center",padding:10}}>Aucun message pour l instant</p>
+        :messages.map(m=><div key={m.id} style={{display:"flex",gap:10,marginBottom:12}}><Avatar prenom={m.auteur} size={34} gold={m.auteur==="HABY"}/><div style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:"0 14px 14px 14px",padding:"10px 14px",flex:1}}><div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}><p style={{margin:0,color:"#E8B04B",fontSize:12,fontWeight:700}}>{m.auteur}</p><p style={{margin:0,color:"#97A3C9",fontSize:11}}>{m.time}</p></div>{m.imageUrl?<img src={m.imageUrl} alt="Recu" style={{width:"100%",maxWidth:220,borderRadius:10,display:"block"}}/>:m.audioUrl?<audio controls src={m.audioUrl} style={{width:"100%",height:34}}/>:<p style={{margin:0,color:"#F5F2EA",fontSize:14}}>{m.texte}</p>}</div></div>)}
         <div style={{display:"flex",gap:8,marginTop:8}}>
-          <button onClick={toggleRecord} disabled={sendingAudio} style={{background:recording?"#C1440E":"#E5E7EB",border:"1px solid #D1D5DB",borderRadius:12,width:44,height:44,color:recording?"#fff":"#D0A23E",fontSize:18,cursor:"pointer",flexShrink:0}}>{sendingAudio?"⏳":recording?"⏹":"🎤"}</button>
-          <input value={msgInput} onChange={e=>setMsgInput(s(e.target.value))} placeholder={thread?`Message prive a ${thread.prenom}...`:"Écrire au groupe..."} maxLength={200} onKeyDown={e=>e.key==="Enter"&&sendMsg()} style={{flex:1,background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:12,padding:"10px 14px",color:"#111827",fontSize:14,outline:"none"}}/>
-          <button onClick={sendMsg} style={{background:"#D0A23E",border:"none",borderRadius:12,padding:"0 16px",color:"#0D0D0D",fontWeight:900,cursor:"pointer",fontSize:18}}>→</button>
+          <button onClick={toggleRecord} disabled={sendingAudio} style={{background:recording?"#E0526A":"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:12,width:44,height:44,color:recording?"#fff":"#E8B04B",fontSize:18,cursor:"pointer",flexShrink:0}}>{sendingAudio?"⏳":recording?"⏹":"🎤"}</button>
+          <input value={msgInput} onChange={e=>setMsgInput(s(e.target.value))} placeholder={thread?`Message prive a ${thread.prenom}...`:"Écrire au groupe..."} maxLength={200} onKeyDown={e=>e.key==="Enter"&&sendMsg()} style={{flex:1,background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,padding:"10px 14px",color:"#F5F2EA",fontSize:14,outline:"none"}}/>
+          <button onClick={sendMsg} style={{background:"#E8B04B",border:"none",borderRadius:12,padding:"0 16px",color:"#1B1203",fontWeight:900,cursor:"pointer",fontSize:18}}>→</button>
         </div>
-        {recording&&<p style={{color:"#C1440E",fontSize:11,margin:"6px 0 0",textAlign:"center"}}>🔴 Enregistrement en cours... clique sur ⏹ pour envoyer</p>}
+        {recording&&<p style={{color:"#E0526A",fontSize:11,margin:"6px 0 0",textAlign:"center"}}>🔴 Enregistrement en cours... clique sur ⏹ pour envoyer</p>}
       </div>}
 
       {tab==="rapport"&&<div style={{padding:"14px 16px 0"}}>
-        <div style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:16,padding:16,marginBottom:14}}>
-          <p style={{color:"#D0A23E",fontWeight:800,margin:"0 0 14px",fontSize:15}}>Bilan - Cycle {groupe.cycle}/{groupe.totalCycles}</p>
-          {[["Total collecté ce cycle",fmtFCFA(collecte)],["Total cotisations (calcul auto)",fmtFCFA(cagnotteTour)],["Caisse sociale",fmtFCFA(groupe.caisseSociale)],["Taux ponctualite",`${taux}%`],["Membres à jour",`${aJour.length}/${groupe.membres.length}`],["Prochain tour",groupe.prochainTour],["Cycles restants",groupe.totalCycles-groupe.cycle],["Total fin de cycle",fmtFCFA(groupe.membres.reduce((s,m)=>s+montantDu(m),0)*groupe.totalCycles)],["Dettes cumulees (cycles precedents)",fmtFCFA(groupe.membres.reduce((s,m)=>s+(m.dette||0),0))]].map(([l,v])=><div key={l} style={{display:"flex",justifyContent:"space-between",padding:"9px 0",borderBottom:"1px solid #E5E7EB"}}><span style={{color:"#6B7280",fontSize:13}}>{l}</span><span style={{color:"#111827",fontWeight:700,fontSize:13}}>{v}</span></div>)}
+        <div style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:16,padding:16,marginBottom:14}}>
+          <p style={{color:"#E8B04B",fontWeight:800,margin:"0 0 14px",fontSize:15}}>Bilan - Cycle {groupe.cycle}/{groupe.totalCycles}</p>
+          {[["Total collecté ce cycle",fmtFCFA(collecte)],["Total cotisations (calcul auto)",fmtFCFA(cagnotteTour)],["Caisse sociale",fmtFCFA(groupe.caisseSociale)],["Taux ponctualite",`${taux}%`],["Membres à jour",`${aJour.length}/${groupe.membres.length}`],["Prochain tour",groupe.prochainTour],["Cycles restants",groupe.totalCycles-groupe.cycle],["Total fin de cycle",fmtFCFA(groupe.membres.reduce((s,m)=>s+montantDu(m),0)*groupe.totalCycles)],["Dettes cumulees (cycles precedents)",fmtFCFA(groupe.membres.reduce((s,m)=>s+(m.dette||0),0))]].map(([l,v])=><div key={l} style={{display:"flex",justifyContent:"space-between",padding:"9px 0",borderBottom:"1px solid rgba(255,255,255,0.09)"}}><span style={{color:"#97A3C9",fontSize:13}}>{l}</span><span style={{color:"#F5F2EA",fontWeight:700,fontSize:13}}>{v}</span></div>)}
         </div>
-        <p style={{color:"#6B7280",fontSize:12,fontWeight:700,marginBottom:8}}>SUIVI PAR MEMBRE</p>
-        {groupe.membres.map(m=><div key={m.id} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 0",borderBottom:"1px solid #E5E7EB"}}><div style={{display:"flex",alignItems:"center",gap:10}}><Avatar prenom={m.prenom} size={32}/><p style={{margin:0,color:"#111827",fontSize:13}}>{m.prenom}</p></div><div style={{textAlign:"right"}}><p style={{margin:0,color:"#D0A23E",fontSize:12,fontWeight:700}}>{fmtFCFA(m.cyclesPaies*montantDu(m))}</p><p style={{margin:0,color:"#6B7280",fontSize:11}}>{m.cyclesPaies}/{m.cyclesTotal} cycles{m.montantPerso?` - ${fmtFCFA(m.montantPerso)}/cycle`:""}</p></div></div>)}
+        <p style={{color:"#97A3C9",fontSize:12,fontWeight:700,marginBottom:8}}>SUIVI PAR MEMBRE</p>
+        {groupe.membres.map(m=><div key={m.id} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 0",borderBottom:"1px solid rgba(255,255,255,0.09)"}}><div style={{display:"flex",alignItems:"center",gap:10}}><Avatar prenom={m.prenom} size={32}/><p style={{margin:0,color:"#F5F2EA",fontSize:13}}>{m.prenom}</p></div><div style={{textAlign:"right"}}><p style={{margin:0,color:"#E8B04B",fontSize:12,fontWeight:700}}>{fmtFCFA(m.cyclesPaies*montantDu(m))}</p><p style={{margin:0,color:"#97A3C9",fontSize:11}}>{m.cyclesPaies}/{m.cyclesTotal} cycles{m.montantPerso?` - ${fmtFCFA(m.montantPerso)}/cycle`:""}</p></div></div>)}
         <Btn onClick={exporterRapportPDF}>Exporter rapport PDF</Btn>
       </div>}
 
       {showCaisse&&<Modal onClose={()=>setShowCaisse(false)}>
         <MH title="Caisse sociale" onClose={()=>setShowCaisse(false)}/>
-        <div style={{background:"#FFFFFF",borderRadius:12,padding:14,marginBottom:16,textAlign:"center"}}>
-          <p style={{margin:0,color:"#6B7280",fontSize:12}}>Solde actuel</p>
-          <p style={{margin:"4px 0 0",color:"#D0A23E",fontWeight:900,fontSize:24}}>{fmtFCFA(groupe.caisseSociale)}</p>
+        <div style={{background:"rgba(255,255,255,0.055)",borderRadius:12,padding:14,marginBottom:16,textAlign:"center"}}>
+          <p style={{margin:0,color:"#97A3C9",fontSize:12}}>Solde actuel</p>
+          <p style={{margin:"4px 0 0",color:"#E8B04B",fontWeight:900,fontSize:24}}>{fmtFCFA(groupe.caisseSociale)}</p>
         </div>
         <Fld label="Montant (FCFA)"><Inp value={caisseAmt} onChange={e=>setCaisseAmt(e.target.value.replace(/[^0-9]/g,""))} placeholder="Ex: 5000" inputMode="numeric" autoFocus/></Fld>
         <Fld label="Motif (obligatoire pour un retrait)"><Inp value={caisseMotif} onChange={e=>setCaisseMotif(e.target.value)} placeholder="Ex: Aide funerailles famille Diallo" maxLength={80}/></Fld>
         <div style={{display:"flex",gap:8}}>
-          <button onClick={()=>saveCaisse("ajouter")} disabled={!caisseAmt||caisseBusy} style={{flex:1,background:!caisseAmt?"#E5E7EB":"linear-gradient(135deg,#D0A23E,#A87C22)",border:"none",borderRadius:14,padding:"13px",color:!caisseAmt?"#6B7280":"#0D0D0D",fontWeight:800,fontSize:14,cursor:"pointer"}}>+ Ajouter</button>
-          <button onClick={()=>saveCaisse("retirer")} disabled={!caisseAmt||caisseBusy} style={{flex:1,background:"#E5E7EB",border:"1px solid #C1440E",borderRadius:14,padding:"13px",color:"#EF4444",fontWeight:800,fontSize:14,cursor:"pointer"}}>- Retirer (depense)</button>
+          <button onClick={()=>saveCaisse("ajouter")} disabled={!caisseAmt||caisseBusy} style={{flex:1,background:!caisseAmt?"rgba(255,255,255,0.09)":"linear-gradient(135deg,#FFE9B4 0%,#E8B04B 48%,#C38427 100%)",border:"none",borderRadius:14,padding:"13px",color:!caisseAmt?"#97A3C9":"#1B1203",fontWeight:800,fontSize:14,cursor:"pointer"}}>+ Ajouter</button>
+          <button onClick={()=>saveCaisse("retirer")} disabled={!caisseAmt||caisseBusy} style={{flex:1,background:"rgba(255,255,255,0.09)",border:"1px solid #E0526A",borderRadius:14,padding:"13px",color:"#FB7185",fontWeight:800,fontSize:14,cursor:"pointer"}}>- Retirer (depense)</button>
         </div>
-        <p style={{color:"#6B7280",fontSize:11,margin:"12px 0 16px",lineHeight:1.5}}>La caisse sociale est un fonds separe des cotisations, pour les imprevus, les evenements, ou l entraide entre membres.</p>
+        <p style={{color:"#97A3C9",fontSize:11,margin:"12px 0 16px",lineHeight:1.5}}>La caisse sociale est un fonds separe des cotisations, pour les imprevus, les evenements, ou l entraide entre membres.</p>
         {caisseMvts.length>0&&<>
-          <p style={{color:"#6B7280",fontSize:11,fontWeight:700,margin:"0 0 8px",letterSpacing:.5}}>HISTORIQUE</p>
+          <p style={{color:"#97A3C9",fontSize:11,fontWeight:700,margin:"0 0 8px",letterSpacing:.5}}>HISTORIQUE</p>
           {caisseMvts.map(m=>(
-            <div key={m.id} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 0",borderBottom:"1px solid #E5E7EB"}}>
-              <div><p style={{margin:0,color:"#111827",fontSize:12}}>{m.motif||(m.sens==="ajout"?"Ajout":"Retrait")}</p><p style={{margin:0,color:"#6B7280",fontSize:10}}>{new Date(m.created_at).toLocaleDateString("fr-FR")} - {m.auteur_nom}</p></div>
-              <p style={{margin:0,color:m.sens==="ajout"?"#22C55E":"#EF4444",fontWeight:700,fontSize:12}}>{m.sens==="ajout"?"+":"-"}{fmtFCFA(m.montant)}</p>
+            <div key={m.id} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 0",borderBottom:"1px solid rgba(255,255,255,0.09)"}}>
+              <div><p style={{margin:0,color:"#F5F2EA",fontSize:12}}>{m.motif||(m.sens==="ajout"?"Ajout":"Retrait")}</p><p style={{margin:0,color:"#97A3C9",fontSize:10}}>{new Date(m.created_at).toLocaleDateString("fr-FR")} - {m.auteur_nom}</p></div>
+              <p style={{margin:0,color:m.sens==="ajout"?"#34D399":"#FB7185",fontWeight:700,fontSize:12}}>{m.sens==="ajout"?"+":"-"}{fmtFCFA(m.montant)}</p>
             </div>
           ))}
         </>}
@@ -3214,14 +3214,14 @@ THT - Tontine Habi Traore`;
 
       {showVers&&versM&&<Modal onClose={()=>setShowVers(false)}>
         <MH title={"+ Versement - "+versM.prenom} onClose={()=>setShowVers(false)}/>
-        <div style={{background:"#FFFFFF",borderRadius:12,padding:14,marginBottom:16}}>
+        <div style={{background:"rgba(255,255,255,0.055)",borderRadius:12,padding:14,marginBottom:16}}>
           <div style={{display:"flex",justifyContent:"space-between",marginBottom:6}}>
-            <span style={{color:"#6B7280",fontSize:13}}>Total deja verse</span>
-            <span style={{color:"#D0A23E",fontWeight:700}}>{fmtFCFA(versM.versements||0)}</span>
+            <span style={{color:"#97A3C9",fontSize:13}}>Total deja verse</span>
+            <span style={{color:"#E8B04B",fontWeight:700}}>{fmtFCFA(versM.versements||0)}</span>
           </div>
           <div style={{display:"flex",justifyContent:"space-between"}}>
-            <span style={{color:"#6B7280",fontSize:13}}>Cotisation du mois</span>
-            <span style={{color:"#111827",fontWeight:700}}>{fmtFCFA(montantDu(versM))}</span>
+            <span style={{color:"#97A3C9",fontSize:13}}>Cotisation du mois</span>
+            <span style={{color:"#F5F2EA",fontWeight:700}}>{fmtFCFA(montantDu(versM))}</span>
           </div>
         </div>
         <Fld label="Montant reçu (FCFA)">
@@ -3229,77 +3229,77 @@ THT - Tontine Habi Traore`;
         </Fld>
         <div style={{display:"flex",gap:8,marginBottom:12}}>
           {[montantDu(versM),Math.round(montantDu(versM)/2),montantDu(versM)*2].map(v=>(
-            <button key={v} onClick={()=>setVersAmt(String(v))} style={{flex:1,background:versAmt===String(v)?"#D0A23E":"#E5E7EB",border:"1px solid #D1D5DB",borderRadius:10,padding:"8px 4px",color:versAmt===String(v)?"#0D0D0D":"#111827",fontSize:11,fontWeight:700,cursor:"pointer"}}>{fmtFCFA(v)}</button>
+            <button key={v} onClick={()=>setVersAmt(String(v))} style={{flex:1,background:versAmt===String(v)?"#E8B04B":"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:10,padding:"8px 4px",color:versAmt===String(v)?"#1B1203":"#F5F2EA",fontSize:11,fontWeight:700,cursor:"pointer"}}>{fmtFCFA(v)}</button>
           ))}
         </div>
         <Fld label="Photo de l'argent reçu (optionnel mais recommandé)">
-          <label style={{display:"block",background:"#FFFFFF",border:"1px dashed #D0A23E",borderRadius:12,padding:versPhotoPreview?0:16,textAlign:"center",cursor:"pointer",overflow:"hidden"}}>
+          <label style={{display:"block",background:"rgba(255,255,255,0.055)",border:"1px dashed #E8B04B",borderRadius:12,padding:versPhotoPreview?0:16,textAlign:"center",cursor:"pointer",overflow:"hidden"}}>
             <input type="file" accept="image/*" onChange={choisirVersPhoto} style={{display:"none"}}/>
-            {versPhotoPreview?<img src={versPhotoPreview} alt="Preuve" style={{width:"100%",maxHeight:160,objectFit:"contain",display:"block"}}/>:<span style={{color:"#D0A23E",fontSize:12,fontWeight:700}}>📷 Prendre en photo l'argent recu</span>}
+            {versPhotoPreview?<img src={versPhotoPreview} alt="Preuve" style={{width:"100%",maxHeight:160,objectFit:"contain",display:"block"}}/>:<span style={{color:"#E8B04B",fontSize:12,fontWeight:700}}>📷 Prendre en photo l'argent recu</span>}
           </label>
         </Fld>
         <div style={{display:"flex",gap:8}}>
-          <button onClick={()=>saveVers("simple")} disabled={!versAmt||Number(versAmt)<1||recuBusy} style={{flex:1,background:!versAmt||Number(versAmt)<1?"#E5E7EB":"linear-gradient(135deg,#D0A23E,#A87C22)",border:"none",borderRadius:14,padding:"13px",color:!versAmt||Number(versAmt)<1?"#6B7280":"#0D0D0D",fontWeight:800,fontSize:13,cursor:"pointer"}}>{recuBusy?"⏳...":"Enregistrer + Reçu"}</button>
-          <button onClick={()=>saveVers("partager")} disabled={!versAmt||Number(versAmt)<1||recuBusy} style={{flex:1,background:!versAmt||Number(versAmt)<1?"#E5E7EB":"#075E54",border:"none",borderRadius:14,padding:"13px",color:"#fff",fontWeight:800,fontSize:13,cursor:"pointer"}}>{recuBusy?"⏳ Creation...":"🧾 Reçu + Partager"}</button>
+          <button onClick={()=>saveVers("simple")} disabled={!versAmt||Number(versAmt)<1||recuBusy} style={{flex:1,background:!versAmt||Number(versAmt)<1?"rgba(255,255,255,0.09)":"linear-gradient(135deg,#FFE9B4 0%,#E8B04B 48%,#C38427 100%)",border:"none",borderRadius:14,padding:"13px",color:!versAmt||Number(versAmt)<1?"#97A3C9":"#1B1203",fontWeight:800,fontSize:13,cursor:"pointer"}}>{recuBusy?"⏳...":"Enregistrer + Reçu"}</button>
+          <button onClick={()=>saveVers("partager")} disabled={!versAmt||Number(versAmt)<1||recuBusy} style={{flex:1,background:!versAmt||Number(versAmt)<1?"rgba(255,255,255,0.09)":"#075E54",border:"none",borderRadius:14,padding:"13px",color:"#fff",fontWeight:800,fontSize:13,cursor:"pointer"}}>{recuBusy?"⏳ Creation...":"🧾 Reçu + Partager"}</button>
         </div>
       </Modal>}
 
       {showHisto&&histoM&&<Modal onClose={()=>setShowHisto(false)}>
         <MH title={"Historique - "+histoM.prenom} onClose={()=>setShowHisto(false)}/>
-        <div style={{background:"#FFFFFF",borderRadius:12,padding:14,marginBottom:16}}>
+        <div style={{background:"rgba(255,255,255,0.055)",borderRadius:12,padding:14,marginBottom:16}}>
           <div style={{display:"flex",justifyContent:"space-between",marginBottom:6}}>
-            <span style={{color:"#6B7280",fontSize:13}}>Total verse</span>
-            <span style={{color:"#D0A23E",fontWeight:800,fontSize:16}}>{fmtFCFA(histoM.versements||0)}</span>
+            <span style={{color:"#97A3C9",fontSize:13}}>Total verse</span>
+            <span style={{color:"#E8B04B",fontWeight:800,fontSize:16}}>{fmtFCFA(histoM.versements||0)}</span>
           </div>
           <div style={{display:"flex",justifyContent:"space-between",marginBottom:6}}>
-            <span style={{color:"#6B7280",fontSize:13}}>Cycles payes</span>
-            <span style={{color:"#22C55E",fontWeight:700}}>{histoM.cyclesPaies} / {histoM.cyclesTotal}</span>
+            <span style={{color:"#97A3C9",fontSize:13}}>Cycles payes</span>
+            <span style={{color:"#34D399",fontWeight:700}}>{histoM.cyclesPaies} / {histoM.cyclesTotal}</span>
           </div>
           <div style={{display:"flex",justifyContent:"space-between"}}>
-            <span style={{color:"#6B7280",fontSize:13}}>Fiabilite</span>
-            <span style={{color:"#D0A23E",fontWeight:700}}>{histoM.score}%</span>
+            <span style={{color:"#97A3C9",fontSize:13}}>Fiabilite</span>
+            <span style={{color:"#E8B04B",fontWeight:700}}>{histoM.score}%</span>
           </div>
         </div>
-        <p style={{color:"#6B7280",fontSize:11,fontWeight:700,marginBottom:10,letterSpacing:.5}}>DETAIL DES PAIEMENTS</p>
-        {(histoM.historique||[]).length===0&&<p style={{color:"#9CA3AF",textAlign:"center",padding:20}}>Aucun historique disponible</p>}
+        <p style={{color:"#97A3C9",fontSize:11,fontWeight:700,marginBottom:10,letterSpacing:.5}}>DETAIL DES PAIEMENTS</p>
+        {(histoM.historique||[]).length===0&&<p style={{color:"#6F7BA6",textAlign:"center",padding:20}}>Aucun historique disponible</p>}
         {(histoM.historique||[]).map((h,i)=>(
-          <div key={h.id||i} style={{padding:"12px 14px",background:"#FFFFFF",borderRadius:12,marginBottom:8,border:`1px solid ${h.statut==="paye"?"#E5E7EB":"#C1440E44"}`}}>
+          <div key={h.id||i} style={{padding:"12px 14px",background:"rgba(255,255,255,0.055)",borderRadius:12,marginBottom:8,border:`1px solid ${h.statut==="paye"?"rgba(255,255,255,0.09)":"#E0526A55"}`}}>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:10}}>
               <div>
-                <p style={{margin:0,color:"#111827",fontWeight:700,fontSize:14}}>{h.mois}</p>
-                {h.date&&<p style={{margin:0,color:"#6B7280",fontSize:11}}>{h.date} a {h.heure}</p>}
+                <p style={{margin:0,color:"#F5F2EA",fontWeight:700,fontSize:14}}>{h.mois}</p>
+                {h.date&&<p style={{margin:0,color:"#97A3C9",fontSize:11}}>{h.date} a {h.heure}</p>}
               </div>
               <div style={{textAlign:"right"}}>
-                <p style={{margin:0,color:h.statut==="paye"?"#D0A23E":"#EF4444",fontWeight:700,fontSize:14}}>{fmtFCFA(h.montant)}</p>
-                <span style={{background:h.statut==="paye"?"#1B6B45":"#C1440E",color:"#fff",fontSize:10,fontWeight:700,padding:"2px 7px",borderRadius:99}}>{h.statut.toUpperCase()}</span>
+                <p style={{margin:0,color:h.statut==="paye"?"#E8B04B":"#FB7185",fontWeight:700,fontSize:14}}>{fmtFCFA(h.montant)}</p>
+                <span style={{background:h.statut==="paye"?"#0F7A55":"#E0526A",color:"#fff",fontSize:10,fontWeight:700,padding:"2px 7px",borderRadius:99}}>{h.statut.toUpperCase()}</span>
               </div>
             </div>
-            <div style={{borderTop:"1px solid #E5E7EB",paddingTop:10}}>
-              <p style={{margin:"0 0 8px",color:"#6B7280",fontSize:10,fontWeight:700,letterSpacing:.5}}>CHECKLIST DE SUIVI</p>
+            <div style={{borderTop:"1px solid rgba(255,255,255,0.09)",paddingTop:10}}>
+              <p style={{margin:"0 0 8px",color:"#97A3C9",fontSize:10,fontWeight:700,letterSpacing:.5}}>CHECKLIST DE SUIVI</p>
               <div style={{display:"flex",flexWrap:"wrap",gap:6,marginBottom:h.photoUrl?8:0}}>
-                <span style={{background:"#E5E7EB",color:"#22C55E",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>✅ Montant recu</span>
-                <span onClick={()=>toggleChecklistItem(h,"recu_envoye",!h.recuEnvoye)} style={{cursor:"pointer",background:h.recuEnvoye?"#E5E7EB":"#FEF2F2",color:h.recuEnvoye?"#22C55E":"#EF4444",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{h.recuEnvoye?"✅":"❌"} Reçu envoyé</span>
-                <span style={{background:h.statut==="paye"?"#E5E7EB":"#FEF2F2",color:h.statut==="paye"?"#22C55E":"#EF4444",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{h.statut==="paye"?"✅ Pas de dette":"❌ Dette restante"}</span>
-                <span style={{background:h.photoUrl?"#E5E7EB":"#FEF2F2",color:h.photoUrl?"#22C55E":"#EF4444",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{h.photoUrl?"✅":"❌"} Photo</span>
+                <span style={{background:"rgba(255,255,255,0.09)",color:"#34D399",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>✅ Montant recu</span>
+                <span onClick={()=>toggleChecklistItem(h,"recu_envoye",!h.recuEnvoye)} style={{cursor:"pointer",background:h.recuEnvoye?"rgba(255,255,255,0.09)":"rgba(251,113,133,0.10)",color:h.recuEnvoye?"#34D399":"#FB7185",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{h.recuEnvoye?"✅":"❌"} Reçu envoyé</span>
+                <span style={{background:h.statut==="paye"?"rgba(255,255,255,0.09)":"rgba(251,113,133,0.10)",color:h.statut==="paye"?"#34D399":"#FB7185",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{h.statut==="paye"?"✅ Pas de dette":"❌ Dette restante"}</span>
+                <span style={{background:h.photoUrl?"rgba(255,255,255,0.09)":"rgba(251,113,133,0.10)",color:h.photoUrl?"#34D399":"#FB7185",fontSize:11,fontWeight:600,padding:"4px 9px",borderRadius:8}}>{h.photoUrl?"✅":"❌"} Photo</span>
               </div>
-              {h.photoUrl&&<a href={h.photoUrl} target="_blank" rel="noreferrer"><img src={h.photoUrl} alt="Preuve" style={{width:"100%",maxHeight:120,objectFit:"cover",borderRadius:8,border:"1px solid #D1D5DB"}}/></a>}
-              <button onClick={()=>voirRecu(h)} disabled={recuBusy} style={{marginTop:8,width:"100%",background:"#F3F4F6",border:"1px solid #6B7280",borderRadius:8,padding:"7px",color:"#111827",fontSize:11,fontWeight:700,cursor:"pointer"}}>{recuBusy?"⏳ Generation...":"🧾 Voir / repartager le reçu"}</button>
-              {!h.recuEnvoye&&<button onClick={()=>toutEstEnOrdre(h)} style={{marginTop:8,width:"100%",background:"transparent",border:"1px solid #D0A23E",borderRadius:8,padding:"7px",color:"#D0A23E",fontSize:11,fontWeight:700,cursor:"pointer"}}>☑️ Tout est en ordre</button>}
+              {h.photoUrl&&<a href={h.photoUrl} target="_blank" rel="noreferrer"><img src={h.photoUrl} alt="Preuve" style={{width:"100%",maxHeight:120,objectFit:"cover",borderRadius:8,border:"1px solid rgba(255,255,255,0.14)"}}/></a>}
+              <button onClick={()=>voirRecu(h)} disabled={recuBusy} style={{marginTop:8,width:"100%",background:"rgba(255,255,255,0.045)",border:"1px solid #97A3C9",borderRadius:8,padding:"7px",color:"#F5F2EA",fontSize:11,fontWeight:700,cursor:"pointer"}}>{recuBusy?"⏳ Generation...":"🧾 Voir / repartager le reçu"}</button>
+              {!h.recuEnvoye&&<button onClick={()=>toutEstEnOrdre(h)} style={{marginTop:8,width:"100%",background:"transparent",border:"1px solid #E8B04B",borderRadius:8,padding:"7px",color:"#E8B04B",fontSize:11,fontWeight:700,cursor:"pointer"}}>☑️ Tout est en ordre</button>}
             </div>
           </div>
         ))}
-        <div style={{background:"linear-gradient(135deg,#FFFFFF,#F3F4F6)",border:"1px solid #D0A23E",borderRadius:12,padding:14,marginTop:8}}>
-          <p style={{margin:"0 0 8px",color:"#D0A23E",fontWeight:800,fontSize:13}}>Devis automatique</p>
-          <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}><span style={{color:"#6B7280",fontSize:12}}>Total paye</span><span style={{color:"#22C55E",fontWeight:700}}>{fmtFCFA(histoM.versements||0)}</span></div>
-          <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}><span style={{color:"#6B7280",fontSize:12}}>Paiements en retard</span><span style={{color:"#EF4444",fontWeight:700}}>{(histoM.historique||[]).filter(h=>h.statut==="retard").length} fois</span></div>
-          <div style={{display:"flex",justifyContent:"space-between"}}><span style={{color:"#6B7280",fontSize:12}}>Taux de ponctualite</span><span style={{color:"#D0A23E",fontWeight:700}}>{histoM.cyclesTotal>0?Math.round((histoM.cyclesPaies/histoM.cyclesTotal)*100):0}%</span></div>
+        <div style={{background:"linear-gradient(135deg,rgba(255,255,255,0.055),rgba(255,255,255,0.045))",border:"1px solid #E8B04B",borderRadius:12,padding:14,marginTop:8}}>
+          <p style={{margin:"0 0 8px",color:"#E8B04B",fontWeight:800,fontSize:13}}>Devis automatique</p>
+          <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}><span style={{color:"#97A3C9",fontSize:12}}>Total paye</span><span style={{color:"#34D399",fontWeight:700}}>{fmtFCFA(histoM.versements||0)}</span></div>
+          <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}><span style={{color:"#97A3C9",fontSize:12}}>Paiements en retard</span><span style={{color:"#FB7185",fontWeight:700}}>{(histoM.historique||[]).filter(h=>h.statut==="retard").length} fois</span></div>
+          <div style={{display:"flex",justifyContent:"space-between"}}><span style={{color:"#97A3C9",fontSize:12}}>Taux de ponctualite</span><span style={{color:"#E8B04B",fontWeight:700}}>{histoM.cyclesTotal>0?Math.round((histoM.cyclesPaies/histoM.cyclesTotal)*100):0}%</span></div>
         </div>
       </Modal>}
 
       {showAdd&&<Modal onClose={()=>{if(!pickerBusy)setShowAdd(false);}}>
         <MH title="Ajouter un membre" onClose={()=>{if(!pickerBusy)setShowAdd(false);}}/>
         <div style={{opacity:pickerBusy?0.4:1,pointerEvents:pickerBusy?"none":"auto",transition:"opacity 0.15s"}}>
-        <p style={{color:"#6B7280",fontSize:13,marginBottom:16,lineHeight:1.6}}>Le chef de tontine ajoute les membres. Un rappel WhatsApp leur sera envoye.</p>
+        <p style={{color:"#97A3C9",fontSize:13,marginBottom:16,lineHeight:1.6}}>Le chef de tontine ajoute les membres. Un rappel WhatsApp leur sera envoye.</p>
         {"contacts" in navigator&&"ContactsManager" in window&&<button disabled={pickerBusy} onClick={async()=>{
           if(pickerBusyRef.current)return;
           pickerBusyRef.current=true;setPickerBusy(true);
@@ -3310,8 +3310,8 @@ THT - Tontine Habi Traore`;
             if(c.length===1){setNewM(n=>({...n,prenom:c[0].name?.[0]?.split(" ")[0]||n.prenom,tel:sPhone(c[0].tel?.[0]||n.tel)}));onToast("Contact selectionne !");}
             else await addMembresEnMasse(c);
           }catch{pickerBusyRef.current=false;setPickerBusy(false);}
-        }} style={{width:"100%",background:pickerBusy?"#FFFFFF":"#E5E7EB",border:"1px solid #D0A23E",borderRadius:12,padding:"12px",color:pickerBusy?"#6B7280":"#D0A23E",fontWeight:700,fontSize:13,cursor:pickerBusy?"not-allowed":"pointer",marginBottom:14,display:"flex",alignItems:"center",justifyContent:"center",gap:8}}>{pickerBusy?"Ajout en cours...":"📇 Choisir depuis mes contacts (plusieurs a la fois possible)"}</button>}
-        <Fld label="Photo (optionnel)"><div style={{display:"flex",alignItems:"center",gap:12}}>{newM.photo?<img src={newM.photo} style={{width:50,height:50,borderRadius:14,objectFit:"cover"}} alt=""/>:<div style={{width:50,height:50,borderRadius:14,background:"#E5E7EB",display:"flex",alignItems:"center",justifyContent:"center",color:"#6B7280",fontSize:20}}>📷</div>}<label style={{background:"#E5E7EB",border:"1px solid #D1D5DB",borderRadius:10,padding:"8px 14px",color:"#D0A23E",fontWeight:700,fontSize:12,cursor:"pointer"}}>{newM.photo?"Changer":"Ajouter"}<input type="file" accept="image/*" hidden onChange={async e=>{const f=e.target.files?.[0];if(!f)return;try{const blob=await compressImage(f,TAILLE_AVATAR,QUALITE_AVATAR);const url=await uploadPhoto(new File([blob],"membre.jpg",{type:"image/jpeg"}),"membres");setNewM(n=>({...n,photo:url}));}catch{onToast("Cette photo n'a pas pu etre traitee, essaie une autre image","error");}}}/></label></div></Fld>
+        }} style={{width:"100%",background:pickerBusy?"rgba(255,255,255,0.055)":"rgba(255,255,255,0.09)",border:"1px solid #E8B04B",borderRadius:12,padding:"12px",color:pickerBusy?"#97A3C9":"#E8B04B",fontWeight:700,fontSize:13,cursor:pickerBusy?"not-allowed":"pointer",marginBottom:14,display:"flex",alignItems:"center",justifyContent:"center",gap:8}}>{pickerBusy?"Ajout en cours...":"📇 Choisir depuis mes contacts (plusieurs a la fois possible)"}</button>}
+        <Fld label="Photo (optionnel)"><div style={{display:"flex",alignItems:"center",gap:12}}>{newM.photo?<img src={newM.photo} style={{width:50,height:50,borderRadius:14,objectFit:"cover"}} alt=""/>:<div style={{width:50,height:50,borderRadius:14,background:"rgba(255,255,255,0.09)",display:"flex",alignItems:"center",justifyContent:"center",color:"#97A3C9",fontSize:20}}>📷</div>}<label style={{background:"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:10,padding:"8px 14px",color:"#E8B04B",fontWeight:700,fontSize:12,cursor:"pointer"}}>{newM.photo?"Changer":"Ajouter"}<input type="file" accept="image/*" hidden onChange={async e=>{const f=e.target.files?.[0];if(!f)return;try{const blob=await compressImage(f,TAILLE_AVATAR,QUALITE_AVATAR);const url=await uploadPhoto(new File([blob],"membre.jpg",{type:"image/jpeg"}),"membres");setNewM(n=>({...n,photo:url}));}catch{onToast("Cette photo n'a pas pu etre traitee, essaie une autre image","error");}}}/></label></div></Fld>
         <Fld label="Prenom"><Inp value={newM.prenom} onChange={e=>setNewM(n=>({...n,prenom:e.target.value}))} placeholder="Ex: Fatoumata" maxLength={30} autoFocus/></Fld>
         <Fld label="Numero WhatsApp"><PhoneInput value={newM.tel} onChange={v=>setNewM(n=>({...n,tel:sPhone(v)}))}/></Fld>
         <Fld label="Quartier (optionnel)"><Inp value={newM.quartier||""} onChange={e=>setNewM(n=>({...n,quartier:e.target.value}))} placeholder="Ex: Hamdallaye ACI" maxLength={40}/></Fld>
@@ -3330,15 +3330,15 @@ THT - Tontine Habi Traore`;
       {showUpgrade&&<Modal onClose={()=>setShowUpgrade(false)}>
         <MH title="Limite atteinte" onClose={()=>setShowUpgrade(false)}/>
         <div style={{textAlign:"center",padding:"10px 0 4px"}}><p style={{fontSize:40,margin:0}}>🔒</p></div>
-        <p style={{color:"#111827",fontSize:15,fontWeight:700,textAlign:"center",margin:"8px 0 4px"}}>{limiteMembres(user)} membres, c'est ton maximum en gratuit</p>
-        <p style={{color:"#6B7280",fontSize:13,textAlign:"center",lineHeight:1.6,marginBottom:12}}>Passe a THT Premium pour ajouter des membres illimites dans cette tontine, et beneficier de toutes les autres fonctionnalites avancees.</p>
-        <p style={{color:"#6E5214",fontSize:12,textAlign:"center",lineHeight:1.6,marginBottom:20,background:"#FBF5E6",border:"1px solid #D0A23E",borderRadius:10,padding:"9px 11px"}}>👥 Ou gagne des places gratuitement : partage ton code de parrainage depuis ton Profil. Chaque {FILLEULS_PAR_MEMBRE_BONUS} ami(e)s qui creent un compte te donnent <strong>+1 place</strong>.</p>
+        <p style={{color:"#F5F2EA",fontSize:15,fontWeight:700,textAlign:"center",margin:"8px 0 4px"}}>{limiteMembres(user)} membres, c'est ton maximum en gratuit</p>
+        <p style={{color:"#97A3C9",fontSize:13,textAlign:"center",lineHeight:1.6,marginBottom:12}}>Passe a THT Premium pour ajouter des membres illimites dans cette tontine, et beneficier de toutes les autres fonctionnalites avancees.</p>
+        <p style={{color:"#FFE1A1",fontSize:12,textAlign:"center",lineHeight:1.6,marginBottom:20,background:"rgba(232,176,75,0.10)",border:"1px solid #E8B04B",borderRadius:10,padding:"9px 11px"}}>👥 Ou gagne des places gratuitement : partage ton code de parrainage depuis ton Profil. Chaque {FILLEULS_PAR_MEMBRE_BONUS} ami(e)s qui creent un compte te donnent <strong>+1 place</strong>.</p>
         <button onClick={async()=>{
           setPayBusy(true);
           await payerAbonnement(user,"mensuel",(m)=>onToast(m,"error"));
           setPayBusy(false);
-        }} disabled={payBusy} style={{width:"100%",background:"linear-gradient(135deg,#D0A23E,#A87C22)",border:"none",borderRadius:12,padding:"13px",color:"#0D0D0D",fontWeight:800,fontSize:14,cursor:"pointer",marginBottom:12}}>{payBusy?"Ouverture du paiement...":"💳 Payer en ligne maintenant - 1 000 FCFA"}</button>
-        <p style={{color:"#6B7280",fontSize:11,textAlign:"center",margin:"0 0 12px"}}>OU manuellement via WhatsApp :</p>
+        }} disabled={payBusy} style={{width:"100%",background:"linear-gradient(135deg,#FFE9B4 0%,#E8B04B 48%,#C38427 100%)",border:"none",borderRadius:12,padding:"13px",color:"#1B1203",fontWeight:800,fontSize:14,cursor:"pointer",marginBottom:12}}>{payBusy?"Ouverture du paiement...":"💳 Payer en ligne maintenant - 1 000 FCFA"}</button>
+        <p style={{color:"#97A3C9",fontSize:11,textAlign:"center",margin:"0 0 12px"}}>OU manuellement via WhatsApp :</p>
         <div style={{display:"flex",gap:10}}>
           <button onClick={()=>window.open("https://wa.me/22376908031?text=Je%20veux%20THT%20Premium","_blank")} style={{flex:1,background:"#FF6600",border:"none",borderRadius:10,padding:"12px",color:"#fff",fontWeight:700,fontSize:13,cursor:"pointer"}}>Orange Money</button>
           <button onClick={()=>window.open("https://wa.me/22390647106?text=Je%20veux%20THT%20Premium","_blank")} style={{flex:1,background:"#0066CC",border:"none",borderRadius:10,padding:"12px",color:"#fff",fontWeight:700,fontSize:13,cursor:"pointer"}}>Wave</button>
@@ -3348,21 +3348,21 @@ THT - Tontine Habi Traore`;
         <MH title="Modifier la tontine" onClose={()=>setShowEdit(false)}/>
         <Fld label="Nom"><Inp value={editG.nom} onChange={e=>setEditG(g=>({...g,nom:e.target.value}))} placeholder="Nom de la tontine" maxLength={40} autoFocus/></Fld>
         <Fld label="Montant par cotisation (FCFA)"><Inp value={editG.montant} onChange={e=>setEditG(g=>({...g,montant:e.target.value.replace(/\D/g,"")}))} placeholder="25000" inputMode="numeric"/></Fld>
-        <Fld label="Fréquence"><div style={{display:"flex",gap:8}}>{["Hebdo","Bimensuel","Mensuel"].map(f=><button key={f} onClick={()=>setEditG(g=>({...g,frequence:f}))} style={{flex:1,padding:"10px 4px",borderRadius:10,border:"1px solid",cursor:"pointer",fontSize:12,fontWeight:700,background:editG.frequence===f?"#D0A23E":"#E5E7EB",color:editG.frequence===f?"#0D0D0D":"#111827",borderColor:editG.frequence===f?"#D0A23E":"#D1D5DB"}}>{f}</button>)}</div></Fld>
+        <Fld label="Fréquence"><div style={{display:"flex",gap:8}}>{["Hebdo","Bimensuel","Mensuel"].map(f=><button key={f} onClick={()=>setEditG(g=>({...g,frequence:f}))} style={{flex:1,padding:"10px 4px",borderRadius:10,border:"1px solid",cursor:"pointer",fontSize:12,fontWeight:700,background:editG.frequence===f?"#E8B04B":"rgba(255,255,255,0.09)",color:editG.frequence===f?"#1B1203":"#F5F2EA",borderColor:editG.frequence===f?"#E8B04B":"rgba(255,255,255,0.14)"}}>{f}</button>)}</div></Fld>
         <Fld label="Date d'échéance (prochain versement)"><Inp value={editG.dateEcheance} onChange={e=>setEditG(g=>({...g,dateEcheance:e.target.value}))} type="date"/></Fld>
         <Fld label="Numéro Orange Money (optionnel)"><Inp value={editG.numeroOrangeMoney} onChange={e=>setEditG(g=>({...g,numeroOrangeMoney:e.target.value.replace(/[^\d+]/g,"")}))} placeholder="Ex: 70123456" inputMode="tel"/></Fld>
         <Fld label="Numéro Wave (optionnel)"><Inp value={editG.numeroWave} onChange={e=>setEditG(g=>({...g,numeroWave:e.target.value.replace(/[^\d+]/g,"")}))} placeholder="Ex: 70123456" inputMode="tel"/></Fld>
         <Fld label="Numéro Moov Money (optionnel)"><Inp value={editG.numeroMoovMoney} onChange={e=>setEditG(g=>({...g,numeroMoovMoney:e.target.value.replace(/[^\d+]/g,"")}))} placeholder="Ex: 60123456" inputMode="tel"/></Fld>
         <Fld label="QR de paiement (Wave ou Orange Money)">
-          <label style={{display:"block",background:"#FFFFFF",border:"1px dashed #D0A23E",borderRadius:10,padding:editG.qrPaiementUrl?8:14,textAlign:"center",cursor:"pointer"}}>
+          <label style={{display:"block",background:"rgba(255,255,255,0.055)",border:"1px dashed #E8B04B",borderRadius:10,padding:editG.qrPaiementUrl?8:14,textAlign:"center",cursor:"pointer"}}>
             <input type="file" accept="image/*" onChange={choisirQRPaiement} style={{display:"none"}}/>
             {editG.qrPaiementUrl
               ? <img src={editG.qrPaiementUrl} alt="QR" style={{maxWidth:160,maxHeight:160,borderRadius:8,display:"block",margin:"0 auto"}}/>
-              : <span style={{color:"#D0A23E",fontSize:12,fontWeight:700}}>{qrUp?"Import en cours...":"📷 Importer la photo de mon QR"}</span>}
+              : <span style={{color:"#E8B04B",fontSize:12,fontWeight:700}}>{qrUp?"Import en cours...":"📷 Importer la photo de mon QR"}</span>}
           </label>
-          {editG.qrPaiementUrl&&<button onClick={()=>setEditG(g=>({...g,qrPaiementUrl:""}))} style={{background:"transparent",border:"none",color:"#EF4444",fontSize:11,fontWeight:700,cursor:"pointer",marginTop:6}}>Retirer le QR</button>}
+          {editG.qrPaiementUrl&&<button onClick={()=>setEditG(g=>({...g,qrPaiementUrl:""}))} style={{background:"transparent",border:"none",color:"#FB7185",fontSize:11,fontWeight:700,cursor:"pointer",marginTop:6}}>Retirer le QR</button>}
         </Fld>
-        <p style={{color:"#6B7280",fontSize:11,margin:"-8px 0 14px",lineHeight:1.5}}>Renseigne ces numéros (et/ou importe ton QR) pour afficher le paiement direct aux membres. L'argent part directement sur ton compte, jamais sur l'app.</p>
+        <p style={{color:"#97A3C9",fontSize:11,margin:"-8px 0 14px",lineHeight:1.5}}>Renseigne ces numéros (et/ou importe ton QR) pour afficher le paiement direct aux membres. L'argent part directement sur ton compte, jamais sur l'app.</p>
         <Btn onClick={saveEdit} disabled={editBusy}>{editBusy?"Enregistrement...":"Enregistrer"}</Btn>
       </Modal>}
     </div>
@@ -3454,29 +3454,29 @@ Donnees reelles des tontines de l utilisatrice en ce moment : ${ctx||"aucune ton
 
   const sugg=["C est quand mon tour ?","Qui n a pas paye ?","Combien j'ai épargné ?","Conseils pour mon groupe"];
   return(
-    <div style={{display:"flex",flexDirection:"column",height:"calc(100vh - 78px)",background:"#FFFFFF"}}>
-      <div style={{background:"#FFFFFF",padding:"44px 16px 14px",display:"flex",alignItems:"center",gap:12,borderBottom:"1px solid #E5E7EB",flexShrink:0}}>
-        <div style={{width:46,height:46,background:"linear-gradient(135deg,#D0A23E,#A87C22)",borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:900,fontSize:20,color:"#0D0D0D",flexShrink:0}}>H</div>
-        <div style={{flex:1,minWidth:0}}><p style={{margin:0,color:"#111827",fontWeight:800,fontSize:16}}>HABY</p><p style={{margin:0,color:"#22C55E",fontSize:11}}>En ligne - Assistante THT</p></div>
+    <div style={{display:"flex",flexDirection:"column",height:"calc(100vh - 78px)",background:"rgba(255,255,255,0.055)"}}>
+      <div style={{background:"rgba(255,255,255,0.055)",padding:"44px 16px 14px",display:"flex",alignItems:"center",gap:12,borderBottom:"1px solid rgba(255,255,255,0.09)",flexShrink:0}}>
+        <div style={{width:46,height:46,background:"linear-gradient(135deg,#FFE9B4 0%,#E8B04B 48%,#C38427 100%)",borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:900,fontSize:20,color:"#1B1203",flexShrink:0}}>H</div>
+        <div style={{flex:1,minWidth:0}}><p style={{margin:0,color:"#F5F2EA",fontWeight:800,fontSize:16}}>HABY</p><p style={{margin:0,color:"#34D399",fontSize:11}}>En ligne - Assistante THT</p></div>
         {illimiteIA
-          ? <span style={{background:"#FBF5E6",color:"#6E5214",fontSize:10.5,fontWeight:700,padding:"4px 9px",borderRadius:99,border:"1px solid #D0A23E",flexShrink:0}}>Illimite</span>
-          : <span title="Nombre de questions offertes aujourd hui" style={{background:restantes>0?"#F3F4F6":"#FEF2F2",color:restantes>0?"#6B7280":"#B91C1C",fontSize:10.5,fontWeight:700,padding:"4px 9px",borderRadius:99,border:"1px solid "+(restantes>0?"#E5E7EB":"#EF4444"),flexShrink:0}}>{restantes}/{QUOTA_HABY_GRATUIT} aujourd hui</span>}
+          ? <span style={{background:"rgba(232,176,75,0.10)",color:"#FFE1A1",fontSize:10.5,fontWeight:700,padding:"4px 9px",borderRadius:99,border:"1px solid #E8B04B",flexShrink:0}}>Illimite</span>
+          : <span title="Nombre de questions offertes aujourd hui" style={{background:restantes>0?"rgba(255,255,255,0.045)":"rgba(251,113,133,0.10)",color:restantes>0?"#97A3C9":"#FB7185",fontSize:10.5,fontWeight:700,padding:"4px 9px",borderRadius:99,border:"1px solid "+(restantes>0?"rgba(255,255,255,0.09)":"#FB7185"),flexShrink:0}}>{restantes}/{QUOTA_HABY_GRATUIT} aujourd hui</span>}
       </div>
       <div style={{flex:1,overflowY:"auto",padding:"16px 16px 0"}}>
         {msgs.map((m,i)=>(
           <div key={i} style={{display:"flex",justifyContent:m.role==="user"?"flex-end":"flex-start",marginBottom:12,alignItems:"flex-end",gap:8}}>
-            {m.role==="assistant"&&<div style={{width:28,height:28,background:"#D0A23E",borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:900,fontSize:12,color:"#0D0D0D",flexShrink:0}}>H</div>}
-            <div style={{background:m.role==="user"?"linear-gradient(135deg,#D0A23E,#A87C22)":"#FFFFFF",border:m.role==="user"?"none":"1px solid #E5E7EB",borderRadius:m.role==="user"?"18px 18px 4px 18px":"18px 18px 18px 4px",padding:"12px 16px",color:m.role==="user"?"#0D0D0D":"#111827",fontSize:14,maxWidth:"80%",lineHeight:1.6,fontWeight:m.role==="user"?700:400}}>{m.content}</div>
+            {m.role==="assistant"&&<div style={{width:28,height:28,background:"#E8B04B",borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:900,fontSize:12,color:"#1B1203",flexShrink:0}}>H</div>}
+            <div style={{background:m.role==="user"?"linear-gradient(135deg,#FFE9B4 0%,#E8B04B 48%,#C38427 100%)":"rgba(255,255,255,0.055)",border:m.role==="user"?"none":"1px solid rgba(255,255,255,0.09)",borderRadius:m.role==="user"?"18px 18px 4px 18px":"18px 18px 18px 4px",padding:"12px 16px",color:m.role==="user"?"#1B1203":"#F5F2EA",fontSize:14,maxWidth:"80%",lineHeight:1.6,fontWeight:m.role==="user"?700:400}}>{m.content}</div>
           </div>
         ))}
-        {loading&&<div style={{display:"flex",gap:8,alignItems:"flex-end",marginBottom:12}}><div style={{width:28,height:28,background:"#D0A23E",borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:900,fontSize:12,color:"#0D0D0D"}}>H</div><div style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:"18px 18px 18px 4px",padding:"14px 18px",color:"#D0A23E",fontSize:20,letterSpacing:4}}>...</div></div>}
+        {loading&&<div style={{display:"flex",gap:8,alignItems:"flex-end",marginBottom:12}}><div style={{width:28,height:28,background:"#E8B04B",borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:900,fontSize:12,color:"#1B1203"}}>H</div><div style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:"18px 18px 18px 4px",padding:"14px 18px",color:"#E8B04B",fontSize:20,letterSpacing:4}}>...</div></div>}
         <div ref={bottomRef}/>
       </div>
-      {msgs.length<=2&&<div style={{display:"flex",gap:8,padding:"8px 16px",overflowX:"auto",flexShrink:0}}>{sugg.map(sg=><button key={sg} onClick={()=>send(sg)} style={{flexShrink:0,background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:99,padding:"8px 14px",color:"#D0A23E",fontSize:12,cursor:"pointer",fontWeight:600,whiteSpace:"nowrap"}}>{sg}</button>)}</div>}
-      <div style={{display:"flex",gap:8,padding:"12px 16px 28px",background:"#FFFFFF",borderTop:"1px solid #E5E7EB",flexShrink:0}}>
-        <button onClick={toggleMic} title="Dicter un message" style={{width:46,height:50,background:listening?"#C1440E":"#FFFFFF",border:"1px solid #D1D5DB",borderRadius:14,color:listening?"#fff":"#D0A23E",fontSize:18,cursor:"pointer",flexShrink:0}}>{listening?"⏹":"🎤"}</button>
-        <input value={input} onChange={e=>setInput(e.target.value.replace(/[<>"]/g,"").slice(0,500))} onKeyDown={e=>{if(e.key==="Enter"&&!e.shiftKey&&!loading){e.preventDefault();send();}}} placeholder="Ecris ou dicte a HABY..." style={{flex:1,background:"#FFFFFF",border:"1px solid #D1D5DB",borderRadius:14,padding:"14px 16px",color:"#111827",fontSize:15,outline:"none"}}/>
-        <button onClick={()=>send()} disabled={!input.trim()||loading} style={{width:50,height:50,background:input.trim()&&!loading?"#D0A23E":"#E5E7EB",border:"none",borderRadius:14,color:"#0D0D0D",fontWeight:900,fontSize:20,cursor:input.trim()&&!loading?"pointer":"not-allowed",flexShrink:0,alignSelf:"flex-end"}}>→</button>
+      {msgs.length<=2&&<div style={{display:"flex",gap:8,padding:"8px 16px",overflowX:"auto",flexShrink:0}}>{sugg.map(sg=><button key={sg} onClick={()=>send(sg)} style={{flexShrink:0,background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:99,padding:"8px 14px",color:"#E8B04B",fontSize:12,cursor:"pointer",fontWeight:600,whiteSpace:"nowrap"}}>{sg}</button>)}</div>}
+      <div style={{display:"flex",gap:8,padding:"12px 16px 28px",background:"rgba(255,255,255,0.055)",borderTop:"1px solid rgba(255,255,255,0.09)",flexShrink:0}}>
+        <button onClick={toggleMic} title="Dicter un message" style={{width:46,height:50,background:listening?"#E0526A":"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:14,color:listening?"#fff":"#E8B04B",fontSize:18,cursor:"pointer",flexShrink:0}}>{listening?"⏹":"🎤"}</button>
+        <input value={input} onChange={e=>setInput(e.target.value.replace(/[<>"]/g,"").slice(0,500))} onKeyDown={e=>{if(e.key==="Enter"&&!e.shiftKey&&!loading){e.preventDefault();send();}}} placeholder="Ecris ou dicte a HABY..." style={{flex:1,background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:14,padding:"14px 16px",color:"#F5F2EA",fontSize:15,outline:"none"}}/>
+        <button onClick={()=>send()} disabled={!input.trim()||loading} style={{width:50,height:50,background:input.trim()&&!loading?"#E8B04B":"rgba(255,255,255,0.09)",border:"none",borderRadius:14,color:"#1B1203",fontWeight:900,fontSize:20,cursor:input.trim()&&!loading?"pointer":"not-allowed",flexShrink:0,alignSelf:"flex-end"}}>→</button>
       </div>
     </div>
   );
@@ -3518,7 +3518,7 @@ const EpargneScreen = ({onToast,user}) => {
   const addObj=async()=>{
     if(!nObj.label.trim()||!nObj.cible)return onToast("Remplis tous les champs","error");
     setBusy(true);
-    const payload={user_id:user.id,label:s(nObj.label.trim()),emoji:nObj.emoji,actuel:Number(nObj.actuel)||0,cible:Number(nObj.cible),couleur:"#D0A23E"};
+    const payload={user_id:user.id,label:s(nObj.label.trim()),emoji:nObj.emoji,actuel:Number(nObj.actuel)||0,cible:Number(nObj.cible),couleur:"#E8B04B"};
     const {data,error}=await supabase.from("objectifs").insert(payload).select().single();
     setBusy(false);
     if(error)return onToast("Impossible d ajouter l objectif","error");
@@ -3555,48 +3555,48 @@ const EpargneScreen = ({onToast,user}) => {
   return(
     <div style={{paddingBottom:90}}>
       <div style={{padding:"44px 16px 0",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-        <h2 style={{color:"#111827",fontSize:22,fontWeight:900,margin:0}}>Ma Tirelire</h2>
-        <button onClick={()=>setShowAdd(true)} style={{background:"#E5E7EB",border:"1px solid #D1D5DB",borderRadius:10,padding:"8px 16px",color:"#D0A23E",fontWeight:700,fontSize:13,cursor:"pointer"}}>+ Objectif</button>
+        <h2 style={{color:"#F5F2EA",fontSize:22,fontWeight:900,margin:0}}>Ma Tirelire</h2>
+        <button onClick={()=>setShowAdd(true)} style={{background:"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:10,padding:"8px 16px",color:"#E8B04B",fontWeight:700,fontSize:13,cursor:"pointer"}}>+ Objectif</button>
       </div>
-      <div style={{margin:"14px 16px 0",background:"linear-gradient(135deg,#E5E7EB,#FFFFFF)",borderRadius:16,padding:16,border:"1px solid #D1D5DB"}}>
-        <p style={{margin:0,color:"#6B7280",fontSize:12,fontWeight:600}}>TOTAL EPARGNE</p>
-        <p style={{margin:"4px 0 0",color:"#D0A23E",fontSize:26,fontWeight:900}}>{fmtFCFA(totalEp)}</p>
-        <Bar pct={totalC>0?Math.round((totalEp/totalC)*100):0} c="#D0A23E"/>
-        <p style={{margin:"6px 0 0",color:"#6B7280",fontSize:11}}>Objectif global : {fmtFCFA(totalC)}</p>
+      <div style={{margin:"14px 16px 0",background:"linear-gradient(135deg,rgba(255,255,255,0.09),rgba(255,255,255,0.055))",borderRadius:16,padding:16,border:"1px solid rgba(255,255,255,0.14)"}}>
+        <p style={{margin:0,color:"#97A3C9",fontSize:12,fontWeight:600}}>TOTAL EPARGNE</p>
+        <p style={{margin:"4px 0 0",color:"#E8B04B",fontSize:26,fontWeight:900}}>{fmtFCFA(totalEp)}</p>
+        <Bar pct={totalC>0?Math.round((totalEp/totalC)*100):0} c="#E8B04B"/>
+        <p style={{margin:"6px 0 0",color:"#97A3C9",fontSize:11}}>Objectif global : {fmtFCFA(totalC)}</p>
       </div>
       <div style={{padding:"14px 16px 0"}}>
-        {loading?<p style={{color:"#6B7280",fontSize:13,textAlign:"center",marginTop:20}}>Chargement...</p>
-        :objs.length===0?<p style={{color:"#6B7280",fontSize:13,textAlign:"center",marginTop:20}}>Aucun objectif pour le moment. Cree ton premier objectif d epargne !</p>
+        {loading?<p style={{color:"#97A3C9",fontSize:13,textAlign:"center",marginTop:20}}>Chargement...</p>
+        :objs.length===0?<p style={{color:"#97A3C9",fontSize:13,textAlign:"center",marginTop:20}}>Aucun objectif pour le moment. Cree ton premier objectif d epargne !</p>
         :objs.map(o=>{const pct=o.cible>0?Math.round((o.actuel/o.cible)*100):0;return(
-          <div key={o.id} style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:16,padding:16,marginBottom:10}}>
-            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}><div style={{display:"flex",alignItems:"center",gap:10}}><span style={{fontSize:26}}>{o.emoji}</span><div><p style={{margin:0,color:"#111827",fontWeight:700,fontSize:15}}>{o.label}</p><p style={{margin:0,color:"#6B7280",fontSize:12}}>{fmtFCFA(o.actuel)} / {fmtFCFA(o.cible)}</p></div></div><span style={{color:o.couleur,fontWeight:900,fontSize:20}}>{pct}%</span></div>
+          <div key={o.id} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:16,padding:16,marginBottom:10}}>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}><div style={{display:"flex",alignItems:"center",gap:10}}><span style={{fontSize:26}}>{o.emoji}</span><div><p style={{margin:0,color:"#F5F2EA",fontWeight:700,fontSize:15}}>{o.label}</p><p style={{margin:0,color:"#97A3C9",fontSize:12}}>{fmtFCFA(o.actuel)} / {fmtFCFA(o.cible)}</p></div></div><span style={{color:o.couleur,fontWeight:900,fontSize:20}}>{pct}%</span></div>
             <Bar pct={pct} c={o.couleur}/>
-            {pct>=100?<p style={{color:"#22C55E",fontSize:12,margin:"8px 0 0",fontWeight:700}}>Objectif atteint !</p>:<p style={{color:"#6B7280",fontSize:11,margin:"6px 0 0"}}>Reste {fmtFCFA(o.cible-o.actuel)}</p>}
+            {pct>=100?<p style={{color:"#34D399",fontSize:12,margin:"8px 0 0",fontWeight:700}}>Objectif atteint !</p>:<p style={{color:"#97A3C9",fontSize:11,margin:"6px 0 0"}}>Reste {fmtFCFA(o.cible-o.actuel)}</p>}
             <div style={{display:"flex",gap:8,marginTop:10}}>
-              <button onClick={()=>openVersement(o)} style={{flex:1,background:"#E5E7EB",border:"1px solid #D1D5DB",borderRadius:10,padding:"8px",color:"#D0A23E",fontWeight:700,fontSize:12,cursor:"pointer"}}>+ Versement</button>
-              <button onClick={()=>setHistoriqueOuvert(h=>h===o.id?null:o.id)} style={{background:"#F3F4F6",border:"1px solid #6B7280",borderRadius:10,padding:"8px 12px",color:"#111827",fontWeight:700,fontSize:12,cursor:"pointer"}}>{historiqueOuvert===o.id?"Masquer":"Historique"}{(mouvements[o.id]||[]).length>0?` (${mouvements[o.id].length})`:""}</button>
-              <button onClick={()=>delObj(o)} style={{background:"transparent",border:"1px solid #C1440E",borderRadius:10,padding:"8px 12px",color:"#EF4444",fontWeight:700,fontSize:12,cursor:"pointer"}}>Suppr.</button>
+              <button onClick={()=>openVersement(o)} style={{flex:1,background:"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:10,padding:"8px",color:"#E8B04B",fontWeight:700,fontSize:12,cursor:"pointer"}}>+ Versement</button>
+              <button onClick={()=>setHistoriqueOuvert(h=>h===o.id?null:o.id)} style={{background:"rgba(255,255,255,0.045)",border:"1px solid #97A3C9",borderRadius:10,padding:"8px 12px",color:"#F5F2EA",fontWeight:700,fontSize:12,cursor:"pointer"}}>{historiqueOuvert===o.id?"Masquer":"Historique"}{(mouvements[o.id]||[]).length>0?` (${mouvements[o.id].length})`:""}</button>
+              <button onClick={()=>delObj(o)} style={{background:"transparent",border:"1px solid #E0526A",borderRadius:10,padding:"8px 12px",color:"#FB7185",fontWeight:700,fontSize:12,cursor:"pointer"}}>Suppr.</button>
             </div>
-            {historiqueOuvert===o.id&&<div style={{marginTop:10,borderTop:"1px solid #E5E7EB",paddingTop:10}}>
-              {(mouvements[o.id]||[]).length===0?<p style={{color:"#6B7280",fontSize:12,margin:0,textAlign:"center"}}>Aucun versement enregistré pour l instant.</p>
+            {historiqueOuvert===o.id&&<div style={{marginTop:10,borderTop:"1px solid rgba(255,255,255,0.09)",paddingTop:10}}>
+              {(mouvements[o.id]||[]).length===0?<p style={{color:"#97A3C9",fontSize:12,margin:0,textAlign:"center"}}>Aucun versement enregistré pour l instant.</p>
               :(mouvements[o.id]||[]).map(v=>(
-                <div key={v.id} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"7px 0",borderBottom:"1px solid #F3F4F6"}}>
-                  <span style={{color:"#6B7280",fontSize:12}}>🕒 {new Date(v.created_at).toLocaleString("fr-FR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"})}</span>
-                  <span style={{color:"#22C55E",fontWeight:700,fontSize:12}}>+{fmtFCFA(Number(v.montant)||0)}</span>
+                <div key={v.id} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"7px 0",borderBottom:"1px solid rgba(255,255,255,0.045)"}}>
+                  <span style={{color:"#97A3C9",fontSize:12}}>🕒 {new Date(v.created_at).toLocaleString("fr-FR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"})}</span>
+                  <span style={{color:"#34D399",fontWeight:700,fontSize:12}}>+{fmtFCFA(Number(v.montant)||0)}</span>
                 </div>
               ))}
             </div>}
           </div>
         );})}
       </div>
-      <div style={{margin:"6px 16px 0",background:"#FFFFFF",border:"1px solid #D0A23E",borderRadius:14,padding:14}}>
-        <p style={{margin:0,color:"#D0A23E",fontWeight:700,fontSize:13}}>Conseil HABY</p>
-        <p style={{margin:"6px 0 0",color:"#111827",fontSize:13,lineHeight:1.6}}>Epargne 10% de chaque cagnotte recue. En 12 mois tu peux cumuler 30 000 FCFA d epargne personnelle !</p>
+      <div style={{margin:"6px 16px 0",background:"rgba(255,255,255,0.055)",border:"1px solid #E8B04B",borderRadius:14,padding:14}}>
+        <p style={{margin:0,color:"#E8B04B",fontWeight:700,fontSize:13}}>Conseil HABY</p>
+        <p style={{margin:"6px 0 0",color:"#F5F2EA",fontSize:13,lineHeight:1.6}}>Epargne 10% de chaque cagnotte recue. En 12 mois tu peux cumuler 30 000 FCFA d epargne personnelle !</p>
       </div>
       {showAdd&&<Modal onClose={()=>setShowAdd(false)}>
         <MH title="Nouvel objectif" onClose={()=>setShowAdd(false)}/>
         <Fld label="Nom de l objectif"><Inp value={nObj.label} onChange={e=>setNObj(o=>({...o,label:e.target.value}))} placeholder="Ex: Hajj 2027" maxLength={40} autoFocus/></Fld>
-        <Fld label="Emoji"><div style={{display:"flex",gap:8,flexWrap:"wrap"}}>{["🎯","🏠","✈️","📚","💍","🌙","📱","🚗","🏥","💼","👶","🐑"].map(em=><button key={em} onClick={()=>setNObj(o=>({...o,emoji:em}))} style={{fontSize:22,background:nObj.emoji===em?"#D0A23E":"#E5E7EB",border:"none",borderRadius:10,padding:8,cursor:"pointer"}}>{em}</button>)}</div></Fld>
+        <Fld label="Emoji"><div style={{display:"flex",gap:8,flexWrap:"wrap"}}>{["🎯","🏠","✈️","📚","💍","🌙","📱","🚗","🏥","💼","👶","🐑"].map(em=><button key={em} onClick={()=>setNObj(o=>({...o,emoji:em}))} style={{fontSize:22,background:nObj.emoji===em?"#E8B04B":"rgba(255,255,255,0.09)",border:"none",borderRadius:10,padding:8,cursor:"pointer"}}>{em}</button>)}</div></Fld>
         <Fld label="Montant cible (FCFA)"><Inp value={nObj.cible} onChange={e=>setNObj(o=>({...o,cible:e.target.value.replace(/\D/g,"")}))} placeholder="Ex: 500000" inputMode="numeric"/></Fld>
         <Fld label="Déjà épargné (FCFA)"><Inp value={nObj.actuel} onChange={e=>setNObj(o=>({...o,actuel:e.target.value.replace(/\D/g,"")}))} placeholder="Ex: 50000" inputMode="numeric"/></Fld>
         <Btn onClick={addObj} disabled={busy}>{busy?"Ajout...":"Ajouter"}</Btn>
@@ -3608,7 +3608,7 @@ const EpargneScreen = ({onToast,user}) => {
       </Modal>}
       {/* Animation a chaque versement : la boite d'epargne THT (la personne depose l'argent)
           apparait avec un rebond, des pieces tombent dans la fente, et le montant monte. */}
-      {animVersement&&<div style={{position:"fixed",inset:0,background:"rgba(13,13,13,0.9)",display:"flex",alignItems:"center",justifyContent:"center",zIndex:9998}}>
+      {animVersement&&<div style={{position:"fixed",inset:0,background:"rgba(6,11,33,0.9)",display:"flex",alignItems:"center",justifyContent:"center",zIndex:9998}}>
         <style>{`
           @keyframes thtBoxIn{0%{transform:scale(0.7) translateY(34px);opacity:0}30%{opacity:1}56%{transform:scale(1.06) translateY(0)}72%{transform:scale(0.98)}100%{transform:scale(1) translateY(0);opacity:1}}
           @keyframes thtBoxShake{0%,45%{transform:translateX(0) rotate(0)}56%{transform:translateX(-4px) rotate(-1deg)}66%{transform:translateX(4px) rotate(1deg)}78%{transform:translateX(-2px)}100%{transform:translateX(0)}}
@@ -3623,9 +3623,9 @@ const EpargneScreen = ({onToast,user}) => {
             <span style={{position:"absolute",top:"12%",left:"44%",fontSize:26,animation:"thtPieceTombe 1.1s ease-in 0.6s both"}} role="img" aria-hidden="true">🪙</span>
             <span style={{position:"absolute",top:"12%",left:"54%",fontSize:20,animation:"thtPieceTombe 1.1s ease-in 0.9s both"}} role="img" aria-hidden="true">🪙</span>
           </div>
-          <p style={{color:"#D0A23E",fontSize:26,fontWeight:900,margin:"12px 0 0",animation:"thtMontantMonte 2.2s ease-out"}}>+{fmtFCFA(animVersement.montant)}</p>
+          <p style={{color:"#E8B04B",fontSize:26,fontWeight:900,margin:"12px 0 0",animation:"thtMontantMonte 2.2s ease-out"}}>+{fmtFCFA(animVersement.montant)}</p>
           <p style={{color:"#FFFFFF",fontSize:14,fontWeight:700,margin:"8px 0 0"}}>{animVersement.emoji} {animVersement.label}</p>
-          <p style={{color:"#9CA3AF",fontSize:12,margin:"6px 0 0"}}>{new Date().toLocaleString("fr-FR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"})}</p>
+          <p style={{color:"#6F7BA6",fontSize:12,margin:"6px 0 0"}}>{new Date().toLocaleString("fr-FR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"})}</p>
         </div>
       </div>}
     </div>
@@ -3643,12 +3643,12 @@ const SupportModal = ({onClose,onToast}) => {
   return(
     <Modal onClose={onClose}>
       <MH title="Contacter le support" onClose={onClose}/>
-      <p style={{color:"#6B7280",fontSize:12,margin:"0 0 12px",lineHeight:1.6}}>Ecris ton message ou dicte-le a voix haute, puis envoie-le a notre equipe sur WhatsApp.</p>
+      <p style={{color:"#97A3C9",fontSize:12,margin:"0 0 12px",lineHeight:1.6}}>Ecris ton message ou dicte-le a voix haute, puis envoie-le a notre equipe sur WhatsApp.</p>
       <div style={{display:"flex",gap:8,marginBottom:14}}>
-        <textarea value={txt} onChange={e=>setTxt(e.target.value.slice(0,500))} placeholder="Explique ton probleme..." rows={4} style={{flex:1,background:"#F3F4F6",border:"1px solid #D1D5DB",borderRadius:12,padding:"12px 14px",color:"#111827",fontSize:14,outline:"none",resize:"none",fontFamily:"inherit"}}/>
+        <textarea value={txt} onChange={e=>setTxt(e.target.value.slice(0,500))} placeholder="Explique ton probleme..." rows={4} style={{flex:1,background:"rgba(255,255,255,0.045)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:12,padding:"12px 14px",color:"#F5F2EA",fontSize:14,outline:"none",resize:"none",fontFamily:"inherit"}}/>
       </div>
       <div style={{display:"flex",gap:10}}>
-        <button onClick={toggleMic} style={{background:listening?"#C1440E":"#E5E7EB",border:"1px solid #D1D5DB",borderRadius:14,padding:"0 20px",color:listening?"#fff":"#D0A23E",fontSize:18,cursor:"pointer"}}>{listening?"⏹ Stop":"🎤 Dicter"}</button>
+        <button onClick={toggleMic} style={{background:listening?"#E0526A":"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:14,padding:"0 20px",color:listening?"#fff":"#E8B04B",fontSize:18,cursor:"pointer"}}>{listening?"⏹ Stop":"🎤 Dicter"}</button>
         <Btn onClick={send}>Envoyer via WhatsApp</Btn>
       </div>
     </Modal>
@@ -3889,99 +3889,99 @@ const AdminScreen = ({onBack,onToast,currentUserId,user}) => {
   return(
     <div style={{paddingBottom:90}}>
       <div style={{padding:"44px 16px 0",display:"flex",alignItems:"center",gap:10}}>
-        <button onClick={onBack} style={{background:"none",border:"none",color:"#D0A23E",fontSize:22,cursor:"pointer"}}>←</button>
-        <h2 style={{color:"#111827",fontSize:20,fontWeight:900,margin:0}}>Panneau Administrateur</h2>
+        <button onClick={onBack} style={{background:"none",border:"none",color:"#E8B04B",fontSize:22,cursor:"pointer"}}>←</button>
+        <h2 style={{color:"#F5F2EA",fontSize:20,fontWeight:900,margin:0}}>Panneau Administrateur</h2>
       </div>
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,padding:"14px 16px 0"}}>
         {[["UTILISATRICES",totalUsers],["PREMIUM",totalPremium],["TONTINES CREEES",groupesCount],["TOTAL COLLECTE",fmtFCFA(totalCollecte)]].map(([l,v])=>(
-          <div key={l} style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:14,padding:14}}>
-            <p style={{margin:0,color:"#6B7280",fontSize:11,fontWeight:600}}>{l}</p>
-            <p style={{margin:"4px 0 0",color:"#D0A23E",fontSize:20,fontWeight:900}}>{v}</p>
+          <div key={l} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:14,padding:14}}>
+            <p style={{margin:0,color:"#97A3C9",fontSize:11,fontWeight:600}}>{l}</p>
+            <p style={{margin:"4px 0 0",color:"#E8B04B",fontSize:20,fontWeight:900}}>{v}</p>
           </div>
         ))}
       </div>
-      <p style={{color:"#6B7280",fontSize:12,fontWeight:700,margin:"18px 16px 8px",letterSpacing:.5}}>ACTIVITE (BASEE SUR LES CONNEXIONS)</p>
+      <p style={{color:"#97A3C9",fontSize:12,fontWeight:700,margin:"18px 16px 8px",letterSpacing:.5}}>ACTIVITE (BASEE SUR LES CONNEXIONS)</p>
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8,padding:"0 16px"}}>
         {[["Aujourd'hui",connecteesAuj],["Hier",connecteesHier],["7 derniers jours",connecteesSemaine]].map(([l,v])=>(
-          <div key={l} style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:12,padding:"10px 8px",textAlign:"center"}}>
-            <p style={{margin:0,color:"#D0A23E",fontSize:18,fontWeight:900}}>{v}</p>
-            <p style={{margin:"3px 0 0",color:"#6B7280",fontSize:10}}>{l}</p>
+          <div key={l} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,padding:"10px 8px",textAlign:"center"}}>
+            <p style={{margin:0,color:"#E8B04B",fontSize:18,fontWeight:900}}>{v}</p>
+            <p style={{margin:"3px 0 0",color:"#97A3C9",fontSize:10}}>{l}</p>
           </div>
         ))}
       </div>
-      <p style={{color:"#6B7280",fontSize:12,fontWeight:700,margin:"18px 16px 8px",letterSpacing:.5}}>REVENUS (PAIEMENTS FEDAPAY REELS)</p>
+      <p style={{color:"#97A3C9",fontSize:12,fontWeight:700,margin:"18px 16px 8px",letterSpacing:.5}}>REVENUS (PAIEMENTS FEDAPAY REELS)</p>
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,padding:"0 16px"}}>
         {[["Revenu total",fmtFCFA(revenuTotal)],["Ce mois-ci",fmtFCFA(revenuMois)],["Paiements reussis",paiementsAcceptes.length],["Paiements aujourd'hui",paiementsAuj]].map(([l,v])=>(
-          <div key={l} style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:14,padding:14}}>
-            <p style={{margin:0,color:"#6B7280",fontSize:11,fontWeight:600}}>{l}</p>
-            <p style={{margin:"4px 0 0",color:"#22C55E",fontSize:18,fontWeight:900}}>{v}</p>
+          <div key={l} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:14,padding:14}}>
+            <p style={{margin:0,color:"#97A3C9",fontSize:11,fontWeight:600}}>{l}</p>
+            <p style={{margin:"4px 0 0",color:"#34D399",fontSize:18,fontWeight:900}}>{v}</p>
           </div>
         ))}
       </div>
-      <div style={{margin:"12px 16px 0",background:"#FFFFFF",border:"1px solid #D1D5DB",borderRadius:12,padding:12}}>
-        <p style={{margin:0,color:"#6B7280",fontSize:11,lineHeight:1.6}}>✅ Toutes ces donnees sont desormais 100% reelles : tontines, membres, cotisations et paiements viennent directement de Supabase, tous comptes confondus. ℹ️ "Connectee" = derniere ouverture de l app, pas presence en direct.</p>
+      <div style={{margin:"12px 16px 0",background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:12,padding:12}}>
+        <p style={{margin:0,color:"#97A3C9",fontSize:11,lineHeight:1.6}}>✅ Toutes ces donnees sont desormais 100% reelles : tontines, membres, cotisations et paiements viennent directement de Supabase, tous comptes confondus. ℹ️ "Connectee" = derniere ouverture de l app, pas presence en direct.</p>
       </div>
       <div style={{padding:"18px 16px 0"}}>
-        <p style={{color:"#6B7280",fontSize:12,fontWeight:700,margin:"0 0 8px",letterSpacing:.5}}>TONTINES CREEES ({tontinesList.length}) - CREATRICES</p>
-        {loading?<p style={{color:"#6B7280",fontSize:13,textAlign:"center",marginTop:10}}>Chargement...</p>
-        :tontinesList.length===0?<p style={{color:"#6B7280",fontSize:13,textAlign:"center",marginTop:10}}>Aucune tontine creee pour le moment</p>
+        <p style={{color:"#97A3C9",fontSize:12,fontWeight:700,margin:"0 0 8px",letterSpacing:.5}}>TONTINES CREEES ({tontinesList.length}) - CREATRICES</p>
+        {loading?<p style={{color:"#97A3C9",fontSize:13,textAlign:"center",marginTop:10}}>Chargement...</p>
+        :tontinesList.length===0?<p style={{color:"#97A3C9",fontSize:13,textAlign:"center",marginTop:10}}>Aucune tontine creee pour le moment</p>
         :tontinesList.map(g=>(
-          <div key={g.id} style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:12,padding:"12px 14px",marginBottom:8}}>
+          <div key={g.id} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,padding:"12px 14px",marginBottom:8}}>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
-              <div><p style={{margin:0,color:"#111827",fontWeight:700,fontSize:14}}>{g.nom}</p><p style={{margin:"2px 0 0",color:"#6B7280",fontSize:11}}>Creee par {g.createurNom} ({g.createurTel})</p></div>
-              <span style={{background:"#E5E7EB",color:"#D0A23E",fontSize:10,fontWeight:700,padding:"3px 8px",borderRadius:99}}>{g.membresCount} membre(s)</span>
+              <div><p style={{margin:0,color:"#F5F2EA",fontWeight:700,fontSize:14}}>{g.nom}</p><p style={{margin:"2px 0 0",color:"#97A3C9",fontSize:11}}>Creee par {g.createurNom} ({g.createurTel})</p></div>
+              <span style={{background:"rgba(255,255,255,0.09)",color:"#E8B04B",fontSize:10,fontWeight:700,padding:"3px 8px",borderRadius:99}}>{g.membresCount} membre(s)</span>
             </div>
             <div style={{display:"flex",justifyContent:"space-between",marginTop:8}}>
-              <p style={{margin:0,color:"#6B7280",fontSize:11}}>{fmtFCFA(g.montant)}/{g.frequence} - Cycle {g.cycle}/{g.total_cycles}</p>
-              <p style={{margin:0,color:"#6B7280",fontSize:11}}>{new Date(g.created_at).toLocaleDateString("fr-FR")}</p>
+              <p style={{margin:0,color:"#97A3C9",fontSize:11}}>{fmtFCFA(g.montant)}/{g.frequence} - Cycle {g.cycle}/{g.total_cycles}</p>
+              <p style={{margin:0,color:"#97A3C9",fontSize:11}}>{new Date(g.created_at).toLocaleDateString("fr-FR")}</p>
             </div>
-            <button onClick={()=>demanderApercuTontine(g)} disabled={busyId===g.id} style={{width:"100%",marginTop:10,background:"transparent",border:"1px solid #FCA5A5",borderRadius:10,padding:"7px 10px",color:"#EF4444",fontSize:11,fontWeight:700,cursor:"pointer"}}>
+            <button onClick={()=>demanderApercuTontine(g)} disabled={busyId===g.id} style={{width:"100%",marginTop:10,background:"transparent",border:"1px solid rgba(251,113,133,0.40)",borderRadius:10,padding:"7px 10px",color:"#FB7185",fontSize:11,fontWeight:700,cursor:"pointer"}}>
               {busyId===g.id?"...":"🗑 Supprimer cette tontine"}
             </button>
           </div>
         ))}
       </div>
       <div style={{padding:"14px 16px 0"}}>
-        <p style={{color:"#6B7280",fontSize:12,fontWeight:700,margin:"0 0 8px",letterSpacing:.5}}>UTILISATRICES INSCRITES</p>
-        {loading?<p style={{color:"#6B7280",fontSize:13,textAlign:"center",marginTop:20}}>Chargement...</p>
-        :users.length===0?<p style={{color:"#6B7280",fontSize:13,textAlign:"center",marginTop:20}}>Aucune utilisatrice pour le moment</p>
-        :users.map(u=><div key={u.id} style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:12,padding:"12px 14px",marginBottom:8,display:"flex",gap:12,alignItems:"center",flexWrap:"wrap"}}>
+        <p style={{color:"#97A3C9",fontSize:12,fontWeight:700,margin:"0 0 8px",letterSpacing:.5}}>UTILISATRICES INSCRITES</p>
+        {loading?<p style={{color:"#97A3C9",fontSize:13,textAlign:"center",marginTop:20}}>Chargement...</p>
+        :users.length===0?<p style={{color:"#97A3C9",fontSize:13,textAlign:"center",marginTop:20}}>Aucune utilisatrice pour le moment</p>
+        :users.map(u=><div key={u.id} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,padding:"12px 14px",marginBottom:8,display:"flex",gap:12,alignItems:"center",flexWrap:"wrap"}}>
           <Avatar prenom={u.prenom} photo={u.photo_url} size={38}/>
           <div style={{flex:1,minWidth:120}}>
-            <p style={{margin:0,color:"#111827",fontWeight:700,fontSize:14}}>{u.prenom}{u.role==="admin"&&<span style={{marginLeft:6,color:"#D0A23E",fontSize:10,fontWeight:900}}>ADMIN</span>}</p>
-            <p style={{margin:"2px 0 0",color:"#6B7280",fontSize:12}}>{u.telephone}</p>
+            <p style={{margin:0,color:"#F5F2EA",fontWeight:700,fontSize:14}}>{u.prenom}{u.role==="admin"&&<span style={{marginLeft:6,color:"#E8B04B",fontSize:10,fontWeight:900}}>ADMIN</span>}</p>
+            <p style={{margin:"2px 0 0",color:"#97A3C9",fontSize:12}}>{u.telephone}</p>
           </div>
-          <span style={{background:u.plan==="premium"?"#D0A23E":"#E5E7EB",color:u.plan==="premium"?"#0D0D0D":"#6B7280",fontSize:10,fontWeight:700,padding:"3px 8px",borderRadius:99}}>{u.plan==="premium"?"PREMIUM":"GRATUIT"}</span>
-          {u.plan==="premium"&&<span style={{color:u.premium_expire_le?"#6B7280":"#EF4444",fontSize:10,fontWeight:700}}>{u.premium_expire_le?`jusqu'au ${new Date(u.premium_expire_le+"T00:00:00Z").toLocaleDateString("fr-FR")}`:"SANS DATE DE FIN"}</span>}
+          <span style={{background:u.plan==="premium"?"#E8B04B":"rgba(255,255,255,0.09)",color:u.plan==="premium"?"#1B1203":"#97A3C9",fontSize:10,fontWeight:700,padding:"3px 8px",borderRadius:99}}>{u.plan==="premium"?"PREMIUM":"GRATUIT"}</span>
+          {u.plan==="premium"&&<span style={{color:u.premium_expire_le?"#97A3C9":"#FB7185",fontSize:10,fontWeight:700}}>{u.premium_expire_le?`jusqu'au ${new Date(u.premium_expire_le+"T00:00:00Z").toLocaleDateString("fr-FR")}`:"SANS DATE DE FIN"}</span>}
           <div style={{display:"flex",gap:6,width:"100%",marginTop:2}}>
-            <button onClick={()=>togglePremium(u,30)} disabled={busyId===u.id} style={{flex:1,background:u.plan==="premium"?"transparent":"#D0A23E",border:`1px solid ${u.plan==="premium"?"#C1440E":"#D0A23E"}`,borderRadius:10,padding:"6px 10px",color:u.plan==="premium"?"#EF4444":"#0D0D0D",fontSize:11,fontWeight:700,cursor:"pointer"}}>{busyId===u.id?"...":u.plan==="premium"?"Repasser Gratuit":"+ 1 mois Premium"}</button>
-            <button onClick={()=>togglePremium({...u,plan:"free"},365)} disabled={busyId===u.id} title="Activer ou prolonger d un an" style={{background:"#E5E7EB",border:"1px solid #D0A23E",borderRadius:10,padding:"6px 10px",color:"#D0A23E",fontSize:11,fontWeight:700,cursor:"pointer"}}>+ 1 an</button>
-            {u.id!==currentUserId&&<button onClick={()=>toggleAdmin(u)} disabled={busyId===u.id} style={{flex:1,background:u.role==="admin"?"transparent":"#E5E7EB",border:`1px solid ${u.role==="admin"?"#C1440E":"#D1D5DB"}`,borderRadius:10,padding:"6px 10px",color:u.role==="admin"?"#EF4444":"#D0A23E",fontSize:11,fontWeight:700,cursor:"pointer"}}>{busyId===u.id?"...":u.role==="admin"?"Retirer admin":"Nommer co-admin"}</button>}
+            <button onClick={()=>togglePremium(u,30)} disabled={busyId===u.id} style={{flex:1,background:u.plan==="premium"?"transparent":"#E8B04B",border:`1px solid ${u.plan==="premium"?"#E0526A":"#E8B04B"}`,borderRadius:10,padding:"6px 10px",color:u.plan==="premium"?"#FB7185":"#1B1203",fontSize:11,fontWeight:700,cursor:"pointer"}}>{busyId===u.id?"...":u.plan==="premium"?"Repasser Gratuit":"+ 1 mois Premium"}</button>
+            <button onClick={()=>togglePremium({...u,plan:"free"},365)} disabled={busyId===u.id} title="Activer ou prolonger d un an" style={{background:"rgba(255,255,255,0.09)",border:"1px solid #E8B04B",borderRadius:10,padding:"6px 10px",color:"#E8B04B",fontSize:11,fontWeight:700,cursor:"pointer"}}>+ 1 an</button>
+            {u.id!==currentUserId&&<button onClick={()=>toggleAdmin(u)} disabled={busyId===u.id} style={{flex:1,background:u.role==="admin"?"transparent":"rgba(255,255,255,0.09)",border:`1px solid ${u.role==="admin"?"#E0526A":"rgba(255,255,255,0.14)"}`,borderRadius:10,padding:"6px 10px",color:u.role==="admin"?"#FB7185":"#E8B04B",fontSize:11,fontWeight:700,cursor:"pointer"}}>{busyId===u.id?"...":u.role==="admin"?"Retirer admin":"Nommer co-admin"}</button>}
           </div>
           {/* La suppression n'est proposee ni pour soi-meme (on se couperait l'acces),
               ni pour un autre admin (il faut d'abord lui retirer le role). */}
           {u.id!==currentUserId&&u.role!=="admin"&&
-            <button onClick={()=>demanderApercuSuppression(u)} disabled={busyId===u.id} style={{width:"100%",background:"transparent",border:"1px solid #FCA5A5",borderRadius:10,padding:"6px 10px",color:"#EF4444",fontSize:11,fontWeight:700,cursor:"pointer",marginTop:6}}>
+            <button onClick={()=>demanderApercuSuppression(u)} disabled={busyId===u.id} style={{width:"100%",background:"transparent",border:"1px solid rgba(251,113,133,0.40)",borderRadius:10,padding:"6px 10px",color:"#FB7185",fontSize:11,fontWeight:700,cursor:"pointer",marginTop:6}}>
               {busyId===u.id?"...":"🗑 Supprimer ce compte (libère le numéro)"}
             </button>}
         </div>)}
       </div>
 
       <div style={{padding:"24px 16px 0"}}>
-        <p style={{color:"#6B7280",fontSize:12,fontWeight:700,margin:"0 0 8px",letterSpacing:.5}}>MON COMPTE</p>
-        <div onClick={()=>setShowChangePinAdmin(true)} style={{display:"flex",alignItems:"center",gap:14,padding:"14px 16px",background:"#FFFFFF",borderRadius:14,cursor:"pointer",border:"1px solid #E5E7EB"}}>
-          <span style={{fontSize:20}}>🔒</span><p style={{margin:0,color:"#111827",fontSize:14,fontWeight:600}}>Changer mon PIN</p><span style={{marginLeft:"auto",color:"#9CA3AF",fontSize:18}}>›</span>
+        <p style={{color:"#97A3C9",fontSize:12,fontWeight:700,margin:"0 0 8px",letterSpacing:.5}}>MON COMPTE</p>
+        <div onClick={()=>setShowChangePinAdmin(true)} style={{display:"flex",alignItems:"center",gap:14,padding:"14px 16px",background:"rgba(255,255,255,0.055)",borderRadius:14,cursor:"pointer",border:"1px solid rgba(255,255,255,0.09)"}}>
+          <span style={{fontSize:20}}>🔒</span><p style={{margin:0,color:"#F5F2EA",fontSize:14,fontWeight:600}}>Changer mon PIN</p><span style={{marginLeft:"auto",color:"#6F7BA6",fontSize:18}}>›</span>
         </div>
       </div>
 
       <div style={{padding:"24px 16px 40px"}}>
-        <p style={{color:"#EF4444",fontSize:12,fontWeight:700,margin:"0 0 8px",letterSpacing:.5}}>ZONE DANGEREUSE</p>
-        <div style={{background:"#FEF2F2",border:"1px solid #C1440E",borderRadius:14,padding:16}}>
-          <p style={{margin:"0 0 10px",color:"#111827",fontSize:13,lineHeight:1.6}}>Efface TOUTES les tontines, cagnottes, epargnes, messages et comptes de test. Tes 2 numeros admin sont toujours conserves. Action irreversible.</p>
+        <p style={{color:"#FB7185",fontSize:12,fontWeight:700,margin:"0 0 8px",letterSpacing:.5}}>ZONE DANGEREUSE</p>
+        <div style={{background:"rgba(251,113,133,0.10)",border:"1px solid #E0526A",borderRadius:14,padding:16}}>
+          <p style={{margin:"0 0 10px",color:"#F5F2EA",fontSize:13,lineHeight:1.6}}>Efface TOUTES les tontines, cagnottes, epargnes, messages et comptes de test. Tes 2 numeros admin sont toujours conserves. Action irreversible.</p>
           {codeSecu1&&codeSecu2?<>
-            <button onClick={()=>setShowReset(true)} style={{width:"100%",background:"transparent",border:"1px solid #EF4444",borderRadius:10,padding:"11px",color:"#EF4444",fontWeight:700,fontSize:13,cursor:"pointer"}}>🗑️ Remettre toutes les donnees a zero</button>
-            <button onClick={()=>setShowConfigCodes(true)} style={{width:"100%",background:"transparent",border:"none",color:"#6B7280",fontSize:11,padding:"10px 0 0",cursor:"pointer"}}>🔑 Modifier mes 2 codes de securite</button>
-          </>:<button onClick={()=>setShowConfigCodes(true)} style={{width:"100%",background:"#E5E7EB",border:"1px solid #D0A23E",borderRadius:10,padding:"11px",color:"#D0A23E",fontWeight:700,fontSize:13,cursor:"pointer"}}>🔑 Configurer mes 2 codes de securite d abord</button>}
+            <button onClick={()=>setShowReset(true)} style={{width:"100%",background:"transparent",border:"1px solid #FB7185",borderRadius:10,padding:"11px",color:"#FB7185",fontWeight:700,fontSize:13,cursor:"pointer"}}>🗑️ Remettre toutes les donnees a zero</button>
+            <button onClick={()=>setShowConfigCodes(true)} style={{width:"100%",background:"transparent",border:"none",color:"#97A3C9",fontSize:11,padding:"10px 0 0",cursor:"pointer"}}>🔑 Modifier mes 2 codes de securite</button>
+          </>:<button onClick={()=>setShowConfigCodes(true)} style={{width:"100%",background:"rgba(255,255,255,0.09)",border:"1px solid #E8B04B",borderRadius:10,padding:"11px",color:"#E8B04B",fontWeight:700,fontSize:13,cursor:"pointer"}}>🔑 Configurer mes 2 codes de securite d abord</button>}
         </div>
       </div>
 
@@ -3996,7 +3996,7 @@ const AdminScreen = ({onBack,onToast,currentUserId,user}) => {
 
       {showConfigCodes&&<Modal onClose={()=>setShowConfigCodes(false)}>
         <MH title="Mes 2 codes de securite" onClose={()=>setShowConfigCodes(false)}/>
-        <p style={{color:"#6B7280",fontSize:12,marginBottom:16,lineHeight:1.5}}>Ces 2 codes te seront redemandes avant toute remise a zero complete. Choisis 2 codes differents que toi seul connais (ex: un mot et un chiffre).</p>
+        <p style={{color:"#97A3C9",fontSize:12,marginBottom:16,lineHeight:1.5}}>Ces 2 codes te seront redemandes avant toute remise a zero complete. Choisis 2 codes differents que toi seul connais (ex: un mot et un chiffre).</p>
         <Fld label="Code de securite 1"><Inp value={nc1} onChange={e=>setNc1(e.target.value)} placeholder="Ex: Bamako2026" autoFocus/></Fld>
         <Fld label="Code de securite 2"><Inp value={nc2} onChange={e=>setNc2(e.target.value)} placeholder="Ex: 7690"/></Fld>
         <Btn onClick={enregistrerCodes} disabled={configBusy}>{configBusy?"Enregistrement...":"Enregistrer mes codes"}</Btn>
@@ -4004,14 +4004,14 @@ const AdminScreen = ({onBack,onToast,currentUserId,user}) => {
 
       {showReset&&<Modal onClose={()=>setShowReset(false)}>
         <MH title="Remise à zéro complète" onClose={()=>setShowReset(false)}/>
-        <p style={{color:"#EF4444",fontSize:13,lineHeight:1.6,marginBottom:16}}>⚠️ Ceci va supprimer definitivement toutes les tontines, cagnottes, epargnes, messages et comptes de test. Seuls tes 2 numeros admin resteront. Cette action est irreversible.</p>
+        <p style={{color:"#FB7185",fontSize:13,lineHeight:1.6,marginBottom:16}}>⚠️ Ceci va supprimer definitivement toutes les tontines, cagnottes, epargnes, messages et comptes de test. Seuls tes 2 numeros admin resteront. Cette action est irreversible.</p>
         <Fld label="Code de securite 1"><Inp value={saisieCode1} onChange={e=>setSaisieCode1(e.target.value)} placeholder="Ton 1er code" autoFocus/></Fld>
         <Fld label="Code de securite 2"><Inp value={saisieCode2} onChange={e=>setSaisieCode2(e.target.value)} placeholder="Ton 2eme code"/></Fld>
         <Fld label='Tape "SUPPRIMER" pour confirmer'><Inp value={confirmReset} onChange={e=>setConfirmReset(e.target.value)} placeholder="SUPPRIMER"/></Fld>
-        <button onClick={executerReset} disabled={resetBusy} style={{width:"100%",background:"#C1440E",border:"none",borderRadius:14,padding:"14px",color:"#fff",fontWeight:800,fontSize:14,cursor:"pointer"}}>{resetBusy?"Suppression en cours...":"Tout supprimer definitivement"}</button>
-        {resetJournal&&<div style={{marginTop:16,background:"#FFFFFF",border:"1px solid #D1D5DB",borderRadius:12,padding:14}}>
-          <p style={{margin:"0 0 8px",color:"#D0A23E",fontSize:11,fontWeight:700,letterSpacing:.5}}>JOURNAL DETAILLE</p>
-          {resetJournal.map((l,i)=><p key={i} style={{margin:"0 0 4px",color:l.includes("ERREUR")?"#EF4444":"#6B7280",fontSize:11,fontFamily:"monospace"}}>{l}</p>)}
+        <button onClick={executerReset} disabled={resetBusy} style={{width:"100%",background:"#E0526A",border:"none",borderRadius:14,padding:"14px",color:"#fff",fontWeight:800,fontSize:14,cursor:"pointer"}}>{resetBusy?"Suppression en cours...":"Tout supprimer definitivement"}</button>
+        {resetJournal&&<div style={{marginTop:16,background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:12,padding:14}}>
+          <p style={{margin:"0 0 8px",color:"#E8B04B",fontSize:11,fontWeight:700,letterSpacing:.5}}>JOURNAL DETAILLE</p>
+          {resetJournal.map((l,i)=><p key={i} style={{margin:"0 0 4px",color:l.includes("ERREUR")?"#FB7185":"#97A3C9",fontSize:11,fontFamily:"monospace"}}>{l}</p>)}
         </div>}
       </Modal>}
 
@@ -4019,33 +4019,33 @@ const AdminScreen = ({onBack,onToast,currentUserId,user}) => {
           efface avant d'effacer. L'inventaire vient du serveur, pas de l'application. */}
       {suppr&&<Modal onClose={()=>!supprBusy&&setSuppr(null)}>
         <MH title="Supprimer ce compte" onClose={()=>!supprBusy&&setSuppr(null)}/>
-        <div style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:12,padding:"12px 14px",marginBottom:14}}>
-          <p style={{margin:0,color:"#111827",fontWeight:800,fontSize:15}}>{suppr.inventaire.prenom}</p>
-          <p style={{margin:"2px 0 0",color:"#6B7280",fontSize:12}}>{suppr.inventaire.telephone}</p>
-          {suppr.inventaire.inscrit_le&&<p style={{margin:"2px 0 0",color:"#9CA3AF",fontSize:11}}>Inscrit le {new Date(suppr.inventaire.inscrit_le).toLocaleDateString("fr-FR")}</p>}
+        <div style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,padding:"12px 14px",marginBottom:14}}>
+          <p style={{margin:0,color:"#F5F2EA",fontWeight:800,fontSize:15}}>{suppr.inventaire.prenom}</p>
+          <p style={{margin:"2px 0 0",color:"#97A3C9",fontSize:12}}>{suppr.inventaire.telephone}</p>
+          {suppr.inventaire.inscrit_le&&<p style={{margin:"2px 0 0",color:"#6F7BA6",fontSize:11}}>Inscrit le {new Date(suppr.inventaire.inscrit_le).toLocaleDateString("fr-FR")}</p>}
         </div>
 
-        <p style={{color:"#6B7280",fontSize:12,fontWeight:700,margin:"0 0 6px",letterSpacing:.5}}>CE QUI EST RATTACHÉ À CE COMPTE</p>
-        <div style={{background:"#FEF2F2",border:"1px solid #FCA5A5",borderRadius:12,padding:"10px 14px",marginBottom:14}}>
+        <p style={{color:"#97A3C9",fontSize:12,fontWeight:700,margin:"0 0 6px",letterSpacing:.5}}>CE QUI EST RATTACHÉ À CE COMPTE</p>
+        <div style={{background:"rgba(251,113,133,0.10)",border:"1px solid rgba(251,113,133,0.40)",borderRadius:12,padding:"10px 14px",marginBottom:14}}>
           {[["Tontines qu'elle dirige",suppr.inventaire.tontines_possedees?.length||0],
             ["Cagnottes",suppr.inventaire.cagnottes],
             ["Objectifs d'épargne",suppr.inventaire.objectifs_epargne],
             ["Messages envoyés",suppr.inventaire.messages_envoyes],
             ["Paiements enregistrés",suppr.inventaire.paiements]].map(([l,v])=>(
             <div key={l} style={{display:"flex",justifyContent:"space-between",padding:"3px 0"}}>
-              <span style={{color:"#6B7280",fontSize:12}}>{l}</span>
-              <span style={{color:v>0?"#EF4444":"#9CA3AF",fontSize:12,fontWeight:700}}>{v}</span>
+              <span style={{color:"#97A3C9",fontSize:12}}>{l}</span>
+              <span style={{color:v>0?"#FB7185":"#6F7BA6",fontSize:12,fontWeight:700}}>{v}</span>
             </div>))}
         </div>
 
         {suppr.inventaire.participations>0&&
-          <p style={{color:"#6B7280",fontSize:11.5,lineHeight:1.5,marginBottom:14}}>
+          <p style={{color:"#97A3C9",fontSize:11.5,lineHeight:1.5,marginBottom:14}}>
             Elle figure dans <strong>{suppr.inventaire.participations}</strong> tontine(s) tenue(s) par quelqu'un d'autre.
             Son nom et ses versements y <strong>resteront visibles</strong> : ils font partie des comptes du groupe.
             Seul le lien avec son compte est retiré.
           </p>}
 
-        <p style={{color:"#EF4444",fontSize:12,fontWeight:600,lineHeight:1.5,marginBottom:14}}>
+        <p style={{color:"#FB7185",fontSize:12,fontWeight:600,lineHeight:1.5,marginBottom:14}}>
           ⚠️ Action irréversible. Dans les deux cas le numéro <strong>{suppr.inventaire.telephone}</strong> est libéré :
           cette personne pourra se réinscrire.
         </p>
@@ -4054,58 +4054,58 @@ const AdminScreen = ({onBack,onToast,currentUserId,user}) => {
             donc mise en avant ; la seconde efface aussi les tontines et reste discrete. */}
         {(suppr.inventaire.tontines_possedees?.length>0)
           ? <>
-              <button onClick={()=>confirmerSuppression("garder_tontines")} disabled={supprBusy} style={{width:"100%",background:"#D0A23E",border:"none",borderRadius:12,padding:"13px",color:"#0D0D0D",fontWeight:800,fontSize:13,cursor:"pointer"}}>
+              <button onClick={()=>confirmerSuppression("garder_tontines")} disabled={supprBusy} style={{width:"100%",background:"#E8B04B",border:"none",borderRadius:12,padding:"13px",color:"#1B1203",fontWeight:800,fontSize:13,cursor:"pointer"}}>
                 {supprBusy?"Suppression...":"Supprimer le compte, GARDER les tontines"}
               </button>
-              <p style={{color:"#6B7280",fontSize:11.5,lineHeight:1.5,margin:"7px 0 14px"}}>
+              <p style={{color:"#97A3C9",fontSize:11.5,lineHeight:1.5,margin:"7px 0 14px"}}>
                 Ses {suppr.inventaire.tontines_possedees.length} tontine(s) continuent d'exister et les autres membres
                 gardent tout leur historique. En se réinscrivant avec le <strong>même numéro</strong>, elle les retrouvera
                 automatiquement, comme avant.
               </p>
 
-              <button onClick={()=>confirmerSuppression("tout")} disabled={supprBusy} style={{width:"100%",background:"transparent",border:"1px solid #C1440E",borderRadius:12,padding:"11px",color:"#EF4444",fontWeight:700,fontSize:12.5,cursor:"pointer"}}>
+              <button onClick={()=>confirmerSuppression("tout")} disabled={supprBusy} style={{width:"100%",background:"transparent",border:"1px solid #E0526A",borderRadius:12,padding:"11px",color:"#FB7185",fontWeight:700,fontSize:12.5,cursor:"pointer"}}>
                 {supprBusy?"...":"Tout supprimer, y compris les tontines"}
               </button>
-              <p style={{color:"#6B7280",fontSize:11.5,lineHeight:1.5,margin:"7px 0 14px"}}>
+              <p style={{color:"#97A3C9",fontSize:11.5,lineHeight:1.5,margin:"7px 0 14px"}}>
                 À réserver aux tontines de test.
                 {suppr.inventaire.tontines_vivantes?.length>0
                   ? <> Refusé ici : {suppr.inventaire.tontines_vivantes.map(t=>`"${t.nom}" compte ${t.membres} membres`).join(", ")}, et cela effacerait l'argent enregistré de tout le groupe.</>
                   : " Les versements enregistrés seraient perdus."}
               </p>
             </>
-          : <button onClick={()=>confirmerSuppression("garder_tontines")} disabled={supprBusy} style={{width:"100%",background:"#C1440E",border:"none",borderRadius:12,padding:"13px",color:"#fff",fontWeight:800,fontSize:13,cursor:"pointer",marginBottom:14}}>
+          : <button onClick={()=>confirmerSuppression("garder_tontines")} disabled={supprBusy} style={{width:"100%",background:"#E0526A",border:"none",borderRadius:12,padding:"13px",color:"#fff",fontWeight:800,fontSize:13,cursor:"pointer",marginBottom:14}}>
               {supprBusy?"Suppression...":"Supprimer définitivement"}
             </button>}
 
-        <button onClick={()=>setSuppr(null)} disabled={supprBusy} style={{width:"100%",background:"transparent",border:"1px solid #D1D5DB",borderRadius:12,padding:"12px",color:"#6B7280",fontWeight:700,fontSize:13,cursor:"pointer"}}>Annuler</button>
+        <button onClick={()=>setSuppr(null)} disabled={supprBusy} style={{width:"100%",background:"transparent",border:"1px solid rgba(255,255,255,0.14)",borderRadius:12,padding:"12px",color:"#97A3C9",fontWeight:700,fontSize:13,cursor:"pointer"}}>Annuler</button>
       </Modal>}
 
       {/* Confirmation de suppression d'UNE tontine. On montre TOUJOURS ce qui va etre
           efface avant d'effacer. L'inventaire vient du serveur, pas de l'application. */}
       {supprTon&&<Modal onClose={()=>!supprTonBusy&&setSupprTon(null)}>
         <MH title="Supprimer cette tontine" onClose={()=>!supprTonBusy&&setSupprTon(null)}/>
-        <div style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:12,padding:"12px 14px",marginBottom:14}}>
-          <p style={{margin:0,color:"#111827",fontWeight:800,fontSize:15}}>{supprTon.inventaire.nom}</p>
+        <div style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,padding:"12px 14px",marginBottom:14}}>
+          <p style={{margin:0,color:"#F5F2EA",fontWeight:800,fontSize:15}}>{supprTon.inventaire.nom}</p>
         </div>
-        <p style={{color:"#6B7280",fontSize:12,fontWeight:700,margin:"0 0 6px",letterSpacing:.5}}>CE QUI SERA EFFACÉ</p>
-        <div style={{background:"#FEF2F2",border:"1px solid #FCA5A5",borderRadius:12,padding:"10px 14px",marginBottom:14}}>
+        <p style={{color:"#97A3C9",fontSize:12,fontWeight:700,margin:"0 0 6px",letterSpacing:.5}}>CE QUI SERA EFFACÉ</p>
+        <div style={{background:"rgba(251,113,133,0.10)",border:"1px solid rgba(251,113,133,0.40)",borderRadius:12,padding:"10px 14px",marginBottom:14}}>
           {[["Membres",supprTon.inventaire.membres],
             ["Cotisations enregistrées",supprTon.inventaire.transactions],
             ["Prêts",supprTon.inventaire.prets],
             ["Messages",supprTon.inventaire.messages]].map(([l,v])=>(
             <div key={l} style={{display:"flex",justifyContent:"space-between",padding:"3px 0"}}>
-              <span style={{color:"#6B7280",fontSize:12}}>{l}</span>
-              <span style={{color:v>0?"#EF4444":"#9CA3AF",fontSize:12,fontWeight:700}}>{v}</span>
+              <span style={{color:"#97A3C9",fontSize:12}}>{l}</span>
+              <span style={{color:v>0?"#FB7185":"#6F7BA6",fontSize:12,fontWeight:700}}>{v}</span>
             </div>))}
         </div>
-        <p style={{color:"#EF4444",fontSize:12,fontWeight:600,lineHeight:1.5,marginBottom:14}}>
+        <p style={{color:"#FB7185",fontSize:12,fontWeight:600,lineHeight:1.5,marginBottom:14}}>
           ⚠️ Action irréversible. La tontine et tout son historique (cotisations, prêts, messages, photos) seront supprimés.
           Les <strong>comptes</strong> des membres, eux, ne sont pas touchés.
         </p>
-        <button onClick={confirmerSupprTontine} disabled={supprTonBusy} style={{width:"100%",background:"#C1440E",border:"none",borderRadius:12,padding:"13px",color:"#fff",fontWeight:800,fontSize:13,cursor:"pointer",marginBottom:10}}>
+        <button onClick={confirmerSupprTontine} disabled={supprTonBusy} style={{width:"100%",background:"#E0526A",border:"none",borderRadius:12,padding:"13px",color:"#fff",fontWeight:800,fontSize:13,cursor:"pointer",marginBottom:10}}>
           {supprTonBusy?"Suppression...":"Supprimer définitivement cette tontine"}
         </button>
-        <button onClick={()=>setSupprTon(null)} disabled={supprTonBusy} style={{width:"100%",background:"transparent",border:"1px solid #D1D5DB",borderRadius:12,padding:"12px",color:"#6B7280",fontWeight:700,fontSize:13,cursor:"pointer"}}>Annuler</button>
+        <button onClick={()=>setSupprTon(null)} disabled={supprTonBusy} style={{width:"100%",background:"transparent",border:"1px solid rgba(255,255,255,0.14)",borderRadius:12,padding:"12px",color:"#97A3C9",fontWeight:700,fontSize:13,cursor:"pointer"}}>Annuler</button>
       </Modal>}
     </div>
   );
@@ -4319,57 +4319,57 @@ const ProfilScreen = ({user,onLogout,onToast,onUpgrade,onOpenAdmin,lang,onChange
   };
   return(
     <div style={{paddingBottom:90}}>
-      <div style={{background:"linear-gradient(135deg,#FFFFFF,#E5E7EB)",padding:"44px 20px 30px"}}>
-        <h2 style={{color:"#111827",margin:"0 0 20px",fontSize:20,fontWeight:800}}>{t("profil")}</h2>
+      <div style={{background:"linear-gradient(135deg,rgba(255,255,255,0.055),rgba(255,255,255,0.09))",padding:"44px 20px 30px"}}>
+        <h2 style={{color:"#F5F2EA",margin:"0 0 20px",fontSize:20,fontWeight:800}}>{t("profil")}</h2>
         <div style={{display:"flex",alignItems:"center",gap:16}}>
           <div onClick={ouvrirEditProfil} style={{position:"relative",cursor:"pointer",flexShrink:0}} title="Modifier ma photo">
             <Avatar prenom={user.prenom} photo={user.photo} size={76} gold/>
-            {!user.photo&&<span style={{position:"absolute",right:-2,bottom:-2,background:"#D0A23E",color:"#0D0D0D",fontSize:13,width:26,height:26,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",border:"2px solid #FFFFFF"}}>📷</span>}
+            {!user.photo&&<span style={{position:"absolute",right:-2,bottom:-2,background:"#E8B04B",color:"#1B1203",fontSize:13,width:26,height:26,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",border:"2px solid #0B1433"}}>📷</span>}
           </div>
           <div style={{minWidth:0}}>
-            <p style={{margin:0,color:"#111827",fontSize:20,fontWeight:900}}>{user.prenom}</p>
-            <p style={{margin:"3px 0 0",color:"#6B7280",fontSize:13}}>{user.tel}</p>
-            <span style={{background:premiumActif(user)?"#D0A23E":"#E5E7EB",color:premiumActif(user)?"#0D0D0D":"#D0A23E",fontSize:11,fontWeight:700,padding:"3px 10px",borderRadius:99,marginTop:6,display:"inline-block"}}>{premiumActif(user)?t("premium"):t("gratuit")}</span>
+            <p style={{margin:0,color:"#F5F2EA",fontSize:20,fontWeight:900}}>{user.prenom}</p>
+            <p style={{margin:"3px 0 0",color:"#97A3C9",fontSize:13}}>{user.tel}</p>
+            <span style={{background:premiumActif(user)?"#E8B04B":"rgba(255,255,255,0.09)",color:premiumActif(user)?"#1B1203":"#E8B04B",fontSize:11,fontWeight:700,padding:"3px 10px",borderRadius:99,marginTop:6,display:"inline-block"}}>{premiumActif(user)?t("premium"):t("gratuit")}</span>
             {/* Rappel de la date de fin : sans elle, personne ne sait quand renouveler. */}
-            {premiumActif(user)&&user.premiumExpireLe&&<p style={{margin:"5px 0 0",color:"#6B7280",fontSize:11}}>Abonnement valable jusqu au {new Date(user.premiumExpireLe+"T00:00:00Z").toLocaleDateString("fr-FR")}</p>}
+            {premiumActif(user)&&user.premiumExpireLe&&<p style={{margin:"5px 0 0",color:"#97A3C9",fontSize:11}}>Abonnement valable jusqu au {new Date(user.premiumExpireLe+"T00:00:00Z").toLocaleDateString("fr-FR")}</p>}
           </div>
         </div>
-        <button onClick={ouvrirEditProfil} style={{width:"100%",marginTop:16,background:"#FFFFFF",border:"1px solid #D0A23E",borderRadius:12,padding:"11px",color:"#D0A23E",fontWeight:800,fontSize:13,cursor:"pointer"}}>✏️ Modifier mon profil</button>
-        {!user.photo&&<p style={{margin:"8px 0 0",color:"#6E5214",fontSize:11.5,textAlign:"center"}}>Ajoute ta photo pour que les membres te reconnaissent facilement.</p>}
+        <button onClick={ouvrirEditProfil} style={{width:"100%",marginTop:16,background:"rgba(255,255,255,0.055)",border:"1px solid #E8B04B",borderRadius:12,padding:"11px",color:"#E8B04B",fontWeight:800,fontSize:13,cursor:"pointer"}}>✏️ Modifier mon profil</button>
+        {!user.photo&&<p style={{margin:"8px 0 0",color:"#FFE1A1",fontSize:11.5,textAlign:"center"}}>Ajoute ta photo pour que les membres te reconnaissent facilement.</p>}
       </div>
       <div style={{padding:"16px 16px 0"}}>
-        <div style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:14,padding:14,marginBottom:16}}>
-          <p style={{margin:"0 0 10px",color:"#6B7280",fontSize:12,fontWeight:700}}>{t("langue")}</p>
+        <div style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:14,padding:14,marginBottom:16}}>
+          <p style={{margin:"0 0 10px",color:"#97A3C9",fontSize:12,fontWeight:700}}>{t("langue")}</p>
           <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
             {[["fr","Francais"],["en","English"],["bm","Bamanankan"],["ar","العربية"]].map(([code,label])=>(
-              <button key={code} onClick={()=>onChangeLang(code)} style={{flex:"1 1 45%",minWidth:90,padding:"10px 4px",borderRadius:10,border:"1px solid",cursor:"pointer",fontSize:12,fontWeight:700,background:lang===code?"#D0A23E":"#E5E7EB",color:lang===code?"#0D0D0D":"#111827",borderColor:lang===code?"#D0A23E":"#D1D5DB"}}>{label}</button>
+              <button key={code} onClick={()=>onChangeLang(code)} style={{flex:"1 1 45%",minWidth:90,padding:"10px 4px",borderRadius:10,border:"1px solid",cursor:"pointer",fontSize:12,fontWeight:700,background:lang===code?"#E8B04B":"rgba(255,255,255,0.09)",color:lang===code?"#1B1203":"#F5F2EA",borderColor:lang===code?"#E8B04B":"rgba(255,255,255,0.14)"}}>{label}</button>
             ))}
           </div>
         </div>
         {/* Trombinoscope des membres, tontine par tontine (repliable). */}
-        <div style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:14,padding:14,marginBottom:16}}>
-          <p style={{margin:"0 0 4px",color:"#111827",fontWeight:800,fontSize:15}}>👥 Membres de la tontine</p>
-          <p style={{margin:"0 0 12px",color:"#6B7280",fontSize:12,lineHeight:1.5}}>Toutes les personnes qui participent aux tontines dont tu fais partie.</p>
-          {membresLoading?<p style={{color:"#6B7280",fontSize:13,margin:0,textAlign:"center",padding:"10px 0"}}>Chargement...</p>
-          :tontinesMembres.length===0?<p style={{color:"#6B7280",fontSize:13,margin:0,textAlign:"center",padding:"10px 0"}}>Tu ne participes à aucune tontine pour le moment.</p>
+        <div style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:14,padding:14,marginBottom:16}}>
+          <p style={{margin:"0 0 4px",color:"#F5F2EA",fontWeight:800,fontSize:15}}>👥 Membres de la tontine</p>
+          <p style={{margin:"0 0 12px",color:"#97A3C9",fontSize:12,lineHeight:1.5}}>Toutes les personnes qui participent aux tontines dont tu fais partie.</p>
+          {membresLoading?<p style={{color:"#97A3C9",fontSize:13,margin:0,textAlign:"center",padding:"10px 0"}}>Chargement...</p>
+          :tontinesMembres.length===0?<p style={{color:"#97A3C9",fontSize:13,margin:0,textAlign:"center",padding:"10px 0"}}>Tu ne participes à aucune tontine pour le moment.</p>
           :tontinesMembres.map(tg=>(
-            <div key={tg.id} style={{border:"1px solid #E5E7EB",borderRadius:12,marginBottom:8,overflow:"hidden"}}>
-              <button onClick={()=>setTontineOuverte(o=>o===tg.id?null:tg.id)} style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between",gap:8,background:"#F9FAFB",border:"none",padding:"11px 13px",cursor:"pointer",textAlign:"left"}}>
+            <div key={tg.id} style={{border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,marginBottom:8,overflow:"hidden"}}>
+              <button onClick={()=>setTontineOuverte(o=>o===tg.id?null:tg.id)} style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between",gap:8,background:"rgba(255,255,255,0.03)",border:"none",padding:"11px 13px",cursor:"pointer",textAlign:"left"}}>
                 <span style={{display:"flex",alignItems:"center",gap:8,minWidth:0}}>
-                  <span style={{width:10,height:10,borderRadius:"50%",background:tg.couleur||"#D0A23E",flexShrink:0}}/>
-                  <span style={{color:"#111827",fontWeight:700,fontSize:13,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{tg.nom}</span>
+                  <span style={{width:10,height:10,borderRadius:"50%",background:tg.couleur||"#E8B04B",flexShrink:0}}/>
+                  <span style={{color:"#F5F2EA",fontWeight:700,fontSize:13,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{tg.nom}</span>
                 </span>
-                <span style={{color:"#6B7280",fontSize:11,fontWeight:700,flexShrink:0}}>{tg.membres.length} membre{tg.membres.length>1?"s":""} {tontineOuverte===tg.id?"▲":"▼"}</span>
+                <span style={{color:"#97A3C9",fontSize:11,fontWeight:700,flexShrink:0}}>{tg.membres.length} membre{tg.membres.length>1?"s":""} {tontineOuverte===tg.id?"▲":"▼"}</span>
               </button>
               {tontineOuverte===tg.id&&<div style={{padding:"6px 13px 12px"}}>
-                {tg.membres.length===0?<p style={{color:"#6B7280",fontSize:12,margin:"8px 0 0"}}>Aucun membre enregistré.</p>
+                {tg.membres.length===0?<p style={{color:"#97A3C9",fontSize:12,margin:"8px 0 0"}}>Aucun membre enregistré.</p>
                 :tg.membres.map(mb=>(
-                  <div key={mb.id} style={{display:"flex",alignItems:"center",gap:11,padding:"9px 0",borderBottom:"1px solid #F3F4F6"}}>
+                  <div key={mb.id} style={{display:"flex",alignItems:"center",gap:11,padding:"9px 0",borderBottom:"1px solid rgba(255,255,255,0.045)"}}>
                     <Avatar prenom={mb.prenom} photo={mb.photo_url} size={42}/>
                     <div style={{flex:1,minWidth:0}}>
-                      <p style={{margin:0,color:"#111827",fontWeight:700,fontSize:13}}>{mb.prenom}{mb.user_id===user.id?" (toi)":""}</p>
-                      <p style={{margin:"1px 0 0",color:"#D0A23E",fontSize:11,fontWeight:600}}>📍 {mb.quartier?mb.quartier:"Quartier non renseigné"}</p>
-                      <p style={{margin:"1px 0 0",color:"#6B7280",fontSize:11}}>🗓️ Ajouté(e) le {mb.created_at?new Date(mb.created_at).toLocaleDateString("fr-FR",{day:"2-digit",month:"2-digit",year:"numeric"}):"date inconnue"}</p>
+                      <p style={{margin:0,color:"#F5F2EA",fontWeight:700,fontSize:13}}>{mb.prenom}{mb.user_id===user.id?" (toi)":""}</p>
+                      <p style={{margin:"1px 0 0",color:"#E8B04B",fontSize:11,fontWeight:600}}>📍 {mb.quartier?mb.quartier:"Quartier non renseigné"}</p>
+                      <p style={{margin:"1px 0 0",color:"#97A3C9",fontSize:11}}>🗓️ Ajouté(e) le {mb.created_at?new Date(mb.created_at).toLocaleDateString("fr-FR",{day:"2-digit",month:"2-digit",year:"numeric"}):"date inconnue"}</p>
                     </div>
                   </div>
                 ))}
@@ -4377,62 +4377,62 @@ const ProfilScreen = ({user,onLogout,onToast,onUpgrade,onOpenAdmin,lang,onChange
             </div>
           ))}
         </div>
-        <div style={{background:"#FFFFFF",border:"1px solid #D0A23E",borderRadius:14,padding:16,marginBottom:16}}>
-          <p style={{margin:"0 0 6px",color:"#D0A23E",fontWeight:800,fontSize:15}}>🎁 Parraine et gagne du Premium</p>
-          <p style={{margin:"0 0 12px",color:"#6B7280",fontSize:12,lineHeight:1.6}}>Chaque filleul(e) qui passe Premium te fait gagner 1 mois gratuit, cumulable !</p>
-          <div style={{background:"#FFFFFF",borderRadius:10,padding:"12px 14px",display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:10}}>
-            <p style={{margin:0,color:"#111827",fontSize:18,fontWeight:900,letterSpacing:2}}>{user.parrainCode||"..."}</p>
-            <span style={{color:"#6B7280",fontSize:11}}>Ton code</span>
+        <div style={{background:"rgba(255,255,255,0.055)",border:"1px solid #E8B04B",borderRadius:14,padding:16,marginBottom:16}}>
+          <p style={{margin:"0 0 6px",color:"#E8B04B",fontWeight:800,fontSize:15}}>🎁 Parraine et gagne du Premium</p>
+          <p style={{margin:"0 0 12px",color:"#97A3C9",fontSize:12,lineHeight:1.6}}>Chaque filleul(e) qui passe Premium te fait gagner 1 mois gratuit, cumulable !</p>
+          <div style={{background:"rgba(255,255,255,0.055)",borderRadius:10,padding:"12px 14px",display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:10}}>
+            <p style={{margin:0,color:"#F5F2EA",fontSize:18,fontWeight:900,letterSpacing:2}}>{user.parrainCode||"..."}</p>
+            <span style={{color:"#97A3C9",fontSize:11}}>Ton code</span>
           </div>
           <div style={{display:"flex",gap:16,marginBottom:12}}>
-            <div><p style={{margin:0,color:"#6B7280",fontSize:11}}>Inscrit(e)s grace a toi</p><p style={{margin:"2px 0 0",color:"#111827",fontWeight:800,fontSize:16}}>{parrainages.length}</p></div>
-            <div><p style={{margin:0,color:"#6B7280",fontSize:11}}>Devenus Premium</p><p style={{margin:"2px 0 0",color:"#22C55E",fontWeight:800,fontSize:16}}>{parrainages.filter(p=>p.statut==="premium").length}</p></div>
+            <div><p style={{margin:0,color:"#97A3C9",fontSize:11}}>Inscrit(e)s grace a toi</p><p style={{margin:"2px 0 0",color:"#F5F2EA",fontWeight:800,fontSize:16}}>{parrainages.length}</p></div>
+            <div><p style={{margin:0,color:"#97A3C9",fontSize:11}}>Devenus Premium</p><p style={{margin:"2px 0 0",color:"#34D399",fontWeight:800,fontSize:16}}>{parrainages.filter(p=>p.statut==="premium").length}</p></div>
           </div>
           {/* Phrase explicite : on dit noir sur blanc combien de personnes ont rejoint
               l'application grace au code, plutot qu'un simple chiffre sans contexte. */}
-          <div style={{background:"#FFFFFF",borderRadius:10,padding:"10px 12px",marginBottom:10,border:"1px solid #E5E7EB"}}>
+          <div style={{background:"rgba(255,255,255,0.055)",borderRadius:10,padding:"10px 12px",marginBottom:10,border:"1px solid rgba(255,255,255,0.09)"}}>
             {parrainages.length===0
-              ? <p style={{margin:0,color:"#6B7280",fontSize:12.5,lineHeight:1.5}}>Personne n a encore rejoint THT avec ton code. Partage-le pour commencer a gagner des places !</p>
-              : <p style={{margin:0,color:"#111827",fontSize:12.5,lineHeight:1.5}}>✅ <strong>{parrainages.length} personne{parrainages.length>1?"s ont":" a"} rejoint THT</strong> grace a ton code de parrainage.</p>}
+              ? <p style={{margin:0,color:"#97A3C9",fontSize:12.5,lineHeight:1.5}}>Personne n a encore rejoint THT avec ton code. Partage-le pour commencer a gagner des places !</p>
+              : <p style={{margin:0,color:"#F5F2EA",fontSize:12.5,lineHeight:1.5}}>✅ <strong>{parrainages.length} personne{parrainages.length>1?"s ont":" a"} rejoint THT</strong> grace a ton code de parrainage.</p>}
           </div>
           {!estIllimite(user)&&(()=>{
             const filleuls=user.filleulsCount||0;
             const bonus=bonusParrainage(user);
             const manque=FILLEULS_PAR_MEMBRE_BONUS-(filleuls%FILLEULS_PAR_MEMBRE_BONUS);
             return(
-              <div style={{background:"#FBF5E6",border:"1px solid #D0A23E",borderRadius:10,padding:"10px 12px",marginBottom:10}}>
-                <p style={{margin:0,color:"#6E5214",fontSize:12,fontWeight:700}}>👥 Chaque {FILLEULS_PAR_MEMBRE_BONUS} filleul(e)s inscrit(e)s = +1 place dans ta tontine</p>
-                <p style={{margin:"5px 0 0",color:"#111827",fontSize:12}}>Tu peux ajouter <strong>{limiteMembres(user)} membres</strong> {bonus>0?<>(15 de base <strong style={{color:"#22C55E"}}>+{bonus} gagnée{bonus>1?"s":""}</strong>)</>:"pour l instant"}.</p>
-                <p style={{margin:"3px 0 0",color:"#6B7280",fontSize:11}}>Encore {manque} filleul(e){manque>1?"s":""} pour gagner une place de plus.</p>
+              <div style={{background:"rgba(232,176,75,0.10)",border:"1px solid #E8B04B",borderRadius:10,padding:"10px 12px",marginBottom:10}}>
+                <p style={{margin:0,color:"#FFE1A1",fontSize:12,fontWeight:700}}>👥 Chaque {FILLEULS_PAR_MEMBRE_BONUS} filleul(e)s inscrit(e)s = +1 place dans ta tontine</p>
+                <p style={{margin:"5px 0 0",color:"#F5F2EA",fontSize:12}}>Tu peux ajouter <strong>{limiteMembres(user)} membres</strong> {bonus>0?<>(15 de base <strong style={{color:"#34D399"}}>+{bonus} gagnée{bonus>1?"s":""}</strong>)</>:"pour l instant"}.</p>
+                <p style={{margin:"3px 0 0",color:"#97A3C9",fontSize:11}}>Encore {manque} filleul(e){manque>1?"s":""} pour gagner une place de plus.</p>
               </div>
             );
           })()}
           <button onClick={partagerCode} style={{width:"100%",background:"#075E54",border:"none",borderRadius:10,padding:"11px",color:"#fff",fontWeight:700,fontSize:13,cursor:"pointer"}}>Partager mon code sur WhatsApp</button>
         </div>
-        {user.plan==="free"&&user.role!=="admin"&&<div style={{background:"linear-gradient(135deg,#FEF2F2,#EBDCA8)",border:"1px solid #D0A23E",borderRadius:18,padding:18,marginBottom:16}}>
-          <p style={{margin:"0 0 4px",color:"#D0A23E",fontWeight:800,fontSize:16}}>Passer a THT Premium</p>
-          <p style={{margin:"0 0 14px",color:"#111827",fontSize:13,lineHeight:1.6}}>Debloque toutes les fonctionnalites pour developper tes tontines !</p>
-          <div style={{background:"#FFFFFF",borderRadius:12,padding:14,marginBottom:14}}>
-            <div style={{display:"flex",justifyContent:"flex-end",gap:20,marginBottom:8}}><span style={{color:"#6B7280",fontSize:11,fontWeight:700,width:70,textAlign:"center"}}>GRATUIT</span><span style={{color:"#D0A23E",fontSize:11,fontWeight:800,width:80,textAlign:"center"}}>PREMIUM</span></div>
+        {user.plan==="free"&&user.role!=="admin"&&<div style={{background:"linear-gradient(135deg,rgba(251,113,133,0.10),rgba(232,176,75,0.30))",border:"1px solid #E8B04B",borderRadius:18,padding:18,marginBottom:16}}>
+          <p style={{margin:"0 0 4px",color:"#E8B04B",fontWeight:800,fontSize:16}}>Passer a THT Premium</p>
+          <p style={{margin:"0 0 14px",color:"#F5F2EA",fontSize:13,lineHeight:1.6}}>Debloque toutes les fonctionnalites pour developper tes tontines !</p>
+          <div style={{background:"rgba(255,255,255,0.055)",borderRadius:12,padding:14,marginBottom:14}}>
+            <div style={{display:"flex",justifyContent:"flex-end",gap:20,marginBottom:8}}><span style={{color:"#97A3C9",fontSize:11,fontWeight:700,width:70,textAlign:"center"}}>GRATUIT</span><span style={{color:"#E8B04B",fontSize:11,fontWeight:800,width:80,textAlign:"center"}}>PREMIUM</span></div>
             {[["Tontines actives","1 max","Illimité"],["Membres/groupe",`${limiteMembres(user)} max`,"Illimité"],["HABY IA","Basique","Prioritaire"],["Support","Standard","24h"]].map(([f,fr,pr])=>(
-              <div key={f} style={{display:"flex",justifyContent:"space-between",padding:"7px 0",borderBottom:"1px solid #E5E7EB",fontSize:12}}>
-                <span style={{color:"#6B7280"}}>{f}</span>
-                <div style={{display:"flex",gap:20}}><span style={{color:fr==="Non"?"#EF4444":"#6B7280",width:70,textAlign:"center"}}>{fr}</span><span style={{color:"#D0A23E",fontWeight:700,width:80,textAlign:"center"}}>{pr}</span></div>
+              <div key={f} style={{display:"flex",justifyContent:"space-between",padding:"7px 0",borderBottom:"1px solid rgba(255,255,255,0.09)",fontSize:12}}>
+                <span style={{color:"#97A3C9"}}>{f}</span>
+                <div style={{display:"flex",gap:20}}><span style={{color:fr==="Non"?"#FB7185":"#97A3C9",width:70,textAlign:"center"}}>{fr}</span><span style={{color:"#E8B04B",fontWeight:700,width:80,textAlign:"center"}}>{pr}</span></div>
               </div>
             ))}
           </div>
           <div style={{display:"flex",gap:10,marginBottom:12}}>
-            <button onClick={()=>onPayCinetPay("mensuel")} disabled={payBusy} style={{flex:1,background:"linear-gradient(135deg,#D0A23E,#A87C22)",border:"none",borderRadius:12,padding:"14px",color:"#0D0D0D",fontWeight:800,fontSize:14,cursor:"pointer"}}>{payBusy?"...":"1 000 FCFA/mois"}</button>
-            <button onClick={()=>onPayCinetPay("annuel")} disabled={payBusy} style={{flex:1,background:"#E5E7EB",border:"1px solid #D0A23E",borderRadius:12,padding:"14px",color:"#D0A23E",fontWeight:800,fontSize:13,cursor:"pointer",lineHeight:1.4}}>10 000/an<br/><span style={{fontSize:10}}>(-17%)</span></button>
+            <button onClick={()=>onPayCinetPay("mensuel")} disabled={payBusy} style={{flex:1,background:"linear-gradient(135deg,#FFE9B4 0%,#E8B04B 48%,#C38427 100%)",border:"none",borderRadius:12,padding:"14px",color:"#1B1203",fontWeight:800,fontSize:14,cursor:"pointer"}}>{payBusy?"...":"1 000 FCFA/mois"}</button>
+            <button onClick={()=>onPayCinetPay("annuel")} disabled={payBusy} style={{flex:1,background:"rgba(255,255,255,0.09)",border:"1px solid #E8B04B",borderRadius:12,padding:"14px",color:"#E8B04B",fontWeight:800,fontSize:13,cursor:"pointer",lineHeight:1.4}}>10 000/an<br/><span style={{fontSize:10}}>(-17%)</span></button>
           </div>
-          <button onClick={()=>onPayCinetPay("mensuel")} disabled={payBusy} style={{width:"100%",background:"#FFFFFF",border:"1px solid #D0A23E",borderRadius:12,padding:"13px",color:"#D0A23E",fontWeight:800,fontSize:13,cursor:"pointer",marginBottom:12}}>{payBusy?"Ouverture du paiement...":"💳 Payer en ligne maintenant (Orange Money / Wave / Carte)"}</button>
-          <div style={{background:"#FFFFFF",borderRadius:12,padding:12}}>
-            <p style={{margin:"0 0 8px",color:"#6B7280",fontSize:11,fontWeight:700}}>OU MANUELLEMENT VIA WHATSAPP :</p>
+          <button onClick={()=>onPayCinetPay("mensuel")} disabled={payBusy} style={{width:"100%",background:"rgba(255,255,255,0.055)",border:"1px solid #E8B04B",borderRadius:12,padding:"13px",color:"#E8B04B",fontWeight:800,fontSize:13,cursor:"pointer",marginBottom:12}}>{payBusy?"Ouverture du paiement...":"💳 Payer en ligne maintenant (Orange Money / Wave / Carte)"}</button>
+          <div style={{background:"rgba(255,255,255,0.055)",borderRadius:12,padding:12}}>
+            <p style={{margin:"0 0 8px",color:"#97A3C9",fontSize:11,fontWeight:700}}>OU MANUELLEMENT VIA WHATSAPP :</p>
             <div style={{display:"flex",gap:8}}>
               <button onClick={()=>window.open("https://wa.me/22376908031?text=Je%20veux%20THT%20Premium","_blank")} style={{flex:1,background:"#FF6600",border:"none",borderRadius:10,padding:"10px",color:"#fff",fontWeight:700,fontSize:12,cursor:"pointer"}}>Orange Money</button>
               <button onClick={()=>window.open("https://wa.me/22390647106?text=Je%20veux%20THT%20Premium","_blank")} style={{flex:1,background:"#0066CC",border:"none",borderRadius:10,padding:"10px",color:"#fff",fontWeight:700,fontSize:12,cursor:"pointer"}}>Wave</button>
             </div>
-            <p style={{color:"#6B7280",fontSize:10,textAlign:"center",margin:"8px 0 0"}}>+223 76 90 80 31 (Orange) - +223 90 64 71 06 (Wave)</p>
+            <p style={{color:"#97A3C9",fontSize:10,textAlign:"center",margin:"8px 0 0"}}>+223 76 90 80 31 (Orange) - +223 90 64 71 06 (Wave)</p>
           </div>
         </div>}
         {[
@@ -4442,14 +4442,14 @@ const ProfilScreen = ({user,onLogout,onToast,onUpgrade,onOpenAdmin,lang,onChange
           {label:"DONNEES ET AIDE",items:[{ic:"📤",lb:t("exporterDonnees"),fn:exporterDonnees},{ic:"📊",lb:"Exporter en Excel (CSV)",fn:exporterCSV},{ic:"💬",lb:t("contacterSupport"),fn:()=>setShowSupport(true)},{ic:"🔏",lb:"Politique de confidentialite",fn:()=>window.open("/confidentialite.html","_blank","noopener")}]},
         ].map(group=>(
           <div key={group.label} style={{marginBottom:18}}>
-            <p style={{color:"#6B7280",fontSize:11,fontWeight:700,marginBottom:10,letterSpacing:.5}}>{group.label}</p>
+            <p style={{color:"#97A3C9",fontSize:11,fontWeight:700,marginBottom:10,letterSpacing:.5}}>{group.label}</p>
             {group.items.map(item=>(
-              <div key={item.key||item.lb} onClick={item.toggle===undefined?item.fn:undefined} style={{display:"flex",alignItems:"center",gap:14,padding:"14px 16px",background:"#FFFFFF",borderRadius:14,marginBottom:8,cursor:item.toggle===undefined?"pointer":"default",border:"1px solid #E5E7EB",opacity:item.busy?0.7:1}}>
-                <span style={{fontSize:20}}>{item.ic}</span><p style={{margin:0,color:"#111827",fontSize:14,fontWeight:600}}>{item.lb}</p>
+              <div key={item.key||item.lb} onClick={item.toggle===undefined?item.fn:undefined} style={{display:"flex",alignItems:"center",gap:14,padding:"14px 16px",background:"rgba(255,255,255,0.055)",borderRadius:14,marginBottom:8,cursor:item.toggle===undefined?"pointer":"default",border:"1px solid rgba(255,255,255,0.09)",opacity:item.busy?0.7:1}}>
+                <span style={{fontSize:20}}>{item.ic}</span><p style={{margin:0,color:"#F5F2EA",fontSize:14,fontWeight:600}}>{item.lb}</p>
                 {item.toggle===undefined
-                  ?<span style={{marginLeft:"auto",color:"#9CA3AF",fontSize:18}}>›</span>
-                  :<div onClick={item.busy?undefined:item.fn} style={{marginLeft:"auto",width:46,height:26,borderRadius:99,background:item.toggle?"#D0A23E":"#D1D5DB",position:"relative",cursor:"pointer",transition:"background .2s",flexShrink:0}}>
-                      <div style={{position:"absolute",top:3,left:item.toggle?23:3,width:20,height:20,borderRadius:"50%",background:"#FFFFFF",transition:"left .2s"}}/>
+                  ?<span style={{marginLeft:"auto",color:"#6F7BA6",fontSize:18}}>›</span>
+                  :<div onClick={item.busy?undefined:item.fn} style={{marginLeft:"auto",width:46,height:26,borderRadius:99,background:item.toggle?"#E8B04B":"rgba(255,255,255,0.14)",position:"relative",cursor:"pointer",transition:"background .2s",flexShrink:0}}>
+                      <div style={{position:"absolute",top:3,left:item.toggle?23:3,width:20,height:20,borderRadius:"50%",background:"rgba(255,255,255,0.055)",transition:"left .2s"}}/>
                     </div>}
               </div>
             ))}
@@ -4457,10 +4457,10 @@ const ProfilScreen = ({user,onLogout,onToast,onUpgrade,onOpenAdmin,lang,onChange
         ))}
         <div style={{marginTop:16}}>
           {!showOut
-            ?<button onClick={()=>setShowOut(true)} style={{width:"100%",background:"transparent",border:"1px solid #C1440E",borderRadius:14,padding:"14px",color:"#EF4444",fontWeight:700,fontSize:15,cursor:"pointer"}}>{t("deconnexion")}</button>
-            :<div style={{background:"#FEF2F2",border:"1px solid #C1440E",borderRadius:14,padding:16}}><p style={{color:"#111827",fontWeight:700,margin:"0 0 14px",textAlign:"center"}}>Confirmer la deconnexion ?</p><div style={{display:"flex",gap:10}}><button onClick={()=>setShowOut(false)} style={{flex:1,background:"#E5E7EB",border:"none",borderRadius:12,padding:12,color:"#111827",fontWeight:700,cursor:"pointer"}}>Annuler</button><button onClick={onLogout} style={{flex:1,background:"#C1440E",border:"none",borderRadius:12,padding:12,color:"#fff",fontWeight:700,cursor:"pointer"}}>Deconnecter</button></div></div>}
+            ?<button onClick={()=>setShowOut(true)} style={{width:"100%",background:"transparent",border:"1px solid #E0526A",borderRadius:14,padding:"14px",color:"#FB7185",fontWeight:700,fontSize:15,cursor:"pointer"}}>{t("deconnexion")}</button>
+            :<div style={{background:"rgba(251,113,133,0.10)",border:"1px solid #E0526A",borderRadius:14,padding:16}}><p style={{color:"#F5F2EA",fontWeight:700,margin:"0 0 14px",textAlign:"center"}}>Confirmer la deconnexion ?</p><div style={{display:"flex",gap:10}}><button onClick={()=>setShowOut(false)} style={{flex:1,background:"rgba(255,255,255,0.09)",border:"none",borderRadius:12,padding:12,color:"#F5F2EA",fontWeight:700,cursor:"pointer"}}>Annuler</button><button onClick={onLogout} style={{flex:1,background:"#E0526A",border:"none",borderRadius:12,padding:12,color:"#fff",fontWeight:700,cursor:"pointer"}}>Deconnecter</button></div></div>}
         </div>
-        <p style={{color:"#9CA3AF",fontSize:11,textAlign:"center",margin:"20px 0 10px"}}>THT v2.1 - Fait avec amour pour l Afrique</p>
+        <p style={{color:"#6F7BA6",fontSize:11,textAlign:"center",margin:"20px 0 10px"}}>THT v2.1 - Fait avec amour pour l Afrique</p>
       </div>
       {showSupport&&<SupportModal onClose={()=>setShowSupport(false)} onToast={onToast}/>}
       {showEditProfil&&<Modal onClose={()=>setShowEditProfil(false)}>
@@ -4469,14 +4469,14 @@ const ProfilScreen = ({user,onLogout,onToast,onUpgrade,onOpenAdmin,lang,onChange
         <Fld label="Photo de profil">
           <div style={{display:"flex",alignItems:"center",gap:14}}>
             {editPhotoPreview?<img src={editPhotoPreview} alt="Nouvelle photo" style={{width:74,height:74,borderRadius:20,objectFit:"cover"}}/>:<Avatar prenom={editNom||user.prenom} photo={user.photo} size={74} gold/>}
-            <label style={{background:"#FFFFFF",border:"1px solid #D0A23E",borderRadius:12,padding:"11px 16px",color:"#D0A23E",fontWeight:700,fontSize:13,cursor:"pointer"}}>
+            <label style={{background:"rgba(255,255,255,0.055)",border:"1px solid #E8B04B",borderRadius:12,padding:"11px 16px",color:"#E8B04B",fontWeight:700,fontSize:13,cursor:"pointer"}}>
               {user.photo||editPhotoPreview?"Changer la photo":"Ajouter une photo"}
               <input type="file" accept="image/*" hidden onChange={choisirPhotoProfil}/>
             </label>
           </div>
         </Fld>
         <Fld label="Nom complet"><Inp value={editNom} onChange={e=>setEditNom(e.target.value)} placeholder="Ex: Fatoumata Traore" maxLength={40}/></Fld>
-        <p style={{color:"#6B7280",fontSize:12,lineHeight:1.6,margin:"0 0 14px"}}>ℹ️ Ton numero de telephone ne peut pas etre modifie : c est lui qui identifie ton compte et qui te relie aux tontines ou on t a ajoutee.</p>
+        <p style={{color:"#97A3C9",fontSize:12,lineHeight:1.6,margin:"0 0 14px"}}>ℹ️ Ton numero de telephone ne peut pas etre modifie : c est lui qui identifie ton compte et qui te relie aux tontines ou on t a ajoutee.</p>
         <Btn onClick={enregistrerProfil} disabled={editProfilBusy}>{editProfilBusy?"Enregistrement...":"Enregistrer"}</Btn>
       </Modal>}
       {showChangePin&&<Modal onClose={()=>setShowChangePin(false)}>
@@ -4576,61 +4576,61 @@ const ContributionPubliqueScreen = ({cagnotteId}) => {
     setRecuBusy(false);
   };
 
-  if(loading)return <div style={{minHeight:"100vh",background:"#FFFFFF",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{color:"#D0A23E"}}>Chargement...</p></div>;
-  if(loadErr)return <div style={{minHeight:"100vh",background:"#FFFFFF",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:24,textAlign:"center"}}><p style={{fontSize:40,margin:"0 0 10px"}}>😕</p><p style={{color:"#111827",fontWeight:700}}>{loadErr}</p><p style={{color:"#6B7280",fontSize:13,marginTop:8}}>Ce lien n'est peut-etre plus valide.</p></div>;
+  if(loading)return <div style={{minHeight:"100vh",background:"rgba(255,255,255,0.055)",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{color:"#E8B04B"}}>Chargement...</p></div>;
+  if(loadErr)return <div style={{minHeight:"100vh",background:"rgba(255,255,255,0.055)",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:24,textAlign:"center"}}><p style={{fontSize:40,margin:"0 0 10px"}}>😕</p><p style={{color:"#F5F2EA",fontWeight:700}}>{loadErr}</p><p style={{color:"#97A3C9",fontSize:13,marginTop:8}}>Ce lien n'est peut-etre plus valide.</p></div>;
 
   if(succes)return(
-    <div style={{minHeight:"100vh",background:"#FFFFFF",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:24,textAlign:"center"}}>
-      <div style={{width:70,height:70,borderRadius:"50%",background:"#E5E7EB",display:"flex",alignItems:"center",justifyContent:"center",fontSize:34,marginBottom:16}}>✅</div>
-      <h2 style={{color:"#111827",margin:"0 0 8px"}}>Merci {succes.contributeur} !</h2>
-      <p style={{color:"#D0A23E",fontSize:20,fontWeight:900,margin:"0 0 4px"}}>{fmtFCFA(succes.montant)}</p>
-      <p style={{color:"#6B7280",fontSize:13,marginBottom:24}}>ajoute a "{succes.titre}"</p>
-      <button onClick={telechargerRecu} disabled={recuBusy} style={{background:"linear-gradient(135deg,#D0A23E,#A87C22)",border:"none",borderRadius:14,padding:"13px 24px",color:"#0D0D0D",fontWeight:800,fontSize:14,cursor:"pointer",marginBottom:12}}>{recuBusy?"Creation...":"🧾 Télécharger mon reçu"}</button>
-      <p style={{color:"#9CA3AF",fontSize:11}}>THT - Tontine Habi Traore</p>
+    <div style={{minHeight:"100vh",background:"rgba(255,255,255,0.055)",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:24,textAlign:"center"}}>
+      <div style={{width:70,height:70,borderRadius:"50%",background:"rgba(255,255,255,0.09)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:34,marginBottom:16}}>✅</div>
+      <h2 style={{color:"#F5F2EA",margin:"0 0 8px"}}>Merci {succes.contributeur} !</h2>
+      <p style={{color:"#E8B04B",fontSize:20,fontWeight:900,margin:"0 0 4px"}}>{fmtFCFA(succes.montant)}</p>
+      <p style={{color:"#97A3C9",fontSize:13,marginBottom:24}}>ajoute a "{succes.titre}"</p>
+      <button onClick={telechargerRecu} disabled={recuBusy} style={{background:"linear-gradient(135deg,#FFE9B4 0%,#E8B04B 48%,#C38427 100%)",border:"none",borderRadius:14,padding:"13px 24px",color:"#1B1203",fontWeight:800,fontSize:14,cursor:"pointer",marginBottom:12}}>{recuBusy?"Creation...":"🧾 Télécharger mon reçu"}</button>
+      <p style={{color:"#6F7BA6",fontSize:11}}>THT - Tontine Habi Traore</p>
     </div>
   );
 
   const pct=Math.min(100,Math.round((cagnotte.montant_collecte/cagnotte.objectif)*100));
   return(
-    <div style={{minHeight:"100vh",background:"#FFFFFF",padding:"32px 20px"}}>
+    <div style={{minHeight:"100vh",background:"rgba(255,255,255,0.055)",padding:"32px 20px"}}>
       <div style={{maxWidth:420,margin:"0 auto"}}>
         <div style={{textAlign:"center",marginBottom:24}}>
           <div style={{width:56,height:56,borderRadius:16,margin:"0 auto 12px",overflow:"hidden"}}><img src={logoIcon} alt="THT" style={{width:"100%",height:"100%",objectFit:"cover"}}/></div>
-          <p style={{color:"#6B7280",fontSize:11,letterSpacing:1}}>THT - CAGNOTTE</p>
+          <p style={{color:"#97A3C9",fontSize:11,letterSpacing:1}}>THT - CAGNOTTE</p>
         </div>
-        <div style={{background:"#FFFFFF",border:"1px solid #D0A23E",borderRadius:16,padding:20,marginBottom:20}}>
-          <p style={{margin:0,color:"#111827",fontWeight:800,fontSize:18}}>{cagnotte.titre}</p>
-          {cagnotte.beneficiaire&&<p style={{margin:"4px 0 0",color:"#D0A23E",fontSize:13}}>Pour {cagnotte.beneficiaire}</p>}
-          {cagnotte.description&&<p style={{margin:"10px 0 0",color:"#6B7280",fontSize:13,lineHeight:1.5}}>{cagnotte.description}</p>}
-          <div style={{margin:"16px 0 6px"}}><Bar pct={pct} c="#D0A23E"/></div>
-          <p style={{margin:0,color:"#111827",fontSize:13}}>{fmtFCFA(cagnotte.montant_collecte)} <span style={{color:"#6B7280"}}>/ {fmtFCFA(cagnotte.objectif)} ({pct}%)</span></p>
+        <div style={{background:"rgba(255,255,255,0.055)",border:"1px solid #E8B04B",borderRadius:16,padding:20,marginBottom:20}}>
+          <p style={{margin:0,color:"#F5F2EA",fontWeight:800,fontSize:18}}>{cagnotte.titre}</p>
+          {cagnotte.beneficiaire&&<p style={{margin:"4px 0 0",color:"#E8B04B",fontSize:13}}>Pour {cagnotte.beneficiaire}</p>}
+          {cagnotte.description&&<p style={{margin:"10px 0 0",color:"#97A3C9",fontSize:13,lineHeight:1.5}}>{cagnotte.description}</p>}
+          <div style={{margin:"16px 0 6px"}}><Bar pct={pct} c="#E8B04B"/></div>
+          <p style={{margin:0,color:"#F5F2EA",fontSize:13}}>{fmtFCFA(cagnotte.montant_collecte)} <span style={{color:"#97A3C9"}}>/ {fmtFCFA(cagnotte.objectif)} ({pct}%)</span></p>
         </div>
-        {cagnotte.statut!=="ouverte"?<p style={{color:"#EF4444",textAlign:"center",fontWeight:700}}>Cette cagnotte n'accepte plus de contributions</p>:<>
+        {cagnotte.statut!=="ouverte"?<p style={{color:"#FB7185",textAlign:"center",fontWeight:700}}>Cette cagnotte n'accepte plus de contributions</p>:<>
           <Fld label="Ton prenom"><Inp value={prenom} onChange={e=>setPrenom(e.target.value)} placeholder="Ex: Fatoumata" maxLength={30} autoFocus/></Fld>
           <Fld label="Ton nom (optionnel)"><Inp value={nom} onChange={e=>setNom(e.target.value)} placeholder="Ex: Diallo" maxLength={30}/></Fld>
           <Fld label="Ton numéro (optionnel)"><PhoneInput value={tel} onChange={setTel}/></Fld>
           <Fld label="Montant de ta contribution (FCFA)"><Inp value={montant} onChange={e=>setMontant(e.target.value.replace(/\D/g,""))} placeholder="Ex: 5000" inputMode="numeric"/></Fld>
           {/* OPTION A : contribuer en ligne via FedaPay + QR a scanner (recommande, valide auto) */}
-          <div style={{background:"#FBF5E6",border:"1px solid #D0A23E",borderRadius:12,padding:14,margin:"6px 0 14px"}}>
-            <p style={{margin:"0 0 8px",color:"#D0A23E",fontWeight:800,fontSize:13}}>💳 Payer en ligne (recommandé)</p>
-            <p style={{margin:"0 0 10px",color:"#6B7280",fontSize:11,lineHeight:1.5}}>Contribue en toute sécurité (Orange Money, Wave, Moov, carte…). C'est validé automatiquement, sans photo.</p>
-            <button onClick={payerEnLigne} disabled={payLigneBusy} style={{width:"100%",background:"linear-gradient(135deg,#D0A23E,#A87C22)",border:"none",borderRadius:12,padding:13,color:"#fff",fontWeight:800,fontSize:14,cursor:"pointer"}}>{payLigneBusy?"Ouverture du paiement...":"✅ Contribuer en ligne maintenant"}</button>
-            <div data-noinvert style={{display:"flex",flexDirection:"column",alignItems:"center",marginTop:14,paddingTop:14,borderTop:"1px solid #EBDCA8"}}>
-              <p style={{margin:"0 0 8px",color:"#111827",fontSize:11,fontWeight:700,textAlign:"center"}}>📷 Ou fais scanner ce code pour contribuer</p>
-              <QRCodeSVG value={`${window.location.origin}/?contribuer=${cagnotteId}`} size={140} level="M" bgColor="#FFFFFF" fgColor="#111827"/>
+          <div style={{background:"rgba(232,176,75,0.10)",border:"1px solid #E8B04B",borderRadius:12,padding:14,margin:"6px 0 14px"}}>
+            <p style={{margin:"0 0 8px",color:"#E8B04B",fontWeight:800,fontSize:13}}>💳 Payer en ligne (recommandé)</p>
+            <p style={{margin:"0 0 10px",color:"#97A3C9",fontSize:11,lineHeight:1.5}}>Contribue en toute sécurité (Orange Money, Wave, Moov, carte…). C'est validé automatiquement, sans photo.</p>
+            <button onClick={payerEnLigne} disabled={payLigneBusy} style={{width:"100%",background:"linear-gradient(135deg,#FFE9B4 0%,#E8B04B 48%,#C38427 100%)",border:"none",borderRadius:12,padding:13,color:"#fff",fontWeight:800,fontSize:14,cursor:"pointer"}}>{payLigneBusy?"Ouverture du paiement...":"✅ Contribuer en ligne maintenant"}</button>
+            <div data-noinvert style={{display:"flex",flexDirection:"column",alignItems:"center",marginTop:14,paddingTop:14,borderTop:"1px solid rgba(232,176,75,0.30)"}}>
+              <p style={{margin:"0 0 8px",color:"#F5F2EA",fontSize:11,fontWeight:700,textAlign:"center"}}>📷 Ou fais scanner ce code pour contribuer</p>
+              <QRCodeSVG value={`${window.location.origin}/?contribuer=${cagnotteId}`} size={140} level="M" bgColor="rgba(255,255,255,0.055)" fgColor="#F5F2EA"/>
             </div>
           </div>
-          <p style={{textAlign:"center",color:"#9CA3AF",fontSize:11,margin:"0 0 6px"}}>— ou paie à la main puis envoie une preuve ci-dessous —</p>
+          <p style={{textAlign:"center",color:"#6F7BA6",fontSize:11,margin:"0 0 6px"}}>— ou paie à la main puis envoie une preuve ci-dessous —</p>
           <BoutonsPaiementMobile montant={montant} numeroOrangeMoney={cagnotte.numero_orange_money} numeroWave={cagnotte.numero_wave} numeroMoovMoney={cagnotte.numero_moov_money} lienWave={cagnotte.lien_wave} lienOrange={cagnotte.lien_orange}/>
           <Fld label="Photo de ton depot (Orange Money, Wave, especes...) - obligatoire">
-            <label style={{display:"block",background:"#FFFFFF",border:"1px dashed #D0A23E",borderRadius:12,padding:preuvePreview?0:20,textAlign:"center",cursor:"pointer",overflow:"hidden"}}>
+            <label style={{display:"block",background:"rgba(255,255,255,0.055)",border:"1px dashed #E8B04B",borderRadius:12,padding:preuvePreview?0:20,textAlign:"center",cursor:"pointer",overflow:"hidden"}}>
               <input type="file" accept="image/*" onChange={choisirPreuve} style={{display:"none"}}/>
-              {preuvePreview?<img src={preuvePreview} alt="Preuve" style={{width:"100%",maxHeight:220,objectFit:"contain",display:"block"}}/>:<span style={{color:"#D0A23E",fontSize:13,fontWeight:700}}>📷 Ajouter une photo</span>}
+              {preuvePreview?<img src={preuvePreview} alt="Preuve" style={{width:"100%",maxHeight:220,objectFit:"contain",display:"block"}}/>:<span style={{color:"#E8B04B",fontSize:13,fontWeight:700}}>📷 Ajouter une photo</span>}
             </label>
           </Fld>
           <ErrBox msg={err}/>
           <Btn onClick={contribuer} disabled={busy}>{busy?"Enregistrement...":"Confirmer ma contribution"}</Btn>
-          <p style={{color:"#6B7280",fontSize:11,textAlign:"center",marginTop:14,lineHeight:1.5}}>⚠️ Le versement de l'argent (Orange Money, especes...) se fait separement, directement aupres de l'organisateur. La photo sert a confirmer ton depot reel.</p>
+          <p style={{color:"#97A3C9",fontSize:11,textAlign:"center",marginTop:14,lineHeight:1.5}}>⚠️ Le versement de l'argent (Orange Money, especes...) se fait separement, directement aupres de l'organisateur. La photo sert a confirmer ton depot reel.</p>
         </>}
       </div>
     </div>
@@ -4718,61 +4718,61 @@ const CagnotteScreen = ({cagnotte:cInit,user,onBack,onToast,onUpdate,onDelete}) 
   return(
     <div style={{paddingBottom:90}}>
       <div style={{padding:"44px 16px 0",display:"flex",alignItems:"center",gap:10}}>
-        <button onClick={onBack} style={{background:"none",border:"none",color:"#D0A23E",fontSize:22,cursor:"pointer"}}>←</button>
-        <div style={{flex:1}}><h2 style={{color:"#111827",margin:0,fontSize:17,fontWeight:800}}>{cagnotte.titre}</h2>{cagnotte.beneficiaire&&<p style={{color:"#D0A23E",margin:0,fontSize:12}}>Pour : {cagnotte.beneficiaire}</p>}</div>
-        <button onClick={supprimer} style={{background:"transparent",border:"1px solid #C1440E",borderRadius:8,padding:"5px 10px",color:"#EF4444",fontSize:11,fontWeight:700,cursor:"pointer"}}>Suppr.</button>
+        <button onClick={onBack} style={{background:"none",border:"none",color:"#E8B04B",fontSize:22,cursor:"pointer"}}>←</button>
+        <div style={{flex:1}}><h2 style={{color:"#F5F2EA",margin:0,fontSize:17,fontWeight:800}}>{cagnotte.titre}</h2>{cagnotte.beneficiaire&&<p style={{color:"#E8B04B",margin:0,fontSize:12}}>Pour : {cagnotte.beneficiaire}</p>}</div>
+        <button onClick={supprimer} style={{background:"transparent",border:"1px solid #E0526A",borderRadius:8,padding:"5px 10px",color:"#FB7185",fontSize:11,fontWeight:700,cursor:"pointer"}}>Suppr.</button>
       </div>
-      {cagnotte.description&&<p style={{color:"#6B7280",fontSize:13,padding:"12px 16px 0",lineHeight:1.6}}>{cagnotte.description}</p>}
-      <div style={{margin:"16px 16px 0",background:"#FFFFFF",border:"1px solid #D0A23E",borderRadius:16,padding:18}}>
-        <p style={{margin:0,color:"#6B7280",fontSize:12,fontWeight:600}}>COLLECTE</p>
-        <p style={{margin:"4px 0 0",color:"#D0A23E",fontSize:26,fontWeight:900}}>{fmtFCFA(cagnotte.montant_collecte)}</p>
-        <Bar pct={pct} c="#D0A23E"/>
-        <p style={{margin:"6px 0 0",color:"#6B7280",fontSize:11}}>Objectif : {fmtFCFA(cagnotte.objectif)} ({pct}%){cagnotte.date_limite?` - avant le ${new Date(cagnotte.date_limite).toLocaleDateString("fr-FR")}`:""}</p>
+      {cagnotte.description&&<p style={{color:"#97A3C9",fontSize:13,padding:"12px 16px 0",lineHeight:1.6}}>{cagnotte.description}</p>}
+      <div style={{margin:"16px 16px 0",background:"rgba(255,255,255,0.055)",border:"1px solid #E8B04B",borderRadius:16,padding:18}}>
+        <p style={{margin:0,color:"#97A3C9",fontSize:12,fontWeight:600}}>COLLECTE</p>
+        <p style={{margin:"4px 0 0",color:"#E8B04B",fontSize:26,fontWeight:900}}>{fmtFCFA(cagnotte.montant_collecte)}</p>
+        <Bar pct={pct} c="#E8B04B"/>
+        <p style={{margin:"6px 0 0",color:"#97A3C9",fontSize:11}}>Objectif : {fmtFCFA(cagnotte.objectif)} ({pct}%){cagnotte.date_limite?` - avant le ${new Date(cagnotte.date_limite).toLocaleDateString("fr-FR")}`:""}</p>
       </div>
       {cagnotte.statut!=="cloturee"&&<div style={{display:"flex",gap:10,padding:"14px 16px 0"}}>
-        <button onClick={ouvrirNotifier} style={{flex:1,background:"#E5E7EB",border:"1px solid #D1D5DB",borderRadius:10,padding:"11px",color:"#D0A23E",fontWeight:700,fontSize:13,cursor:"pointer"}}>📣 Notifier un groupe</button>
+        <button onClick={ouvrirNotifier} style={{flex:1,background:"rgba(255,255,255,0.09)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:10,padding:"11px",color:"#E8B04B",fontWeight:700,fontSize:13,cursor:"pointer"}}>📣 Notifier un groupe</button>
         <button onClick={partager} style={{flex:1,background:"#075E54",border:"none",borderRadius:10,padding:"11px",color:"#fff",fontWeight:700,fontSize:13,cursor:"pointer"}}>Partager WA</button>
       </div>}
-      {cagnotte.statut!=="cloturee"&&<button onClick={async()=>{const lien=`${window.location.origin}/?contribuer=${cagnotte.id}`;try{await navigator.clipboard.writeText(lien);onToast("Lien copie !");}catch{onToast(lien);}}} style={{width:"calc(100% - 32px)",margin:"10px 16px 0",background:"#E5E7EB",border:"1px solid #D0A23E",borderRadius:10,padding:"10px",color:"#D0A23E",fontWeight:700,fontSize:12,cursor:"pointer"}}>🔗 Copier le lien de contribution</button>}
-      {cagnotte.statut!=="cloturee"&&<button onClick={cloturer} style={{width:"calc(100% - 32px)",margin:"10px 16px 0",background:"transparent",border:"1px solid #D1D5DB",borderRadius:10,padding:"10px",color:"#6B7280",fontWeight:700,fontSize:12,cursor:"pointer"}}>Cloturer la cagnotte</button>}
-      <div style={{margin:"16px 16px 0",background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:14,padding:14}}>
-        <p style={{margin:"0 0 10px",color:"#D0A23E",fontWeight:800,fontSize:13}}>📲 Numéros de réception</p>
-        <p style={{margin:"0 0 10px",color:"#6B7280",fontSize:11,lineHeight:1.5}}>Affichés aux contributeurs comme boutons de paiement direct. L'argent part directement sur ces numéros, jamais sur l'app.</p>
+      {cagnotte.statut!=="cloturee"&&<button onClick={async()=>{const lien=`${window.location.origin}/?contribuer=${cagnotte.id}`;try{await navigator.clipboard.writeText(lien);onToast("Lien copie !");}catch{onToast(lien);}}} style={{width:"calc(100% - 32px)",margin:"10px 16px 0",background:"rgba(255,255,255,0.09)",border:"1px solid #E8B04B",borderRadius:10,padding:"10px",color:"#E8B04B",fontWeight:700,fontSize:12,cursor:"pointer"}}>🔗 Copier le lien de contribution</button>}
+      {cagnotte.statut!=="cloturee"&&<button onClick={cloturer} style={{width:"calc(100% - 32px)",margin:"10px 16px 0",background:"transparent",border:"1px solid rgba(255,255,255,0.14)",borderRadius:10,padding:"10px",color:"#97A3C9",fontWeight:700,fontSize:12,cursor:"pointer"}}>Cloturer la cagnotte</button>}
+      <div style={{margin:"16px 16px 0",background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:14,padding:14}}>
+        <p style={{margin:"0 0 10px",color:"#E8B04B",fontWeight:800,fontSize:13}}>📲 Numéros de réception</p>
+        <p style={{margin:"0 0 10px",color:"#97A3C9",fontSize:11,lineHeight:1.5}}>Affichés aux contributeurs comme boutons de paiement direct. L'argent part directement sur ces numéros, jamais sur l'app.</p>
         <Fld label="Numéro Orange Money (optionnel)"><Inp value={numOM} onChange={e=>setNumOM(e.target.value.replace(/[^\d+]/g,""))} placeholder="Ex: 70123456" inputMode="tel"/></Fld>
         <Fld label="Numéro Wave (optionnel)"><Inp value={numWave} onChange={e=>setNumWave(e.target.value.replace(/[^\d+]/g,""))} placeholder="Ex: 70123456" inputMode="tel"/></Fld>
         <Fld label="Numéro Moov Money (optionnel)"><Inp value={numMoov} onChange={e=>setNumMoov(e.target.value.replace(/[^\d+]/g,""))} placeholder="Ex: 60123456" inputMode="tel"/></Fld>
         <Fld label="Lien de paiement Orange Money (optionnel)"><Inp value={lienO} onChange={e=>setLienO(e.target.value)} placeholder="https://..." inputMode="url"/></Fld>
         <Fld label="Lien de paiement Wave (optionnel)"><Inp value={lienW} onChange={e=>setLienW(e.target.value)} placeholder="https://pay.wave.com/..." inputMode="url"/></Fld>
-        <button onClick={saveNumeros} disabled={numBusy} style={{width:"100%",background:"transparent",border:"1px solid #D0A23E",borderRadius:10,padding:"9px",color:"#D0A23E",fontWeight:700,fontSize:12,cursor:"pointer"}}>{numBusy?"Enregistrement...":"Enregistrer"}</button>
+        <button onClick={saveNumeros} disabled={numBusy} style={{width:"100%",background:"transparent",border:"1px solid #E8B04B",borderRadius:10,padding:"9px",color:"#E8B04B",fontWeight:700,fontSize:12,cursor:"pointer"}}>{numBusy?"Enregistrement...":"Enregistrer"}</button>
       </div>
       <div style={{padding:"20px 16px 0"}}>
-        <p style={{color:"#6B7280",fontSize:12,fontWeight:700,margin:"0 0 10px",letterSpacing:.5}}>CONTRIBUTIONS ({contributions.length})</p>
-        {contributions.length===0?<p style={{color:"#6B7280",fontSize:13,textAlign:"center",padding:10}}>Aucune contribution pour l instant</p>
+        <p style={{color:"#97A3C9",fontSize:12,fontWeight:700,margin:"0 0 10px",letterSpacing:.5}}>CONTRIBUTIONS ({contributions.length})</p>
+        {contributions.length===0?<p style={{color:"#97A3C9",fontSize:13,textAlign:"center",padding:10}}>Aucune contribution pour l instant</p>
         :contributions.map(c=>(
-          <div key={c.id} style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:12,padding:"12px 14px",marginBottom:8}}>
+          <div key={c.id} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,padding:"12px 14px",marginBottom:8}}>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-              <div style={{display:"flex",alignItems:"center",gap:10}}><Avatar prenom={c.contributeur} size={32}/><div><p style={{margin:0,color:"#111827",fontSize:14,fontWeight:600}}>{c.contributeur}</p>{c.tel&&<p style={{margin:0,color:"#6B7280",fontSize:11}}>{c.tel}</p>}</div></div>
-              <p style={{margin:0,color:"#D0A23E",fontWeight:700,fontSize:14}}>{fmtFCFA(c.montant)}</p>
+              <div style={{display:"flex",alignItems:"center",gap:10}}><Avatar prenom={c.contributeur} size={32}/><div><p style={{margin:0,color:"#F5F2EA",fontSize:14,fontWeight:600}}>{c.contributeur}</p>{c.tel&&<p style={{margin:0,color:"#97A3C9",fontSize:11}}>{c.tel}</p>}</div></div>
+              <p style={{margin:0,color:"#E8B04B",fontWeight:700,fontSize:14}}>{fmtFCFA(c.montant)}</p>
             </div>
-            {c.preuve_url&&<a href={c.preuve_url} target="_blank" rel="noreferrer" style={{display:"block",marginTop:10}}><img src={c.preuve_url} alt="Preuve de depot" style={{width:"100%",maxHeight:160,objectFit:"cover",borderRadius:8,border:"1px solid #D1D5DB"}}/></a>}
+            {c.preuve_url&&<a href={c.preuve_url} target="_blank" rel="noreferrer" style={{display:"block",marginTop:10}}><img src={c.preuve_url} alt="Preuve de depot" style={{width:"100%",maxHeight:160,objectFit:"cover",borderRadius:8,border:"1px solid rgba(255,255,255,0.14)"}}/></a>}
           </div>
         ))}
       </div>
       {showNotifier&&<Modal onClose={()=>setShowNotifier(false)}>
         <MH title="Notifier un groupe" onClose={()=>setShowNotifier(false)}/>
-        <p style={{color:"#6B7280",fontSize:12,marginBottom:14,lineHeight:1.5}}>Choisis une tontine : les membres qui ont un compte THT relie ET les notifications activees recevront une notification automatique. Pour les autres, envoie le lien toi-meme sur WhatsApp.</p>
-        {mesGroupes.length===0&&<p style={{color:"#6B7280",fontSize:13,textAlign:"center",padding:10}}>Chargement...</p>}
+        <p style={{color:"#97A3C9",fontSize:12,marginBottom:14,lineHeight:1.5}}>Choisis une tontine : les membres qui ont un compte THT relie ET les notifications activees recevront une notification automatique. Pour les autres, envoie le lien toi-meme sur WhatsApp.</p>
+        {mesGroupes.length===0&&<p style={{color:"#97A3C9",fontSize:13,textAlign:"center",padding:10}}>Chargement...</p>}
         {mesGroupes.map(g=>{
           const linked=g.membres.filter(m=>m.user_id);
           const aAfficher=g.aFallback||g.membres.filter(m=>!m.user_id);
           return(
-            <div key={g.id} style={{background:"#FFFFFF",border:"1px solid #E5E7EB",borderRadius:12,padding:"12px 14px",marginBottom:10}}>
+            <div key={g.id} style={{background:"rgba(255,255,255,0.055)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:12,padding:"12px 14px",marginBottom:10}}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:aAfficher.length>0?10:0}}>
-                <div><p style={{margin:0,color:"#111827",fontWeight:700,fontSize:14}}>{g.nom}</p><p style={{margin:0,color:"#6B7280",fontSize:11}}>{linked.length} avec compte - {g.membres.length-linked.length} sans compte</p></div>
-                <button onClick={()=>notifierGroupe(g)} disabled={notifBusy||linked.length===0} style={{background:linked.length===0?"#E5E7EB":"linear-gradient(135deg,#D0A23E,#A87C22)",border:"none",borderRadius:10,padding:"8px 14px",color:linked.length===0?"#6B7280":"#0D0D0D",fontWeight:700,fontSize:12,cursor:"pointer"}}>Notifier</button>
+                <div><p style={{margin:0,color:"#F5F2EA",fontWeight:700,fontSize:14}}>{g.nom}</p><p style={{margin:0,color:"#97A3C9",fontSize:11}}>{linked.length} avec compte - {g.membres.length-linked.length} sans compte</p></div>
+                <button onClick={()=>notifierGroupe(g)} disabled={notifBusy||linked.length===0} style={{background:linked.length===0?"rgba(255,255,255,0.09)":"linear-gradient(135deg,#FFE9B4 0%,#E8B04B 48%,#C38427 100%)",border:"none",borderRadius:10,padding:"8px 14px",color:linked.length===0?"#97A3C9":"#1B1203",fontWeight:700,fontSize:12,cursor:"pointer"}}>Notifier</button>
               </div>
               {aAfficher.map(m=>(
-                <button key={m.id} onClick={()=>{const lien=`${window.location.origin}/?contribuer=${cagnotte.id}`;const msg=encodeURIComponent(`Salut ${m.prenom} ! Participe a la cagnotte "${cagnotte.titre}" ici :\n${lien}`);window.open(`https://wa.me/${m.tel.replace(/[\s+]/g,"")}?text=${msg}`,"_blank");}} style={{display:"flex",alignItems:"center",gap:8,width:"100%",background:"#FFFFFF",border:"1px solid #075E54",borderRadius:8,padding:"7px 10px",color:"#22C55E",fontSize:12,fontWeight:600,cursor:"pointer",marginTop:6}}>💬 Envoyer a {m.prenom} sur WhatsApp</button>
+                <button key={m.id} onClick={()=>{const lien=`${window.location.origin}/?contribuer=${cagnotte.id}`;const msg=encodeURIComponent(`Salut ${m.prenom} ! Participe a la cagnotte "${cagnotte.titre}" ici :\n${lien}`);window.open(`https://wa.me/${m.tel.replace(/[\s+]/g,"")}?text=${msg}`,"_blank");}} style={{display:"flex",alignItems:"center",gap:8,width:"100%",background:"rgba(255,255,255,0.055)",border:"1px solid #075E54",borderRadius:8,padding:"7px 10px",color:"#34D399",fontSize:12,fontWeight:600,cursor:"pointer",marginTop:6}}>💬 Envoyer a {m.prenom} sur WhatsApp</button>
               ))}
             </div>
           );
@@ -4812,7 +4812,7 @@ const ModalCreerCagnotte = ({onClose,onCreate,user}) => {
       <MH title="Nouvelle cagnotte" onClose={onClose}/>
       <Fld label="Titre"><Inp value={titre} onChange={e=>setTitre(e.target.value)} placeholder="Ex: Mariage de Fatoumata" maxLength={60} autoFocus/></Fld>
       <Fld label="Pour qui (beneficiaire)"><Inp value={beneficiaire} onChange={e=>setBeneficiaire(e.target.value)} placeholder="Ex: Fatoumata Diallo" maxLength={60}/></Fld>
-      <Fld label="Description (optionnel)"><textarea value={description} onChange={e=>setDescription(e.target.value)} rows={3} placeholder="Details de l occasion..." style={{width:"100%",background:"#F3F4F6",border:"1px solid #D1D5DB",borderRadius:12,padding:"12px 14px",color:"#111827",fontSize:14,outline:"none",resize:"vertical",fontFamily:"inherit"}}/></Fld>
+      <Fld label="Description (optionnel)"><textarea value={description} onChange={e=>setDescription(e.target.value)} rows={3} placeholder="Details de l occasion..." style={{width:"100%",background:"rgba(255,255,255,0.045)",border:"1px solid rgba(255,255,255,0.14)",borderRadius:12,padding:"12px 14px",color:"#F5F2EA",fontSize:14,outline:"none",resize:"vertical",fontFamily:"inherit"}}/></Fld>
       <Fld label="Objectif (FCFA)"><Inp value={objectif} onChange={e=>setObjectif(e.target.value.replace(/\D/g,""))} placeholder="Ex: 200000" inputMode="numeric"/></Fld>
       <Fld label="Date limite (optionnel)"><Inp value={dateLimite} onChange={e=>setDateLimite(e.target.value)} type="date"/></Fld>
       <SelecteurPaiement numeroOrangeMoney={numeroOrangeMoney} setNumeroOrangeMoney={setNumeroOrangeMoney} numeroWave={numeroWave} setNumeroWave={setNumeroWave} numeroMoovMoney={numeroMoovMoney} setNumeroMoovMoney={setNumeroMoovMoney}/>
@@ -4854,7 +4854,7 @@ const ModalCreer = ({onClose,onCreate,user}) => {
     if(!numeroOrangeMoney.trim()&&!numeroWave.trim()&&!numeroMoovMoney.trim())return setErr("Ajoute au moins un numero de reception (Orange Money, Wave ou Moov Money)");
     if(user.plan==="free"&&user.role!=="admin"&&user.groupesCount>=1){setErr("");setLimitReached(true);return;}
     setBusy(true);
-    const payload={user_id:user.id,owner_id:user.id,nom:s(nom.trim()),montant:Number(montant),frequence:freq,couleur:"#D0A23E",cycle:1,total_cycles:12,date_echeance:echeance||new Date(Date.now()+30*86400000).toISOString().split("T")[0],caisse_sociale:0,montant_initial:montantInitial?Number(montantInitial):0,numero_orange_money:numeroOrangeMoney.trim()||null,numero_wave:numeroWave.trim()||null,numero_moov_money:numeroMoovMoney.trim()||null,qr_paiement_url:qrPaiementUrl||null};
+    const payload={user_id:user.id,owner_id:user.id,nom:s(nom.trim()),montant:Number(montant),frequence:freq,couleur:"#E8B04B",cycle:1,total_cycles:12,date_echeance:echeance||new Date(Date.now()+30*86400000).toISOString().split("T")[0],caisse_sociale:0,montant_initial:montantInitial?Number(montantInitial):0,numero_orange_money:numeroOrangeMoney.trim()||null,numero_wave:numeroWave.trim()||null,numero_moov_money:numeroMoovMoney.trim()||null,qr_paiement_url:qrPaiementUrl||null};
     const {data,error}=await supabase.from("groupes").insert(payload).select().single();
     if(error){setBusy(false);return setErr("Erreur technique : "+(error.message||"inconnue"));}
     const {data:moi}=await supabase.from("membres").insert({groupe_id:data.id,prenom:s(user.prenom)+" (moi)",tel:user.tel,quartier:"",photo_url:user.photo||null,paye:false,score:80,versements:0,cycles_paies:0,ordre:0,user_id:user.id}).select().single();
@@ -4866,14 +4866,14 @@ const ModalCreer = ({onClose,onCreate,user}) => {
   if(limitReached)return <Modal onClose={onClose}>
     <MH title="Limite atteinte" onClose={onClose}/>
     <div style={{textAlign:"center",padding:"10px 0 4px"}}><p style={{fontSize:40,margin:0}}>🔒</p></div>
-    <p style={{color:"#111827",fontSize:15,fontWeight:700,textAlign:"center",margin:"8px 0 4px"}}>1 tontine geree, c'est le maximum en gratuit</p>
-    <p style={{color:"#6B7280",fontSize:13,textAlign:"center",lineHeight:1.6,marginBottom:20}}>Passe a THT Premium pour gerer plusieurs tontines en meme temps.</p>
+    <p style={{color:"#F5F2EA",fontSize:15,fontWeight:700,textAlign:"center",margin:"8px 0 4px"}}>1 tontine geree, c'est le maximum en gratuit</p>
+    <p style={{color:"#97A3C9",fontSize:13,textAlign:"center",lineHeight:1.6,marginBottom:20}}>Passe a THT Premium pour gerer plusieurs tontines en meme temps.</p>
     <button onClick={async()=>{
       setPayBusy(true);
       await payerAbonnement(user,"mensuel",setErr);
       setPayBusy(false);
-    }} disabled={payBusy} style={{width:"100%",background:"linear-gradient(135deg,#D0A23E,#A87C22)",border:"none",borderRadius:12,padding:"13px",color:"#0D0D0D",fontWeight:800,fontSize:14,cursor:"pointer",marginBottom:12}}>{payBusy?"Ouverture du paiement...":"💳 Payer en ligne maintenant - 1 000 FCFA"}</button>
-    <p style={{color:"#6B7280",fontSize:11,textAlign:"center",margin:"0 0 12px"}}>OU manuellement via WhatsApp :</p>
+    }} disabled={payBusy} style={{width:"100%",background:"linear-gradient(135deg,#FFE9B4 0%,#E8B04B 48%,#C38427 100%)",border:"none",borderRadius:12,padding:"13px",color:"#1B1203",fontWeight:800,fontSize:14,cursor:"pointer",marginBottom:12}}>{payBusy?"Ouverture du paiement...":"💳 Payer en ligne maintenant - 1 000 FCFA"}</button>
+    <p style={{color:"#97A3C9",fontSize:11,textAlign:"center",margin:"0 0 12px"}}>OU manuellement via WhatsApp :</p>
     <div style={{display:"flex",gap:10}}>
       <button onClick={()=>window.open("https://wa.me/22376908031?text=Je%20veux%20THT%20Premium","_blank")} style={{flex:1,background:"#FF6600",border:"none",borderRadius:10,padding:"12px",color:"#fff",fontWeight:700,fontSize:13,cursor:"pointer"}}>Orange Money</button>
       <button onClick={()=>window.open("https://wa.me/22390647106?text=Je%20veux%20THT%20Premium","_blank")} style={{flex:1,background:"#0066CC",border:"none",borderRadius:10,padding:"12px",color:"#fff",fontWeight:700,fontSize:13,cursor:"pointer"}}>Wave</button>
@@ -4885,17 +4885,17 @@ const ModalCreer = ({onClose,onCreate,user}) => {
     <Fld label="Nom de la tontine"><Inp value={nom} onChange={e=>setNom(e.target.value)} placeholder="Ex: Tontine des Mamans" maxLength={40} autoFocus/></Fld>
     <Fld label="Montant par cotisation (FCFA)"><Inp value={montant} onChange={e=>setMontant(e.target.value.replace(/\D/g,""))} placeholder="Ex: 25000" inputMode="numeric"/></Fld>
     <Fld label="Date d'échéance mensuelle"><Inp value={echeance} onChange={e=>setEcheance(e.target.value)} placeholder="Ex: 2026-07-01" type="date"/></Fld>
-    <Fld label="Frequence"><div style={{display:"flex",gap:8}}>{["Hebdo","Bimensuel","Mensuel"].map(f=><button key={f} onClick={()=>setFreq(f)} style={{flex:1,padding:"10px 4px",borderRadius:10,border:"1px solid",cursor:"pointer",fontSize:12,fontWeight:700,background:freq===f?"#D0A23E":"#E5E7EB",color:freq===f?"#0D0D0D":"#111827",borderColor:freq===f?"#D0A23E":"#D1D5DB"}}>{f}</button>)}</div></Fld>
+    <Fld label="Frequence"><div style={{display:"flex",gap:8}}>{["Hebdo","Bimensuel","Mensuel"].map(f=><button key={f} onClick={()=>setFreq(f)} style={{flex:1,padding:"10px 4px",borderRadius:10,border:"1px solid",cursor:"pointer",fontSize:12,fontWeight:700,background:freq===f?"#E8B04B":"rgba(255,255,255,0.09)",color:freq===f?"#1B1203":"#F5F2EA",borderColor:freq===f?"#E8B04B":"rgba(255,255,255,0.14)"}}>{f}</button>)}</div></Fld>
     <Fld label="Argent déjà collecté avant l'app (optionnel)"><Inp value={montantInitial} onChange={e=>setMontantInitial(e.target.value.replace(/\D/g,""))} placeholder="Ex: 50000 - laisser vide si aucun" inputMode="numeric"/></Fld>
     <SelecteurPaiement numeroOrangeMoney={numeroOrangeMoney} setNumeroOrangeMoney={setNumeroOrangeMoney} numeroWave={numeroWave} setNumeroWave={setNumeroWave} numeroMoovMoney={numeroMoovMoney} setNumeroMoovMoney={setNumeroMoovMoney}/>
     <Fld label="QR de paiement (Wave ou Orange Money) — optionnel">
-      <label style={{display:"block",background:"#FFFFFF",border:"1px dashed #D0A23E",borderRadius:10,padding:qrPaiementUrl?8:14,textAlign:"center",cursor:"pointer"}}>
+      <label style={{display:"block",background:"rgba(255,255,255,0.055)",border:"1px dashed #E8B04B",borderRadius:10,padding:qrPaiementUrl?8:14,textAlign:"center",cursor:"pointer"}}>
         <input type="file" accept="image/*" onChange={choisirQRCreation} style={{display:"none"}}/>
         {qrPaiementUrl
           ? <img src={qrPaiementUrl} alt="QR" style={{maxWidth:160,maxHeight:160,borderRadius:8,display:"block",margin:"0 auto"}}/>
-          : <span style={{color:"#D0A23E",fontSize:12,fontWeight:700}}>{qrUp?"Import en cours...":"📷 Importer la photo de mon QR"}</span>}
+          : <span style={{color:"#E8B04B",fontSize:12,fontWeight:700}}>{qrUp?"Import en cours...":"📷 Importer la photo de mon QR"}</span>}
       </label>
-      {qrPaiementUrl&&<button onClick={()=>setQrPaiementUrl("")} style={{background:"transparent",border:"none",color:"#EF4444",fontSize:11,fontWeight:700,cursor:"pointer",marginTop:6}}>Retirer le QR</button>}
+      {qrPaiementUrl&&<button onClick={()=>setQrPaiementUrl("")} style={{background:"transparent",border:"none",color:"#FB7185",fontSize:11,fontWeight:700,cursor:"pointer",marginTop:6}}>Retirer le QR</button>}
     </Fld>
     <ErrBox msg={err}/>
     <Btn onClick={handle} disabled={busy}>{busy?"Creation...":"Creer ma tontine"}</Btn>
@@ -4909,14 +4909,14 @@ class ErrorBoundary extends Component {
   render(){
     if(this.state.error){
       return (
-        <div style={{minHeight:"100vh",background:"#FFFFFF",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:24,textAlign:"center"}}>
+        <div style={{minHeight:"100vh",background:"rgba(255,255,255,0.055)",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:24,textAlign:"center"}}>
           <p style={{fontSize:40,margin:"0 0 14px"}}>⚠️</p>
-          <p style={{color:"#111827",fontWeight:800,fontSize:16,margin:"0 0 10px"}}>Un probleme technique est survenu</p>
-          <div style={{background:"#FFFFFF",border:"1px solid #C1440E",borderRadius:12,padding:14,marginBottom:20,maxWidth:420,width:"100%"}}>
-            <p style={{color:"#EF4444",fontSize:12,fontFamily:"monospace",wordBreak:"break-word",margin:0,textAlign:"left"}}>{String(this.state.error?.message||this.state.error)}</p>
+          <p style={{color:"#F5F2EA",fontWeight:800,fontSize:16,margin:"0 0 10px"}}>Un probleme technique est survenu</p>
+          <div style={{background:"rgba(255,255,255,0.055)",border:"1px solid #E0526A",borderRadius:12,padding:14,marginBottom:20,maxWidth:420,width:"100%"}}>
+            <p style={{color:"#FB7185",fontSize:12,fontFamily:"monospace",wordBreak:"break-word",margin:0,textAlign:"left"}}>{String(this.state.error?.message||this.state.error)}</p>
           </div>
-          <button onClick={()=>{this.setState({error:null});window.location.href="/";}} style={{background:"linear-gradient(135deg,#D0A23E,#A87C22)",border:"none",borderRadius:14,padding:"13px 28px",color:"#0D0D0D",fontWeight:800,fontSize:14,cursor:"pointer"}}>Retour a l accueil</button>
-          <p style={{color:"#6B7280",fontSize:11,marginTop:16}}>Envoie une capture de ce message a l assistance THT</p>
+          <button onClick={()=>{this.setState({error:null});window.location.href="/";}} style={{background:"linear-gradient(135deg,#FFE9B4 0%,#E8B04B 48%,#C38427 100%)",border:"none",borderRadius:14,padding:"13px 28px",color:"#1B1203",fontWeight:800,fontSize:14,cursor:"pointer"}}>Retour a l accueil</button>
+          <p style={{color:"#97A3C9",fontSize:11,marginTop:16}}>Envoie une capture de ce message a l assistance THT</p>
         </div>
       );
     }
@@ -5012,7 +5012,7 @@ function AppInner() {
       // et le chiffre changeait tout seul sous les yeux de la creatrice.
       const cagnotteVraie=(membres||[]).reduce((s,m)=>s+(Number(m.versements)||0),0)+(Number(g.montant_initial)||0);
       return {
-        id:g.id,nom:g.nom,montant:Number(g.montant)||0,frequence:g.frequence||"Mensuel",couleur:g.couleur||"#D0A23E",
+        id:g.id,nom:g.nom,montant:Number(g.montant)||0,frequence:g.frequence||"Mensuel",couleur:g.couleur||"#E8B04B",
         cycle:g.cycle||1,totalCycles:g.total_cycles||12,reglement:g.reglement||"",dateEcheance:g.date_echeance,
         caisseSociale:Number(g.caisse_sociale)||0,cagnotte:cagnotteVraie,montantInitial:Number(g.montant_initial)||0,
         createurUserId:g.user_id,createurNom:createur?.prenom||"Creatrice",createurPhoto:createur?.photo_url||null,
@@ -5042,7 +5042,7 @@ function AppInner() {
       const cagnotteVraie=mm.reduce((s,m)=>s+(Number(m.versements)||0),0)+(Number(g.montant_initial)||0);
       const gagnant=tirageActuel?mm.find(m=>m.id===tirageActuel.membre_id):null;
       return {
-        id:g.id,nom:g.nom,montant:Number(g.montant)||0,frequence:g.frequence||"Mensuel",couleur:g.couleur||"#D0A23E",
+        id:g.id,nom:g.nom,montant:Number(g.montant)||0,frequence:g.frequence||"Mensuel",couleur:g.couleur||"#E8B04B",
         cycle:g.cycle||1,totalCycles:g.total_cycles||12,dateEcheance:g.date_echeance,reglement:g.reglement||"",
         caisseSociale:Number(g.caisse_sociale)||0,cagnotte:cagnotteVraie,montantInitial:Number(g.montant_initial)||0,
         numeroOrangeMoney:g.numero_orange_money||null,numeroWave:g.numero_wave||null,numeroMoovMoney:g.numero_moov_money||null,lienWave:g.lien_wave||null,lienOrange:g.lien_orange||null,qrPaiementUrl:g.qr_paiement_url||null,
@@ -5183,20 +5183,20 @@ function AppInner() {
   if(new URLSearchParams(window.location.search).get("paiement"))return <PaiementScreen/>;
 
   if(checking){
-    return <div style={{minHeight:"100vh",background:"linear-gradient(160deg,#FFFFFF,#F5F5F5)",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",overflow:"hidden"}}>
+    return <div style={{minHeight:"100vh",background:"linear-gradient(160deg,rgba(255,255,255,0.055),rgba(255,255,255,0.03))",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",overflow:"hidden"}}>
       <style>{`
         @keyframes thtLogoIn { 0%{opacity:0;transform:scale(0.6);} 60%{opacity:1;transform:scale(1.08);} 100%{opacity:1;transform:scale(1);} }
-        @keyframes thtGlow { 0%,100%{box-shadow:0 0 20px 0 rgba(255,107,0,0.25);} 50%{box-shadow:0 0 40px 10px rgba(255,107,0,0.5);} }
+        @keyframes thtGlow { 0%,100%{box-shadow:0 0 20px 0 rgba(232,176,75,0.25);} 50%{box-shadow:0 0 40px 10px rgba(232,176,75,0.5);} }
         @keyframes thtTextIn { 0%{opacity:0;transform:translateY(8px);} 100%{opacity:1;transform:translateY(0);} }
         @keyframes thtBarFill { 0%{width:0%;margin-left:0%;} 50%{width:60%;margin-left:20%;} 100%{width:0%;margin-left:100%;} }
       `}</style>
       <div style={{width:84,height:84,borderRadius:22,overflow:"hidden",animation:"thtLogoIn 0.8s cubic-bezier(0.34,1.56,0.64,1) forwards, thtGlow 2s ease-in-out 0.8s infinite"}}>
         <img src={logoIcon} alt="THT" style={{width:"100%",height:"100%",objectFit:"cover"}}/>
       </div>
-      <p style={{color:"#111827",fontSize:20,fontWeight:900,letterSpacing:4,margin:"18px 0 4px",opacity:0,animation:"thtTextIn 0.6s ease-out 0.5s forwards"}}>THT</p>
-      <p style={{color:"#6B7280",fontSize:11,margin:0,opacity:0,animation:"thtTextIn 0.6s ease-out 0.7s forwards"}}>Tontine Habi Traore</p>
-      <div style={{width:120,height:2,background:"#E5E7EB",borderRadius:2,marginTop:26,overflow:"hidden"}}>
-        <div style={{height:"100%",background:"linear-gradient(90deg,#D0A23E,#E8B96A)",animation:"thtBarFill 1.6s ease-in-out infinite"}}/>
+      <p style={{color:"#F5F2EA",fontSize:20,fontWeight:900,letterSpacing:4,margin:"18px 0 4px",opacity:0,animation:"thtTextIn 0.6s ease-out 0.5s forwards"}}>THT</p>
+      <p style={{color:"#97A3C9",fontSize:11,margin:0,opacity:0,animation:"thtTextIn 0.6s ease-out 0.7s forwards"}}>Tontine Habi Traore</p>
+      <div style={{width:120,height:2,background:"rgba(255,255,255,0.09)",borderRadius:2,marginTop:26,overflow:"hidden"}}>
+        <div style={{height:"100%",background:"linear-gradient(90deg,#E8B04B,#FFE1A1)",animation:"thtBarFill 1.6s ease-in-out infinite"}}/>
       </div>
     </div>;
   }
@@ -5207,12 +5207,12 @@ function AppInner() {
   const NAV=[["home","🏠",t("accueil")],["cagnottes","🎁",t("cagnottesNav")],["epargne","🏺",t("epargne")],["haby","🤖","HABY"],["profil","👤",t("profil")]];
 
   return(
-    <div className="tht-shell" style={{background:"#FFFFFF",minHeight:"100vh",margin:"0 auto",position:"relative",display:"flex",flexDirection:"column"}}>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-*{box-sizing:border-box;font-family:'Inter',sans-serif;}
+    <div className="tht-shell" style={{background:"transparent",minHeight:"100vh",margin:"0 auto",position:"relative",display:"flex",flexDirection:"column"}}>
+      <style>{`*{box-sizing:border-box;font-family:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;}
+h1,h2,h3{font-family:'Sora','Manrope',system-ui,sans-serif;letter-spacing:-.015em;}
 ::-webkit-scrollbar{width:0;height:0;}
 input{-webkit-appearance:none;}
-input::placeholder{color:#D1D5DB;}
+input::placeholder,textarea::placeholder{color:#6F7BA6;}
 
 /* --- Affichage mobile par defaut (colonne etroite centree) --- */
 .tht-shell{max-width:440px;}
@@ -5220,15 +5220,15 @@ input::placeholder{color:#D1D5DB;}
 
 /* --- Tablette : on elargit un peu la colonne --- */
 @media (min-width:700px){
-  .tht-shell{max-width:600px;box-shadow:0 0 40px rgba(0,0,0,0.07);}
+  .tht-shell{max-width:600px;}
   .tht-nav{max-width:600px;}
 }
 
 /* --- Ordinateur : vraie mise en page large, listes sur 2 colonnes --- */
 @media (min-width:1000px){
-  .tht-shell{max-width:1040px;box-shadow:0 0 50px rgba(0,0,0,0.09);}
+  .tht-shell{max-width:1040px;}
   /* La barre de navigation reste lisible : elle ne s'etire pas sur toute la largeur */
-  .tht-nav{max-width:660px;border-radius:16px 16px 0 0;box-shadow:0 -4px 24px rgba(0,0,0,0.10);}
+  .tht-nav{max-width:600px;}
   /* Les listes de cartes passent sur 2 colonnes au lieu d'une longue colonne etroite */
   .tht-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:14px;align-items:start;}
   /* Les fenetres modales profitent aussi de la largeur disponible */
@@ -5240,7 +5240,7 @@ input::placeholder{color:#D1D5DB;}
   .tht-shell{max-width:1280px;}
   .tht-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
 }`}</style>
-      <div style={{flex:1,overflowY:"auto",paddingBottom:nav==="haby"?0:72}}>
+      <div style={{flex:1,overflowY:"auto",paddingBottom:nav==="haby"?0:104}}>
         {selCagnotte?<CagnotteScreen cagnotte={selCagnotte} user={cu} onBack={backTap} onToast={showToast} onUpdate={(id,upd)=>{setCagnottes(cs=>cs.map(c=>c.id===id?{...c,...upd}:c));setSelCagnotte(c=>c&&c.id===id?{...c,...upd}:c);}} onDelete={(id)=>{setCagnottes(cs=>cs.filter(c=>c.id!==id));setSelCagnotte(null);}}/>
         :selPart?<ParticipationScreen groupe={selPart} deepLink={deepLink} onBack={backTap} user={cu} onToast={showToast} onVoted={()=>loadParticipations(cu.id)}/>
         :sel?<GroupeScreen groupe={sel} deepLink={deepLink} onBack={backTap} onToast={showToast} user={cu} onDeleteGroupe={(gid)=>{setGroupes(gs=>gs.filter(g=>g.id!==gid));setSel(null);}} onUpdateGroupe={(gid,upd)=>{setGroupes(gs=>gs.map(g=>g.id===gid?{...g,...upd}:g));setSel(s=>s&&s.id===gid?{...s,...upd}:s);}}/>
@@ -5251,14 +5251,14 @@ input::placeholder{color:#D1D5DB;}
         :nav==="admin"?<AdminScreen onBack={backTap} onToast={showToast} currentUserId={cu.id} user={cu}/>
         :nav==="profil"?<ProfilScreen user={cu} onLogout={handleLogout} onToast={showToast} onUpgrade={()=>showToast("Envoie ton paiement et contacte le support WhatsApp","warn")} onOpenAdmin={()=>{if(adminUnlocked){pushBack(()=>setNav("profil"));setNav("admin");}else{setPinConfirm("");setPinConfirmErr("");setShowPinConfirm(true);}}} lang={lang} onChangeLang={changeLang} onUpdateUser={(upd)=>setUser(u=>({...u,...upd}))}/>:null}
       </div>
-      <div className="tht-nav" style={{position:"fixed",bottom:0,left:"50%",transform:"translateX(-50%)",width:"100%",background:"#FFFFFF",borderTop:"1px solid #E5E7EB",display:"flex",padding:"8px 0 20px",zIndex:100}}>
-        {NAV.map(([id,icon,lbl])=><button key={id} onClick={()=>{setSel(null);setNav(id);}} style={{flex:1,display:"flex",flexDirection:"column",alignItems:"center",background:"none",border:"none",color:nav===id&&!sel?"#D0A23E":"#6B7280",cursor:"pointer",padding:"4px 0",gap:3}}><span style={{fontSize:22}}>{icon}</span><span style={{fontSize:10,fontWeight:600}}>{lbl}</span></button>)}
+      <div className="tht-nav" style={{position:"fixed",bottom:0,left:"50%",transform:"translateX(-50%)",width:"100%",background:"rgba(255,255,255,0.055)",borderTop:"1px solid rgba(255,255,255,0.09)",display:"flex",padding:"8px 0 20px",zIndex:100}}>
+        {NAV.map(([id,icon,lbl])=><button key={id} aria-current={nav===id&&!sel?"page":undefined} onClick={()=>{setSel(null);setNav(id);}} style={{flex:1,display:"flex",flexDirection:"column",alignItems:"center",background:"none",border:"none",color:nav===id&&!sel?"#E8B04B":"#97A3C9",cursor:"pointer",padding:"4px 0",gap:3}}><span style={{fontSize:22}}>{icon}</span><span style={{fontSize:10,fontWeight:600}}>{lbl}</span></button>)}
       </div>
       {showC&&<ModalCreer onClose={()=>setShowC(false)} onCreate={g=>{setGroupes(p=>[...p,g]);showToast("Tontine créée !");}} user={cu}/>}
       {showCagnotteModal&&<ModalCreerCagnotte onClose={()=>setShowCagnotteModal(false)} onCreate={c=>{setCagnottes(cs=>[c,...cs]);showToast("Cagnotte créée !");}} user={cu}/>}
       {showPinConfirm&&<Modal onClose={()=>setShowPinConfirm(false)}>
         <MH title="Confirme ton PIN" onClose={()=>setShowPinConfirm(false)}/>
-        <p style={{color:"#6B7280",fontSize:13,marginBottom:16,lineHeight:1.6}}>Pour proteger le panneau administrateur, entre a nouveau ton code PIN.</p>
+        <p style={{color:"#97A3C9",fontSize:13,marginBottom:16,lineHeight:1.6}}>Pour proteger le panneau administrateur, entre a nouveau ton code PIN.</p>
         <Fld label="Code PIN"><Inp value={pinConfirm} onChange={e=>setPinConfirm(e.target.value.replace(/\D/g,"").slice(0,4))} placeholder="****" type="password" inputMode="numeric" maxLength={4} autoFocus/></Fld>
         <ErrBox msg={pinConfirmErr}/>
         <Btn onClick={async()=>{

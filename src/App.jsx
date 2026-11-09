@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback, Component } from "react";
 import { registerUser, loginUser, getSession, logoutUser, verifyPin, changePin } from "./authService";
 import { supabase, SUPABASE_URL } from "./supabaseClient";
 import logoIcon from "./assets/logo-icon.png";
+import MiseAJour from "./MiseAJour";
 import heroTontine from "./assets/hero-tontine.jpg";
 import tirelireImg from "./assets/tirelire-tht.jpg";
 import { QRCodeSVG } from "qrcode.react";
@@ -5276,5 +5277,5 @@ input::placeholder,textarea::placeholder{color:#6F7BA6;}
 }
 
 export default function App() {
-  return <ErrorBoundary><AppInner/></ErrorBoundary>;
+  return <ErrorBoundary><AppInner/><MiseAJour/></ErrorBoundary>;
 }

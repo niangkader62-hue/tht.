@@ -16,5 +16,6 @@ module.exports = {
   },
   globals: {
     React: "readonly",
+    __BUILD_ID__: "readonly",
   },
 };

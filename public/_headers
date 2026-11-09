@@ -1,0 +1,10 @@
+# Toujours verifier la derniere version de la page et du numero de version
+# (les fichiers JS/CSS ont un nom unique a chaque build, eux peuvent rester en cache).
+/
+  Cache-Control: no-cache
+/index.html
+  Cache-Control: no-cache
+/version.json
+  Cache-Control: no-store
+/sw.js
+  Cache-Control: no-cache

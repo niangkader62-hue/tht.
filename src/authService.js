@@ -81,7 +81,7 @@ export async function finaliserCompteGoogle(prenom, tel, parrainCode) {
   if (parrainCode && parrainCode.trim()) await supabase.rpc("lier_parrain", { p_code: parrainCode.trim() });
   journal({ etape: "compte_cree", methode: "google", user_id: u.id, email: u.email, prenom, telephone });
   const { count: linkedCount } = await supabase.from("membres").select("*", { count: "exact", head: true }).eq("user_id", u.id);
-  return { ok: true, user: { id: u.id, prenom, tel: telephone, photo: photoUrl, plan: "free", role: "user", langue: "fr", linkedCount: linkedCount || 0, google: true } };
+  return { ok: true, user: { id: u.id, prenom, tel: telephone, photo: photoUrl, plan: "free", role: "user", langue: "fr", linkedCount: linkedCount || 0, google: true, nouveau: true } };
 }
 
 const telToEmail = (tel) => tel.replace(/[^\d]/g, "") + "@kolo.local";
@@ -143,7 +143,7 @@ export async function registerUser(tel, pin, prenom, photoFile, parrainCode) {
 
   const { count: linkedCount } = await supabase.from("membres").select("*", { count: "exact", head: true }).eq("user_id", userId);
 
-  return { ok: true, user: { id: userId, prenom, tel, photo: photoUrl, plan: "free", role: "user", langue: "fr", linkedCount: linkedCount || 0 } };
+  return { ok: true, user: { id: userId, prenom, tel, photo: photoUrl, plan: "free", role: "user", langue: "fr", linkedCount: linkedCount || 0, nouveau: true } };
 }
 
 export async function loginUser(tel, pin) {
